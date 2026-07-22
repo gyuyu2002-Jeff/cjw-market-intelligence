@@ -209,9 +209,10 @@ const intelligence: Intelligence[] = [
 const regions: Region[] = ["全部市場", "台灣", "美國", "澳洲", "歐洲"];
 const topics: Topic[] = ["全部主題", "新品", "通路價格", "競品", "消費趨勢", "原料技術", "法規標示"];
 const sourceFilters: SourceFilter[] = ["全部來源", "食力 foodNEXT", "上下游新聞"];
+const highPriorityCount = intelligence.filter((item) => item.priority === "高").length;
 
 const featureGuide = [
-  { no: "01", title: "今日決策", copy: "只看最重要的訊號", result: "得到：優先事項與下一步", href: "#today" },
+  { no: "01", title: "今日摘要", copy: "掌握最重要的訊號", result: "得到：今日主題與影響", href: "#today" },
   { no: "02", title: "市場雷達", copy: "拆解四地驅動因素", result: "得到：機會、風險與指標", href: "#markets" },
   { no: "03", title: "全部情報", copy: "依市場、主題、來源查找", result: "得到：可追溯的情報脈絡", href: "#intelligence" },
 ];
@@ -314,7 +315,7 @@ export default function Home() {
           <span><strong>齋之味</strong><small>市場情報中樞</small></span>
         </a>
         <nav aria-label="主要導覽">
-          <a className={`nav-item ${activeSection === "today" ? "active" : ""}`} aria-current={activeSection === "today" ? "page" : undefined} href="#today" onClick={(event) => navigateTo(event, "today")}><span>01</span><div><strong>今日決策</strong><small>先做哪三件事</small></div></a>
+          <a className={`nav-item ${activeSection === "today" ? "active" : ""}`} aria-current={activeSection === "today" ? "page" : undefined} href="#today" onClick={(event) => navigateTo(event, "today")}><span>01</span><div><strong>今日摘要</strong><small>掌握核心情報判讀</small></div></a>
           <a className={`nav-item ${activeSection === "markets" ? "active" : ""}`} aria-current={activeSection === "markets" ? "page" : undefined} href="#markets" onClick={(event) => navigateTo(event, "markets")}><span>02</span><div><strong>市場雷達</strong><small>哪裡有機會或風險</small></div></a>
           <a className={`nav-item ${activeSection === "intelligence" ? "active" : ""}`} aria-current={activeSection === "intelligence" ? "page" : undefined} href="#intelligence" onClick={(event) => navigateTo(event, "intelligence")}><span>03</span><div><strong>全部情報</strong><small>查新聞與原始來源</small></div></a>
         </nav>
@@ -328,7 +329,7 @@ export default function Home() {
         <header className="topbar">
           <div>
             <p className="eyebrow">2026年7月22日・星期三</p>
-            <h1>早安，今天有 <em>3 項</em>值得採取行動</h1>
+            <h1>今日彙整 <em>{intelligence.length} 則</em>情報・{highPriorityCount} 則高重要度</h1>
           </div>
           <div className="top-actions">
             <label className="search">
@@ -343,13 +344,13 @@ export default function Home() {
           <div className="briefing-copy">
             <p className="section-kicker">TODAY’S BRIEFING</p>
             <h2>市場不缺新品，<br />真正稀缺的是<strong>回購理由。</strong></h2>
-            <p>今日訊號集中在價格、健康感與使用情境。建議優先把現有產品轉譯成消費者能立刻理解的日常餐桌價值。</p>
+            <p>跨市場訊號共同指向價格、健康感與使用情境。這三項因素正影響新品能否進入日常餐桌並形成回購。</p>
           </div>
           <div className="decision-card">
-            <div className="decision-head"><span>首要建議</span><b>高優先</b></div>
-            <h3>建立主力 SKU 的跨市場價值表</h3>
-            <p>用同一張表比較植物來源、蛋白質、每份成本、氣炸時間、素食分類與出口標示名稱。</p>
-            <div className="decision-meta"><span>負責：產品企劃 × 品保</span><span>本週完成 →</span></div>
+            <div className="decision-head"><span>今日核心判讀</span><b>跨市場共通訊號</b></div>
+            <h3>價格、健康感與料理便利性共同決定回購</h3>
+            <p>各市場的成長速度不同，但資訊都顯示：消費者不只在意是否純素，也會比較成分、每份成本及料理是否方便。</p>
+            <div className="decision-meta"><span>影響市場：台灣・美國・澳洲・歐洲</span><span>判讀依據：今日 {intelligence.length} 則情報</span></div>
           </div>
         </section>
 
