@@ -389,7 +389,7 @@ export default function Home() {
         </section>
 
         <section className="feature-guide" aria-labelledby="guide-title">
-          <div className="guide-intro"><p className="section-kicker">HOW TO USE</p><h2 id="guide-title">三個功能，一條判讀路徑</h2><p>先看重點，再理解市場，最後回查來源。</p></div>
+          <div className="guide-intro"><p className="section-kicker">HOW TO USE</p><h2 id="guide-title">三個功能，<br />一條判讀路徑</h2><p>先看重點，再理解市場，最後回查來源。</p></div>
           <div className="guide-grid">
             {featureGuide.map((feature) => (
               <a href={feature.href} className="guide-card" key={feature.no}>
