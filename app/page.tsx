@@ -272,9 +272,9 @@ const reputationWatch: ReputationItem[] = [
 ];
 
 const featureGuide = [
-  { no: "01", title: "今日摘要", copy: "掌握最重要的訊號", result: "得到：今日主題與影響", href: "#today" },
-  { no: "02", title: "市場雷達", copy: "拆解四地驅動因素", result: "得到：機會、風險與指標", href: "#markets" },
-  { no: "03", title: "全部情報", copy: "依市場、主題、來源查找", result: "得到：可追溯的情報脈絡", href: "#intelligence" },
+  { no: "01", title: "今日摘要", copy: "掌握最重要的訊號", result: "得到今日主題與影響", href: "#today" },
+  { no: "02", title: "市場雷達", copy: "拆解四地驅動因素", result: "得到機會 風險與指標", href: "#markets" },
+  { no: "03", title: "全部情報", copy: "依市場 主題 來源查找", result: "得到可追溯的情報脈絡", href: "#intelligence" },
 ];
 
 const marketPulse = [
@@ -414,7 +414,7 @@ export default function Home() {
         </section>
 
         <section className="feature-guide" aria-labelledby="guide-title">
-          <div className="guide-intro"><p className="section-kicker">HOW TO USE</p><h2 id="guide-title">三個功能，<br />一條判讀路徑</h2><p>先看重點，再理解市場，最後回查來源。</p></div>
+          <div className="guide-intro"><p className="section-kicker">HOW TO USE</p><h2 id="guide-title">三個功能<br />一條判讀路徑</h2><p>先看重點 再理解市場 最後回查來源</p></div>
           <div className="guide-grid">
             {featureGuide.map((feature) => (
               <a href={feature.href} className="guide-card" key={feature.no}>
