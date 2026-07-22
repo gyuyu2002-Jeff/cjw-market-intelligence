@@ -380,8 +380,7 @@ export default function Home() {
           <a className={`nav-item ${activeSection === "intelligence" ? "active" : ""}`} aria-current={activeSection === "intelligence" ? "page" : undefined} href="#intelligence" onClick={(event) => navigateTo(event, "intelligence")}><span>03</span><div><strong>全部情報</strong><small>查新聞與原始來源</small></div></a>
         </nav>
         <div className="sidebar-foot">
-          <span className="live-dot" />情報示範版
-          <small>最後整理：今日 08:30</small>
+          <time dateTime="2026-07-22T08:30:00+08:00">2026/07/22 08:30</time>
         </div>
       </aside>
 
