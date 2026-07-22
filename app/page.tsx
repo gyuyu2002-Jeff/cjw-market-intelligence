@@ -239,8 +239,34 @@ const industryWatch = [
   { brand: "全廣食品", status: "監測中", date: "2026-07-22", update: "持續追蹤新品、產能、代工合作及外銷市場動向。", url: "https://www.ckfoods.com.tw/" },
 ];
 
-const reputationWatch = [
-  { channel: "Google 評論", status: "商家頁已確認", detail: "已綁定齋滋味實業有限公司的官方商家頁，每日追蹤星等、評論數與新增評論。", url: "https://maps.app.goo.gl/fHTua1htFjDuATsK9" },
+type ReputationItem = {
+  channel: string;
+  status: string;
+  detail: string;
+  url?: string;
+  rating?: number;
+  reviewCount?: number;
+  distribution?: string;
+  checkedAt?: string;
+  reviews?: { author: string; rating: number; age: string; text: string }[];
+};
+
+const reputationWatch: ReputationItem[] = [
+  {
+    channel: "Google 評論",
+    status: "商家頁已確認",
+    detail: "Google Maps 公開資料，依最新到最舊排序；星等與評論數每日更新。",
+    url: "https://maps.app.goo.gl/fHTua1htFjDuATsK9",
+    rating: 4.1,
+    reviewCount: 20,
+    distribution: "5★ 12・4★ 4・3★ 1・2★ 0・1★ 3",
+    checkedAt: "2026/07/22 11:11",
+    reviews: [
+      { author: "黃晨凱", rating: 1, age: "8 個月前", text: "總機小姐態度差勁急著掛電話" },
+      { author: "saen hardy", rating: 1, age: "10 個月前", text: "為什麼總機說話不能好好說呢？" },
+      { author: "hardy", rating: 1, age: "10 個月前", text: "詢問一下而已，總機態度不知道在差幾點的～EQ 有這麼低嗎？" },
+    ],
+  },
   { channel: "Facebook", status: "每日監測", detail: "追蹤公開貼文、留言與互動中的產品、服務與配送回饋。", url: "https://www.facebook.com/p/%E9%BD%8B%E4%B9%8B%E5%91%B3-100064106764970/?locale=zh_TW" },
   { channel: "網路／電商", status: "每日監測", detail: "關注齋滋味、齋之味、CHASTE JE WAY、Vegan Select 的公開評價與提及。" },
 ];
@@ -449,14 +475,32 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 08:30 檢查公開評價與品牌提及；最近檢查：2026/07/22 08:30。</p>
+              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/07/22 11:11。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
-                <article key={item.channel}>
+                <article className={item.rating ? "google-review-card" : ""} key={item.channel}>
                   <div><h3>{item.channel}</h3><b>{item.status}</b></div>
+                  {item.rating && item.reviewCount && (
+                    <>
+                      <div className="rating-summary">
+                        <strong>{item.rating.toFixed(1)}</strong>
+                        <div><span aria-label={`${item.rating} 顆星`}>★★★★☆</span><small>{item.reviewCount} 則評論</small></div>
+                      </div>
+                      <div className="rating-distribution">{item.distribution}</div>
+                      <div className="review-excerpts">
+                        <span>最新有文字評論</span>
+                        {item.reviews?.map((review) => (
+                          <blockquote key={`${review.author}-${review.age}`}>
+                            <div><b>{review.rating}★</b><small>{review.author}・{review.age}</small></div>
+                            <p>「{review.text}」</p>
+                          </blockquote>
+                        ))}
+                      </div>
+                    </>
+                  )}
                   <p>{item.detail}</p>
-                  {item.url && <a href={item.url} target="_blank" rel="noreferrer">開啟來源 ↗</a>}
+                  {item.url && <a href={item.url} target="_blank" rel="noreferrer">Google Maps 原始頁 ↗</a>}
                 </article>
               ))}
             </div>
