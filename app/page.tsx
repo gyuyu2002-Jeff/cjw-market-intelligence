@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 
 type Region = "全部市場" | "台灣" | "美國" | "澳洲" | "歐洲";
 type Topic = "全部主題" | "新品" | "通路價格" | "競品" | "消費趨勢" | "原料技術" | "法規標示";
+type SourceFilter = "全部來源" | "食力 foodNEXT" | "上下游新聞";
 
 type Intelligence = {
   id: number;
@@ -22,6 +23,66 @@ type Intelligence = {
 };
 
 const intelligence: Intelligence[] = [
+  {
+    id: 12,
+    region: "台灣",
+    topic: "法規標示",
+    title: "食品原料來源透明度成為消費者與政策焦點",
+    summary: "上下游報導指出，部分加工食品雖標示台灣製造，核心原料仍可能來自海外；原料來源國透明化的社會關注正在升高。",
+    impact: "齋之味若能主動說明大豆、菇類與主要原料來源，可把供應鏈透明轉化成品牌信任。",
+    action: "盤點三個主力 SKU 的主要原料來源國，評估是否加入官網商品頁。",
+    owner: "採購品保",
+    source: "上下游新聞",
+    url: "https://www.newsmarket.com.tw/blog/240244/",
+    priority: "高",
+    time: "昨天",
+    score: 94,
+  },
+  {
+    id: 11,
+    region: "台灣",
+    topic: "原料技術",
+    title: "金盞花蛋白展現耐熱、保水與乳化潛力",
+    summary: "食力整理最新研究，金盞花蛋白具耐熱、保水、保油、乳化與抗氧化特性，可能成為植物肉與乳品替代品的新原料。",
+    impact: "這仍是早期技術訊號，但其保水與乳化特性值得納入素海鮮口感研發觀察清單。",
+    action: "建立新蛋白原料觀察表，先追蹤供應商、法規身分與商業化成本。",
+    owner: "產品研發",
+    source: "食力 foodNEXT",
+    url: "https://www.foodnext.net/science/knowledge/paper/6731173650",
+    priority: "中",
+    time: "7月6日",
+    score: 82,
+  },
+  {
+    id: 10,
+    region: "台灣",
+    topic: "消費趨勢",
+    title: "植物食品轉向高營養、低加工與潔淨標示",
+    summary: "食力觀察植物性市場正從追求像真肉，轉向高蛋白、高纖、腸道健康、低加工與可理解的成分表。",
+    impact: "齋之味的產品溝通需要同時回答好不好吃、怎麼料理，以及成分與營養是否容易理解。",
+    action: "挑選一款產品試做簡化成分溝通與營養賣點的商品頁版本。",
+    owner: "品牌行銷",
+    source: "食力 foodNEXT",
+    url: "https://www.foodnext.net/news/newstrack/paper/6971161734",
+    priority: "高",
+    time: "5月7日",
+    score: 91,
+  },
+  {
+    id: 9,
+    region: "台灣",
+    topic: "通路價格",
+    title: "台灣蔬菜自給率下降，進口菜長期進入加工與餐飲通路",
+    summary: "上下游追蹤指出，國產蔬菜自給率已由2000年的95%降至2024年的81.6%，進口蔬菜逐漸成為常態供應。",
+    impact: "蔬菜與植物原料來源、成本和供應穩定性，未來可能同時影響產品定價與國產價值訴求。",
+    action: "把主要蔬菜原料分成國產、進口與可替代三組，標記供應風險。",
+    owner: "採購",
+    source: "上下游新聞",
+    url: "https://www.newsmarket.com.tw/blog/239131/",
+    priority: "中",
+    time: "6月22日",
+    score: 79,
+  },
   {
     id: 1,
     region: "歐洲",
@@ -146,6 +207,14 @@ const intelligence: Intelligence[] = [
 
 const regions: Region[] = ["全部市場", "台灣", "美國", "澳洲", "歐洲"];
 const topics: Topic[] = ["全部主題", "新品", "通路價格", "競品", "消費趨勢", "原料技術", "法規標示"];
+const sourceFilters: SourceFilter[] = ["全部來源", "食力 foodNEXT", "上下游新聞"];
+
+const featureGuide = [
+  { no: "01", title: "今日決策", copy: "只看最重要的訊號", result: "得到：優先事項與下一步", href: "#today" },
+  { no: "02", title: "市場雷達", copy: "比較四地市場溫度", result: "得到：機會與風險方向", href: "#markets" },
+  { no: "03", title: "全部情報", copy: "依市場、主題、來源查找", result: "得到：可追溯的情報脈絡", href: "#intelligence" },
+  { no: "04", title: "行動追蹤", copy: "指定負責人與期限", result: "得到：真正落地的任務", href: "#actions" },
+];
 
 const marketPulse = [
   { region: "台灣", signal: "穩定", note: "標示與通路動態", value: 72 },
@@ -157,6 +226,7 @@ const marketPulse = [
 export default function Home() {
   const [region, setRegion] = useState<Region>("全部市場");
   const [topic, setTopic] = useState<Topic>("全部主題");
+  const [sourceFilter, setSourceFilter] = useState<SourceFilter>("全部來源");
   const [query, setQuery] = useState("");
   const [saved, setSaved] = useState<number[]>([]);
   const [showAll, setShowAll] = useState(false);
@@ -166,14 +236,19 @@ export default function Home() {
     return intelligence.filter((item) => {
       const matchesRegion = region === "全部市場" || item.region === region;
       const matchesTopic = topic === "全部主題" || item.topic === topic;
+      const matchesSource = sourceFilter === "全部來源" || item.source === sourceFilter;
       const searchable = `${item.title}${item.summary}${item.impact}${item.action}${item.source}`.toLowerCase();
-      return matchesRegion && matchesTopic && (!normalized || searchable.includes(normalized));
-    });
-  }, [region, topic, query]);
+      return matchesRegion && matchesTopic && matchesSource && (!normalized || searchable.includes(normalized));
+    }).sort((a, b) => b.score - a.score);
+  }, [region, topic, sourceFilter, query]);
 
   const visible = showAll ? filtered : filtered.slice(0, 5);
   const toggleSaved = (id: number) => {
     setSaved((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]);
+  };
+  const changeRegion = (nextRegion: Region) => {
+    setRegion(nextRegion);
+    if (nextRegion !== "台灣" && nextRegion !== "全部市場") setSourceFilter("全部來源");
   };
 
   return (
@@ -184,10 +259,10 @@ export default function Home() {
           <span><strong>齋之味</strong><small>市場情報中樞</small></span>
         </a>
         <nav aria-label="主要導覽">
-          <a className="nav-item active" href="#today"><span>01</span>今日決策</a>
-          <a className="nav-item" href="#markets"><span>02</span>市場雷達</a>
-          <a className="nav-item" href="#intelligence"><span>03</span>全部情報</a>
-          <a className="nav-item" href="#actions"><span>04</span>行動追蹤</a>
+          <a className="nav-item active" href="#today"><span>01</span><div><strong>今日決策</strong><small>先做哪三件事</small></div></a>
+          <a className="nav-item" href="#markets"><span>02</span><div><strong>市場雷達</strong><small>哪裡有機會或風險</small></div></a>
+          <a className="nav-item" href="#intelligence"><span>03</span><div><strong>全部情報</strong><small>查新聞與原始來源</small></div></a>
+          <a className="nav-item" href="#actions"><span>04</span><div><strong>行動追蹤</strong><small>誰在何時完成</small></div></a>
         </nav>
         <div className="sidebar-foot">
           <span className="live-dot" />情報示範版
@@ -224,6 +299,17 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="feature-guide" aria-labelledby="guide-title">
+          <div className="guide-intro"><p className="section-kicker">HOW TO USE</p><h2 id="guide-title">四個功能，一條決策路徑</h2><p>從發現訊號到交付任務，依序使用即可。</p></div>
+          <div className="guide-grid">
+            {featureGuide.map((feature) => (
+              <a href={feature.href} className="guide-card" key={feature.no}>
+                <span>{feature.no}</span><div><strong>{feature.title}</strong><p>{feature.copy}</p><small>{feature.result}</small></div><b>→</b>
+              </a>
+            ))}
+          </div>
+        </section>
+
         <section className="market-section" id="markets">
           <div className="section-title">
             <div><p className="section-kicker">MARKET PULSE</p><h2>四大市場溫度</h2></div>
@@ -231,7 +317,7 @@ export default function Home() {
           </div>
           <div className="pulse-grid">
             {marketPulse.map((market) => (
-              <button key={market.region} className={`pulse-card ${region === market.region ? "selected" : ""}`} onClick={() => setRegion(region === market.region ? "全部市場" : market.region as Region)}>
+              <button key={market.region} className={`pulse-card ${region === market.region ? "selected" : ""}`} onClick={() => changeRegion(region === market.region ? "全部市場" : market.region as Region)}>
                 <div><span className="region-name">{market.region}</span><span className={`signal signal-${market.signal}`}>{market.signal}</span></div>
                 <strong>{market.note}</strong>
                 <div className="meter"><i style={{ width: `${market.value}%` }} /></div>
@@ -248,10 +334,16 @@ export default function Home() {
 
           <div className="filters" aria-label="情報篩選">
             <div className="filter-row">
-              {regions.map((item) => <button key={item} className={region === item ? "active" : ""} onClick={() => setRegion(item)}>{item}</button>)}
+              {regions.map((item) => <button key={item} className={region === item ? "active" : ""} onClick={() => changeRegion(item)}>{item}</button>)}
             </div>
             <div className="filter-row topics">
               {topics.map((item) => <button key={item} className={topic === item ? "active" : ""} onClick={() => setTopic(item)}>{item}</button>)}
+            </div>
+            <div className="source-filter">
+              <span>台灣重點媒體</span>
+              {sourceFilters.map((item) => <button key={item} className={sourceFilter === item ? "active" : ""} onClick={() => { setSourceFilter(item); if (item !== "全部來源") setRegion("台灣"); }}>{item}</button>)}
+              <a href="https://www.foodnext.net/" target="_blank" rel="noreferrer">食力首頁 ↗</a>
+              <a href="https://www.newsmarket.com.tw/" target="_blank" rel="noreferrer">上下游首頁 ↗</a>
             </div>
           </div>
 
