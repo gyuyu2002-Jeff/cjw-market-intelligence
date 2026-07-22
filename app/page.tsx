@@ -19,7 +19,8 @@ type Intelligence = {
   source: string;
   url: string;
   priority: "高" | "中" | "低";
-  time: string;
+  publishedAt: string;
+  collectedAt: string;
   score: number;
 };
 
@@ -36,7 +37,8 @@ const intelligence: Intelligence[] = [
     source: "上下游新聞",
     url: "https://www.newsmarket.com.tw/blog/240244/",
     priority: "高",
-    time: "昨天",
+    publishedAt: "2026-07-21",
+    collectedAt: "2026-07-22",
     score: 94,
   },
   {
@@ -51,7 +53,8 @@ const intelligence: Intelligence[] = [
     source: "食力 foodNEXT",
     url: "https://www.foodnext.net/science/knowledge/paper/6731173650",
     priority: "中",
-    time: "7月6日",
+    publishedAt: "2026-07-06",
+    collectedAt: "2026-07-22",
     score: 82,
   },
   {
@@ -66,7 +69,8 @@ const intelligence: Intelligence[] = [
     source: "食力 foodNEXT",
     url: "https://www.foodnext.net/news/newstrack/paper/6971161734",
     priority: "高",
-    time: "5月7日",
+    publishedAt: "2026-05-07",
+    collectedAt: "2026-07-22",
     score: 91,
   },
   {
@@ -81,7 +85,8 @@ const intelligence: Intelligence[] = [
     source: "上下游新聞",
     url: "https://www.newsmarket.com.tw/blog/239131/",
     priority: "中",
-    time: "6月22日",
+    publishedAt: "2026-06-22",
+    collectedAt: "2026-07-22",
     score: 79,
   },
   {
@@ -96,7 +101,8 @@ const intelligence: Intelligence[] = [
     source: "GFI Europe",
     url: "https://gfieurope.org/blog/affordable-products-driving-plant-based-retail-sales-growth/",
     priority: "高",
-    time: "08:20",
+    publishedAt: "2025-04-30",
+    collectedAt: "2026-07-22",
     score: 92,
   },
   {
@@ -111,22 +117,24 @@ const intelligence: Intelligence[] = [
     source: "GFI US",
     url: "https://gfi.org/marketresearch/",
     priority: "高",
-    time: "07:55",
+    publishedAt: "2026-07-20",
+    collectedAt: "2026-07-22",
     score: 89,
   },
   {
     id: 3,
     region: "台灣",
     topic: "法規標示",
-    title: "純素標示仍須明確區分五種素食類別",
-    summary: "台灣包裝食品宣稱素食時，須使用全素或純素、蛋素、奶素、奶蛋素、植物五辛素等規定名稱。",
+    title: "食藥署提醒素食標示須清楚且與內容物一致",
+    summary: "食藥署近期消費資訊再次提醒，素食產品的品名、分類與實際配方須一致，業者應留意標示與廣告用語。",
     impact: "新品資料庫與跨境包裝稿必須保留五辛、蛋、奶三個結構化欄位。",
     action: "盤點現有 SKU，確認官網、包裝與電商頁面的素食分類一致。",
     owner: "品保法規",
     source: "台灣食藥署",
-    url: "https://www.fda.gov.tw/TC/newsContent.aspx?id=10217",
+    url: "https://www.fda.gov.tw/TC/csmnewsContent.aspx?id=t623819&mid=267",
     priority: "高",
-    time: "07:30",
+    publishedAt: "2025-10-13",
+    collectedAt: "2026-07-22",
     score: 87,
   },
   {
@@ -141,7 +149,8 @@ const intelligence: Intelligence[] = [
     source: "Food Frontier",
     url: "https://www.foodfrontier.org/latest-state-of-the-industry-report-shows-plant-based-meat-charts-its-own-course-in-australia/",
     priority: "中",
-    time: "昨天",
+    publishedAt: "2024-04-18",
+    collectedAt: "2026-07-22",
     score: 78,
   },
   {
@@ -156,7 +165,8 @@ const intelligence: Intelligence[] = [
     source: "U.S. FDA",
     url: "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/draft-guidance-industry-labeling-plant-based-alternatives-animal-derived-foods",
     priority: "中",
-    time: "昨天",
+    publishedAt: "2025-01-06",
+    collectedAt: "2026-07-22",
     score: 76,
   },
   {
@@ -171,7 +181,8 @@ const intelligence: Intelligence[] = [
     source: "European Commission",
     url: "https://food.ec.europa.eu/food-safety/novel-food_en",
     priority: "中",
-    time: "2天前",
+    publishedAt: "2026-06-09",
+    collectedAt: "2026-07-22",
     score: 73,
   },
   {
@@ -186,7 +197,8 @@ const intelligence: Intelligence[] = [
     source: "齋之味產品觀察",
     url: "https://www.cjw.com.tw/",
     priority: "中",
-    time: "2天前",
+    publishedAt: "2026-07-22",
+    collectedAt: "2026-07-22",
     score: 71,
   },
   {
@@ -201,7 +213,8 @@ const intelligence: Intelligence[] = [
     source: "FSANZ",
     url: "https://www.foodstandards.gov.au/consumer/labelling/Labelling-consumervalueissues",
     priority: "低",
-    time: "3天前",
+    publishedAt: "2026-06-18",
+    collectedAt: "2026-07-22",
     score: 65,
   },
 ];
@@ -209,7 +222,28 @@ const intelligence: Intelligence[] = [
 const regions: Region[] = ["全部市場", "台灣", "美國", "澳洲", "歐洲"];
 const topics: Topic[] = ["全部主題", "新品", "通路價格", "競品", "消費趨勢", "原料技術", "法規標示"];
 const sourceFilters: SourceFilter[] = ["全部來源", "食力 foodNEXT", "上下游新聞"];
-const highPriorityCount = intelligence.filter((item) => item.priority === "高").length;
+const threeYearsAgo = new Date();
+threeYearsAgo.setFullYear(threeYearsAgo.getFullYear() - 3);
+const freshIntelligence = intelligence.filter((item) => {
+  const publishedAt = new Date(`${item.publishedAt}T00:00:00+08:00`);
+  return !Number.isNaN(publishedAt.getTime()) && publishedAt >= threeYearsAgo;
+});
+const highPriorityCount = freshIntelligence.filter((item) => item.priority === "高").length;
+const formatDate = (date: string) => date.replaceAll("-", "/");
+
+const industryWatch = [
+  { brand: "弘陽生技", status: "有更新", date: "2026-02-22", update: "投資 4 億元打造綠電智慧新廠，產能與外銷布局值得追蹤。", url: "https://udn.com/news/story/7241/9337788" },
+  { brand: "大成新食成", status: "有更新", date: "2026-06-24", update: "植物蛋產品預計 7 月在台上市，關注定價、通路與消費者反應。", url: "https://www.cna.com.tw/news/afe/202606240229.aspx" },
+  { brand: "松珍", status: "監測中", date: "2026-07-22", update: "今日未發現可驗證的重大新事件；持續追蹤新品、通路與海外合作。" },
+  { brand: "三機食品", status: "監測中", date: "2026-07-22", update: "官網揭露 2026 新加坡國際食品展動向，持續追蹤海外通路成果。", url: "https://sungift.tw/" },
+  { brand: "全廣食品", status: "監測中", date: "2026-07-22", update: "持續追蹤新品、產能、代工合作及外銷市場動向。", url: "https://www.ckfoods.com.tw/" },
+];
+
+const reputationWatch = [
+  { channel: "Google 評論", status: "待確認商家檔案", detail: "尚未取得可驗證的官方商家頁，因此不顯示星等或評論數。", url: "https://www.google.com/maps/search/?api=1&query=%E9%BD%8B%E6%BB%8B%E5%91%B3%E5%AF%A6%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%20%E5%8F%B0%E5%8D%97%E5%B8%82%E5%85%AD%E7%94%B2%E5%8D%80%E6%9B%BE%E6%96%87%E8%A1%97152%E8%99%9F" },
+  { channel: "Facebook", status: "每日監測", detail: "追蹤公開貼文、留言與互動中的產品、服務與配送回饋。", url: "https://www.facebook.com/p/%E9%BD%8B%E4%B9%8B%E5%91%B3-100064106764970/?locale=zh_TW" },
+  { channel: "網路／電商", status: "每日監測", detail: "關注齋滋味、齋之味、CHASTE JE WAY、Vegan Select 的公開評價與提及。" },
+];
 
 const featureGuide = [
   { no: "01", title: "今日摘要", copy: "掌握最重要的訊號", result: "得到：今日主題與影響", href: "#today" },
@@ -281,7 +315,7 @@ export default function Home() {
 
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return intelligence.filter((item) => {
+    return freshIntelligence.filter((item) => {
       const matchesRegion = region === "全部市場" || item.region === region;
       const matchesTopic = topic === "全部主題" || item.topic === topic;
       const matchesSource = sourceFilter === "全部來源" || item.source === sourceFilter;
@@ -329,7 +363,7 @@ export default function Home() {
         <header className="topbar">
           <div>
             <p className="eyebrow">2026年7月22日・星期三</p>
-            <h1>今日彙整 <em>{intelligence.length} 則</em>情報・{highPriorityCount} 則高重要度</h1>
+            <h1>今日彙整 <em>{freshIntelligence.length} 則</em>情報・{highPriorityCount} 則高重要度</h1>
           </div>
           <div className="top-actions">
             <label className="search">
@@ -350,7 +384,7 @@ export default function Home() {
             <div className="decision-head"><span>今日核心判讀</span><b>跨市場共通訊號</b></div>
             <h3>價格、健康感與料理便利性共同決定回購</h3>
             <p>各市場的成長速度不同，但資訊都顯示：消費者不只在意是否純素，也會比較成分、每份成本及料理是否方便。</p>
-            <div className="decision-meta"><span>影響市場：台灣・美國・澳洲・歐洲</span><span>判讀依據：今日 {intelligence.length} 則情報</span></div>
+            <div className="decision-meta"><span>影響市場：台灣・美國・澳洲・歐洲</span><span>判讀依據：今日 {freshIntelligence.length} 則有效情報</span></div>
           </div>
         </section>
 
@@ -395,6 +429,40 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="monitoring-section" aria-labelledby="industry-watch-title">
+          <div className="monitoring-title">
+            <div><p className="section-kicker">TAIWAN INDUSTRY WATCH</p><h2 id="industry-watch-title">台灣重點業者動向</h2></div>
+            <span>重點觀察名單・非市場排名</span>
+          </div>
+          <div className="industry-grid">
+            {industryWatch.map((item) => (
+              <article className="watch-card" key={item.brand}>
+                <div><h3>{item.brand}</h3><b className={item.status === "有更新" ? "updated" : "watching"}>{item.status}</b></div>
+                <time>事件／檢查日期 {formatDate(item.date)}</time>
+                <p>{item.update}</p>
+                {item.url && <a href={item.url} target="_blank" rel="noreferrer">查看來源 ↗</a>}
+              </article>
+            ))}
+          </div>
+
+          <div className="reputation-panel">
+            <div className="reputation-intro">
+              <p className="section-kicker">REPUTATION WATCH</p>
+              <h2>齋之味網路風評</h2>
+              <p>每日 08:30 檢查公開評價與品牌提及；最近檢查：2026/07/22 08:30。</p>
+            </div>
+            <div className="reputation-grid">
+              {reputationWatch.map((item) => (
+                <article key={item.channel}>
+                  <div><h3>{item.channel}</h3><b>{item.status}</b></div>
+                  <p>{item.detail}</p>
+                  {item.url && <a href={item.url} target="_blank" rel="noreferrer">開啟來源 ↗</a>}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="intel-section" id="intelligence">
           <div className="section-title intel-heading">
             <div><p className="section-kicker">INTELLIGENCE FEED</p><h2>今日情報</h2></div>
@@ -402,6 +470,7 @@ export default function Home() {
           </div>
 
           <div className="filters" aria-label="情報篩選">
+            <div className="freshness-policy"><strong>資料規則</strong><span>僅顯示近 3 年</span><span>日期不明不納入</span><span>每則標示發布與收錄日期</span></div>
             <div className="filter-row">
               {regions.map((item) => <button key={item} className={region === item ? "active" : ""} onClick={() => changeRegion(item)}>{item}</button>)}
             </div>
@@ -421,7 +490,7 @@ export default function Home() {
                 <article className="intel-card" key={item.id}>
                   <div className="card-rail"><span className={`priority priority-${item.priority}`}>{item.priority}</span><b>{item.score}</b><small>情報分數</small></div>
                   <div className="card-body">
-                    <div className="card-tags"><span>{item.region}</span><span>{item.topic}</span><time>{item.time}</time></div>
+                    <div className="card-tags"><span>{item.region}</span><span>{item.topic}</span><time>發布 {formatDate(item.publishedAt)} ・ 收錄 {formatDate(item.collectedAt)}</time></div>
                     <h3>{item.title}</h3>
                     <p className="summary">{item.summary}</p>
                     <div className="insight-box"><span>對齋之味的影響</span><p>{item.impact}</p></div>
