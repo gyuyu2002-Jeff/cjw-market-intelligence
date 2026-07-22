@@ -240,7 +240,7 @@ const industryWatch = [
 ];
 
 const reputationWatch = [
-  { channel: "Google 評論", status: "待確認商家檔案", detail: "尚未取得可驗證的官方商家頁，因此不顯示星等或評論數。", url: "https://www.google.com/maps/search/?api=1&query=%E9%BD%8B%E6%BB%8B%E5%91%B3%E5%AF%A6%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%20%E5%8F%B0%E5%8D%97%E5%B8%82%E5%85%AD%E7%94%B2%E5%8D%80%E6%9B%BE%E6%96%87%E8%A1%97152%E8%99%9F" },
+  { channel: "Google 評論", status: "商家頁已確認", detail: "已綁定齋滋味實業有限公司的官方商家頁，每日追蹤星等、評論數與新增評論。", url: "https://maps.app.goo.gl/fHTua1htFjDuATsK9" },
   { channel: "Facebook", status: "每日監測", detail: "追蹤公開貼文、留言與互動中的產品、服務與配送回饋。", url: "https://www.facebook.com/p/%E9%BD%8B%E4%B9%8B%E5%91%B3-100064106764970/?locale=zh_TW" },
   { channel: "網路／電商", status: "每日監測", detail: "關注齋滋味、齋之味、CHASTE JE WAY、Vegan Select 的公開評價與提及。" },
 ];
