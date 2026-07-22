@@ -1,10 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type Region = "全部市場" | "台灣" | "美國" | "澳洲" | "歐洲";
 type Topic = "全部主題" | "新品" | "通路價格" | "競品" | "消費趨勢" | "原料技術" | "法規標示";
 type SourceFilter = "全部來源" | "食力 foodNEXT" | "上下游新聞";
+type SectionId = "today" | "markets" | "intelligence" | "actions";
 
 type Intelligence = {
   id: number;
@@ -230,6 +231,24 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [saved, setSaved] = useState<number[]>([]);
   const [showAll, setShowAll] = useState(false);
+  const [activeSection, setActiveSection] = useState<SectionId>("today");
+  const manualNavigationUntil = useRef(0);
+
+  useEffect(() => {
+    const trackedSections: SectionId[] = ["today", "markets", "intelligence"];
+    const updateActiveSection = () => {
+      if (performance.now() < manualNavigationUntil.current) return;
+      const current = trackedSections.reduce<SectionId>((active, id) => {
+        const section = document.getElementById(id);
+        return section && section.getBoundingClientRect().top <= 180 ? id : active;
+      }, "today");
+      setActiveSection(current);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    return () => window.removeEventListener("scroll", updateActiveSection);
+  }, []);
 
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -250,6 +269,13 @@ export default function Home() {
     setRegion(nextRegion);
     if (nextRegion !== "台灣" && nextRegion !== "全部市場") setSourceFilter("全部來源");
   };
+  const navigateTo = (event: React.MouseEvent<HTMLAnchorElement>, id: SectionId) => {
+    event.preventDefault();
+    setActiveSection(id);
+    manualNavigationUntil.current = performance.now() + 1000;
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", `#${id}`);
+  };
 
   return (
     <main className="app-shell">
@@ -259,10 +285,10 @@ export default function Home() {
           <span><strong>齋之味</strong><small>市場情報中樞</small></span>
         </a>
         <nav aria-label="主要導覽">
-          <a className="nav-item active" href="#today"><span>01</span><div><strong>今日決策</strong><small>先做哪三件事</small></div></a>
-          <a className="nav-item" href="#markets"><span>02</span><div><strong>市場雷達</strong><small>哪裡有機會或風險</small></div></a>
-          <a className="nav-item" href="#intelligence"><span>03</span><div><strong>全部情報</strong><small>查新聞與原始來源</small></div></a>
-          <a className="nav-item" href="#actions"><span>04</span><div><strong>行動追蹤</strong><small>誰在何時完成</small></div></a>
+          <a className={`nav-item ${activeSection === "today" ? "active" : ""}`} aria-current={activeSection === "today" ? "page" : undefined} href="#today" onClick={(event) => navigateTo(event, "today")}><span>01</span><div><strong>今日決策</strong><small>先做哪三件事</small></div></a>
+          <a className={`nav-item ${activeSection === "markets" ? "active" : ""}`} aria-current={activeSection === "markets" ? "page" : undefined} href="#markets" onClick={(event) => navigateTo(event, "markets")}><span>02</span><div><strong>市場雷達</strong><small>哪裡有機會或風險</small></div></a>
+          <a className={`nav-item ${activeSection === "intelligence" ? "active" : ""}`} aria-current={activeSection === "intelligence" ? "page" : undefined} href="#intelligence" onClick={(event) => navigateTo(event, "intelligence")}><span>03</span><div><strong>全部情報</strong><small>查新聞與原始來源</small></div></a>
+          <a className={`nav-item ${activeSection === "actions" ? "active" : ""}`} aria-current={activeSection === "actions" ? "page" : undefined} href="#actions" onClick={(event) => navigateTo(event, "actions")}><span>04</span><div><strong>行動追蹤</strong><small>誰在何時完成</small></div></a>
         </nav>
         <div className="sidebar-foot">
           <span className="live-dot" />情報示範版

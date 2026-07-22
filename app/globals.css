@@ -14,6 +14,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+#today, #markets, #intelligence, #actions { scroll-margin-top: 20px; }
 body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--font-sans), sans-serif; }
 button, input { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
