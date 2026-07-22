@@ -15,6 +15,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "齋之味｜市場情報中樞",
     description: "彙整台灣、美國、澳洲與歐洲植物性食品市場情報，轉化為齋之味每日可執行的決策。",
+    icons: {
+      icon: "/favicon.jpg",
+    },
     openGraph: { title: "齋之味｜市場情報中樞", description: "把每日產業訊號，變成下一步行動。", images: [{ url: image, width: 1200, height: 630 }] },
     twitter: { card: "summary_large_image", title: "齋之味｜市場情報中樞", description: "把每日產業訊號，變成下一步行動。", images: [image] },
   };
