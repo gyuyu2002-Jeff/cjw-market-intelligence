@@ -8,18 +8,25 @@ from datetime import datetime
 import subprocess
 import hashlib
 
-# Add cjw_news_hub path to import fetcher
-sys.path.append(r"E:\HJ\齋滋味\cjw_news_hub")
+# Try importing fetcher from local directory first, then fallback to E drive
 try:
     import fetcher
-except ImportError as e:
-    print(f"Error importing fetcher: {e}")
-    sys.exit(1)
+except ImportError:
+    sys.path.append(r"E:\HJ\齋滋味\cjw_news_hub")
+    try:
+        import fetcher
+    except ImportError as e:
+        print(f"Error importing fetcher: {e}")
+        sys.exit(1)
 
 # Paths
-FRONTEND_DIR = r"C:\Users\gyuyu\Documents\CJW\industry-hub"
+# Dynamically determine the directory of this script to support both local and GitHub Actions environments
+FRONTEND_DIR = os.path.dirname(os.path.abspath(__file__))
 PAGE_TSX_PATH = os.path.join(FRONTEND_DIR, "app", "page.tsx")
-DB_PATH = r"E:\HJ\齋滋味\cjw_news_hub\news_db.json"
+
+DB_PATH = os.path.join(FRONTEND_DIR, "news_db.json")
+if not os.path.exists(DB_PATH):
+    DB_PATH = r"E:\HJ\齋滋味\cjw_news_hub\news_db.json"
 
 # Load Gemini API Key
 api_key = ""
@@ -381,9 +388,23 @@ try:
     subprocess.run(["git", "add", "app/page.tsx"], cwd=FRONTEND_DIR, shell=True)
     commit_msg = f"auto: daily intelligence update {now.strftime('%Y/%m/%d')}"
     subprocess.run(["git", "commit", "-m", commit_msg], cwd=FRONTEND_DIR, shell=True)
+    # Push to origin
     subprocess.run(["git", "push", "origin", "main"], cwd=FRONTEND_DIR, shell=True)
-    subprocess.run(["git", "push", "sites", "main"], cwd=FRONTEND_DIR, shell=True)
-    print("Successfully pushed updates to GitHub and ChatGPT Sites.")
+    
+    # Try pushing to sites using environment credentials if set (for GitHub Actions)
+    sites_user = os.environ.get("SITES_GIT_USER", "").strip()
+    sites_token = os.environ.get("SITES_GIT_TOKEN", "").strip()
+    if sites_user and sites_token:
+        print("Pushing to ChatGPT Sites remote using environment credentials...")
+        sites_url = f"https://{sites_user}:{sites_token}@git.chatgpt-team.site/50e47cb7-2a14-4122-8a24-a7074b893095/appgprj_6a6014191eb08191a1bf8d1c90414448.git"
+        push_res = subprocess.run(["git", "push", sites_url, "main:main", "--force"], cwd=FRONTEND_DIR, shell=True, capture_output=True, text=True)
+        if push_res.returncode != 0:
+            print("Failed to push to sites with credentials:", push_res.stderr)
+        else:
+            print("Successfully pushed to ChatGPT Sites.")
+    else:
+        print("SITES_GIT_USER or SITES_GIT_TOKEN not set. Attempting default push to 'sites' remote...")
+        subprocess.run(["git", "push", "sites", "main"], cwd=FRONTEND_DIR, shell=True)
 except Exception as e:
     print("Deployment failed:", e)
     sys.exit(1)
