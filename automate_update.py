@@ -377,8 +377,8 @@ print("Updated app/page.tsx successfully with new items and timestamps.")
 
 # Build and Push
 try:
-    print("Running npm run build...")
-    build_result = subprocess.run("npm run build", cwd=FRONTEND_DIR, shell=True, capture_output=True, text=True)
+    print("Running static Vite build...")
+    build_result = subprocess.run("npx vite build --config vite.static.config.ts", cwd=FRONTEND_DIR, shell=True, capture_output=True, text=True)
     if build_result.returncode != 0:
         print("Build failed.")
         print("STDOUT:", build_result.stdout)
@@ -387,28 +387,14 @@ try:
     print("Build succeeded.")
     
     print("Staging and pushing changes to GitHub...")
-    subprocess.run("git add app/page.tsx", cwd=FRONTEND_DIR, shell=True)
+    subprocess.run("git add app/page.tsx news_db.json docs/", cwd=FRONTEND_DIR, shell=True)
     commit_msg = f"auto: daily intelligence update {now.strftime('%Y/%m/%d')}"
     # Escape quotes for commit message in shell command
     escaped_msg = commit_msg.replace('"', '\\"')
     subprocess.run(f'git commit -m "{escaped_msg}"', cwd=FRONTEND_DIR, shell=True)
     # Push to origin
     subprocess.run("git push origin main", cwd=FRONTEND_DIR, shell=True)
-    
-    # Try pushing to sites using environment credentials if set (for GitHub Actions)
-    sites_user = os.environ.get("SITES_GIT_USER", "").strip()
-    sites_token = os.environ.get("SITES_GIT_TOKEN", "").strip()
-    if sites_user and sites_token:
-        print("Pushing to ChatGPT Sites remote using environment credentials...")
-        sites_url = f"https://{sites_user}:{sites_token}@git.chatgpt-team.site/50e47cb7-2a14-4122-8a24-a7074b893095/appgprj_6a6014191eb08191a1bf8d1c90414448.git"
-        push_res = subprocess.run(f'git push "{sites_url}" main:main --force', cwd=FRONTEND_DIR, shell=True, capture_output=True, text=True)
-        if push_res.returncode != 0:
-            print("Failed to push to sites with credentials:", push_res.stderr)
-        else:
-            print("Successfully pushed to ChatGPT Sites.")
-    else:
-        print("SITES_GIT_USER or SITES_GIT_TOKEN not set. Attempting default push to 'sites' remote...")
-        subprocess.run("git push sites main", cwd=FRONTEND_DIR, shell=True)
+    print("Successfully pushed updates to GitHub Pages.")
 except Exception as e:
     print("Deployment failed:", e)
     sys.exit(1)

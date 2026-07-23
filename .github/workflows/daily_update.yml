@@ -36,8 +36,6 @@ jobs:
       - name: Run daily update script
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          SITES_GIT_USER: ${{ secrets.SITES_GIT_USER }}
-          SITES_GIT_TOKEN: ${{ secrets.SITES_GIT_TOKEN }}
         run: |
           # Set git config so commit succeeds
           git config --global user.name "github-actions[bot]"
