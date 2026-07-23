@@ -1029,41 +1029,6 @@ export default function Home() {
               </article>
             ))}
           </div>
-
-          <div className="reputation-panel">
-            <div className="reputation-intro">
-              <p className="section-kicker">REPUTATION WATCH</p>
-              <h2>齋之味網路風評</h2>
-              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/07/23 07:46。</p>
-            </div>
-            <div className="reputation-grid">
-              {reputationWatch.map((item) => (
-                <article className={item.rating ? "google-review-card" : ""} key={item.channel}>
-                  <div><h3>{item.channel}</h3><b>{item.status}</b></div>
-                  {item.rating && item.reviewCount && (
-                    <>
-                      <div className="rating-summary">
-                        <strong>{item.rating.toFixed(1)}</strong>
-                        <div><span aria-label={`${item.rating} 顆星`}>★★★★☆</span><small>{item.reviewCount} 則評論</small></div>
-                      </div>
-                      <div className="rating-distribution">{item.distribution}</div>
-                      <div className="review-excerpts">
-                        <span>最新有文字評論</span>
-                        {item.reviews?.map((review) => (
-                          <blockquote key={`${review.author}-${review.age}`}>
-                            <div><b>{review.rating}★</b><small>{review.author}・{review.age}</small></div>
-                            <p>「{review.text}」</p>
-                          </blockquote>
-                        ))}
-                      </div>
-                    </>
-                  )}
-                  <p>{item.detail}</p>
-                  {item.url && <a href={item.url} target="_blank" rel="noreferrer">Google Maps 原始頁 ↗</a>}
-                </article>
-              ))}
-            </div>
-          </div>
         </section>
 
         <section className="intel-section" id="intelligence">
@@ -1106,6 +1071,43 @@ export default function Home() {
                 </article>
               )) : <div className="empty"><strong>找不到符合條件的情報</strong><p>試著清除搜尋文字或切換市場。</p></div>}
               {filtered.length > 5 && <button className="load-more" onClick={() => setShowAll(!showAll)}>{showAll ? "收合情報" : `查看其餘 ${filtered.length - 5} 則情報`}</button>}
+          </div>
+        </section>
+
+        <section className="reputation-section">
+          <div className="reputation-panel">
+            <div className="reputation-intro">
+              <p className="section-kicker">REPUTATION WATCH</p>
+              <h2>齋之味網路風評</h2>
+              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/07/23 07:46。</p>
+            </div>
+            <div className="reputation-grid">
+              {reputationWatch.map((item) => (
+                <article className={item.rating ? "google-review-card" : ""} key={item.channel}>
+                  <div><h3>{item.channel}</h3><b>{item.status}</b></div>
+                  {item.rating && item.reviewCount && (
+                    <>
+                      <div className="rating-summary">
+                        <strong>{item.rating.toFixed(1)}</strong>
+                        <div><span aria-label={`${item.rating} 顆星`}>★★★★☆</span><small>{item.reviewCount} 則評論</small></div>
+                      </div>
+                      <div className="rating-distribution">{item.distribution}</div>
+                      <div className="review-excerpts">
+                        <span>最新有文字評論</span>
+                        {item.reviews?.map((review) => (
+                          <blockquote key={`${review.author}-${review.age}`}>
+                            <div><b>{review.rating}★</b><small>{review.author}・{review.age}</small></div>
+                            <p>「{review.text}」</p>
+                          </blockquote>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                  <p>{item.detail}</p>
+                  {item.url && <a href={item.url} target="_blank" rel="noreferrer">Google Maps 原始頁 ↗</a>}
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
