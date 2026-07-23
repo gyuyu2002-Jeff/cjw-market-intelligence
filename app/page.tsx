@@ -931,7 +931,7 @@ export default function Home() {
     <main className="app-shell">
       <aside className="sidebar">
         <a className="brand" href="#top" aria-label="齋之味情報中樞首頁">
-          <span className="brand-mark">齋</span>
+          <img src="favicon.jpg" alt="齋之味" className="brand-logo-img" />
           <span><strong>齋之味</strong><small>市場情報中樞</small></span>
         </a>
         <nav aria-label="主要導覽">
