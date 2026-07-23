@@ -7,8 +7,8 @@ import "./globals.css";
 const style = document.createElement("style");
 style.innerHTML = `
   :root {
-    --font-sans: "Noto Sans TC", sans-serif;
-    --font-serif: "Noto Serif TC", serif;
+    --font-sans: "Lexend", "Noto Sans TC", sans-serif;
+    --font-serif: "Lexend", "Noto Sans TC", sans-serif;
   }
 `;
 document.head.appendChild(style);
