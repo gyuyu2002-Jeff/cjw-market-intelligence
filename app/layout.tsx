@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { Noto_Sans_TC, Lexend } from "next/font/google";
+import { Noto_Sans_TC, Noto_Serif_TC } from "next/font/google";
 import "./globals.css";
 
 const sans = Noto_Sans_TC({ variable: "--font-sans", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
-const serif = Lexend({ variable: "--font-serif", subsets: ["latin"], weight: ["500", "700"] });
+const serif = Noto_Serif_TC({ variable: "--font-serif", subsets: ["latin"], weight: ["600", "700"] });
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
