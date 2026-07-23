@@ -380,7 +380,9 @@ try:
     print("Running npm run build...")
     build_result = subprocess.run(["npm", "run", "build"], cwd=FRONTEND_DIR, shell=True, capture_output=True, text=True)
     if build_result.returncode != 0:
-        print("Build failed:", build_result.stderr)
+        print("Build failed.")
+        print("STDOUT:", build_result.stdout)
+        print("STDERR:", build_result.stderr)
         sys.exit(1)
     print("Build succeeded.")
     
