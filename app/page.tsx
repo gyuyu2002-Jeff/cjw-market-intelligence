@@ -977,34 +977,31 @@ export default function Home() {
 
   return (
     <main className="app-shell">
-      <aside className="sidebar">
-        <a className="brand" href="#top" aria-label="齋之味情報中樞首頁">
-          <img src="favicon.jpg" alt="齋之味" className="brand-logo-img" />
-          <span><strong>齋之味</strong><small>市場情報中樞</small></span>
-        </a>
-        <nav aria-label="主要導覽">
-          <a className={`nav-item ${activeSection === "today" ? "active" : ""}`} aria-current={activeSection === "today" ? "page" : undefined} href="#today" onClick={(event) => navigateTo(event, "today")}><span>01</span><div><strong>今日摘要</strong><small>掌握核心情報判讀</small></div></a>
-          <a className={`nav-item ${activeSection === "markets" ? "active" : ""}`} aria-current={activeSection === "markets" ? "page" : undefined} href="#markets" onClick={(event) => navigateTo(event, "markets")}><span>02</span><div><strong>市場雷達</strong><small>哪裡有機會或風險</small></div></a>
-          <a className={`nav-item ${activeSection === "intelligence" ? "active" : ""}`} aria-current={activeSection === "intelligence" ? "page" : undefined} href="#intelligence" onClick={(event) => navigateTo(event, "intelligence")}><span>03</span><div><strong>全部情報</strong><small>查新聞與原始來源</small></div></a>
-        </nav>
-        <div className="sidebar-foot">
-          <time dateTime="2026-07-23T15:50:23+08:00">2026/07/23 15:50</time>
-        </div>
-      </aside>
-
-      <section className="workspace" id="top">
-        <header className="topbar">
-          <div>
-            <p className="eyebrow">2026年7月23日・星期四</p>
-            <h1>今日彙整 <em>{freshIntelligence.length} 則</em>情報・{highPriorityCount} 則高重要度</h1>
-          </div>
-          <div className="top-actions">
+      <header className="main-header">
+        <div className="header-container">
+          <a className="brand" href="#top" aria-label="齋之味情報中樞首頁">
+            <img src="favicon.jpg" alt="齋之味" className="brand-logo-img" />
+            <span><strong>齋之味</strong><small>市場情報中樞</small></span>
+          </a>
+          <nav className="header-nav" aria-label="主要導覽">
+            <a className={`nav-item ${activeSection === "today" ? "active" : ""}`} href="#today" onClick={(event) => navigateTo(event, "today")}>今日判讀</a>
+            <a className={`nav-item ${activeSection === "markets" ? "active" : ""}`} href="#markets" onClick={(event) => navigateTo(event, "markets")}>市場雷達</a>
+            <a className={`nav-item ${activeSection === "intelligence" ? "active" : ""}`} href="#intelligence" onClick={(event) => navigateTo(event, "intelligence")}>全部情報</a>
+          </nav>
+          <div className="header-actions">
             <label className="search">
               <span>⌕</span>
-              <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜尋品牌、產品或趨勢" aria-label="搜尋情報" />
+              <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜尋品牌、產品或趨勢" aria-label="搜尋新聞情報" />
             </label>
             <button className="avatar" aria-label="使用者選單">CJ</button>
           </div>
+        </div>
+      </header>
+
+      <section className="workspace" id="top">
+        <header className="page-header">
+          <p className="eyebrow">2026年7月23日・星期四</p>
+          <h1>今日彙整 <em>{freshIntelligence.length} 則</em>情報・{highPriorityCount} 則高重要度</h1>
         </header>
 
         <section className="briefing" id="today">
@@ -1040,10 +1037,11 @@ export default function Home() {
           <div className="pulse-grid">
             {marketPulse.map((market) => (
               <button key={market.region} className={`pulse-card ${selectedMarket === market.region ? "selected" : ""}`} aria-pressed={selectedMarket === market.region} onClick={() => { setSelectedMarket(market.region); changeRegion(market.region as Region); }}>
-                <div><span className="region-name">{market.region}</span><span className={`signal signal-${market.signal}`}>{market.signal}</span></div>
-                <strong>{market.note}</strong>
-                <div className="meter-label"><span>機會指數</span><b>{market.value}</b></div>
-                <div className="meter"><i style={{ width: `${market.value}%` }} /></div>
+                <div className="pulse-card-header">
+                  <span className="region-name">{market.region}</span>
+                  <span className={`signal signal-${market.signal}`}>{market.signal}</span>
+                </div>
+                <strong className="pulse-note">{market.note}</strong>
               </button>
             ))}
           </div>
@@ -1086,7 +1084,7 @@ export default function Home() {
           </div>
 
           <div className="filters" aria-label="情報篩選">
-            <div className="freshness-policy"><strong>資料規則</strong><span>僅顯示近 3 年</span><span>日期不明不納入</span><span>每則標示發布與收錄日期</span></div>
+            <div className="freshness-policy"><span>資料規則：僅顯示近 2 年資料 ・ 日期不明不納入 ・ 每則標示發布與收錄日期</span></div>
             <div className="filter-row">
               {regions.map((item) => <button key={item} className={region === item ? "active" : ""} onClick={() => changeRegion(item)}>{item}</button>)}
             </div>
@@ -1104,16 +1102,38 @@ export default function Home() {
           <div className="feed">
               {visible.length ? visible.map((item) => (
                 <article className="intel-card" key={item.id}>
-                  <div className="card-rail"><span className={`priority priority-${item.priority}`}>{item.priority}</span><b>{item.score}</b><small>情報分數</small></div>
                   <div className="card-body">
-                    <div className="card-tags"><span>{item.region}</span><span>{item.topic}</span><time>發布 {formatDate(item.publishedAt)} ・ 收錄 {formatDate(item.collectedAt)}</time></div>
-                    <h3>{item.title}</h3>
+                    <div className="card-header-row">
+                      <div className="card-tags">
+                        <span className="tag-region">{item.region}</span>
+                        <span className="tag-topic">{item.topic}</span>
+                        <span className={`tag-priority priority-${item.priority}`}>
+                          {item.priority === "高" ? "核心關注" : "持續觀察"}
+                        </span>
+                      </div>
+                      <time>發布 {formatDate(item.publishedAt)}</time>
+                    </div>
+                    <h3>
+                      <a href={item.url} target="_blank" rel="noreferrer" className="title-link">
+                        {item.title}
+                      </a>
+                    </h3>
                     <p className="summary">{item.summary}</p>
-                    <div className="insight-box"><span>對齋之味的影響</span><p>{item.impact}</p></div>
-                    <div className="card-action"><div><span>建議行動</span><strong>{item.action}</strong></div><small>{item.owner}</small></div>
+                    <div className="insight-block">
+                      <div className="insight-col">
+                        <strong>市場解讀</strong>
+                        <p>{item.impact}</p>
+                      </div>
+                      <div className="insight-col">
+                        <strong>應對方針 <small>({item.owner})</small></strong>
+                        <p>{item.action}</p>
+                      </div>
+                    </div>
                     <div className="card-footer">
-                      <a href={item.url} target="_blank" rel="noreferrer">來源：{item.source} ↗</a>
-                      <button className={saved.includes(item.id) ? "saved" : ""} onClick={() => toggleSaved(item.id)}>{saved.includes(item.id) ? "已收藏" : "＋ 收藏"}</button>
+                      <span className="source-label">來源：{item.source}</span>
+                      <button className={`save-btn ${saved.includes(item.id) ? "saved" : ""}`} onClick={() => toggleSaved(item.id)}>
+                        {saved.includes(item.id) ? "★ 已收藏" : "☆ 收藏"}
+                      </button>
                     </div>
                   </div>
                 </article>
