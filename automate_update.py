@@ -382,7 +382,8 @@ try:
     commit_msg = f"auto: daily intelligence update {now.strftime('%Y/%m/%d')}"
     subprocess.run(["git", "commit", "-m", commit_msg], cwd=FRONTEND_DIR, shell=True)
     subprocess.run(["git", "push", "origin", "main"], cwd=FRONTEND_DIR, shell=True)
-    print("Successfully pushed updates to GitHub.")
+    subprocess.run(["git", "push", "sites", "main"], cwd=FRONTEND_DIR, shell=True)
+    print("Successfully pushed updates to GitHub and ChatGPT Sites.")
 except Exception as e:
     print("Deployment failed:", e)
     sys.exit(1)
