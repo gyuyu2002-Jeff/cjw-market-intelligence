@@ -21,16 +21,16 @@ DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'news_db.json
 
 # Google News & Upstream RSS URLs
 FEEDS = {
-    "taiwan": "https://news.google.com/rss/search?q=(%E7%B4%A0%E9%A3%9F+OR+%E8%94%AC%E9%A3%9F+OR+%E6%A4%8D%E7%89%A9%E8%82%85)+site:foodnext.net&hl=zh-TW&gl=TW&ceid=TW:zh-Hant",
+    "taiwan": "https://news.google.com/rss/search?q=(%E7%B4%A0%E9%A3%9F+OR+%E8%94%AC%E9%A3%9F+OR+%E6%A4%8D%E7%89%A9%E8%82%85)+site:foodnext.net+when:2y&hl=zh-TW&gl=TW&ceid=TW:zh-Hant",
     "newsmarket": "https://www.newsmarket.com.tw/feed/",
-    "usa": "https://news.google.com/rss/search?q=%22plant-based%22+OR+%22vegan+food%22+market+OR+product+OR+launch&hl=en-US&gl=US&ceid=US:en",
-    "europe": "https://news.google.com/rss/search?q=%22plant-based%22+OR+%22vegan+food%22+market+OR+product+Europe&hl=en-GB&gl=GB&ceid=GB:en",
-    "australia": "https://news.google.com/rss/search?q=%22plant-based%22+OR+%22vegan+food%22+market+OR+product+Australia&hl=en-AU&gl=AU&ceid=AU:en",
+    "usa": "https://news.google.com/rss/search?q=%22plant-based%22+OR+%22vegan+food%22+market+OR+product+OR+launch+when:2y&hl=en-US&gl=US&ceid=US:en",
+    "europe": "https://news.google.com/rss/search?q=%22plant-based%22+OR+%22vegan+food%22+market+OR+product+Europe+when:2y&hl=en-GB&gl=GB&ceid=GB:en",
+    "australia": "https://news.google.com/rss/search?q=%22plant-based%22+OR+%22vegan+food%22+market+OR+product+Australia+when:2y&hl=en-AU&gl=AU&ceid=AU:en",
     # Food Safety Feeds (Domestic & International)
-    "food_safety_tw": "https://news.google.com/rss/search?q=%E9%A3%9F%E5%AE%89+OR+%E9%A3%9F%E5%93%81%E5%AE%89%E5%85%A8+OR+%E8%98%87%E4%B8%B9%E7%B4%85+OR+%E9%A3%9F%E5%AE%89%E6%B3%95%E8%A6%8F+OR+%E9%A3%9F%E5%93%81%E8%A1%9B%E7%94%9F&hl=zh-TW&gl=TW&ceid=TW:zh-Hant",
-    "food_safety_global": "https://news.google.com/rss/search?q=%22food+safety%22+OR+%22food+recall%22+OR+%22food+contamination%22&hl=en-US&gl=US&ceid=US:en",
+    "food_safety_tw": "https://news.google.com/rss/search?q=%E9%A3%9F%E5%AE%89+OR+%E9%A3%9F%E5%93%81%E5%AE%89%E5%85%A8+OR+%E8%98%87%E4%B8%B9%E7%B4%85+OR+%E9%A3%9F%E5%AE%89%E6%B3%95%E8%A6%8F+OR+%E9%A3%9F%E5%93%81%E8%A1%9B%E7%94%9F+when:2y&hl=zh-TW&gl=TW&ceid=TW:zh-Hant",
+    "food_safety_global": "https://news.google.com/rss/search?q=%22food+safety%22+OR+%22food+recall%22+OR+%22food+contamination%22+when:2y&hl=en-US&gl=US&ceid=US:en",
     # Competitor Patrol Feed (Search for competitor giants: 松珍, 鈺統, 弘陽, 隨緣, 大成, 卜蜂, Beyond Meat, Impossible Foods, Oatly)
-    "brand_patrol": "https://news.google.com/rss/search?q=(%22%E6%9D%BE%E7%8F%8D%22+OR+%22%E9%85%97%E7%B5%B1%22+OR+%22%E5%BC%98%E9%99%BD%22+OR+%22%E9%9A%A8%E7%B7%A3%22+OR+%22%E5%A4%A7%E6%88%90%22+OR+%22%E5%8D%9C%E8%9C%82%22+OR+%22Beyond+Meat%22+OR+%22Impossible+Foods%22+OR+%22Oatly%22)+AND+(%E7%B4%A0%E9%A3%9F+OR+%E8%94%AC%E9%A3%9F+OR+%E6%A4%8D%E7%89%A9%E8%82%85+OR+%E6%A4%8D%E7%89%A9%E5%A5%B6+OR+%E7%85%92%E9%BA%A5%E5%A5%B6)&hl=zh-TW&gl=TW&ceid=TW:zh-Hant"
+    "brand_patrol": "https://news.google.com/rss/search?q=(%22%E6%9D%BE%E7%8F%8D%22+OR+%22%E9%85%97%E7%B5%B1%22+OR+%22%E5%BC%98%E9%99%BD%22+OR+%22%E9%9A%A8%E7%B7%A3%22+OR+%22%E5%A4%A7%E6%88%90%22+OR+%22%E5%8D%9C%E8%9C%82%22+OR+%22Beyond+Meat%22+OR+%22Impossible+Foods%22+OR+%22Oatly%22)+AND+(%E7%B4%A0%E9%A3%9F+OR+%E8%94%AC%E9%A3%9F+OR+%E6%A4%8D%E7%89%A9%E8%82%85+OR+%E6%A4%8D%E7%89%A9%E5%A5%B6+OR+%E7%85%92%E9%BA%A5%E5%A5%B6)+when:2y&hl=zh-TW&gl=TW&ceid=TW:zh-Hant"
 }
 
 def load_db():
@@ -385,7 +385,32 @@ def is_competitor_duplicate(new_title, existing_titles):
 
 def sync_news(limit_per_feed=5):
     """Fetch recent items from feeds and use Gemini API to process new ones."""
+    from datetime import timedelta
     db = load_db()
+    
+    # 0. Clean up existing database items that are older than 2 years
+    two_years_ago = datetime.now() - timedelta(days=730)
+    valid_items = []
+    removed_count = 0
+    for item in db.get("news_items", []):
+        item_date_str = item.get("pub_date", "")
+        if item_date_str:
+            try:
+                dt = datetime.strptime(item_date_str, "%Y-%m-%d %H:%M")
+                if dt >= two_years_ago:
+                    valid_items.append(item)
+                else:
+                    removed_count += 1
+            except Exception:
+                valid_items.append(item)
+        else:
+            valid_items.append(item)
+            
+    if removed_count > 0:
+        print(f"Database cleanup: Removed {removed_count} items older than 2 years.")
+        db["news_items"] = valid_items
+        save_db(db)
+
     api_key = db["config"].get("gemini_api_key", "").strip()
     if not api_key:
         # Check system environment variables as fallback
@@ -445,6 +470,16 @@ def sync_news(limit_per_feed=5):
                 print(f"Skipping non-food newsmarket item: {ri['title']}")
                 continue
                 
+            # 2.5 Filter out articles older than 2 years
+            if ri["pub_date"]:
+                try:
+                    dt = datetime.strptime(ri["pub_date"], "%Y-%m-%d %H:%M")
+                    if dt < two_years_ago:
+                        print(f"Skipping old news item: {ri['title']} ({ri['pub_date']})")
+                        continue
+                except Exception:
+                    pass
+
             # 3. Deduplicate by link
             if ri["link"] in existing_links:
                 continue
