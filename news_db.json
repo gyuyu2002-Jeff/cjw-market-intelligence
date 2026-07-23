@@ -1,15 +1,171 @@
 {
   "news_items": [
     {
-      "id": "ecf41ab8d875",
+      "id": "90362285e585",
       "region": "brand_patrol",
-      "title": "領跑素食王國就靠口味研發這一招！ 松珍跳脫傳統素食圈、破350種產品銷全球 - 食力 foodNEXT",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE55bVNFRmJ0YWRRN1NpcF9OM3Ewc0pfXzhtRDNYbXJ3VmVrOXJ0SmhzTWZWTzc0Y0pVaW9sMS1TejdRTTZTcWx1SXU4V21zTkt3OGtiUlNfZWl0MldyOUZFTV9XWXd6Zw?oc=5",
-      "pub_date": "2022-03-11 08:00",
+      "title": "「蔬食版牛肉麵、蔬植漢堡」選擇超多！大成集團２間新品牌插旗台北 - 玩咖Playing",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE41ZkhjT19NYmk5UWFyQ0F1ZFk0SldPVW81azFVcnlKdmZQNzhmRExTUkVrb1Yyc2hFM2dFejkxeUlWUkNmRXBhR1hEM2xoN3laMUHSAVdBVV95cUxNdmk3S243a1FqVDMzaEM4TWQ5a01HVnVkc2ZoU2hjekNKVFdSendrWVhhdUdLVUxrMWNsczc4dkJzcloyRi1UV3ZsQTVyem01RUtOQUs3WWs?oc=5",
+      "pub_date": "2025-04-16 07:00",
+      "source": "玩咖Playing",
+      "category": "同業動態",
+      "summary": "這是一則關於素食與替代蛋白同業大廠的最新動態。標題為：'「蔬食版牛肉麵、蔬植漢堡」選擇超多！大成集團２間新品牌插旗台北 - 玩咖Playing'。設定 Gemini 金鑰可分析同業產品佈局與競爭防範建議。",
+      "takeaway": "分析同業大廠的市場動作，作為齋滋味產品研發與競爭防禦的策略參考。",
+      "sentiment": "中立"
+    },
+    {
+      "id": "a967c40dc407",
+      "region": "brand_patrol",
+      "title": "農畜大廠「大成」植物肉戰略再進化！從「新創肉」到雙餐飲品牌、開創產業新價值鏈 - 食力 foodNEXT",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1qenNjUXlIV2dQVjhZTWpiMlJ3b1BFWUJSVEF3cGxPaFY2Q0tNekc4RTQ5ZWJuMGxQbldBMFFwR01fb0djN1RnWmpxeE5adEw5VHlMMHNValdQSzhuV0NQR2kzckJwZw?oc=5",
+      "pub_date": "2025-04-15 07:00",
       "source": "食力 foodNEXT",
       "category": "同業動態",
-      "summary": "這是一則關於素食與替代蛋白同業大廠的最新動態。標題為：'領跑素食王國就靠口味研發這一招！ 松珍跳脫傳統素食圈、破350種產品銷全球 - 食力 foodNEXT'。設定 Gemini 金鑰可分析同業產品佈局與競爭防範建議。",
+      "summary": "這是一則關於素食與替代蛋白同業大廠的最新動態。標題為：'農畜大廠「大成」植物肉戰略再進化！從「新創肉」到雙餐飲品牌、開創產業新價值鏈 - 食力 foodNEXT'。設定 Gemini 金鑰可分析同業產品佈局與競爭防範建議。",
       "takeaway": "分析同業大廠的市場動作，作為齋滋味產品研發與競爭防禦的策略參考。",
+      "sentiment": "中立"
+    },
+    {
+      "id": "b884018994dc",
+      "region": "food_safety_global",
+      "title": "[譯] FSMA 關於某些食品附加追溯記錄要求的最終規則 - fda.gov",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOLUpFeElsTVhoSmhiSmk3bDI3ZWJucWxHd05jN3FXRUNSTGtoSHB1VUpjMTd3aktFMlpsQWdNRF9hU1V2bU01Y1JoZWdWeXZNd05mLW9XX2s3Qk9vWGwtV0o3bm9EUXpFbXAzN3Nsb2VOSGtUNmJqa0dJTHJSalNSNnlxUDNZYzZKblcwMVEzcDY3b3pvb0hSUFdqNlBfN3BFZWlPVXIxdWJmcDQ5cmVKcnh0NERYLVF3RUlaNVBwdWlPYVF3QzhvUGtpeTFSSzA?oc=5",
+      "pub_date": "2026-07-02 07:00",
+      "source": "fda.gov",
+      "category": "法規政策",
+      "summary": "這是一則關於素食與食品產業法規或政策的新聞。標題為：'FSMA 關於某些食品附加追溯記錄要求的最終規則 - fda.gov'。法規調整將影響產品標籤或成分出口。設定 Gemini API 金鑰即可自動生成完整的翻譯與法規解讀。",
+      "takeaway": "應密切關注國際蔬食認證法規，以確保產品符合未來的食安與環保出口標籤要求。",
+      "sentiment": "中立"
+    },
+    {
+      "id": "5513074df9b2",
+      "region": "food_safety_global",
+      "title": "[譯] 美國農業部宣布食品安全和檢驗服務重組，並在愛荷華州建立國家食品安全中心 - USDA (.gov)",
+      "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNNUYyY3I3RG00OWdSRzJjUjZ3TnFpMWIxN0lXY3NGRlZZUG4xOHhrV0kzZjNNX2loMFFkR2hmSnRoNUtybEg4c2NfWmY5QjlubmJGd00wYWNncFFaaFloM1RUNXZzd2tmbnZrN3MzQnJyOWNSU0FkSlpfdGFyNnpyRGExWU9tVjhpeWpCWDJWdk1ScGg3dGF2VUMxTllOQXlEMlJEVVFkT1pKTDl0TE1GSDhWeW9sV2FBRFlzWWVRX1hhQktjQWZTY09hNmdwWXlFZi14YU9WSUl3SlNWWlFUUHQyVnhERS1lYUtfUGJsRU5ZUQ?oc=5",
+      "pub_date": "2026-04-23 07:00",
+      "source": "USDA (.gov)",
+      "category": "法規政策",
+      "summary": "這是一則關於素食與食品產業法規或政策的新聞。標題為：'美國農業部宣布食品安全和檢驗服務重組，並在愛荷華州建立國家食品安全中心 - USDA (.gov)'。法規調整將影響產品標籤或成分出口。設定 Gemini API 金鑰即可自動生成完整的翻譯與法規解讀。",
+      "takeaway": "應密切關注國際蔬食認證法規，以確保產品符合未來的食安與環保出口標籤要求。",
+      "sentiment": "中立"
+    },
+    {
+      "id": "c99f71aa31ba",
+      "region": "food_safety_tw",
+      "title": "因應中央家戶廚餘禁餵令 盧市長：台中依規焚化並推動多元去化措施 - health.taichung.gov.tw",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPY1BlaU9za2xCeXRDeEZUcGU0MzRVSldTTmJCQ3Byc3dOWTRPS3U5TU44dGc1djllcW45c054NVJUaHRzSGV6SFZHNlB5SUw3ZENQTGtXYy12TDJqTmxTLUpPV0xyamF6ZzI3RU0wNDlCZEd5eHR2ZlF1RHc5WEl5NkxYdmlVcEE?oc=5",
+      "pub_date": "2026-07-21 07:00",
+      "source": "health.taichung.gov.tw",
+      "category": "法規政策",
+      "summary": "這是一則關於素食與食品產業法規或政策的新聞。標題為：'因應中央家戶廚餘禁餵令 盧市長：台中依規焚化並推動多元去化措施 - health.taichung.gov.tw'。法規調整將影響產品標籤或成分出口。設定 Gemini API 金鑰即可自動生成完整的翻譯與法規解讀。",
+      "takeaway": "應密切關注國際蔬食認證法規，以確保產品符合未來的食安與環保出口標籤要求。",
+      "sentiment": "正面"
+    },
+    {
+      "id": "2dd188d447ff",
+      "region": "food_safety_tw",
+      "title": "衛福部擬修食安法美國豆變巴西豆要試製、太晚通報也要罰- 生活 - 工商時報",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE01cDlCaXNxWU9IdERZbjdKZTZHX2pDYjFVS3VOR0NiVDUyQXhHcFVvNEFBRU9tekJPTXVIRjVnakphU1BtTkZoR1lDT0tsTWpTWnN0ZWgyRmEzUVM1M1I0?oc=5",
+      "pub_date": "2026-07-12 07:00",
+      "source": "工商時報",
+      "category": "食安事件",
+      "summary": "這是一則關於食品安全、產品召回或法規合規性的最新情報。標題為：'衛福部擬修食安法美國豆變巴西豆要試製、太晚通報也要罰- 生活 - 工商時報'。設定 Gemini 金鑰後，將為您分析其背後的風險成因與改善防範指引。",
+      "takeaway": "評估此食安事件或召回原因，審查內部原料供應商與生產管制作業，防範相似之食安風險與商譽損害。",
+      "sentiment": "中立"
+    },
+    {
+      "id": "92e108ee4c8f",
+      "region": "australia",
+      "title": "[譯] 重新發明起司輪：新南威爾斯大學食品科學家正在優化植物性乳製品 - UNSW Sydney",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOX1FpQ1FzOUV4Z1VVWnJiZlV1RjU5WjBiNHVZb19xcDVMWU9qblhzZGlhYWhRU1hobjRRRHdjVUdoWF9ZVE9yWHVnUHh1VHE1RE9iaENEU2YwVHB4VEMweVZpYmsxYjVkZG5RdUpFVHdjbEZabnJlWEN6UDlaOEpZQ2JEMzVHMFlFSjd2R0l3MG8xZzUydFZCS29zcG1GdFRTcUE?oc=5",
+      "pub_date": "2025-05-29 07:00",
+      "source": "UNSW Sydney",
+      "category": "市場趨勢",
+      "summary": "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'重新發明起司輪：新南威爾斯大學食品科學家正在優化植物性乳製品 - UNSW Sydney'。這代表該市場的消費趨勢正在演變。設定 Gemini API 金鑰即可啟用自動化中譯與市場商機分析。",
+      "takeaway": "密切監控此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
+      "sentiment": "中立"
+    },
+    {
+      "id": "9e728c261e6e",
+      "region": "australia",
+      "title": "[譯] 澳洲植物基公司清算一週後被 Smart Foods 收購 - Green Queen Media",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPcWdQdnBHM005a3lubGpyVFgwQ0NXM0hkamVDY0h2VUR3SzNDN0kwcjc2MmhYRnlQUF9leVp3S1FGem9nTnJFN2x1NmhLaWFQYU5lYzBwT1Fzc0xNOUpGVDE1eEFSTE84QjFrN3VlMjQxM1FEUzBHVC1ndXpWbC1rY3l1WDh0U2NwbzJPcGdzUHVWU3Mz?oc=5",
+      "pub_date": "2024-10-17 07:00",
+      "source": "Green Queen Media",
+      "category": "市場趨勢",
+      "summary": "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'澳洲植物基公司清算一週後被 Smart Foods 收購 - Green Queen Media'。這代表該市場的消費趨勢正在演變。設定 Gemini API 金鑰即可啟用自動化中譯與市場商機分析。",
+      "takeaway": "密切監控此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
+      "sentiment": "中立"
+    },
+    {
+      "id": "b97eae25526f",
+      "region": "europe",
+      "title": "[譯] 純素食品市場規模、產業報告、2035 年分析 - 市場研究未來",
+      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFB4eHhqMVhEYVBDcXFQTnBoeGVoUzBVNFQtYm5id1p0RXFKNUhtWmZmSFB1WFppX0NsWldzS0xXbGNQT05GTDU2bGRCbkNmVGhSX0xEUERuRGVOLXQ5UmI4RzJEMlVxaVU2Zkg1UWU5SUFNLTRteDQ0?oc=5",
+      "pub_date": "2026-04-24 07:00",
+      "source": "Market Research Future",
+      "category": "技術創新",
+      "summary": "這是一則探討植物基或細胞培養食品科技研發的新聞。標題為：'純素食品市場規模、產業報告、2035 年分析 - 市場研究未來'。反映了替代蛋白等新技術的重大突破。設定 Gemini API 金鑰後，將為您分析其背後的食品科技成分。",
+      "takeaway": "研究最新替代蛋白或植物油乳化技術，應用於齋滋味產品中，以提升素食肉排或醬料的質地與保水度。",
+      "sentiment": "中立"
+    },
+    {
+      "id": "1c0bd50da8ea",
+      "region": "europe",
+      "title": "[譯] 歐洲植物性肉品市場趨勢報告 2025-2033 |健康意識、永續發展焦點和不斷變化的消費者偏好推動擴張 – ResearchAndMarkets.com – vegconomist",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPdVVfaFVXNEEyWmdoY0x3bC12dXViZjA5R1JyWVFTV2hlaUZWZU1PVHZ6dnVXLVdRS2psVUp4dWowOEVYdVpldjktMVFSRkRrUFFOZkZsbTlHTm9rOTRyVEFPc25UeGlldEVvMnNJdHNra3NHajVkY3BSYVV5YzNENlY5TUh3UllvNUdGaWZydnd2RG5DN3pZ?oc=5",
+      "pub_date": "2025-08-11 07:00",
+      "source": "vegconomist",
+      "category": "技術創新",
+      "summary": "這是一則探討植物基或細胞培養食品科技研發的新聞。標題為：'歐洲植物性肉品市場趨勢報告 2025-2033 |健康意識、永續發展焦點和不斷變化的消費者偏好推動擴張 – ResearchAndMarkets.com – vegconomist'。反映了替代蛋白等新技術的重大突破。設定 Gemini API 金鑰後，將為您分析其背後的食品科技成分。",
+      "takeaway": "研究最新替代蛋白或植物油乳化技術，應用於齋滋味產品中，以提升素食肉排或醬料的質地與保水度。",
+      "sentiment": "正面"
+    },
+    {
+      "id": "23163cfbd1b4",
+      "region": "usa",
+      "title": "[譯] 破解密碼：克服植物性產品開發中的挑戰 - RTI International",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPNHdlYnBSd3FwcmNRanBpQjlFeGd0a3JNNFFqWXJkcG9yeC1GRml5akZJUjVXbjBHeXdJQ0wtc25Pdy1wSE50eHk2Q3phLWhzTTlTRGhxS0I2QlRxRENkdU5MQnNBd1Z5UHNTUjBDUzZaVWp1djBZMVBDWXF2M3ZORjVn?oc=5",
+      "pub_date": "2025-11-21 08:00",
+      "source": "RTI International",
+      "category": "市場趨勢",
+      "summary": "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'破解密碼：克服植物性產品開發中的挑戰 - RTI International'。這代表該市場的消費趨勢正在演變。設定 Gemini API 金鑰即可啟用自動化中譯與市場商機分析。",
+      "takeaway": "密切監控此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
+      "sentiment": "中立"
+    },
+    {
+      "id": "818c79820c57",
+      "region": "usa",
+      "title": "[譯] 普渡大學舉辦植物性食品開發與行銷競賽 - 普渡大學 - 農學院",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQNTNNS3VCaFNiOW9ndFItb212RmN5Z2RnUkxKRGhTUGczZXdMVkx4SGx6VnFFbXpIQkZqSlhRc2dZV2hnQmc5UEl4bG92QTBEZnVjZC1fa3k1aFo3elFpRXVhNkk3T1ZzZ3BPdFAxd1pNQTIwQm9JUXNySEo0cVRkWFU5c3lTYlFHXzZJZXhPamoyNld5Y04zS1RMckhSMGt5NW9qSWJpWHRnYXNleEhYeFhzR2swRjg?oc=5",
+      "pub_date": "2025-10-02 07:00",
+      "source": "Purdue University - College of Agriculture",
+      "category": "市場趨勢",
+      "summary": "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'普渡大學舉辦植物性食品開發與行銷競賽 - 普渡大學 - 農學院'。這代表該市場的消費趨勢正在演變。設定 Gemini API 金鑰即可啟用自動化中譯與市場商機分析。",
+      "takeaway": "密切監控此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
+      "sentiment": "中立"
+    },
+    {
+      "id": "37edfaab83a4",
+      "region": "taiwan",
+      "title": "【投書】中聯苯駢芘事件是「餿水油翻版」嗎？從檢驗科學看懂兩起食安事件的關鍵差異 - 食力 foodNEXT",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBxdHhmUjVGMU1nM0lNT293NldUdldjMkxRdWJETDUtdmM0anV0WGNVaUZoOUI2NmxoSzdJUGRwTVdyUllHVkQwSjB4U0JqZGpWNjNnU2lfMUJUOFNNNkliOXh0U0U1OFNueFRr?oc=5",
+      "pub_date": "2026-07-18 09:26",
+      "source": "食力 foodNEXT",
+      "category": "食安事件",
+      "summary": "這是一則關於食品安全、產品召回或法規合規性的最新情報。標題為：'【投書】中聯苯駢芘事件是「餿水油翻版」嗎？從檢驗科學看懂兩起食安事件的關鍵差異 - 食力 foodNEXT'。設定 Gemini 金鑰後，將為您分析其背後的風險成因與改善防範指引。",
+      "takeaway": "評估此食安事件或召回原因，審查內部原料供應商與生產管制作業，防範相似之食安風險與商譽損害。",
+      "sentiment": "中立"
+    },
+    {
+      "id": "4d5710515f03",
+      "region": "taiwan",
+      "title": "連淨苦茶油自主驗出苯駢芘超標！新北衛生局勒令停工下架 2批號939罐啟動回收 - 食力 foodNEXT",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1CcDVOMDNzZmdaRHZlNnVyd3dWU2VhTTRWYmQwQXdxOUhqa0F6SzdPLVJKMTYwdERSMmFUdmcyUmh1RTQxM0xwcWlLc2lFSjNTeGpPc1o0QXpQVmZIRTN2Wk9OU0pTQQ?oc=5",
+      "pub_date": "2026-07-22 14:02",
+      "source": "食力 foodNEXT",
+      "category": "食安事件",
+      "summary": "這是一則關於食品安全、產品召回或法規合規性的最新情報。標題為：'連淨苦茶油自主驗出苯駢芘超標！新北衛生局勒令停工下架 2批號939罐啟動回收 - 食力 foodNEXT'。設定 Gemini 金鑰後，將為您分析其背後的風險成因與改善防範指引。",
+      "takeaway": "評估此食安事件或召回原因，審查內部原料供應商與生產管制作業，防範相似之食安風險與商譽損害。",
       "sentiment": "中立"
     },
     {
@@ -21,18 +177,6 @@
       "source": "Meet創業小聚",
       "category": "同業動態",
       "summary": "這是一則關於素食與替代蛋白同業大廠的最新動態。標題為：'台灣素食龍頭的品牌野心：弘陽生技轉型發展自有品牌，迎戰植物肉大未來 - Meet創業小聚'。設定 Gemini 金鑰可分析同業產品佈局與競爭防範建議。",
-      "takeaway": "分析同業大廠的市場動作，作為齋滋味產品研發與競爭防禦的策略參考。",
-      "sentiment": "中立"
-    },
-    {
-      "id": "56c31ec45872",
-      "region": "brand_patrol",
-      "title": "超逼真「素小蝦」，年銷 1 億 4 千萬！松珍生技執行長：不是愈像肉就愈好賣 - 經理人",
-      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBLQUplMXotQ0wzQ004YUdLN05lN29yLVVlN1lxZ2VGdzBreThId3RPb2dOd2FWNFNaMVMtd3ZUOWFUcmZDaUlONTMtbWVQVXBCXzRHQ2pBMzZmNnZTaGgxYg?oc=5",
-      "pub_date": "2020-10-23 07:00",
-      "source": "經理人",
-      "category": "同業動態",
-      "summary": "這是一則關於素食與替代蛋白同業大廠的最新動態。標題為：'超逼真「素小蝦」，年銷 1 億 4 千萬！松珍生技執行長：不是愈像肉就愈好賣 - 經理人'。設定 Gemini 金鑰可分析同業產品佈局與競爭防範建議。",
       "takeaway": "分析同業大廠的市場動作，作為齋滋味產品研發與競爭防禦的策略參考。",
       "sentiment": "中立"
     },
@@ -191,18 +335,6 @@
       "summary": "這是一則關於植物基新品發布的新聞。標題為：'必品閣在澳洲推出純素泡菜系列，瞄準植物性市場 - Mi-3.com.au。'。這顯示了該地區在素食創新產品上的發展速度。您可以設定 Gemini API 金鑰來獲取完整的 AI 翻譯、深度摘要與商業建議。",
       "takeaway": "評慢該新品的口味與成分，研究是否適合台灣消費者的飲食習慣，並研發相應的在地素食新品。",
       "sentiment": "正面"
-    },
-    {
-      "id": "45698c8ba2d9",
-      "region": "australia",
-      "title": "[譯] Food Frontier：2022-23 年澳洲植物性肉品成長 14% - Green Queen Media",
-      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNOVNGVExMcVV4T0VRdUxGNmF4V3lFcmdGNU9vVmxoSWF0Q3p0dUo5Mk8tdFl3QVBfNHZ5N245ZVBTU05oWXBuTnZZYVVkWkFWNGtpb1FyNXdoVDBXMGZSR21MQzI0ZUdfMHY1UV9FU3hSaFdndFpLTzlseUx1Qzl2M2s5T3J4RzQ?oc=5",
-      "pub_date": "2024-02-14 08:00",
-      "source": "Green Queen Media",
-      "category": "市場趨勢",
-      "summary": "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'Food Frontier：2022-23 年澳洲植物性肉品成長 14% - Green Queen Media'。這代表該市場的消費趨勢正在演變。設定 Gemini API 金鑰即可啟用自動化中譯與市場商機分析。",
-      "takeaway": "密切監控此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-      "sentiment": "中立"
     },
     {
       "id": "f284ea531d80",
@@ -381,18 +513,6 @@
       "source": "CSRone 永續智庫",
       "category": "同業動態",
       "summary": "這是一則關於素食與替代蛋白同業大廠的最新動態。標題為：'再次漂綠還是譜出減碳重生藍圖？Oatly 獲「氣候解方公司」認證 - CSRone 永續智庫'。設定 Gemini 金鑰可分析同業產品佈局與競爭防範建議。",
-      "takeaway": "分析同業大廠的市場動作，作為齋滋味產品研發與競爭防禦的策略參考。",
-      "sentiment": "中立"
-    },
-    {
-      "id": "921305515a3e",
-      "region": "brand_patrol",
-      "title": "從肉品做到電商、再攻素食市場！台灣卜蜂17年前「最正確的決定」 - 天下雜誌",
-      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFA0NHA4WktDaGtuaGpHMUozM0hSSE5qZ1RidEk0aHR3Q2laQm1wTXVaNUZxXzR4OXZDOUJSaElrQlhHSGNRVEdoUDduUXoydw?oc=5",
-      "pub_date": "2023-05-16 07:00",
-      "source": "天下雜誌",
-      "category": "同業動態",
-      "summary": "這是一則關於素食與替代蛋白同業大廠的最新動態。標題為：'從肉品做到電商、再攻素食市場！台灣卜蜂17年前「最正確的決定」 - 天下雜誌'。設定 Gemini 金鑰可分析同業產品佈局與競爭防範建議。",
       "takeaway": "分析同業大廠的市場動作，作為齋滋味產品研發與競爭防禦的策略參考。",
       "sentiment": "中立"
     },
@@ -910,18 +1030,6 @@
       "category": "食安事件",
       "summary": "這是一則關於食品安全、產品召回或法規合規性的最新情報。標題為：'食安危機不只究責，企業治理才是關鍵解方 - 遠見雜誌'。設定 Gemini 金鑰後，將為您分析其背後的風險成因與改善防範指引。",
       "takeaway": "評估此食安事件或召回原因，審查內部原料供應商與生產管制作業，防範相似之食安風險與商譽損害。",
-      "sentiment": "中立"
-    },
-    {
-      "id": "4a1f617de499",
-      "region": "australia",
-      "title": "[譯] 2021 年 PETA 純素食品獎 - peta.org.au",
-      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE8wRU1EckJrUmVyVDlhbXZNUnY3bUVudlN6TEtqeWg0U2E3c195ZmtlSXlGaHkwVDIycS11OFBKVlhtRVRjeHpBYV9uY3Q2bTAxYzlGM29JeVRIYmlsTTdQM1gwUHR6VzZHdFo4?oc=5",
-      "pub_date": "2021-11-03 07:00",
-      "source": "peta.org.au",
-      "category": "市場趨勢",
-      "summary": "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'2021 年 PETA 純素食品獎 - peta.org.au'。這代表該市場的消費趨勢正在演變。設定 Gemini API 金鑰即可啟用自動化中譯與市場商機分析。",
-      "takeaway": "密切監控此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
       "sentiment": "中立"
     },
     {
