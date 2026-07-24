@@ -1051,7 +1051,7 @@ export default function Home() {
               <p>{selectedPulse.headline}</p>
             </div>
             <div className="deep-dive-grid">
-              <section><span>市場為何這樣走</span><ul>{selectedPulse.drivers.map((driver) => <li key={driver}>{driver}</li>)}</ul></section>
+              <section className="drivers"><span>市場為何這樣走</span><ul>{selectedPulse.drivers.map((driver) => <li key={driver}>{driver}</li>)}</ul></section>
               <section className="opportunity"><span>齋之味的機會</span><p>{selectedPulse.opportunity}</p></section>
               <section className="risk"><span>主要風險</span><p>{selectedPulse.risk}</p></section>
             </div>
@@ -1110,6 +1110,9 @@ export default function Home() {
                         <span className={`tag-priority priority-${item.priority}`}>
                           {item.priority === "高" ? "核心關注" : "持續觀察"}
                         </span>
+                        {item.priority === "高" && (
+                          <span className="tag-score">重要度：{item.score}/100</span>
+                        )}
                       </div>
                       <time>發布 {formatDate(item.publishedAt)}</time>
                     </div>
