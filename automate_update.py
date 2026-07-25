@@ -20,7 +20,7 @@ if hasattr(sys.stdout, 'reconfigure'):
 try:
     import fetcher
 except ImportError:
-    sys.path.append(r"E:\HJ\齋滋味\cjw_news_hub")
+    sys.path.append(r"C:\HJ\齋滋味\cjw_news_hub")
     try:
         import fetcher
     except ImportError as e:
@@ -34,7 +34,7 @@ PAGE_TSX_PATH = os.path.join(FRONTEND_DIR, "app", "page.tsx")
 
 DB_PATH = os.path.join(FRONTEND_DIR, "news_db.json")
 if not os.path.exists(DB_PATH):
-    DB_PATH = r"E:\HJ\齋滋味\cjw_news_hub\news_db.json"
+    DB_PATH = r"C:\HJ\齋滋味\cjw_news_hub\news_db.json"
 
 # Load Gemini API Key
 api_key = ""
