@@ -8,6 +8,14 @@ from datetime import datetime
 import subprocess
 import hashlib
 
+# Fix Windows console encoding issues for unicode characters
+if hasattr(sys.stdout, 'reconfigure'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except Exception:
+        pass
+
 # Try importing fetcher from local directory first, then fallback to E drive
 try:
     import fetcher
@@ -191,6 +199,118 @@ def offline_fallback_for_frontend(title, feed_key):
         "score": score
     }
 
+DEFAULT_MARKET_PULSE = {
+    "台灣": {
+        "signal": "穩定", "note": "標示與通路動態", "value": 72,
+        "headline": "成熟素食文化支撐基本盤，成長機會來自日常化與透明度。",
+        "drivers": ["素食分類細緻，純素與五辛需求具有在地特色", "食力與上下游持續放大低加工、國產原料與產地透明議題", "冷凍調理、氣炸料理和電商組合降低嘗試門檻"],
+        "opportunity": "把素海鮮、火腿片與肉醬包裝成早餐、便當、晚餐等明確使用場景，並主動揭露主要原料來源。",
+        "risk": "若只以『素料』溝通，容易停留在既有客群；健康感、鈉含量與加工印象也會影響新客回購。",
+        "watch": ["電商回購率", "非素食客占比", "主力 SKU 每餐成本", "國產原料比例"]
+    },
+    "美國": {
+        "signal": "承壓", "note": "健康與價值重整", "value": 48,
+        "headline": "植物肉零售降溫，市場正從擬真轉向蛋白質、潔淨標示與實際價值。",
+        "drivers": ["消費者重新檢視價格、鈉含量與成分表", "高蛋白與機能食品吸引力高於單一仿肉敘事", "食品服務通路的使用情境比零售貨架更具韌性"],
+        "opportunity": "優先測試差異化的亞洲炸物與餐飲用規格，英文品名清楚揭露大豆、菇類等主要植物來源。",
+        "risk": "高運費與植物肉溢價會壓縮競爭力；若營養或口感無明顯差異，難以取得穩定回購。",
+        "watch": ["每磅售價差", "蛋白質／鈉含量", "餐飲通路新品", "FDA 命名指引"]
+    },
+    "澳洲": {
+        "signal": "觀察", "note": "口感、價格決勝", "value": 61,
+        "headline": "市場仍有需求，但通路進入汰弱留強，能否持續上架取決於回購。",
+        "drivers": ["彈性減肉人口提供潛在客群", "大型超市對銷量、價格與貨架效率要求提高", "氣炸鍋與快速料理適合冷凍調理產品"],
+        "opportunity": "以純素香酥花枝圈切入差異化海鮮替代品，提供氣炸時間、每份成本與多人分享情境。",
+        "risk": "市場距離造成物流與冷鏈成本；Vegan 宣稱仍需完整供應商文件與交叉污染證明。",
+        "watch": ["Woolworths／Coles 上下架", "促銷頻率", "冷凍素海鮮品項", "FSANZ 標示更新"]
+    },
+    "歐洲": {
+        "signal": "分化", "note": "德義成長、英國承壓", "value": 68,
+        "headline": "不是單一市場：德國、義大利仍有成長訊號，英國則更受價格壓力影響。",
+        "drivers": ["平價自有品牌帶動部分國家的銷量", "各國飲食文化與零售結構造成明顯差異", "Novel Food、名稱與營養宣稱提高跨國上市複雜度"],
+        "opportunity": "先以德國或荷蘭作為產品驗證市場，主打亞洲口味、冷凍方便性與合理每公斤價格。",
+        "risk": "用同一包裝進入所有歐洲國家容易忽略語言、名稱、通路與消費差異。",
+        "watch": ["德國銷量", "自有品牌價格", "英國品項縮減", "EU Novel Food 更新"]
+    }
+}
+
+def call_gemini_api_for_market_pulse(api_key, region, news_items):
+    if not api_key or not news_items:
+        return None
+    
+    # Format news items summaries
+    summaries = []
+    for item in news_items[:15]:  # Analyze up to 15 recent news items
+        summaries.append(f"- [{item.get('topic')}] {item.get('title')}: {item.get('summary')}")
+    news_summaries_text = "\n".join(summaries)
+    
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    
+    prompt = f"""你是一位資深的食品與蔬食產業分析師。請分析以下關於 {region} 市場近期的產業情報摘要：
+{news_summaries_text}
+
+請根據這些最新動態，為 {region} 市場重新生成一份宏觀的市場戰略判讀，並嚴格以 JSON 格式回傳（只回傳 JSON 物件，不要任何 markdown 的 ```json 包裹標記，也不要任何前後贅字，以防 JSON 解析失敗）：
+{{
+  "signal": "必須且只能是這四個選項之一：'穩定'、'承壓'、'觀察'、'分化'",
+  "note": "4-8 字的短評（例如 '標示與通路動態'、'健康與價值重整'、'口感、價格決勝'、'德義成長、英國承壓'）",
+  "value": 50,  // 機會/溫度指數，介於 0-100 的整數，反映該市場目前對新產品上架與回購的友善度
+  "headline": "15-25 字的一句話市場核心結論描述",
+  "drivers": [
+    "第 1 個核心驅動因素描述（15-30字）",
+    "第 2 個核心驅動因素描述（15-30字）",
+    "第 3 個核心驅動因素描述（15-30字）"
+  ],
+  "opportunity": "齋之味的具體開發/行銷機會點（40-60字）",
+  "risk": "主要面臨的市場/法規/通路風險（40-60字）",
+  "watch": [
+    "觀察指標 1",
+    "觀察指標 2",
+    "觀察指標 3",
+    "觀察指標 4"
+  ]
+}}
+"""
+    
+    body = {
+        "contents": [
+            {
+                "parts": [
+                    {"text": prompt}
+                ]
+            }
+        ],
+        "generationConfig": {
+            "responseMimeType": "application/json"
+        }
+    }
+    
+    data = json.dumps(body).encode('utf-8')
+    req = urllib.request.Request(
+        url,
+        data=data,
+        headers={'Content-Type': 'application/json'}
+    )
+    
+    try:
+        with urllib.request.urlopen(req, timeout=15) as response:
+            res_body = response.read().decode('utf-8')
+            res_json = json.loads(res_body)
+            text = res_json['candidates'][0]['content']['parts'][0]['text']
+            
+            raw_text = text.strip()
+            if raw_text.startswith("```"):
+                lines = raw_text.splitlines()
+                if lines[0].startswith("```"):
+                    lines = lines[1:]
+                if lines[-1].startswith("```"):
+                    lines = lines[:-1]
+                raw_text = "\n".join(lines).strip()
+            parsed_result = json.loads(raw_text)
+            return parsed_result
+    except Exception as e:
+        print(f"Error calling Gemini API for market pulse ({region}): {e}")
+        return None
+
 # Load current page.tsx content
 with open(PAGE_TSX_PATH, "r", encoding="utf-8") as f:
     page_content = f.read()
@@ -343,6 +463,62 @@ new_page_content = (
     + page_content[idx_end:]
 )
 
+# Parse existing items back to Python dicts for market pulse analysis
+def parse_ts_object(block):
+    obj = {}
+    r_match = re.search(r'region:\s*"([^"]+)"', block)
+    if r_match: obj["region"] = r_match.group(1)
+    t_match = re.search(r'topic:\s*"([^"]+)"', block)
+    if t_match: obj["topic"] = t_match.group(1)
+    title_match = re.search(r'title:\s*"([^"]+)"', block)
+    if title_match: obj["title"] = title_match.group(1)
+    s_match = re.search(r'summary:\s*"([^"]+)"', block)
+    if s_match: obj["summary"] = s_match.group(1)
+    return obj
+
+parsed_existing_items = [parse_ts_object(b) for b in items_blocks]
+all_parsed_items = new_analyzed_items + parsed_existing_items
+
+market_pulse_data = {}
+for region_name in ["台灣", "美國", "澳洲", "歐洲"]:
+    region_news = [item for item in all_parsed_items if item.get("region") == region_name]
+    pulse_info = None
+    if api_key and region_news:
+        print(f"Calling Gemini API to update Market Pulse for {region_name}...")
+        pulse_info = call_gemini_api_for_market_pulse(api_key, region_name, region_news)
+    
+    if not pulse_info:
+        print(f"Gemini API not available or failed for {region_name} pulse. Using default/fallback.")
+        pulse_info = DEFAULT_MARKET_PULSE[region_name]
+    
+    market_pulse_data[region_name] = pulse_info
+
+# Format the new marketPulse as a JS string
+pulse_blocks = []
+for region_name, data in market_pulse_data.items():
+    block = f"""  {{
+    region: "{region_name}", signal: "{data['signal']}", note: "{data['note']}", value: {data['value']},
+    headline: "{data['headline']}",
+    drivers: {json.dumps(data['drivers'], ensure_ascii=False)},
+    opportunity: "{data['opportunity']}",
+    risk: "{data['risk']}",
+    watch: {json.dumps(data['watch'], ensure_ascii=False)},
+  }}"""
+    pulse_blocks.append(block)
+
+combined_pulse_body = "const marketPulse = [\n" + ",\n".join(pulse_blocks) + "\n];"
+
+# Replace in page content
+idx_pulse_start = new_page_content.find("const marketPulse = [")
+idx_pulse_end = new_page_content.find("];\n\nexport default function Home()")
+
+if idx_pulse_start != -1 and idx_pulse_end != -1:
+    new_page_content = (
+        new_page_content[:idx_pulse_start]
+        + combined_pulse_body
+        + new_page_content[idx_pulse_end + len("];"):]
+    )
+
 # Update date & timestamp headers
 now = datetime.now()
 weekdays = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
@@ -378,7 +554,7 @@ print("Updated app/page.tsx successfully with new items and timestamps.")
 # Build and Push
 try:
     print("Running static Vite build...")
-    build_result = subprocess.run("npx vite build --config vite.static.config.ts", cwd=FRONTEND_DIR, shell=True, capture_output=True, text=True)
+    build_result = subprocess.run("npx vite build --config vite.static.config.ts", cwd=FRONTEND_DIR, shell=True, capture_output=True, text=True, encoding="utf-8")
     if build_result.returncode != 0:
         print("Build failed.")
         print("STDOUT:", build_result.stdout)
@@ -387,13 +563,13 @@ try:
     print("Build succeeded.")
     
     print("Staging and pushing changes to GitHub...")
-    subprocess.run("git add app/page.tsx news_db.json docs/", cwd=FRONTEND_DIR, shell=True)
+    subprocess.run("git add app/page.tsx news_db.json docs/", cwd=FRONTEND_DIR, shell=True, encoding="utf-8")
     commit_msg = f"auto: daily intelligence update {now.strftime('%Y/%m/%d')}"
     # Escape quotes for commit message in shell command
     escaped_msg = commit_msg.replace('"', '\\"')
-    subprocess.run(f'git commit -m "{escaped_msg}"', cwd=FRONTEND_DIR, shell=True)
+    subprocess.run(f'git commit -m "{escaped_msg}"', cwd=FRONTEND_DIR, shell=True, encoding="utf-8")
     # Push to origin
-    subprocess.run("git push origin main", cwd=FRONTEND_DIR, shell=True)
+    subprocess.run("git push origin main", cwd=FRONTEND_DIR, shell=True, encoding="utf-8")
     print("Successfully pushed updates to GitHub Pages.")
 except Exception as e:
     print("Deployment failed:", e)
