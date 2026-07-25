@@ -975,6 +975,14 @@ export default function Home() {
     window.history.replaceState(null, "", `#${id}`);
   };
 
+  // Regional stamp code mappings
+  const regionCodes: Record<string, string> = {
+    "台灣": "TW",
+    "美國": "US",
+    "澳洲": "AU",
+    "歐洲": "EU",
+  };
+
   return (
     <main className="app-shell">
       <header className="main-header">
@@ -999,10 +1007,27 @@ export default function Home() {
       </header>
 
       <section className="workspace" id="top">
-        <header className="page-header">
-          <p className="eyebrow">2026年7月25日・星期六</p>
-          <h1>今日彙整 <em>{freshIntelligence.length} 則</em>情報・{highPriorityCount} 則高重要度</h1>
-        </header>
+        {/* Newspaper Masthead */}
+        <div className="newspaper-masthead">
+          <div className="brand-section">
+            <img className="brand-mark-circle" src="favicon.jpg" alt="齋滋味 logo" />
+            <div className="brand-text">
+              <div className="brand-title">齋滋味 產業情報中樞</div>
+              <div className="brand-sub">Vegan Select · Intelligence Desk</div>
+            </div>
+          </div>
+          <div className="masthead-meta">
+            <div className="date-line">
+              <p className="eyebrow">2026年7月25日・星期六</p>
+            </div>
+            <div className="summary-line">今日彙整 {freshIntelligence.length} 則 · {highPriorityCount} 則核心關注</div>
+          </div>
+        </div>
+
+        <div className="subline-bar">
+          <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
+          <div>最後更新：<time dateTime="2026-07-25T15:50:00+08:00">2026/07/25 15:50</time></div>
+        </div>
 
         <section className="briefing" id="today">
           <div className="briefing-copy">
@@ -1100,47 +1125,54 @@ export default function Home() {
           </div>
 
           <div className="feed">
-              {visible.length ? visible.map((item) => (
-                <article className="intel-card" key={item.id}>
-                  <div className="card-body">
-                    <div className="card-header-row">
-                      <div className="card-tags">
-                        <span className="tag-region">{item.region}</span>
-                        <span className="tag-topic">{item.topic}</span>
-                        <span className={`tag-priority priority-${item.priority}`}>
-                          {item.priority === "高" ? "核心關注" : "持續觀察"}
-                        </span>
-                        {item.priority === "高" && (
-                          <span className="tag-score">重要度：{item.score}/100</span>
-                        )}
-                      </div>
-                      <time>發布 {formatDate(item.publishedAt)}</time>
+              {visible.length ? visible.map((item) => {
+                const code = regionCodes[item.region] || "GL";
+                return (
+                  <article className="intel-card" key={item.id}>
+                    <div className={`stamp region-${code}`}>
+                      <span className="code">{code}</span>
+                      <span className="sub">CLEARED</span>
                     </div>
-                    <h3>
-                      <a href={item.url} target="_blank" rel="noreferrer" className="title-link">
-                        {item.title}
-                      </a>
-                    </h3>
-                    <p className="summary">{item.summary}</p>
-                    <div className="insight-block">
-                      <div className="insight-col">
-                        <strong>市場解讀</strong>
-                        <p>{item.impact}</p>
+                    <div className="card-body">
+                      <div className="card-header-row">
+                        <div className="card-tags">
+                          <span className="tag-region">{item.region}</span>
+                          <span className="tag-topic">{item.topic}</span>
+                          <span className={`tag-priority priority-${item.priority}`}>
+                            {item.priority === "高" ? "核心關注" : "持續觀察"}
+                          </span>
+                          {item.priority === "高" && (
+                            <span className="tag-score">重要度：{item.score}/100</span>
+                          )}
+                        </div>
+                        <time>發布 {formatDate(item.publishedAt)}</time>
                       </div>
-                      <div className="insight-col">
-                        <strong>應對方針 <small>({item.owner})</small></strong>
-                        <p>{item.action}</p>
+                      <h3>
+                        <a href={item.url} target="_blank" rel="noreferrer" className="title-link">
+                          {item.title}
+                        </a>
+                      </h3>
+                      <p className="summary">{item.summary}</p>
+                      <div className="insight-block">
+                        <div className="insight-col">
+                          <strong>市場解讀</strong>
+                          <p>{item.impact}</p>
+                        </div>
+                        <div className="insight-col">
+                          <strong>應對方針 <small>({item.owner})</small></strong>
+                          <p>{item.action}</p>
+                        </div>
+                      </div>
+                      <div className="card-footer">
+                        <span className="source-label">來源：{item.source}</span>
+                        <button className={`save-btn ${saved.includes(item.id) ? "saved" : ""}`} onClick={() => toggleSaved(item.id)}>
+                          {saved.includes(item.id) ? "★ 已收藏" : "☆ 收藏"}
+                        </button>
                       </div>
                     </div>
-                    <div className="card-footer">
-                      <span className="source-label">來源：{item.source}</span>
-                      <button className={`save-btn ${saved.includes(item.id) ? "saved" : ""}`} onClick={() => toggleSaved(item.id)}>
-                        {saved.includes(item.id) ? "★ 已收藏" : "☆ 收藏"}
-                      </button>
-                    </div>
-                  </div>
-                </article>
-              )) : <div className="empty"><strong>找不到符合條件的情報</strong><p>試著清除搜尋文字或切換市場。</p></div>}
+                  </article>
+                );
+              }) : <div className="empty"><strong>找不到符合條件的情報</strong><p>試著清除搜尋文字或切換市場。</p></div>}
               {filtered.length > 5 && <button className="load-more" onClick={() => setShowAll(!showAll)}>{showAll ? "收合情報" : `查看其餘 ${filtered.length - 5} 則情報`}</button>}
           </div>
         </section>
