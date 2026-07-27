@@ -449,9 +449,23 @@ for item in new_analyzed_items:
   }}"""
     new_items_blocks.append(block)
 
-# Combine and limit to latest 50 items
+# Combine and apply 1.5-year (18-month) freshness filter, then limit to 50 items
+from datetime import timedelta
+cutoff_date = datetime.now() - timedelta(days=548)  # ~18 months
+
+def get_published_date(block):
+    m = re.search(r'publishedAt:\s*"(\d{4}-\d{2}-\d{2})"', block)
+    if m:
+        try:
+            return datetime.strptime(m.group(1), "%Y-%m-%d")
+        except ValueError:
+            pass
+    return None
+
 all_blocks = new_items_blocks + items_blocks
+all_blocks = [b for b in all_blocks if (get_published_date(b) or cutoff_date) >= cutoff_date]
 all_blocks = all_blocks[:50]
+print(f"After 1.5-year filter: {len(all_blocks)} items retained.")
 
 combined_array_body = ",\n".join(all_blocks)
 

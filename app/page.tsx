@@ -830,11 +830,11 @@ const intelligence: Intelligence[] = [
 const regions: Region[] = ["全部市場", "台灣", "美國", "澳洲", "歐洲"];
 const topics: Topic[] = ["全部主題", "新品", "通路價格", "競品", "消費趨勢", "原料技術", "法規標示"];
 const sourceFilters: SourceFilter[] = ["全部來源", "食力 foodNEXT", "上下游新聞"];
-const threeYearsAgo = new Date();
-threeYearsAgo.setFullYear(threeYearsAgo.getFullYear() - 3);
+const eighteenMonthsAgo = new Date();
+eighteenMonthsAgo.setMonth(eighteenMonthsAgo.getMonth() - 18);
 const freshIntelligence = intelligence.filter((item) => {
   const publishedAt = new Date(`${item.publishedAt}T00:00:00+08:00`);
-  return !Number.isNaN(publishedAt.getTime()) && publishedAt >= threeYearsAgo;
+  return !Number.isNaN(publishedAt.getTime()) && publishedAt >= eighteenMonthsAgo;
 });
 const highPriorityCount = freshIntelligence.filter((item) => item.priority === "高").length;
 const formatDate = (date: string) => date.replaceAll("-", "/");
@@ -1109,7 +1109,7 @@ export default function Home() {
           </div>
 
           <div className="filters" aria-label="情報篩選">
-            <div className="freshness-policy"><span>資料規則：僅顯示近 2 年資料 ・ 日期不明不納入 ・ 每則標示發布與收錄日期</span></div>
+            <div className="freshness-policy"><span>資料規則：僅顯示近 1.5 年資料 ・ 日期不明不納入 ・ 每則標示發布與收錄日期</span></div>
             <div className="filter-row">
               {regions.map((item) => <button key={item} className={region === item ? "active" : ""} onClick={() => changeRegion(item)}>{item}</button>)}
             </div>
