@@ -25,135 +25,7 @@ type Intelligence = {
 };
 
 const intelligence: Intelligence[] = [
-  {
-    id: 69794634,
-    region: "台灣",
-    topic: "消費趨勢",
-    title: "「吃蔬食8分飽」能提高身體代謝？改變吃太多的飲食習慣 讓身體及生態都更和諧！ - 食力 foodNEXT",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'「吃蔬食8分飽」能提高身體代謝？改變吃太多的飲食習慣 讓身體及生態都更和諧！ - 食力 foodNEXT'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiZEFVX3lxTE8yR1M0dGFETk5sUWQzLUNVb1dwTVJ1NXo1cVFvQWVHU3lIcFd6WnVOc2E1NUhyQ0JpMFB2ZXRKdlhtSDNkTUxId25kM2x5SG41QjBpTlo0SW1hcTBrQkxHRVUzWWo?oc=5",
-    priority: "中",
-    publishedAt: "2024-08-13",
-    collectedAt: "2026-07-27",
-    score: 70,
-  },
-  {
-    id: 92281499,
-    region: "台灣",
-    topic: "消費趨勢",
-    title: "從剪髮到蔬食餐桌 「啼岸」用美學實踐零殘忍的生活日常 - 食力 foodNEXT",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'從剪髮到蔬食餐桌 「啼岸」用美學實踐零殘忍的生活日常 - 食力 foodNEXT'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9vX09WeEUySjEyVWFVZGxyWk5XNTZNelQ3VUlVZkprVDE1NFpzd05RTDdQQ2x3U3pQTGh1bWJua3M4TjhpY0VLbzBiMEtWUW9waE1mQWwyMURrU2ttcUd4UXctUDJGQQ?oc=5",
-    priority: "中",
-    publishedAt: "2025-10-29",
-    collectedAt: "2026-07-27",
-    score: 70,
-  },
-  {
-    id: 33164137,
-    region: "台灣",
-    topic: "消費趨勢",
-    title: "日式老屋變身文青蔬食餐酒館 新築窟融合亞洲風味翻轉素食印象 - 食力 foodNEXT",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'日式老屋變身文青蔬食餐酒館 新築窟融合亞洲風味翻轉素食印象 - 食力 foodNEXT'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBUSU5qZ3pDd3VwUjFNUGg4VlVrbEp1T3pjRTVuN2s1eDlBeERoTVp4QnNNYlFZVlUzSVlRVklSeTQxdGFvZnUwTTRoUDdZYUxZeVpmTUVRa2M4SFBwTUNGc2tDc3lodw?oc=5",
-    priority: "中",
-    publishedAt: "2025-08-30",
-    collectedAt: "2026-07-27",
-    score: 70,
-  },
-  {
-    id: 46175930,
-    region: "台灣",
-    topic: "消費趨勢",
-    title: "手搖飲進軍國際、素食麻辣鍋出圈、芽苗市場崛起！歇腳亭、愛雅辣呦、一寸鮮如何鎖定精準受眾提升品牌吸引力？ - 食力 foodNEXT",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'手搖飲進軍國際、素食麻辣鍋出圈、芽苗市場崛起！歇腳亭、愛雅辣呦、一寸鮮如何鎖定精準受眾提升品牌吸引力？ - 食力 foodNEXT'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1tZzgzSHA0SmJrZDF0SmNTd1hFbHRfREJiaW1lWWVJR1BKdi1oTTdLbjZoeXlmaEpyUWVZbWNxd29IYnEwbDNib0xfQlJrQU1wSVV5YnFDcVhibGNyX0cySkFHSFhCQQ?oc=5",
-    priority: "中",
-    publishedAt: "2024-11-18",
-    collectedAt: "2026-07-27",
-    score: 70,
-  },
-  {
-    id: 74756944,
-    region: "台灣",
-    topic: "消費趨勢",
-    title: "一簞食的蔬食實驗：從在地米食到農友協作 打造深溝村的飲食系統 - 食力 foodNEXT",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'一簞食的蔬食實驗：從在地米食到農友協作 打造深溝村的飲食系統 - 食力 foodNEXT'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiakFVX3lxTE9yYUFkNHdOOHNUZU1teFhCZnZvSTFXRTBNeFpjRGM2TUxYQkJodDdicm9rSGhrN3daMmUzMlBjalp0cnVtN2NqUTVEd21aRlJ6ZzZvTUdzbS1OOVI5WFB0NlNkWU1rNWlGSnc?oc=5",
-    priority: "中",
-    publishedAt: "2026-03-09",
-    collectedAt: "2026-07-27",
-    score: 70,
-  },
-  {
-    id: 70156975,
-    region: "美國",
-    topic: "消費趨勢",
-    title: "60% 的美國家庭購買植物性產品——以下是每個地區的表現 - Green Queen Media",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'60% 的美國家庭購買植物性產品——以下是每個地區的表現 - Green Queen Media'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "Green Queen Media",
-    url: "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOcUdZM19XWGdndGZ0LU9wb0h0QWxFU1dDbHlXOXoyWWpqcDlCYWctQ3pmY1RyTG1WWGE5RG55MnBUWksxLXRqTWY3dmN0bGhnRjFxU2VQYTIxdXE4NS1DX1pxSjBiYUNLc0FZTm9WVjh5dGRSakM5SUQ0dXpTNkdOdGd0SDBDVHJlQ2g2Z2NKQWtUd25mbjlReE82QzYzQlJlTHlvRjE3Y2E?oc=5",
-    priority: "中",
-    publishedAt: "2026-06-04",
-    collectedAt: "2026-07-27",
-    score: 70,
-  },
-  {
-    id: 27390828,
-    region: "美國",
-    topic: "消費趨勢",
-    title: "RiboBeauty 作為植物性替代品首次亮相由內而外的美容市場 - 營養展望",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'RiboBeauty 作為植物性替代品首次亮相由內而外的美容市場 - 營養展望'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "Nutritional Outlook",
-    url: "https://news.google.com/rss/articles/CBMiowFBVV95cUxNbEZlbjRGdHc0aHpkWnFsWjFfeVZGWWQ4MUhldnRPNk1NX3B5aWstTFlkZW9kOEtHX0VkNVpOY3pFa1RFTU1pX2ZEdGtwN0hOcER4dFItNDBFRmxvTkFia1FXN3Jyd3ROOUwydk9IZ3pfZ0tnaDVGN3liTS1JanUxTk50YlpDWEs3TThScTlGR3hmOTgyUkZmd3N0N1htR1ZDMkpv?oc=5",
-    priority: "中",
-    publishedAt: "2026-03-25",
-    collectedAt: "2026-07-27",
-    score: 70,
-  },
-  {
-    id: 34700379,
-    region: "美國",
-    topic: "原料技術",
-    title: "植物性蛋白質食品對價格變化的敏感度低於動物性食品，收入和教育水平存在差異 - Nature",
-    summary: "食品科技突破：'植物性蛋白質食品對價格變化的敏感度低於動物性食品，收入和教育水平存在差異 - Nature'。這項替代蛋白或食品加工技術的突破，可為素食口感帶來革新。",
-    impact: "新原料與技術可應用於改善植物肉、素海鮮等質地，有助於我方研發團隊提升產品的保水與乳化性。",
-    action: "收集該項新技術或新原料的規格說明與法規核准進度。",
-    owner: "產品研發",
-    source: "Nature",
-    url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9HZmozOVljRVM4dENodmZDMzluaUQzamp4aWt6Z3RhbndpNGgzOWhUcFBGQ2xITTR5bHJ2Y2poSlgyRWYyVlhXZ1o0WTktelJRU0hXcHJBRk4xVkFIVXFz?oc=5",
-    priority: "中",
-    publishedAt: "2026-03-10",
-    collectedAt: "2026-07-27",
-    score: 72,
-  },
-  {
+{
     id: 69503139,
     region: "美國",
     topic: "法規標示",
@@ -170,166 +42,166 @@ const intelligence: Intelligence[] = [
     score: 90,
   },
   {
-    id: 26243791,
-    region: "美國",
-    topic: "消費趨勢",
-    title: "Euca 將植物性產品保護引入沖洗配方中 - Symrise",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'Euca 將植物性產品保護引入沖洗配方中 - Symrise'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "Symrise",
-    url: "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOSUdWczczekc4eE9EZWdoRWRGdHE5MEc0dzFSazBSV2UwLXprMDg5MmMyOUlLellENVA0VzhJMXBhTVBMeVplSkNEX0NJZllLbDFpNGtVYVcyd2pfbUZjanRlSW9wUmZEY0hraXNLWVZTV19oRmxPOENuZHl1aXR1T1F3Q292RFFIZEl4WUxvbzFUb2FvYktkZHJmNzZLTWRuVE5DenFULUVOZFVaVlJHeEY5emNweFJGa1ZNYTIxU3hieU93bWNzWnEtbzBNakthRE41eg?oc=5",
-    priority: "中",
-    publishedAt: "2026-07-04",
-    collectedAt: "2026-07-27",
-    score: 70,
-  },
-  {
-    id: 43458714,
-    region: "歐洲",
-    topic: "消費趨勢",
-    title: "歐盟禁止純素食品標籤上出現 31 個與肉類相關的名稱 – 但純素漢堡是安全的 - Vegan Food & Living",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'歐盟禁止純素食品標籤上出現 31 個與肉類相關的名稱 – 但純素漢堡是安全的 - Vegan Food & Living'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "Vegan Food & Living",
-    url: "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZHB1alhTOTlPbG5Udl94V2JWaDd3NWZXdVBvWHM0bzBIdjk5aDhSNGY5WnIzOWFXaDNGUWhKN3NabERpQTlvQlFYVXowYmhtQmtCZ1RsY2p3WDB3NE4zRm91cTA1VzVkR0ptNmlKMFg5V0hVSEE3ODVLalJsUUFfUG9fQVpNZ2VFMkhkTjBWd2RxcGhDWjNxTzBaeWRaTWNGOWVCWVNUM3pTUQ?oc=5",
-    priority: "中",
-    publishedAt: "2026-03-09",
-    collectedAt: "2026-07-27",
-    score: 70,
-  },
-  {
-    id: 97797769,
-    region: "歐洲",
-    topic: "消費趨勢",
-    title: "歐盟對植物奶的需求|全球市場分析報告 - 2036 - 未來市場洞察",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'歐盟對植物奶的需求|全球市場分析報告 - 2036 - 未來市場洞察'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "Future Market Insights",
-    url: "https://news.google.com/rss/articles/CBMihAFBVV95cUxObjNfWDltU2pMUktiUzMtLU1qejBSZkktQ0tmaThvM0JvMmJtVkxhWjJQaEQzYVRHeFZhZEVLbndPdkxxWncyVVB0dlRDbkZBV0QtWHlqc1ZNMUtyLUhCdFZoM3dpS1FUOUtkT1FEbU1DX251X3BSZVJ3RHB5ZnduRmxoUFk?oc=5",
-    priority: "中",
-    publishedAt: "2026-03-16",
-    collectedAt: "2026-07-27",
-    score: 70,
-  },
-  {
-    id: 14246175,
-    region: "歐洲",
-    topic: "消費趨勢",
-    title: "西班牙植物基市場在歐洲排名第四，預計到 2025 年將增長 10% - vegconomist",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'西班牙植物基市場在歐洲排名第四，預計到 2025 年將增長 10% - vegconomist'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "vegconomist",
-    url: "https://news.google.com/rss/articles/CBMingFBVV95cUxOQ2xybkVvMW1SNDEyRnBpOTRmWVBEUFNLTl9KN3pvZHE1Q2pVdDhKQkdmQXdHOF9sN2hCRXcxbV8wQ01KQW9JWGNqZVlVdzBGeXZPTTFLVzVka0hyTk1vcXRsR0JlYUxxaUNxUF9LdG5wdWtVaDl0QTZGRUo2TUFJbU5kN3B1YWVXZkM5ZTRiT01qS2dqb0RuRjg1SHoydw?oc=5",
-    priority: "中",
-    publishedAt: "2024-12-03",
-    collectedAt: "2026-07-27",
-    score: 70,
-  },
-  {
-    id: 44120929,
-    region: "歐洲",
-    topic: "消費趨勢",
-    title: "隨著歐洲議會議員重新命名植物性食品，「素食漢堡」可能會從歐盟菜單中消失 - 英國《衛報》",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'隨著歐洲議會議員重新命名植物性食品，「素食漢堡」可能會從歐盟菜單中消失 - 英國《衛報》'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "The Guardian",
-    url: "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPbUFacnhxazJ5SlU0eGZyQVl6a0hsTklYTlRQOFlFSGxMUE1HR0tsY0p4NXh3ZnpzTHBjZWpGeUdaMUh1eWNhbFY3VVpBdzNGRXJ4S3lmcTFMYjBzUnpNSEJoUVI1T0lkTUs5UTRVZ1J0Q3k0azZUcVQxcml1VFItU1dBb3BvVGh1a1ZiYThYeGpKcEdFaHd2ZTE1UEk4NXJVaDc2MnYyRF9xQQ?oc=5",
-    priority: "中",
-    publishedAt: "2025-10-08",
-    collectedAt: "2026-07-27",
-    score: 70,
-  },
-  {
-    id: 78412732,
-    region: "歐洲",
-    topic: "新品",
-    title: "歐洲豆腐市場預計到 2034 年將突破 20 億美元 - Plant Based News",
-    summary: "新品上市動向：'歐洲豆腐市場預計到 2034 年將突破 20 億美元 - Plant Based News'。這顯示了該地區在替代蛋白或素食創新產品上的最新趨勢。",
-    impact: "研究該新品的口味、配方與主打客群，有助於齋滋味發掘適合台灣或出口市場的潛在產品方向。",
-    action: "評估此類新品是否有進行本地化開發與改良的商業價值。",
-    owner: "品牌行銷",
-    source: "Plant Based News",
-    url: "https://news.google.com/rss/articles/CBMikwFBVV95cUxNeklTNUVOeVQzQTNpUExfR2xrWG5GSk93M2QzRFBZOFJZcHkxejVLYkdrZkgzcGdwUFFHY0dSeHBnQlhpSHB0VkRRY3lXaWNERm9vdlVCMGxHSEhsREhIMWhPVzFBNXo4MFJGQkVNd3BocHl0VzV2VWVCZVFzN19fSV96Q05zY0ZmWTZ1RVpOeFlKbVk?oc=5",
-    priority: "中",
-    publishedAt: "2026-02-11",
-    collectedAt: "2026-07-27",
-    score: 75,
-  },
-  {
-    id: 57731230,
-    region: "澳洲",
+    id: 75562629,
+    region: "台灣",
     topic: "原料技術",
-    title: "隨著健康關注的加強和創新的升溫，植物性乳製品日趨成熟 - Inside FMCG",
-    summary: "食品科技突破：'隨著健康關注的加強和創新的升溫，植物性乳製品日趨成熟 - Inside FMCG'。這項替代蛋白或食品加工技術的突破，可為素食口感帶來革新。",
-    impact: "新原料與技術可應用於改善植物肉、素海鮮等質地，有助於我方研發團隊提升產品的保水與乳化性。",
-    action: "收集該項新技術或新原料的規格說明與法規核准進度。",
-    owner: "產品研發",
-    source: "Inside FMCG",
-    url: "https://news.google.com/rss/articles/CBMisgFBVV95cUxNNURseVJfUDc0alBMYmVPQTdoRzR3NjZqZUk0RFlnZDZjVVJZWUF3V0VRM1ZqOEE5dGlNSEpRTU42S0VsYWk3bUpOQlV2eWMyb3F5MDF3SjBfTW9SRm5CY0djRVVNWnZ4MkxqTG55WWhDaHBBdWFsdlRZaUVHWnJQcEh1MjdXbTl3eFlQUGFFYVRyWUhORThUU1F4UHUwaWpXYlYwYkw3WEJ0SktfSEVWQUlR?oc=5",
-    priority: "中",
-    publishedAt: "2025-11-04",
+    title: "「食品安全 基本人權」 黃敏惠市長出席「反毒油線上國是會議」研商聯防機制 守護市民食安 - 嘉義市政府衛生局",
+    summary: "食品安全與品質與品質管控事件：'「食品安全 基本人權」 黃敏惠市長出席「反毒油線上國是會議」研商聯防機制 守護市民食安 - 嘉義市政府衛生局'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "嘉義市政府衛生局",
+    url: "https://news.google.com/rss/articles/CBMifEFVX3lxTFBZT2hoUml0SVQ2WGlzVTR1V3haczNHa0w3WVdCOERfMWdqeWJ0N0NLTEo0b2JmWE1HMzVYbnFKNXI3Q3laQTh6V3FKd3VXaVdlWDhaRkhOd1RaNml1QlhqdDNpUGZyMnY4LUpPUFB1V3phUmFBXzI2UDc1LXU?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-22",
     collectedAt: "2026-07-27",
-    score: 72,
+    score: 85,
   },
   {
-    id: 98353707,
-    region: "澳洲",
-    topic: "消費趨勢",
-    title: "澳洲植物基公司清算一週後被 Smart Foods 收購 - Green Queen Media",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'澳洲植物基公司清算一週後被 Smart Foods 收購 - Green Queen Media'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "Green Queen Media",
-    url: "https://news.google.com/rss/articles/CBMilAFBVV95cUxPcWdQdnBHM005a3lubGpyVFgwQ0NXM0hkamVDY0h2VUR3SzNDN0kwcjc2MmhYRnlQUF9leVp3S1FGem9nTnJFN2x1NmhLaWFQYU5lYzBwT1Fzc0xNOUpGVDE1eEFSTE84QjFrN3VlMjQxM1FEUzBHVC1ndXpWbC1rY3l1WDh0U2NwbzJPcGdzUHVWU3Mz?oc=5",
-    priority: "中",
-    publishedAt: "2024-10-17",
+    id: 14934181,
+    region: "台灣",
+    topic: "原料技術",
+    title: "行政院通過《食安法》修法草案 提高業者自主檢驗頻率 通報延遲罰鍰提高到3千萬元 - 農傳媒",
+    summary: "食品安全與品質與品質管控事件：'行政院通過《食安法》修法草案 提高業者自主檢驗頻率 通報延遲罰鍰提高到3千萬元 - 農傳媒'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "農傳媒",
+    url: "https://news.google.com/rss/articles/CBMiVkFVX3lxTE8tMU5HRzJzTDU1d0FIeTJvTHBvSUxBNWpBcjJ6cjFEVFRxVW5zSkZiSmUwY01LaFRLeWMzZE83SmpoSzRyQkJNVFRLN1hXZFFsT3VfQWR3?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-23",
     collectedAt: "2026-07-27",
-    score: 70,
+    score: 85,
   },
   {
-    id: 36327653,
-    region: "澳洲",
-    topic: "消費趨勢",
-    title: "重新發明起司輪：新南威爾斯大學食品科學家正在優化植物性乳製品 - UNSW Sydney",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'重新發明起司輪：新南威爾斯大學食品科學家正在優化植物性乳製品 - UNSW Sydney'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "UNSW Sydney",
-    url: "https://news.google.com/rss/articles/CBMiogFBVV95cUxOX1FpQ1FzOUV4Z1VVWnJiZlV1RjU5WjBiNHVZb19xcDVMWU9qblhzZGlhYWhRU1hobjRRRHdjVUdoWF9ZVE9yWHVnUHh1VHE1RE9iaENEU2YwVHB4VEMweVZpYmsxYjVkZG5RdUpFVHdjbEZabnJlWEN6UDlaOEpZQ2JEMzVHMFlFSjd2R0l3MG8xZzUydFZCS29zcG1GdFRTcUE?oc=5",
-    priority: "中",
-    publishedAt: "2025-05-29",
+    id: 30589980,
+    region: "台灣",
+    topic: "原料技術",
+    title: "詹長權觀點：《食品安全衛生管理法》可以怎麼修？ - 信傳媒",
+    summary: "食品安全與品質與品質管控事件：'詹長權觀點：《食品安全衛生管理法》可以怎麼修？ - 信傳媒'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "信傳媒",
+    url: "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8zZ1VLQkc3UWdnQ2V3ZGNnNkhVZDdaYnpLNXVnd1JtaTVzU1dGbjJpZFdRZzMzQUxORmxDTS1wV1Nwd1VnaHVOMDJqSHZtVU43c2dRYjNIaWFKZw?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-21",
     collectedAt: "2026-07-27",
-    score: 70,
+    score: 85,
   },
   {
-    id: 27561022,
-    region: "澳洲",
-    topic: "消費趨勢",
-    title: "植物性食品標籤產業實踐守則 - FoodProcessing.com.au",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'植物性食品標籤產業實踐守則 - FoodProcessing.com.au'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "FoodProcessing.com.au",
-    url: "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPVUtvRGVRaUppaUt2elk2a2sxMjVVRDZud1Q0QTd0dUJFSllHRHR5bnN2YU95U2NkTTQ0TmNLMkFWMHI0aXRRamY1TDRJdlNtUE5scHBob05abEVFYmR5SGd3ZF9NSUNoZ3paNTVLaFYyZFlSajQwT1hDOHVfMkNYQmlOcXY5eWFEb1lLT1M3REVGOVlWdFZKQ1lUU05GQ05VYVhxeDdsUXB6V25OYlFKeFo5S3dKaHI4eTg0bmVpT3VyYzFjSkNLalRsRm5JNGtMMUZfRGRRWQ?oc=5",
-    priority: "中",
-    publishedAt: "2026-02-02",
+    id: 75101234,
+    region: "台灣",
+    topic: "原料技術",
+    title: "就怕毒油風暴重演！中央擬設「食安指揮中心」：延遲隱匿罰3000萬 - 優活健康網",
+    summary: "食品安全與品質與品質管控事件：'就怕毒油風暴重演！中央擬設「食安指揮中心」：延遲隱匿罰3000萬 - 優活健康網'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "優活健康網",
+    url: "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5uM1Yxa0FnU1o5R1JiUUtMQzFaUy1BY1gwa1hXS2Q1Ty1aRVZHM25fS3JfQXg4S3dxV1hZTmZRakxrZjJDMmZDejBXNll6d1ZtRUxv?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-21",
     collectedAt: "2026-07-27",
-    score: 70,
+    score: 85,
   },
   {
+    id: 69747933,
+    region: "台灣",
+    topic: "原料技術",
+    title: "食安需要中央地方合作 《食安法》規定一次看！ - dpp.org.tw",
+    summary: "食品安全與品質與品質管控事件：'食安需要中央地方合作 《食安法》規定一次看！ - dpp.org.tw'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "dpp.org.tw",
+    url: "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBWN0ZFU25OZ2djSXRaUzJiSGJmVFoybEI2UVZyY3ktOGFiVk5URDhOS3N4WFZyVV9DS1l4T0NqWXAta3lxWnlXS1RCeHdmU0dOZWsta1BtZzFDdw?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-20",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
+    id: 74493146,
+    region: "台灣",
+    topic: "原料技術",
+    title: "食品安全應以風險而非零檢測為指導 - 康乃爾紀事報",
+    summary: "食品安全與品質與品質管控事件：'食品安全應以風險而非零檢測為指導 - 康乃爾紀事報'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "Cornell Chronicle",
+    url: "https://news.google.com/rss/articles/CBMikwFBVV95cUxOUHZDNWVFTUpFZF8zSVZIU3dYYjhheDJsSmNmcHZBRy1BSmVEZnZLcHVQUmN5ekp4QzV6SmdsSUFPamNqU2dNVUtSQjQ2TkY2SXdXRWNIYVdnM1d3YW83djM3Znd0Qm5XblVrUEE1LW4xMnpfazBTRVBPeVVmY1hrV1R2MDZxSFlBMjh4MmVGcWhpc2M?oc=5",
+    priority: "高",
+    publishedAt: "2026-03-17",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
+    id: 87199837,
+    region: "台灣",
+    topic: "原料技術",
+    title: "Krishnamoorthi 重新引入嬰兒食品安全法，對嬰幼兒食品中的有毒金屬設定可執行限制 - House.gov",
+    summary: "食品安全與品質與品質管控事件：'Krishnamoorthi 重新引入嬰兒食品安全法，對嬰幼兒食品中的有毒金屬設定可執行限制 - House.gov'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "House.gov",
+    url: "https://news.google.com/rss/articles/CBMiygFBVV95cUxQeXI5ck5fSlJmUFBTQ0MtS05sNVp5NmpmZHZ2YkxEb3J3ajRvTjhjNlp2ZU5YSC1kd0ZDejFUMnBPR1pvMFpwZlRhN2U1cG9YYWxyNlBwTG42OVMwVWlvOWJEcU1TbGg0OWpPaGcyV3FNMXowWHNzbWo4czgtV21aeWVzOERISGtMekh5VUFTZG5VRWRPXzJsNUpzT1BWN2xuZnpVYllYb2VKRkZtY1RPLTZHSWpGejgySTdGWEZJRWhjQXdFTG1Md0Z3?oc=5",
+    priority: "高",
+    publishedAt: "2026-04-22",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
+    id: 33783750,
+    region: "台灣",
+    topic: "原料技術",
+    title: "啟動糧農組織報告「再生塑膠和替代食品接觸材料（FCM）對食品安全的影響」的網路研討會 – 2026 年 5 月 13 日 - 糧食及 農業組織",
+    summary: "食品安全與品質與品質管控事件：'啟動糧農組織報告「再生塑膠和替代食品接觸材料（FCM）對食品安全的影響」的網路研討會 – 2026 年 5 月 13 日 - 糧食及 農業組織'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "Food and Agriculture Organization",
+    url: "https://news.google.com/rss/articles/CBMilgJBVV95cUxONV83ZU9RX2l2YVpsSXhaUjhXQ2I3dUMxUWE4U1h0RENzVjZuREV1eDB2Q2hXWGRJZlVSeXB1Ml9qTGhwSWFoUzNjWUJmRzd6QXJQNkFEUlRWeFBRb3B0MGJrbFk2WUk0QTBzWEhzOGxZSDUyU2xYSUFDRjJKTmd3T3hkcXZCaGtZc1NkUGxXWjRWa3Job1UxVkVuLW5nemk0dmtXLW1ybW9fX21NX2YxeXljaWdpdjBIb0Eyb1NXZzBFS0pxMzFIWTB4ajFkNzhkdjRfZzVzdWh5eWMtODNBSWJfNHZuVkpua0xCcVd5NVJMOFNPNVJrdDBwVnJoQ1VTaHZ4WWYtUWxXSnEzYmpuYnh4YXJydw?oc=5",
+    priority: "高",
+    publishedAt: "2026-04-15",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
+    id: 84267605,
+    region: "台灣",
+    topic: "原料技術",
+    title: "病原體和食品安全：從農場到餐桌 - 公共利益科學中心",
+    summary: "食品安全與品質與品質管控事件：'病原體和食品安全：從農場到餐桌 - 公共利益科學中心'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "Center for Science in the Public Interest",
+    url: "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBETkVDdFN6emlNVXQwVGlsb20tck9MeE5GYmxMa1JQTDQybXFCV0tJdlktd0ZzQ0hZY1FiY09WWUwtVnZNOVE?oc=5",
+    priority: "高",
+    publishedAt: "2025-11-08",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
+    id: 67948669,
+    region: "台灣",
+    topic: "原料技術",
+    title: "食品安全警報：因塑膠問題而召回植物性產品 - 梅薩縣",
+    summary: "食品安全與品質與品質管控事件：'食品安全警報：因塑膠問題而召回植物性產品 - 梅薩縣'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "Mesa County",
+    url: "https://news.google.com/rss/articles/CBMiswFBVV95cUxOQTNFWXptWDAxRUVkNzJ4cHV4TkVsUGg1dlY5WWZqcjdZM3oxTm8zclB5bFBhaThVNjVwWmJNaXR1MGJyVmtuVmNXTE5uVXVYUFRTelJwNTZlR0tkdHlTYl96WVg3NTFGSk5YYlp3YmRtb1FTNkZNU1NoVjB2ZE9oWFdveGFmNW1TVzNNQ3FPV0daSWdaYzhvaDZzMmlOLWc4eXYzenpvOTZXYXlXUkhjOWEzOA?oc=5",
+    priority: "高",
+    publishedAt: "2026-06-24",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+{
     id: 47418512,
     region: "澳洲",
     topic: "原料技術",
@@ -345,7 +217,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 27542253,
     region: "台灣",
     topic: "原料技術",
@@ -361,7 +233,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 37968714,
     region: "台灣",
     topic: "原料技術",
@@ -377,7 +249,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 53212687,
     region: "台灣",
     topic: "原料技術",
@@ -393,7 +265,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 63476539,
     region: "台灣",
     topic: "原料技術",
@@ -409,7 +281,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 12147283,
     region: "台灣",
     topic: "原料技術",
@@ -425,7 +297,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 67838791,
     region: "台灣",
     topic: "原料技術",
@@ -441,7 +313,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 5441014,
     region: "台灣",
     topic: "原料技術",
@@ -457,7 +329,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 43692559,
     region: "台灣",
     topic: "原料技術",
@@ -472,358 +344,6 @@ const intelligence: Intelligence[] = [
     publishedAt: "2026-07-24",
     collectedAt: "2026-07-27",
     score: 85,
-  },
-  {
-    id: 29694607,
-    region: "台灣",
-    topic: "原料技術",
-    title: "抗藥性、食品和食用動物|食品安全 - 疾病管制與預防中心 |疾病預防控制中心 (.gov)",
-    summary: "食品安全與品質與品質管控事件：'抗藥性、食品和食用動物|食品安全 - 疾病管制與預防中心 |疾病預防控制中心 (.gov)'。事件提醒業界加強供應鏈檢驗。",
-    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
-    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
-    owner: "採購品保",
-    source: "Centers for Disease Control and Prevention | CDC (.gov)",
-    url: "https://news.google.com/rss/articles/CBMiakFVX3lxTFBqZ0tIS25zUlZINjBnMnNSbjVWZzdvb3RQUWhvWGs4VzV3VmxYWXBmcW5pYjJyd096LU93dVRyWG5kdHFvdU9mRnE0V0dFeHZPX2E0N1NORTBubERPaW9oaV9pUE5OdEtrMGc?oc=5",
-    priority: "高",
-    publishedAt: "2025-11-25",
-    collectedAt: "2026-07-27",
-    score: 85,
-  },
-  {
-    id: 3504456,
-    region: "台灣",
-    topic: "原料技術",
-    title: "吃掉還是丟掉？測試您的食品安全知識。 - 華盛頓郵報",
-    summary: "食品安全與品質與品質管控事件：'吃掉還是丟掉？測試您的食品安全知識。 - 華盛頓郵報'。事件提醒業界加強供應鏈檢驗。",
-    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
-    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
-    owner: "採購品保",
-    source: "The Washington Post",
-    url: "https://news.google.com/rss/articles/CBMiswFBVV95cUxNNjJqX1lRUjZIVVN3eE84YWIwdVBJczFtd2w2NTBCQ25nTlZ2OG44Q1FFNVZGaldGS0dKc3BZTUhVMUVGWk1NUndPcnkyV05fWE9Ma2xqYVJKX0xuTGwwWElaWlFqdVFfcmxxYU5rNjNUdnZSRTNvZmIzRWFfTGdPaHBBanZWbmJvWVpJN0RvNU1uS0x3bG04VGhWQzZrbERCMG4xYXNkWDg4SldBdmZUejl1dw?oc=5",
-    priority: "高",
-    publishedAt: "2026-06-09",
-    collectedAt: "2026-07-27",
-    score: 85,
-  },
-  {
-    id: 47633979,
-    region: "台灣",
-    topic: "競品",
-    title: "再次漂綠還是譜出減碳重生藍圖？Oatly 獲「氣候解方公司」認證 - CSRone 永續智庫",
-    summary: "同業大廠最新動態：'再次漂綠還是譜出減碳重生藍圖？Oatly 獲「氣候解方公司」認證 - CSRone 永續智庫'。此動作反映了素食產業競爭格局的最新進展。",
-    impact: "分析同業大廠的市場佈局與產品定位，以制定我方的競爭防禦策略與產品研發策略。",
-    action: "評估同業此項動作對我方主力產品線的潛在競爭影響。",
-    owner: "產品研發",
-    source: "CSRone 永續智庫",
-    url: "https://news.google.com/rss/articles/CBMiREFVX3lxTE5YMC1oOXBUX1Uxb0JIRGVyQXAyT2NlZmVQRDZMZ1piQnVscC1aeldyTmJfMy15RWUtQ19sWmRkLVh2U01t?oc=5",
-    priority: "中",
-    publishedAt: "2025-07-10",
-    collectedAt: "2026-07-27",
-    score: 80,
-  },
-  {
-    id: 4007718,
-    region: "台灣",
-    topic: "競品",
-    title: "大成集團推出兩大蔬食餐飲品牌，用平價、美味植物肉料理刷新蔬食印象 - 遠見雜誌",
-    summary: "同業大廠最新動態：'大成集團推出兩大蔬食餐飲品牌，用平價、美味植物肉料理刷新蔬食印象 - 遠見雜誌'。此動作反映了素食產業競爭格局的最新進展。",
-    impact: "分析同業大廠的市場佈局與產品定位，以制定我方的競爭防禦策略與產品研發策略。",
-    action: "評估同業此項動作對我方主力產品線的潛在競爭影響。",
-    owner: "產品研發",
-    source: "遠見雜誌",
-    url: "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9Yc0dHZkZJTE5oUk1MSC1BVk41YWN2N3U4Z1ZJQkctbHJndE5SX1BYcDBXblVXVHlFN0huRWtzdUxMYWtuSTVrNG5weFdCUQ?oc=5",
-    priority: "中",
-    publishedAt: "2025-05-02",
-    collectedAt: "2026-07-27",
-    score: 80,
-  },
-  {
-    id: 13661314,
-    region: "台灣",
-    topic: "競品",
-    title: "素肉不香了？ Beyond Meat 股價只剩 3 美元，到底發生什麼事了？ - 鏈新聞 ABMedia",
-    summary: "同業大廠最新動態：'素肉不香了？ Beyond Meat 股價只剩 3 美元，到底發生什麼事了？ - 鏈新聞 ABMedia'。此動作反映了素食產業競爭格局的最新進展。",
-    impact: "分析同業大廠的市場佈局與產品定位，以制定我方的競爭防禦策略與產品研發策略。",
-    action: "評估同業此項動作對我方主力產品線的潛在競爭影響。",
-    owner: "產品研發",
-    source: "鏈新聞 ABMedia",
-    url: "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1pUXY3azR3TkprM0MwUEVYaFEyblljTFp5SHZZTjNycU9zcmhYREYzZV9MT1A3STAzVzdHelNBdnRxT0ZNX0RaWktoVkxGOGw5dl9lXw?oc=5",
-    priority: "中",
-    publishedAt: "2025-03-14",
-    collectedAt: "2026-07-27",
-    score: 80,
-  },
-  {
-    id: 11992331,
-    region: "台灣",
-    topic: "競品",
-    title: "農畜大廠「大成」植物肉戰略再進化！從「新創肉」到雙餐飲品牌、開創產業新價值鏈 - 食力 foodNEXT",
-    summary: "同業大廠最新動態：'農畜大廠「大成」植物肉戰略再進化！從「新創肉」到雙餐飲品牌、開創產業新價值鏈 - 食力 foodNEXT'。此動作反映了素食產業競爭格局的最新進展。",
-    impact: "分析同業大廠的市場佈局與產品定位，以制定我方的競爭防禦策略與產品研發策略。",
-    action: "評估同業此項動作對我方主力產品線的潛在競爭影響。",
-    owner: "產品研發",
-    source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1qenNjUXlIV2dQVjhZTWpiMlJ3b1BFWUJSVEF3cGxPaFY2Q0tNekc4RTQ5ZWJuMGxQbldBMFFwR01fb0djN1RnWmpxeE5adEw5VHlMMHNValdQSzhuV0NQR2kzckJwZw?oc=5",
-    priority: "中",
-    publishedAt: "2025-04-15",
-    collectedAt: "2026-07-27",
-    score: 80,
-  },
-  {
-    id: 56954528,
-    region: "台灣",
-    topic: "競品",
-    title: "台灣素食龍頭弘陽食品 投資4億打造首座綠電智慧新廠 - UDN",
-    summary: "同業大廠最新動態：'台灣素食龍頭弘陽食品 投資4億打造首座綠電智慧新廠 - UDN'。此動作反映了素食產業競爭格局的最新進展。",
-    impact: "分析同業大廠的市場佈局與產品定位，以制定我方的競爭防禦策略與產品研發策略。",
-    action: "評估同業此項動作對我方主力產品線的潛在競爭影響。",
-    owner: "產品研發",
-    source: "UDN",
-    url: "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1Bd2NJeXEySTBCX2NYc1QtWUdOZUJfY1F0WlZwRmRLM2lmdjlyR09ZN0ZQOG9uYUVxVUhxMGhUYVRCTFhjZXB0N09pUHExN09a0gFWQVVfeXFMTnFaRkVRSHc4dWVIMVZhczFERjZnZFh0Vm0tUGVtbWZBSXd5Um96a2tnbmNzUTg5czRwejFBc3NUbXBFbW02VTktOVlHV3phT2Z0UXhHRmc?oc=5",
-    priority: "中",
-    publishedAt: "2026-02-22",
-    collectedAt: "2026-07-27",
-    score: 80,
-  },
-{
-    id: 26502772,
-    region: "台灣",
-    topic: "消費趨勢",
-    title: "當蔬食遇見策展思維：一場打破所有想像的飲食革命 - 食力 foodNEXT",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'當蔬食遇見策展思維：一場打破所有想像的飲食革命 - 食力 foodNEXT'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiakFVX3lxTE03Z2l1ejJkcTAtUW4wWWpPTl93S1ZaMkVRZE9XckVWRTY3OFBVRzB5RE9jNXFnd1prTUhGdzZGNmdfNVZPWmtRdzRhSUJJZVkxMGtCVVFwOUhWZDY2RWxuRDVHTVdVZU9uNkE?oc=5",
-    priority: "中",
-    publishedAt: "2026-07-17",
-    collectedAt: "2026-07-26",
-    score: 70,
-  },
-{
-    id: 73064959,
-    region: "台灣",
-    topic: "消費趨勢",
-    title: "慈濟60週年「微光食刻」蔬食市集7/3華山開跑 50家品牌、台味到異國料理一次體驗 - 食力 foodNEXT",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'慈濟60週年「微光食刻」蔬食市集7/3華山開跑 50家品牌、台味到異國料理一次體驗 - 食力 foodNEXT'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1FdVJSTVhTUHVYcVVGLVJFWFVJd2tLS1YtLThMcmg1bWFrY1NzWnRaRm1UbXIwZVJBdENGYW5tUWJFYXI2X1hwRjduWW9oZFJiRGZHRXk2bHpSSDR5ZlZOTDk0Rjc?oc=5",
-    priority: "中",
-    publishedAt: "2026-07-03",
-    collectedAt: "2026-07-26",
-    score: 70,
-  },
-{
-    id: 68513944,
-    region: "台灣",
-    topic: "消費趨勢",
-    title: "尊重生命的餐桌！「常不輕Dandelion」以四季蔬食從關渡走向世界 - 食力 foodNEXT",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'尊重生命的餐桌！「常不輕Dandelion」以四季蔬食從關渡走向世界 - 食力 foodNEXT'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiZkFVX3lxTE92QXFEUVl6dUdIRnVRMm5BT0dCTEdhdXVpVE1YMUNka2xwaTRmVjd5empRMVI3M3phejNxYjJMRFUwSDZiS0doRzBDU2tIenJFVmRPQ19LTnBuRVhRX2ltUFJOenhVQQ?oc=5",
-    priority: "中",
-    publishedAt: "2025-08-11",
-    collectedAt: "2026-07-26",
-    score: 70,
-  },
-{
-    id: 79378257,
-    region: "台灣",
-    topic: "消費趨勢",
-    title: "Oatbedient 奇亞籽即溶燕麥奶 素食、乳糖不耐最安心的飲品選擇 - 食力 foodNEXT",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'Oatbedient 奇亞籽即溶燕麥奶 素食、乳糖不耐最安心的飲品選擇 - 食力 foodNEXT'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5vWC03VkdOMlBSZDJFMjdHSTRXYlhGUHBmZXIyRC14ZmlEYXE1QTJTN2lmVG9naVZJclZhNVFJU1FlcXV5TnlDT3BvR3JUTDY3ZXIwSmdPTFFLd2JUMUthOExLdXU2VTg?oc=5",
-    priority: "中",
-    publishedAt: "2025-06-12",
-    collectedAt: "2026-07-26",
-    score: 70,
-  },
-{
-    id: 41675041,
-    region: "台灣",
-    topic: "消費趨勢",
-    title: "慈濟60週年特展7/3～7/12華山登場 50家蔬食品牌進駐打造零廢棄市集 - 食力 foodNEXT",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'慈濟60週年特展7/3～7/12華山登場 50家蔬食品牌進駐打造零廢棄市集 - 食力 foodNEXT'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBBTDFpb3Z2czhaamJOdHRMNkNBdDBlSGgtS0pQdzFlSWVXclFFNU15cmZjTDBEb1JQekJ6WHcyYVRYaFU3OFBVNUw3XzNhSUN1TVlDLURBVnpGV091MER4QWltdVI?oc=5",
-    priority: "中",
-    publishedAt: "2026-05-22",
-    collectedAt: "2026-07-26",
-    score: 70,
-  },
-{
-    id: 47148721,
-    region: "美國",
-    topic: "消費趨勢",
-    title: "植物性食品市場規模、份額|產業報告 [2034] - 財富商業洞察",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'植物性食品市場規模、份額|產業報告 [2034] - 財富商業洞察'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "Fortune Business Insights",
-    url: "https://news.google.com/rss/articles/CBMiekFVX3lxTE9SaFFqWlI2aW1RQUFfS3NtRUVRWlhmSDB6VldjQVhWNTd6WjJfVXp0aEUyTmR3NGJ1NDZtNVZ4Q291T1lybm9wVXhQbHE2ZHVsUHRpSkl6UGhwQW9mVEsxZWUtZ1E2RF9rOVFZTUdwZndqUFQ4eXB2ak5R?oc=5",
-    priority: "中",
-    publishedAt: "2026-07-06",
-    collectedAt: "2026-07-26",
-    score: 70,
-  },
-{
-    id: 72579308,
-    region: "美國",
-    topic: "消費趨勢",
-    title: "Good Food Institute：2025 年植物性食品的表現如何？ - 食品成分第一",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'Good Food Institute：2025 年植物性食品的表現如何？ - 食品成分第一'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "Food Ingredients First",
-    url: "https://news.google.com/rss/articles/CBMilgFBVV95cUxQN3EtdGEtNHNFbGRtT3JOM0U3M29IX0FtT2FZSEdyLUJaeEE5bXgySzF5WW1raEZSZ3YtMS12VmJVZzdQQ2F1cTFSS3JLc3FlYmlUUXNzMTRxMFRVN3U2SkZTSDEtYUlibnBpT2FlVFdLdWo5ZTlZOWpQQmFBRnNXdHphSThvSkxYbV9IWHktbXlVU19WSXc?oc=5",
-    priority: "中",
-    publishedAt: "2026-01-08",
-    collectedAt: "2026-07-26",
-    score: 70,
-  },
-{
-    id: 69608295,
-    region: "美國",
-    topic: "消費趨勢",
-    title: "植物性牛皮紙通心粉和起司杯的味道和原味一樣好嗎？ - 叉子",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'植物性牛皮紙通心粉和起司杯的味道和原味一樣好嗎？ - 叉子'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "Sporked",
-    url: "https://news.google.com/rss/articles/CBMifkFVX3lxTE9vMHFweXhkb25wS21wYXhfckdQaUNnbWFid1JuOC14cWZPTWU3VDMwbVA4M09UektKc0FlUkFySGZmMk5MZHU5YU9KVlRIR1NnZDhUdVBjMVcwWjZ3cVllNFdOTFlpTlBMODFOVjFBeFNFUm5Wd1ljckU1ZEpLUQ?oc=5",
-    priority: "中",
-    publishedAt: "2025-08-27",
-    collectedAt: "2026-07-26",
-    score: 70,
-  },
-{
-    id: 27239778,
-    region: "美國",
-    topic: "新品",
-    title: "Steakholder Foods 將在美國推出植物性產品線 - foodengineeringmag.com",
-    summary: "新品上市動向：'Steakholder Foods 將在美國推出植物性產品線 - foodengineeringmag.com'。這顯示了該地區在替代蛋白或素食創新產品上的最新趨勢。",
-    impact: "研究該新品的口味、配方與主打客群，有助於齋滋味發掘適合台灣或出口市場的潛在產品方向。",
-    action: "評估此類新品是否有進行本地化開發與改良的商業價值。",
-    owner: "品牌行銷",
-    source: "foodengineeringmag.com",
-    url: "https://news.google.com/rss/articles/CBMirgFBVV95cUxOX0pvMEhoLXBoejB3ZFZGcFpoSWViZHRjdm41RXNsYjhRNGZNci1DVkRld2t1a0QxVHI4dHlkWkx0d2o4RFJPakRreTR3OUhndU5JOUVVZEdXR0pPclc2LUpkWUNqLW56UG1aOEhGOElvcUpOdEh0Q2dYNTZ6Wm1WZHFtOVBqYTBOR251U0ZqT0tONHptemdqZ3pXSlp3TXU0ZGtha1lVNWdhNUstRkE?oc=5",
-    priority: "中",
-    publishedAt: "2026-05-21",
-    collectedAt: "2026-07-26",
-    score: 75,
-  },
-{
-    id: 94133940,
-    region: "美國",
-    topic: "新品",
-    title: "🎥 新名稱，新策略：Bettani Farms 以「改變遊戲規則」的植物酪蛋白瞄準馬蘇里拉起司市場 - AgFunderNews",
-    summary: "新品上市動向：'🎥 新名稱，新策略：Bettani Farms 以「改變遊戲規則」的植物酪蛋白瞄準馬蘇里拉起司市場 - AgFunderNews'。這顯示了該地區在替代蛋白或素食創新產品上的最新趨勢。",
-    impact: "研究該新品的口味、配方與主打客群，有助於齋滋味發掘適合台灣或出口市場的潛在產品方向。",
-    action: "評估此類新品是否有進行本地化開發與改良的商業價值。",
-    owner: "品牌行銷",
-    source: "AgFunderNews",
-    url: "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPcjU3VElXcnhCTUJpcGx1LW9fTi1ydXdjMmxTbVVrbTFoYVQ1enVhcVBRbXhkUHFCTTRYZTJNQ1UwbXQwQVBxNllBMHg0MFgtbVJKQU5hLWJra3pSU2lfY2t1R1VsckY5cDZPSkw3RUFUNDFreHNvU3hjbFhiOGJLaFpxTHJZNEhlbHdNcF8yN3BhcERkeFJzM0s2bm9pSW1TVFkwWFR0MXh2R0toZkpFN2psaHZldGtMZnZDSFZweUVTRXBqcy1pRFh6NXJwNkVvT3Fz?oc=5",
-    priority: "中",
-    publishedAt: "2026-04-08",
-    collectedAt: "2026-07-26",
-    score: 75,
-  },
-{
-    id: 48319183,
-    region: "歐洲",
-    topic: "消費趨勢",
-    title: "歐洲植物基市場達 163 億歐元 - 食品製造",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'歐洲植物基市場達 163 億歐元 - 食品製造'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "Food Manufacture",
-    url: "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPQ0k0OTRaX21xcHMzNE1RZnJwUmxYLVJzRlpsQ0w2a2NoX0RQeVZQemx1dzh5SGppWlB2RnJFRDAycmFjaHFoYmgwQmk3N0R0emR6NnFjaTZMNW1XRFpVMVZ4YzdNZnRXaDJTcEExMTNZQjVYNzBiTENSaTdWamlFalRWTWEzUUZxVXZCa0J1c2c5cnVNSjBOdjUyTnVvVHhlUVNuczk0RmlNcDVmV2IwWWJzdE1QLWE3?oc=5",
-    priority: "中",
-    publishedAt: "2026-04-09",
-    collectedAt: "2026-07-26",
-    score: 70,
-  },
-{
-    id: 32536850,
-    region: "歐洲",
-    topic: "消費趨勢",
-    title: "對歐盟禁止素食產品上使用肉類產品名稱的法案感到沮喪 - 歐洲新聞室",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'對歐盟禁止素食產品上使用肉類產品名稱的法案感到沮喪 - 歐洲新聞室'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "European Newsroom",
-    url: "https://news.google.com/rss/articles/CBMikwFBVV95cUxPaVlibGpUbWdGVE8tSTRocWQtZTlUbGw1dklkY1M1cklYRnk5RGhPQnN3ZHNkdDZ0dUR3bThqSVpoQldVVG9tak9nQjNHU2c5dUI4ZmVtVDJNcDVVSWZVSlVORUFDQWpnTUpSVjM5cTBiM0MxX1BXLU5JUmhQaFZsRmtXcG1YYXp3cGExQUZZOGFjY0U?oc=5",
-    priority: "中",
-    publishedAt: "2025-10-07",
-    collectedAt: "2026-07-26",
-    score: 70,
-  },
-{
-    id: 97361474,
-    region: "歐洲",
-    topic: "消費趨勢",
-    title: "歐盟提議禁止植物性產品中的“肉類”術語對任何人都沒有好處 - 歐洲動物集團",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'歐盟提議禁止植物性產品中的“肉類”術語對任何人都沒有好處 - 歐洲動物集團'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "Eurogroup for Animals",
-    url: "https://news.google.com/rss/articles/CBMirwFBVV95cUxQLXlzMTI0cnNhRFhwVFBnU1lHOFp2Znl2bW53V2RELUswYWN4R3RqYlE4YkEwRGNEbmNjdzZfWTFPMzRYRlVFRXRXMWdCM1FQNTliTE9WMnJkdXV2S3NWdzR0TWNGX1hfY2s1RGJ4WnFKODJQSWVVLUVURW5OWlM0VGRhMEdaVHlPUXFzZGQ4VFlVVFpSQTZ4S2x4ZWFFUEx2MnNDaGM4ZnVQU2lPUVpn?oc=5",
-    priority: "中",
-    publishedAt: "2025-07-25",
-    collectedAt: "2026-07-26",
-    score: 70,
-  },
-{
-    id: 6168204,
-    region: "歐洲",
-    topic: "消費趨勢",
-    title: "到 2035 年，植物性食品市場可能會成長兩倍 - FoodNavigator.com",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'到 2035 年，植物性食品市場可能會成長兩倍 - FoodNavigator.com'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "FoodNavigator.com",
-    url: "https://news.google.com/rss/articles/CBMilgFBVV95cUxPX2Ftd3d0dUpqQ0NjRHQ3YTZXUHAwRkZYQXdSRFV4NTRMc09jY0JaZDAwU2EyX3JiU2gyamZWY2dPdmdpczNIcU5RaFNXb0tUNjJ6ZDlSWEY1UWVhQ0R6VDB1NXNQdjR4cm1UZGFIM1pCNkQwU1NITi1wZFNVZFlDcjBwUk5ic2xzaDRUYzIycWR5ZDVoUXc?oc=5",
-    priority: "中",
-    publishedAt: "2025-08-01",
-    collectedAt: "2026-07-26",
-    score: 70,
-  },
-{
-    id: 48975630,
-    region: "歐洲",
-    topic: "消費趨勢",
-    title: "不再吃素漢堡了嗎？歐盟國會投票禁止植物性食品使用肉類名稱 - BBC",
-    summary: "這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'不再吃素漢堡了嗎？歐盟國會投票禁止植物性食品使用肉類名稱 - BBC'。",
-    impact: "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。",
-    action: "追蹤此趨勢發展，評估是否納入下一階段產品規劃。",
-    owner: "品牌行銷",
-    source: "BBC",
-    url: "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5JeDhDVVlHSVNFcWptaDlBVmM3Y09sNk9yS1MwdHdwOTcwQk9Ha0N1VmVwQ0Mtbjk3OW5qdnhlTjRDSUUweDNFQ2tEbUlnRV9aQ1k4eE1vMS1oUQ?oc=5",
-    priority: "中",
-    publishedAt: "2025-10-08",
-    collectedAt: "2026-07-26",
-    score: 70,
   }
 ];
 
@@ -839,12 +359,37 @@ const freshIntelligence = intelligence.filter((item) => {
 const highPriorityCount = freshIntelligence.filter((item) => item.priority === "高").length;
 const formatDate = (date: string) => date.replaceAll("-", "/");
 
+// ── Topic Trend (past 30 days) ──────────────────────────────
+const trendCutoff = new Date();
+trendCutoff.setDate(trendCutoff.getDate() - 30);
+const topicColorMap: Record<string, string> = {
+  "新品": "#7C9270",
+  "通路價格": "#C89B3C",
+  "競品": "#9C3B2B",
+  "消費趨勢": "#16301F",
+  "原料技術": "#48594A",
+  "法規標示": "#3B4C63",
+};
+const topicTrend = (["競品", "消費趨勢", "新品", "通路價格", "原料技術", "法規標示"] as Exclude<Topic, "全部主題">[]).map(t => ({
+  topic: t,
+  count: freshIntelligence.filter(i => {
+    const d = new Date(`${i.publishedAt}T00:00:00+08:00`);
+    return i.topic === t && d >= trendCutoff;
+  }).length,
+  color: topicColorMap[t],
+})).sort((a, b) => b.count - a.count);
+const maxTopicCount = Math.max(...topicTrend.map(t => t.count), 1);
+
+// ── Region Heat Counts ───────────────────────────────────────
+const regionHeatCounts: Record<string, number> = { "台灣": 0, "美國": 0, "澳洲": 0, "歐洲": 0 };
+freshIntelligence.forEach(i => { if (regionHeatCounts[i.region] !== undefined) regionHeatCounts[i.region]++; });
+const maxRegionHeat = Math.max(...Object.values(regionHeatCounts), 1);
+
 const industryWatch = [
-  { brand: "弘陽生技", status: "有更新", date: "2026-02-22", update: "投資 4 億元打造綠電智慧新廠，產能與外銷布局值得追蹤。", url: "https://udn.com/news/story/7241/9337788" },
-  { brand: "大成新食成", status: "有更新", date: "2026-06-24", update: "植物蛋產品預計 7 月在台上市，關注定價、通路與消費者反應。", url: "https://www.cna.com.tw/news/afe/202606240229.aspx" },
-  { brand: "松珍", status: "監測中", date: "2026-07-22", update: "今日未發現可驗證的重大新事件；持續追蹤新品、通路與海外合作。" },
-  { brand: "三機食品", status: "監測中", date: "2026-07-22", update: "官網揭露 2026 新加坡國際食品展動向，持續追蹤海外通路成果。", url: "https://sungift.tw/" },
-  { brand: "全廣食品", status: "監測中", date: "2026-07-22", update: "持續追蹤新品、產能、代工合作及外銷市場動向。", url: "https://www.ckfoods.com.tw/" },
+  { brand: "弘陽生技", status: "有更新", date: "2026-07-27", update: "偵測到近 7 天內有新訊，請點擊連結確認最新動態。", url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBLUzk5bHJqcEFxWnFHTDItRzlzZlE1SVRhanFNUkxYNkpNU3ZMU29vbjcta05JTkZtN1J2d1Z4VWRVYTBJMHJrSXAzeVM3V1hxUXhwVGJSYXhPbkxaalZn0gFkQVVfeXFMUFpvRXhlSmJnTDNLWHRjT290aW9zdmJ1c0k5ZmdfZUNXaUVNaFA4blNRWTJPc2c0Wm9ObmNfdzNuLXl3TEhsb0ZWaGdlMDl5Y3pNMi1LZm9tOU9RV0tUMVlaMXA5Ug?oc=5" },
+  { brand: "大成新食成", status: "有更新", date: "2026-07-27", update: "偵測到近 7 天內有新訊，請點擊連結確認最新動態。", url: "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1ISmNnY25JY0dWblhaanJGX0NVZW5kSlR3SG8yTHI4VTl4OEZwSDJad0F6VmVSWTNqVWZ2TTdETVJfWHZELWl6ODBLNlpmemZ5WFJKUmdRbEtLV2h4cVE?oc=5" },
+  { brand: "松珍", status: "有更新", date: "2026-07-27", update: "偵測到近 7 天內有新訊，請點擊連結確認最新動態。", url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBUSTFyX2JYOXhubkV1dTR0Y1ZzNTdweG5BWkFTQmw4cWVDN2xzOW5EQjlMY040RHV5OWl0NzdYX3gtMlVLaTI0MGdQTlBCMzNlRVVfZnVyVFJFaVEyUmx3?oc=5" },
+  { brand: "Beyond Meat", status: "有更新", date: "2026-07-27", update: "偵測到近 7 天內有新訊，請點擊連結確認最新動態。", url: "https://news.google.com/rss/articles/CBMixwFBVV95cUxPblo0MS0yN1poeEEwTmJXYmJNeC1XMU5STXpqbk1NZlZzc3R4NFM1dEJpSDNzMmhJU2l5YmZCUUhqc2taRTQwVUlnanVvdDU5VVVKNjY2aF9fSVNpbmE1cktwMFQ2T3dSMkZrRVNVcWVIM3dDdjlXcHczMmlLaDZSYU84LVZMdnJOSmhwaklhTlpOQkh1d1lXcEFwVVktUXVaQWo2dlRlTFJ2U0ZJZGpZalphekc2NmdrMDFVSnNfM0p0TExOTzRz?oc=5" }
 ];
 
 type ReputationItem = {
@@ -1025,7 +570,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-07-27T04:12:43+08:00">2026/07/27 04:12</time></div>
+          <div>最後更新：<time dateTime="2026-07-27T19:58:04+08:00">2026/07/27 19:58</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -1056,8 +601,92 @@ export default function Home() {
         <section className="market-section" id="markets">
           <div className="section-title">
             <div><p className="section-kicker">MARKET PULSE</p><h2>四大市場溫度</h2></div>
-            <p>點選市場，展開驅動因素、風險與齋之味機會</p>
+            <p>點選市場展開判讀・地圖顏色越深代表近期情報越多</p>
           </div>
+
+          {/* ── World Heat Map ── */}
+          <div className="heat-map-wrapper">
+            <div className="heat-map-header">
+              <strong>🌏 全球市場情報熱力圖</strong>
+              <span>點擊地區 → 切換市場判讀・顏色越深＝情報越多</span>
+            </div>
+            <svg className="heat-map-svg" viewBox="0 0 860 360" xmlns="http://www.w3.org/2000/svg" aria-label="全球市場情報熱力圖">
+              {/* Ocean background */}
+              <rect width="860" height="360" fill="#D8E6DF"/>
+              {/* Graticule */}
+              {[60,120,180,240,300].map((y,i)=><line key={`h${i}`} x1="0" y1={y} x2="860" y2={y} stroke="#C2D4CA" strokeWidth="0.6"/>)}
+              {[66,132,198,264,330,396,462,528,594,660,726,792].map((x,i)=><line key={`v${i}`} x1={x} y1="0" x2={x} y2="360" stroke="#C2D4CA" strokeWidth="0.6"/>)}
+
+              {/* ── USA ── */}
+              <path
+                d="M 68,88 L 88,80 L 125,76 L 168,78 L 198,86 L 215,100 L 218,118 L 210,138 L 192,154 L 165,162 L 135,160 L 105,150 L 78,135 L 65,118 Z"
+                fill={`hsl(8, ${40 + Math.round((regionHeatCounts["美國"] / maxRegionHeat) * 42)}%, ${62 - Math.round((regionHeatCounts["美國"] / maxRegionHeat) * 32)}%)`}
+                stroke={selectedMarket === "美國" ? "#17301F" : "rgba(255,255,255,0.3)"}
+                strokeWidth={selectedMarket === "美國" ? "3" : "1"}
+                className="heat-region"
+                onClick={() => { setSelectedMarket("美國"); changeRegion("美國"); }}
+                role="button" tabIndex={0}
+                onKeyDown={e => { if (e.key === "Enter") { setSelectedMarket("美國"); changeRegion("美國"); } }}
+                aria-label={`美國 - ${regionHeatCounts["美國"]} 則情報`}
+              />
+              <text x="141" y="116" fontSize="12" fontWeight="700" fill="white" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>美國</text>
+              <text x="141" y="131" fontSize="9.5" fill="rgba(255,255,255,0.85)" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>{regionHeatCounts["美國"]} 則</text>
+
+              {/* ── Europe ── */}
+              <path
+                d="M 392,72 L 422,66 L 452,70 L 472,82 L 476,100 L 470,118 L 456,130 L 436,135 L 415,128 L 398,112 L 388,94 Z"
+                fill={`hsl(215, ${30 + Math.round((regionHeatCounts["歐洲"] / maxRegionHeat) * 42)}%, ${58 - Math.round((regionHeatCounts["歐洲"] / maxRegionHeat) * 28)}%)`}
+                stroke={selectedMarket === "歐洲" ? "#17301F" : "rgba(255,255,255,0.3)"}
+                strokeWidth={selectedMarket === "歐洲" ? "3" : "1"}
+                className="heat-region"
+                onClick={() => { setSelectedMarket("歐洲"); changeRegion("歐洲"); }}
+                role="button" tabIndex={0}
+                onKeyDown={e => { if (e.key === "Enter") { setSelectedMarket("歐洲"); changeRegion("歐洲"); } }}
+                aria-label={`歐洲 - ${regionHeatCounts["歐洲"]} 則情報`}
+              />
+              <text x="432" y="97" fontSize="12" fontWeight="700" fill="white" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>歐洲</text>
+              <text x="432" y="112" fontSize="9.5" fill="rgba(255,255,255,0.85)" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>{regionHeatCounts["歐洲"]} 則</text>
+
+              {/* ── Australia ── */}
+              <path
+                d="M 622,244 L 680,236 L 720,248 L 740,268 L 738,296 L 722,316 L 696,325 L 664,318 L 638,298 L 622,272 Z"
+                fill={`hsl(38, ${42 + Math.round((regionHeatCounts["澳洲"] / maxRegionHeat) * 38)}%, ${62 - Math.round((regionHeatCounts["澳洲"] / maxRegionHeat) * 28)}%)`}
+                stroke={selectedMarket === "澳洲" ? "#17301F" : "rgba(255,255,255,0.3)"}
+                strokeWidth={selectedMarket === "澳洲" ? "3" : "1"}
+                className="heat-region"
+                onClick={() => { setSelectedMarket("澳洲"); changeRegion("澳洲"); }}
+                role="button" tabIndex={0}
+                onKeyDown={e => { if (e.key === "Enter") { setSelectedMarket("澳洲"); changeRegion("澳洲"); } }}
+                aria-label={`澳洲 - ${regionHeatCounts["澳洲"]} 則情報`}
+              />
+              <text x="681" y="281" fontSize="12" fontWeight="700" fill="white" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>澳洲</text>
+              <text x="681" y="296" fontSize="9.5" fill="rgba(255,255,255,0.85)" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>{regionHeatCounts["澳洲"]} 則</text>
+
+              {/* ── Taiwan (callout line + ellipse island) ── */}
+              <line x1="700" y1="140" x2="742" y2="108" stroke="#17301F" strokeWidth="1" strokeDasharray="4,2" opacity="0.55"/>
+              <ellipse
+                cx="700" cy="162" rx="14" ry="21"
+                fill={`hsl(135, ${40 + Math.round((regionHeatCounts["台灣"] / maxRegionHeat) * 38)}%, ${36 - Math.round((regionHeatCounts["台灣"] / maxRegionHeat) * 12)}%)`}
+                stroke={selectedMarket === "台灣" ? "#C89B3C" : "rgba(255,255,255,0.3)"}
+                strokeWidth={selectedMarket === "台灣" ? "3" : "1"}
+                className="heat-region"
+                onClick={() => { setSelectedMarket("台灣"); changeRegion("台灣"); }}
+                role="button" tabIndex={0}
+                onKeyDown={e => { if (e.key === "Enter") { setSelectedMarket("台灣"); changeRegion("台灣"); } }}
+                aria-label={`台灣 - ${regionHeatCounts["台灣"]} 則情報`}
+              />
+              <text x="762" y="105" fontSize="12" fontWeight="700" fill="#17301F" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>台灣</text>
+              <text x="762" y="120" fontSize="9.5" fill="#48594A" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>{regionHeatCounts["台灣"]} 則</text>
+
+              {/* Legend */}
+              <rect x="12" y="330" width="10" height="10" fill="#B8CFCA" rx="2"/>
+              <text x="27" y="335" fontSize="9" fill="#48594A" dominantBaseline="middle">情報較少</text>
+              <rect x="88" y="330" width="10" height="10" fill="#3D6A4A" rx="2"/>
+              <text x="103" y="335" fontSize="9" fill="#48594A" dominantBaseline="middle">情報較多</text>
+              <text x="860" y="352" fontSize="8" fill="#8FA498" textAnchor="end" dominantBaseline="middle">形狀為示意簡化圖</text>
+            </svg>
+          </div>
+
           <div className="pulse-grid">
             {marketPulse.map((market) => (
               <button key={market.region} className={`pulse-card ${selectedMarket === market.region ? "selected" : ""}`} aria-pressed={selectedMarket === market.region} onClick={() => { setSelectedMarket(market.region); changeRegion(market.region as Region); }}>
@@ -1092,12 +721,45 @@ export default function Home() {
           <div className="industry-grid">
             {industryWatch.map((item) => (
               <article className="watch-card" key={item.brand}>
-                <div><h3>{item.brand}</h3><b className={item.status === "有更新" ? "updated" : "watching"}>{item.status}</b></div>
-                <time>事件／檢查日期 {formatDate(item.date)}</time>
-                <p>{item.update}</p>
-                {item.url && <a href={item.url} target="_blank" rel="noreferrer">查看來源 ↗</a>}
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:"8px",flexWrap:"wrap"}}>
+                  <div style={{display:"flex",alignItems:"center",gap:"8px"}}>
+                    <h3 style={{margin:0}}>{item.brand}</h3>
+                    <b className={(item as any).status === "有更新" ? "updated" : "watching"}>{(item as any).status}</b>
+                  </div>
+                  {(item as any).isMajor && <span className="major-badge">🔴 重大異動</span>}
+                </div>
+                <time>事件／檢查日期 {formatDate((item as any).date)}</time>
+                <p>{(item as any).update}</p>
+                {(item as any).url && <a href={(item as any).url} target="_blank" rel="noreferrer">查看來源 ↗</a>}
               </article>
             ))}
+          </div>
+        </section>
+
+        {/* ── Topic Trend Chart ── */}
+        <section className="trend-section" aria-labelledby="trend-title">
+          <div className="trend-inner">
+            <div className="trend-header">
+              <div>
+                <p className="section-kicker">INTELLIGENCE TRENDS</p>
+                <h2 id="trend-title">近 30 天主題熱度</h2>
+              </div>
+              <span>依近 30 天收錄情報統計，反映市場近期討論重心</span>
+            </div>
+            <div className="trend-chart" role="img" aria-label="近 30 天各主題情報數量分布">
+              {topicTrend.map(({ topic, count, color }) => (
+                <div className={`trend-row${count === 0 ? " trend-zero" : ""}`} key={topic}>
+                  <span className="trend-label">{topic}</span>
+                  <div className="trend-bar-bg">
+                    <div
+                      className="trend-bar-fill"
+                      style={{ width: `${Math.max((count / maxTopicCount) * 100, count > 0 ? 1 : 0)}%`, background: color }}
+                    />
+                  </div>
+                  <span className="trend-count">{count} 則</span>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -1180,7 +842,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/07/27 04:12。</p>
+              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/07/27 19:58。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
