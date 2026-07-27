@@ -449,7 +449,7 @@ for item in new_analyzed_items:
   }}"""
     new_items_blocks.append(block)
 
-# Combine and apply 1.5-year (18-month) freshness filter, then limit to 50 items
+# Combine and apply 1.5-year (18-month) freshness filter, then keep top 20 by score
 from datetime import timedelta
 cutoff_date = datetime.now() - timedelta(days=548)  # ~18 months
 
@@ -462,10 +462,16 @@ def get_published_date(block):
             pass
     return None
 
+def get_score(block):
+    m = re.search(r'score:\s*(\d+)', block)
+    return int(m.group(1)) if m else 0
+
 all_blocks = new_items_blocks + items_blocks
 all_blocks = [b for b in all_blocks if (get_published_date(b) or cutoff_date) >= cutoff_date]
-all_blocks = all_blocks[:50]
-print(f"After 1.5-year filter: {len(all_blocks)} items retained.")
+# Sort by score descending to keep only the most important items
+all_blocks.sort(key=get_score, reverse=True)
+all_blocks = all_blocks[:20]
+print(f"After 1.5-year filter and top-score selection: {len(all_blocks)} items retained.")
 
 combined_array_body = ",\n".join(all_blocks)
 

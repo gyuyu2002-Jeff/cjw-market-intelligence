@@ -926,7 +926,6 @@ export default function Home() {
   const [sourceFilter, setSourceFilter] = useState<SourceFilter>("全部來源");
   const [query, setQuery] = useState("");
   const [saved, setSaved] = useState<number[]>([]);
-  const [showAll, setShowAll] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId>("today");
   const [selectedMarket, setSelectedMarket] = useState("台灣");
   const manualNavigationUntil = useRef(0);
@@ -958,7 +957,7 @@ export default function Home() {
     }).sort((a, b) => b.score - a.score);
   }, [region, topic, sourceFilter, query]);
 
-  const visible = showAll ? filtered : filtered.slice(0, 5);
+  const visible = filtered;
   const selectedPulse = marketPulse.find((market) => market.region === selectedMarket) ?? marketPulse[0];
   const toggleSaved = (id: number) => {
     setSaved((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]);
@@ -1173,7 +1172,6 @@ export default function Home() {
                   </article>
                 );
               }) : <div className="empty"><strong>找不到符合條件的情報</strong><p>試著清除搜尋文字或切換市場。</p></div>}
-              {filtered.length > 5 && <button className="load-more" onClick={() => setShowAll(!showAll)}>{showAll ? "收合情報" : `查看其餘 ${filtered.length - 5} 則情報`}</button>}
           </div>
         </section>
 
