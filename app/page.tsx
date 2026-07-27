@@ -42,6 +42,166 @@ const intelligence: Intelligence[] = [
     score: 90,
   },
   {
+    id: 45619413,
+    region: "台灣",
+    topic: "原料技術",
+    title: "食藥署預告新制 外送員須上食安教育訓練 - 公視新聞網PNN",
+    summary: "食品安全與品質與品質管控事件：'食藥署預告新制 外送員須上食安教育訓練 - 公視新聞網PNN'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "公視新聞網PNN",
+    url: "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBHQm5ReXFwczFqbnNJLWtFV2xFY1l2RXNMWFZwRFhjYXZHYjI3UE52c2JTTnlSaXBfMzFKSVdpa3V1Q1BPdWRZUUxMc2l1SG8?oc=5",
+    priority: "高",
+    publishedAt: "2026-06-06",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
+    id: 52297431,
+    region: "台灣",
+    topic: "原料技術",
+    title: "午餐品質與衛生雙提升！ 中市教育局、食安處推校園午餐研習 共築校園食品安全防線 - taichung.gov.tw",
+    summary: "食品安全與品質與品質管控事件：'午餐品質與衛生雙提升！ 中市教育局、食安處推校園午餐研習 共築校園食品安全防線 - taichung.gov.tw'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "taichung.gov.tw",
+    url: "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9XRldxdThRdFhQbmpIVHJSbTItUFl3d1JwOGRRdVRZRi1nNi1GRFlic0VTU0lIdl9lMnB6QjJQZE9CdnhuQlhMTDJ5by1nRnBPMnQ1Q0lpY05qQW1sb1cweg?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-07",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
+    id: 5650183,
+    region: "台灣",
+    topic: "原料技術",
+    title: "食安可放寬 信任不能打折 - 經濟日報",
+    summary: "食品安全與品質與品質管控事件：'食安可放寬 信任不能打折 - 經濟日報'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "經濟日報",
+    url: "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA3UldQWHJIaTdKWFFFTzFleXlINzlRTmpHMzlvZkJ0Z2U5cHB4ZjAtS1RkUXBQWmo3OVptWkdaU083UlFIVkx4YVhNSkxOcDNhaEtxV1FMcVRod9IBX0FVX3lxTFBIMmtjbHJzbWFSVGZNd1p4N3F6UW5MSkZXWVZRWS1XRVQyWHFiRWNkLW5SeW1BZnlCZzc0U21sRFJ6OS1FQ3pac2xHRWgzUEh4aFR1VUZ0OFZHNlhubmJn?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-21",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
+    id: 19095539,
+    region: "台灣",
+    topic: "原料技術",
+    title: "中聯油品釀食安爭議民進黨團支持修食安法| 政治 - 中央社 CNA",
+    summary: "食品安全與品質與品質管控事件：'中聯油品釀食安爭議民進黨團支持修食安法| 政治 - 中央社 CNA'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "中央社 CNA",
+    url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5DbEQ3WU1DdVV2QUs5ZXR2a25Ja2ZCUVJuMVZzT2ltc2M5Tms5MVVkSjJoVzNnYS1yemxZaHI5R2RIcDd1MTlHamg4VkdCMUFtY1IxaThqMVBvTElHNGp3?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-13",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
+    id: 64104792,
+    region: "台灣",
+    topic: "原料技術",
+    title: "食安不分你我！中市持續追查回收問題油品 明攜手各縣市研商食安精進作為 - taichung.gov.tw",
+    summary: "食品安全與品質與品質管控事件：'食安不分你我！中市持續追查回收問題油品 明攜手各縣市研商食安精進作為 - taichung.gov.tw'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "taichung.gov.tw",
+    url: "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBueTdjcThCckQzb3FyNm9Gdm1qRWJhb3pCcTMxLW9QOHlYM1Y5bks5TGhTX25wSkd2YkFJeHR4TFg1VFlnTnJUaUFkbmEzLWRsZnc?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-20",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
+    id: 29694607,
+    region: "台灣",
+    topic: "原料技術",
+    title: "抗藥性、食品和食用動物|食品安全 - 疾病管制與預防中心 |疾病預防控制中心 (.gov)",
+    summary: "食品安全與品質與品質管控事件：'抗藥性、食品和食用動物|食品安全 - 疾病管制與預防中心 |疾病預防控制中心 (.gov)'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "Centers for Disease Control and Prevention | CDC (.gov)",
+    url: "https://news.google.com/rss/articles/CBMiakFVX3lxTFBqZ0tIS25zUlZINjBnMnNSbjVWZzdvb3RQUWhvWGs4VzV3VmxYWXBmcW5pYjJyd096LU93dVRyWG5kdHFvdU9mRnE0V0dFeHZPX2E0N1NORTBubERPaW9oaV9pUE5OdEtrMGc?oc=5",
+    priority: "高",
+    publishedAt: "2025-11-25",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
+    id: 3504456,
+    region: "台灣",
+    topic: "原料技術",
+    title: "吃掉還是丟掉？測試您的食品安全知識。 - 華盛頓郵報",
+    summary: "食品安全與品質與品質管控事件：'吃掉還是丟掉？測試您的食品安全知識。 - 華盛頓郵報'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "The Washington Post",
+    url: "https://news.google.com/rss/articles/CBMiswFBVV95cUxNNjJqX1lRUjZIVVN3eE84YWIwdVBJczFtd2w2NTBCQ25nTlZ2OG44Q1FFNVZGaldGS0dKc3BZTUhVMUVGWk1NUndPcnkyV05fWE9Ma2xqYVJKX0xuTGwwWElaWlFqdVFfcmxxYU5rNjNUdnZSRTNvZmIzRWFfTGdPaHBBanZWbmJvWVpJN0RvNU1uS0x3bG04VGhWQzZrbERCMG4xYXNkWDg4SldBdmZUejl1dw?oc=5",
+    priority: "高",
+    publishedAt: "2026-06-09",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
+    id: 59540557,
+    region: "台灣",
+    topic: "原料技術",
+    title: "有助於在家預防環孢子蟲病的食品安全提示 - ABC 新聞 - 突發新聞、最新新聞和視頻",
+    summary: "食品安全與品質與品質管控事件：'有助於在家預防環孢子蟲病的食品安全提示 - ABC 新聞 - 突發新聞、最新新聞和視頻'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "ABC News - Breaking News, Latest News and Videos",
+    url: "https://news.google.com/rss/articles/CBMilwFBVV95cUxPckk2cjRHLUUxR0JIcTlTUUcwUjh6Wi1SeTZreWpucXhaSzMwUkxGbEJyblZhbEJVVTlvYU5ad01HSEQtZzB2X3Y0QlU0N2FOWThxSkMzQVZHQThRTElodjdtS3VCazgzUTJtVGlBX214aDJLdmZKNU0xS0dOV3lLSkd3OTJ6Y1VBLURsWHRadUJNMmp0blpR0gGcAUFVX3lxTFA5TFJsaUhDVmhsQnhHSnRYNHFzNjZXTTFLRW90a2Fzdi1hMm53dTVYMEx0Tjc0MWNYSjZ4cU16U25zWVJIVE9IYk5uY19Ma3k5dlo5WHQtYWYwa0liQXZBNnd5NHhPak5XdUxOV2FHN1pXTWx1Q0pTWDNHVkdwdEE5SnIzUXBvYkUtWHpTYzN6aTZsc2E0SHU5UGh3cw?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-13",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
+    id: 34071360,
+    region: "台灣",
+    topic: "原料技術",
+    title: "啟動世界衛生組織食品安全路線圖開發工具 - 世界衛生組織 (WHO)",
+    summary: "食品安全與品質與品質管控事件：'啟動世界衛生組織食品安全路線圖開發工具 - 世界衛生組織 (WHO)'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "World Health Organization (WHO)",
+    url: "https://news.google.com/rss/articles/CBMixAFBVV95cUxOdnVxVE4tZkdzOUNKRlZLc1hKTTktakpVOVJYblpiUjhGR190WU5TMURjVnI0QVNOeXA5MFJ6ZU1KcjhBdDAtWWlsa21KWXFsckNESWNfNUhTc2N3Z1Q1anhzcEtPSXNERXJpVW1pVFczZ1BKVmZyV0x3S2F1R1dKSW9EdkJEWUhZaFNYbHlRbzdMSXVseGZNcXF2enhNNE5TZVpVUUdmZzhWUXZ3ZHNYVlh5UEFDemFrdXBVTFhWMUE3TTho?oc=5",
+    priority: "高",
+    publishedAt: "2026-06-03",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
+    id: 83017179,
+    region: "台灣",
+    topic: "原料技術",
+    title: "不，您不應因環孢菌而避免食用水果和蔬菜 - 消費者報告",
+    summary: "食品安全與品質與品質管控事件：'不，您不應因環孢菌而避免食用水果和蔬菜 - 消費者報告'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "Consumer Reports",
+    url: "https://news.google.com/rss/articles/CBMivwFBVV95cUxOTWdEUHV5a2xOOXZlRHNIUC1yQVhtSnk4RzF5LURocnNiY3hPZzZOTU5jVXFIT3Z4NmRwOWVQNjNjdkxlQkZ3OWE2V0huV2NRM1FDMWJuYlVXWWN2cm82MTdBaWlOYmdEZE41bDF2dWE0bDh0d0VVNDlWdUpuNFo4S2NwU0sxcEVWSUlxUHd2dV9aVlFra0c2VVU2STg3bnVNWF82LUJnLUJpRVp2OENHZEkzN0xRU000eVRIMDFOYw?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-24",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+{
     id: 75562629,
     region: "台灣",
     topic: "原料技術",
@@ -57,7 +217,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 14934181,
     region: "台灣",
     topic: "原料技術",
@@ -73,7 +233,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 30589980,
     region: "台灣",
     topic: "原料技術",
@@ -89,7 +249,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 75101234,
     region: "台灣",
     topic: "原料技術",
@@ -105,7 +265,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 69747933,
     region: "台灣",
     topic: "原料技術",
@@ -121,7 +281,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 74493146,
     region: "台灣",
     topic: "原料技術",
@@ -137,7 +297,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 87199837,
     region: "台灣",
     topic: "原料技術",
@@ -153,7 +313,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 33783750,
     region: "台灣",
     topic: "原料技術",
@@ -169,7 +329,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 84267605,
     region: "台灣",
     topic: "原料技術",
@@ -185,7 +345,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-07-27",
     score: 85,
   },
-  {
+{
     id: 67948669,
     region: "台灣",
     topic: "原料技術",
@@ -380,16 +540,13 @@ const topicTrend = (["競品", "消費趨勢", "新品", "通路價格", "原料
 })).sort((a, b) => b.count - a.count);
 const maxTopicCount = Math.max(...topicTrend.map(t => t.count), 1);
 
-// ── Region Heat Counts ───────────────────────────────────────
-const regionHeatCounts: Record<string, number> = { "台灣": 0, "美國": 0, "澳洲": 0, "歐洲": 0 };
-freshIntelligence.forEach(i => { if (regionHeatCounts[i.region] !== undefined) regionHeatCounts[i.region]++; });
-const maxRegionHeat = Math.max(...Object.values(regionHeatCounts), 1);
+
 
 const industryWatch = [
   { brand: "弘陽生技", status: "有更新", date: "2026-07-27", update: "偵測到近 7 天內有新訊，請點擊連結確認最新動態。", url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBLUzk5bHJqcEFxWnFHTDItRzlzZlE1SVRhanFNUkxYNkpNU3ZMU29vbjcta05JTkZtN1J2d1Z4VWRVYTBJMHJrSXAzeVM3V1hxUXhwVGJSYXhPbkxaalZn0gFkQVVfeXFMUFpvRXhlSmJnTDNLWHRjT290aW9zdmJ1c0k5ZmdfZUNXaUVNaFA4blNRWTJPc2c0Wm9ObmNfdzNuLXl3TEhsb0ZWaGdlMDl5Y3pNMi1LZm9tOU9RV0tUMVlaMXA5Ug?oc=5" },
   { brand: "大成新食成", status: "有更新", date: "2026-07-27", update: "偵測到近 7 天內有新訊，請點擊連結確認最新動態。", url: "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1ISmNnY25JY0dWblhaanJGX0NVZW5kSlR3SG8yTHI4VTl4OEZwSDJad0F6VmVSWTNqVWZ2TTdETVJfWHZELWl6ODBLNlpmemZ5WFJKUmdRbEtLV2h4cVE?oc=5" },
   { brand: "松珍", status: "有更新", date: "2026-07-27", update: "偵測到近 7 天內有新訊，請點擊連結確認最新動態。", url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBUSTFyX2JYOXhubkV1dTR0Y1ZzNTdweG5BWkFTQmw4cWVDN2xzOW5EQjlMY040RHV5OWl0NzdYX3gtMlVLaTI0MGdQTlBCMzNlRVVfZnVyVFJFaVEyUmx3?oc=5" },
-  { brand: "Beyond Meat", status: "有更新", date: "2026-07-27", update: "偵測到近 7 天內有新訊，請點擊連結確認最新動態。", url: "https://news.google.com/rss/articles/CBMixwFBVV95cUxPblo0MS0yN1poeEEwTmJXYmJNeC1XMU5STXpqbk1NZlZzc3R4NFM1dEJpSDNzMmhJU2l5YmZCUUhqc2taRTQwVUlnanVvdDU5VVVKNjY2aF9fSVNpbmE1cktwMFQ2T3dSMkZrRVNVcWVIM3dDdjlXcHczMmlLaDZSYU84LVZMdnJOSmhwaklhTlpOQkh1d1lXcEFwVVktUXVaQWo2dlRlTFJ2U0ZJZGpZalphekc2NmdrMDFVSnNfM0p0TExOTzRz?oc=5" }
+  { brand: "Beyond Meat", status: "有更新", date: "2026-07-27", update: "偵測到近 7 天內有新訊，請點擊連結確認最新動態。", url: "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQNmc2WnZjR1RpZ0FSRDRNWUYtYnVONW9GSGptQzBNX1NZclZFRUR2MTJsWjd3TTVUbktBZUFYRS12VEpFQWl1ZmFLNmllOE1KWkZ5ZXZ6S2Faa0JXS2t2SmNiSE1qb0FqRjA1WS1sRzFITjlwZlNIRUdoLUw2WnpFM0FvVjM3VWY0dzZvUnZGa2NvR3JrTDhoRWkxbEszRmQ1WEFGTThLRzYwOXZuRUpHWkgtLWRhWGsyZ1dxTzI1RHM2Mkd3QkhQSGJvYXUwcDU5SEI0aGFXWV8wRy1TdmNZbGhn?oc=5" }
 ];
 
 type ReputationItem = {
@@ -570,7 +727,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-07-27T19:58:04+08:00">2026/07/27 19:58</time></div>
+          <div>最後更新：<time dateTime="2026-07-27T20:04:00+08:00">2026/07/27 20:04</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -601,91 +758,10 @@ export default function Home() {
         <section className="market-section" id="markets">
           <div className="section-title">
             <div><p className="section-kicker">MARKET PULSE</p><h2>四大市場溫度</h2></div>
-            <p>點選市場展開判讀・地圖顏色越深代表近期情報越多</p>
+            <p>點選市場展開判讀・掌握各區域最新趨勢</p>
           </div>
 
-          {/* ── World Heat Map ── */}
-          <div className="heat-map-wrapper">
-            <div className="heat-map-header">
-              <strong>🌏 全球市場情報熱力圖</strong>
-              <span>點擊地區 → 切換市場判讀・顏色越深＝情報越多</span>
-            </div>
-            <svg className="heat-map-svg" viewBox="0 0 860 360" xmlns="http://www.w3.org/2000/svg" aria-label="全球市場情報熱力圖">
-              {/* Ocean background */}
-              <rect width="860" height="360" fill="#D8E6DF"/>
-              {/* Graticule */}
-              {[60,120,180,240,300].map((y,i)=><line key={`h${i}`} x1="0" y1={y} x2="860" y2={y} stroke="#C2D4CA" strokeWidth="0.6"/>)}
-              {[66,132,198,264,330,396,462,528,594,660,726,792].map((x,i)=><line key={`v${i}`} x1={x} y1="0" x2={x} y2="360" stroke="#C2D4CA" strokeWidth="0.6"/>)}
 
-              {/* ── USA ── */}
-              <path
-                d="M 68,88 L 88,80 L 125,76 L 168,78 L 198,86 L 215,100 L 218,118 L 210,138 L 192,154 L 165,162 L 135,160 L 105,150 L 78,135 L 65,118 Z"
-                fill={`hsl(8, ${40 + Math.round((regionHeatCounts["美國"] / maxRegionHeat) * 42)}%, ${62 - Math.round((regionHeatCounts["美國"] / maxRegionHeat) * 32)}%)`}
-                stroke={selectedMarket === "美國" ? "#17301F" : "rgba(255,255,255,0.3)"}
-                strokeWidth={selectedMarket === "美國" ? "3" : "1"}
-                className="heat-region"
-                onClick={() => { setSelectedMarket("美國"); changeRegion("美國"); }}
-                role="button" tabIndex={0}
-                onKeyDown={e => { if (e.key === "Enter") { setSelectedMarket("美國"); changeRegion("美國"); } }}
-                aria-label={`美國 - ${regionHeatCounts["美國"]} 則情報`}
-              />
-              <text x="141" y="116" fontSize="12" fontWeight="700" fill="white" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>美國</text>
-              <text x="141" y="131" fontSize="9.5" fill="rgba(255,255,255,0.85)" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>{regionHeatCounts["美國"]} 則</text>
-
-              {/* ── Europe ── */}
-              <path
-                d="M 392,72 L 422,66 L 452,70 L 472,82 L 476,100 L 470,118 L 456,130 L 436,135 L 415,128 L 398,112 L 388,94 Z"
-                fill={`hsl(215, ${30 + Math.round((regionHeatCounts["歐洲"] / maxRegionHeat) * 42)}%, ${58 - Math.round((regionHeatCounts["歐洲"] / maxRegionHeat) * 28)}%)`}
-                stroke={selectedMarket === "歐洲" ? "#17301F" : "rgba(255,255,255,0.3)"}
-                strokeWidth={selectedMarket === "歐洲" ? "3" : "1"}
-                className="heat-region"
-                onClick={() => { setSelectedMarket("歐洲"); changeRegion("歐洲"); }}
-                role="button" tabIndex={0}
-                onKeyDown={e => { if (e.key === "Enter") { setSelectedMarket("歐洲"); changeRegion("歐洲"); } }}
-                aria-label={`歐洲 - ${regionHeatCounts["歐洲"]} 則情報`}
-              />
-              <text x="432" y="97" fontSize="12" fontWeight="700" fill="white" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>歐洲</text>
-              <text x="432" y="112" fontSize="9.5" fill="rgba(255,255,255,0.85)" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>{regionHeatCounts["歐洲"]} 則</text>
-
-              {/* ── Australia ── */}
-              <path
-                d="M 622,244 L 680,236 L 720,248 L 740,268 L 738,296 L 722,316 L 696,325 L 664,318 L 638,298 L 622,272 Z"
-                fill={`hsl(38, ${42 + Math.round((regionHeatCounts["澳洲"] / maxRegionHeat) * 38)}%, ${62 - Math.round((regionHeatCounts["澳洲"] / maxRegionHeat) * 28)}%)`}
-                stroke={selectedMarket === "澳洲" ? "#17301F" : "rgba(255,255,255,0.3)"}
-                strokeWidth={selectedMarket === "澳洲" ? "3" : "1"}
-                className="heat-region"
-                onClick={() => { setSelectedMarket("澳洲"); changeRegion("澳洲"); }}
-                role="button" tabIndex={0}
-                onKeyDown={e => { if (e.key === "Enter") { setSelectedMarket("澳洲"); changeRegion("澳洲"); } }}
-                aria-label={`澳洲 - ${regionHeatCounts["澳洲"]} 則情報`}
-              />
-              <text x="681" y="281" fontSize="12" fontWeight="700" fill="white" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>澳洲</text>
-              <text x="681" y="296" fontSize="9.5" fill="rgba(255,255,255,0.85)" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>{regionHeatCounts["澳洲"]} 則</text>
-
-              {/* ── Taiwan (callout line + ellipse island) ── */}
-              <line x1="700" y1="140" x2="742" y2="108" stroke="#17301F" strokeWidth="1" strokeDasharray="4,2" opacity="0.55"/>
-              <ellipse
-                cx="700" cy="162" rx="14" ry="21"
-                fill={`hsl(135, ${40 + Math.round((regionHeatCounts["台灣"] / maxRegionHeat) * 38)}%, ${36 - Math.round((regionHeatCounts["台灣"] / maxRegionHeat) * 12)}%)`}
-                stroke={selectedMarket === "台灣" ? "#C89B3C" : "rgba(255,255,255,0.3)"}
-                strokeWidth={selectedMarket === "台灣" ? "3" : "1"}
-                className="heat-region"
-                onClick={() => { setSelectedMarket("台灣"); changeRegion("台灣"); }}
-                role="button" tabIndex={0}
-                onKeyDown={e => { if (e.key === "Enter") { setSelectedMarket("台灣"); changeRegion("台灣"); } }}
-                aria-label={`台灣 - ${regionHeatCounts["台灣"]} 則情報`}
-              />
-              <text x="762" y="105" fontSize="12" fontWeight="700" fill="#17301F" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>台灣</text>
-              <text x="762" y="120" fontSize="9.5" fill="#48594A" textAnchor="middle" dominantBaseline="middle" style={{pointerEvents:"none"}}>{regionHeatCounts["台灣"]} 則</text>
-
-              {/* Legend */}
-              <rect x="12" y="330" width="10" height="10" fill="#B8CFCA" rx="2"/>
-              <text x="27" y="335" fontSize="9" fill="#48594A" dominantBaseline="middle">情報較少</text>
-              <rect x="88" y="330" width="10" height="10" fill="#3D6A4A" rx="2"/>
-              <text x="103" y="335" fontSize="9" fill="#48594A" dominantBaseline="middle">情報較多</text>
-              <text x="860" y="352" fontSize="8" fill="#8FA498" textAnchor="end" dominantBaseline="middle">形狀為示意簡化圖</text>
-            </svg>
-          </div>
 
           <div className="pulse-grid">
             {marketPulse.map((market) => (
@@ -842,7 +918,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/07/27 19:58。</p>
+              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/07/27 20:04。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
