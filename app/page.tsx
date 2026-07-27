@@ -218,22 +218,6 @@ const intelligence: Intelligence[] = [
     score: 70,
   },
   {
-    id: 1988905,
-    region: "歐洲",
-    topic: "原料技術",
-    title: "德國純素食品市場規模與展望，2027-2033 - Grand View Research",
-    summary: "食品科技突破：'德國純素食品市場規模與展望，2027-2033 - Grand View Research'。這項替代蛋白或食品加工技術的突破，可為素食口感帶來革新。",
-    impact: "新原料與技術可應用於改善植物肉、素海鮮等質地，有助於我方研發團隊提升產品的保水與乳化性。",
-    action: "收集該項新技術或新原料的規格說明與法規核准進度。",
-    owner: "產品研發",
-    source: "Grand View Research",
-    url: "https://news.google.com/rss/articles/CBMigAFBVV95cUxQZmJ4YzF6YVMzTk43WDVpbGhPb3lZYWh2aExlYmd5TW9vR2VUdlJXVEpuTUlKTnBFeXU5bTAzMHlvZFNkYVNzREJlcmRGcVpvZjZBVDdrR0ljekp2U3AyOUh2eE1xSktad21EUVBfTnpCeml2RmZhUFEtU2NjMUNFbw?oc=5",
-    priority: "中",
-    publishedAt: "2026-01-23",
-    collectedAt: "2026-07-27",
-    score: 72,
-  },
-  {
     id: 14246175,
     region: "歐洲",
     topic: "消費趨勢",
@@ -264,6 +248,22 @@ const intelligence: Intelligence[] = [
     publishedAt: "2025-10-08",
     collectedAt: "2026-07-27",
     score: 70,
+  },
+  {
+    id: 78412732,
+    region: "歐洲",
+    topic: "新品",
+    title: "歐洲豆腐市場預計到 2034 年將突破 20 億美元 - Plant Based News",
+    summary: "新品上市動向：'歐洲豆腐市場預計到 2034 年將突破 20 億美元 - Plant Based News'。這顯示了該地區在替代蛋白或素食創新產品上的最新趨勢。",
+    impact: "研究該新品的口味、配方與主打客群，有助於齋滋味發掘適合台灣或出口市場的潛在產品方向。",
+    action: "評估此類新品是否有進行本地化開發與改良的商業價值。",
+    owner: "品牌行銷",
+    source: "Plant Based News",
+    url: "https://news.google.com/rss/articles/CBMikwFBVV95cUxNeklTNUVOeVQzQTNpUExfR2xrWG5GSk93M2QzRFBZOFJZcHkxejVLYkdrZkgzcGdwUFFHY0dSeHBnQlhpSHB0VkRRY3lXaWNERm9vdlVCMGxHSEhsREhIMWhPVzFBNXo4MFJGQkVNd3BocHl0VzV2VWVCZVFzN19fSV96Q05zY0ZmWTZ1RVpOeFlKbVk?oc=5",
+    priority: "中",
+    publishedAt: "2026-02-11",
+    collectedAt: "2026-07-27",
+    score: 75,
   },
   {
     id: 57731230,
@@ -362,6 +362,22 @@ const intelligence: Intelligence[] = [
     score: 85,
   },
   {
+    id: 37968714,
+    region: "台灣",
+    topic: "原料技術",
+    title: "聯合報社論／食安風暴連環爆，卓內閣一路偏袒業者 - UDN",
+    summary: "食品安全與品質與品質管控事件：'聯合報社論／食安風暴連環爆，卓內閣一路偏袒業者 - UDN'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "UDN",
+    url: "https://news.google.com/rss/articles/CBMiUEFVX3lxTE42amJvSTFIX3I0VFFaR3N0RE1hYVllcENjZFc1aVd3Qmh3LVdXRHlIUldTRkpYN0JFWHFkU21tQ1IyMmJ0RW0yc2hIbWVKUzJQ0gFWQVVfeXFMUGdhdnYzd0JMbk44QzRBTlJLYWxTU1RPeGd3VEJDTFBFT2czV09yUmtOVEQyR1UzVy0xeno1SUx3bEEwMDhqWDd5OFBHY1ZZVVlwR00yTWc?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-16",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
     id: 53212687,
     region: "台灣",
     topic: "原料技術",
@@ -390,22 +406,6 @@ const intelligence: Intelligence[] = [
     url: "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBSUk1VcW5YV05taERvYW85YVFpVnRwZUpQaHJ2ODZkMkI5Z1RFRUIzRXVCZmphSHRRTm9oTk5WZ01ET29NWXg5dzVOcw?oc=5",
     priority: "高",
     publishedAt: "2026-07-23",
-    collectedAt: "2026-07-27",
-    score: 85,
-  },
-  {
-    id: 5650183,
-    region: "台灣",
-    topic: "原料技術",
-    title: "食安可放寬 信任不能打折 - 經濟日報",
-    summary: "食品安全與品質與品質管控事件：'食安可放寬 信任不能打折 - 經濟日報'。事件提醒業界加強供應鏈檢驗。",
-    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
-    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
-    owner: "採購品保",
-    source: "經濟日報",
-    url: "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA3UldQWHJIaTdKWFFFTzFleXlINzlRTmpHMzlvZkJ0Z2U5cHB4ZjAtS1RkUXBQWmo3OVptWkdaU083UlFIVkx4YVhNSkxOcDNhaEtxV1FMcVRod9IBX0FVX3lxTFBIMmtjbHJzbWFSVGZNd1p4N3F6UW5MSkZXWVZRWS1XRVQyWHFiRWNkLW5SeW1BZnlCZzc0U21sRFJ6OS1FQ3pac2xHRWgzUEh4aFR1VUZ0OFZHNlhubmJn?oc=5",
-    priority: "高",
-    publishedAt: "2026-07-21",
     collectedAt: "2026-07-27",
     score: 85,
   },
@@ -458,6 +458,22 @@ const intelligence: Intelligence[] = [
     score: 85,
   },
   {
+    id: 43692559,
+    region: "台灣",
+    topic: "原料技術",
+    title: "FSMA 關於某些食品附加追溯記錄要求的最終規則 - fda.gov",
+    summary: "食品安全與品質與品質管控事件：'FSMA 關於某些食品附加追溯記錄要求的最終規則 - fda.gov'。事件提醒業界加強供應鏈檢驗。",
+    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
+    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
+    owner: "採購品保",
+    source: "fda.gov",
+    url: "https://news.google.com/rss/articles/CBMizwFBVV95cUxOLUpFeElsTVhoSmhiSmk3bDI3ZWJucWxHd05jN3FXRUNSTGtoSHB1VUpjMTd3aktFMlpsQWdNRF9hU1V2bU01Y1JoZWdWeXZNd05mLW9XX2s3Qk9vWGwtV0o3bm9EUXpFbXAzN3Nsb2VOSGtUNmJqa0dJTHJSalNSNnlxUDNZYzZKblcwMVEzcDY3b3pvb0hSUFdqNlBfN3BFZWlPVXIxdWJmcDQ5cmVKcnh0NERYLVF3RUlaNVBwdWlPYVF3QzhvUGtpeTFSSzA?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-24",
+    collectedAt: "2026-07-27",
+    score: 85,
+  },
+  {
     id: 29694607,
     region: "台灣",
     topic: "原料技術",
@@ -486,22 +502,6 @@ const intelligence: Intelligence[] = [
     url: "https://news.google.com/rss/articles/CBMiswFBVV95cUxNNjJqX1lRUjZIVVN3eE84YWIwdVBJczFtd2w2NTBCQ25nTlZ2OG44Q1FFNVZGaldGS0dKc3BZTUhVMUVGWk1NUndPcnkyV05fWE9Ma2xqYVJKX0xuTGwwWElaWlFqdVFfcmxxYU5rNjNUdnZSRTNvZmIzRWFfTGdPaHBBanZWbmJvWVpJN0RvNU1uS0x3bG04VGhWQzZrbERCMG4xYXNkWDg4SldBdmZUejl1dw?oc=5",
     priority: "高",
     publishedAt: "2026-06-09",
-    collectedAt: "2026-07-27",
-    score: 85,
-  },
-  {
-    id: 74493146,
-    region: "台灣",
-    topic: "原料技術",
-    title: "食品安全應以風險而非零檢測為指導 - 康乃爾紀事報",
-    summary: "食品安全與品質與品質管控事件：'食品安全應以風險而非零檢測為指導 - 康乃爾紀事報'。事件提醒業界加強供應鏈檢驗。",
-    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
-    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
-    owner: "採購品保",
-    source: "Cornell Chronicle",
-    url: "https://news.google.com/rss/articles/CBMikwFBVV95cUxOUHZDNWVFTUpFZF8zSVZIU3dYYjhheDJsSmNmcHZBRy1BSmVEZnZLcHVQUmN5ekp4QzV6SmdsSUFPamNqU2dNVUtSQjQ2TkY2SXdXRWNIYVdnM1d3YW83djM3Znd0Qm5XblVrUEE1LW4xMnpfazBTRVBPeVVmY1hrV1R2MDZxSFlBMjh4MmVGcWhpc2M?oc=5",
-    priority: "高",
-    publishedAt: "2026-03-17",
     collectedAt: "2026-07-27",
     score: 85,
   },
@@ -570,16 +570,16 @@ const intelligence: Intelligence[] = [
     score: 80,
   },
   {
-    id: 45258947,
+    id: 56954528,
     region: "台灣",
     topic: "競品",
-    title: "台灣素食龍頭弘陽食品 投資4億打造首座綠電智慧新廠 - 經濟日報",
-    summary: "同業大廠最新動態：'台灣素食龍頭弘陽食品 投資4億打造首座綠電智慧新廠 - 經濟日報'。此動作反映了素食產業競爭格局的最新進展。",
+    title: "台灣素食龍頭弘陽食品 投資4億打造首座綠電智慧新廠 - UDN",
+    summary: "同業大廠最新動態：'台灣素食龍頭弘陽食品 投資4億打造首座綠電智慧新廠 - UDN'。此動作反映了素食產業競爭格局的最新進展。",
     impact: "分析同業大廠的市場佈局與產品定位，以制定我方的競爭防禦策略與產品研發策略。",
     action: "評估同業此項動作對我方主力產品線的潛在競爭影響。",
     owner: "產品研發",
-    source: "經濟日報",
-    url: "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5WalFQenFMaV9ZaUQ3bWV6dnlBWEtWTG9Yd1Q3djIzdkMzWUtTcHVyUWxZV1NNUzNuelNoTjRjNjF3RExuWHRJSjlxeXktcWVoSlI5SXNvYmdCQdIBX0FVX3lxTE1xcWI0Q3BNSFNGWVNNRmN4bjdtYUsyNnAyMTNoSkZGNmw0WjRsVG0yWTBPV0F0bkFzMUszTXBPWkVNRlQwWXYtTndNcVRscWR4UGdFQWx2Yjc3MGpBLVBz?oc=5",
+    source: "UDN",
+    url: "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1Bd2NJeXEySTBCX2NYc1QtWUdOZUJfY1F0WlZwRmRLM2lmdjlyR09ZN0ZQOG9uYUVxVUhxMGhUYVRCTFhjZXB0N09pUHExN09a0gFWQVVfeXFMTnFaRkVRSHc4dWVIMVZhczFERjZnZFh0Vm0tUGVtbWZBSXd5Um96a2tnbmNzUTg5czRwejFBc3NUbXBFbW02VTktOVlHV3phT2Z0UXhHRmc?oc=5",
     priority: "中",
     publishedAt: "2026-02-22",
     collectedAt: "2026-07-27",
@@ -830,11 +830,11 @@ const intelligence: Intelligence[] = [
 const regions: Region[] = ["全部市場", "台灣", "美國", "澳洲", "歐洲"];
 const topics: Topic[] = ["全部主題", "新品", "通路價格", "競品", "消費趨勢", "原料技術", "法規標示"];
 const sourceFilters: SourceFilter[] = ["全部來源", "食力 foodNEXT", "上下游新聞"];
-const eighteenMonthsAgo = new Date();
-eighteenMonthsAgo.setMonth(eighteenMonthsAgo.getMonth() - 18);
+const threeYearsAgo = new Date();
+threeYearsAgo.setFullYear(threeYearsAgo.getFullYear() - 3);
 const freshIntelligence = intelligence.filter((item) => {
   const publishedAt = new Date(`${item.publishedAt}T00:00:00+08:00`);
-  return !Number.isNaN(publishedAt.getTime()) && publishedAt >= eighteenMonthsAgo;
+  return !Number.isNaN(publishedAt.getTime()) && publishedAt >= threeYearsAgo;
 });
 const highPriorityCount = freshIntelligence.filter((item) => item.priority === "高").length;
 const formatDate = (date: string) => date.replaceAll("-", "/");
@@ -1026,7 +1026,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-07-27T08:30:20+08:00">2026/07/27 08:30</time></div>
+          <div>最後更新：<time dateTime="2026-07-27T04:12:43+08:00">2026/07/27 04:12</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -1109,7 +1109,7 @@ export default function Home() {
           </div>
 
           <div className="filters" aria-label="情報篩選">
-            <div className="freshness-policy"><span>資料規則：僅顯示近 1.5 年資料 ・ 日期不明不納入 ・ 每則標示發布與收錄日期</span></div>
+            <div className="freshness-policy"><span>資料規則：僅顯示近 2 年資料 ・ 日期不明不納入 ・ 每則標示發布與收錄日期</span></div>
             <div className="filter-row">
               {regions.map((item) => <button key={item} className={region === item ? "active" : ""} onClick={() => changeRegion(item)}>{item}</button>)}
             </div>
@@ -1182,7 +1182,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/07/27 08:30。</p>
+              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/07/27 04:12。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
