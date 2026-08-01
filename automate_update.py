@@ -234,6 +234,77 @@ DEFAULT_MARKET_PULSE = {
     }
 }
 
+DEFAULT_DAILY_BRIEFING = {
+    "title": "市場不缺新品，<br />真正稀缺的是<strong>回購理由。</strong>",
+    "subtitle": "跨市場訊號共同指向價格、健康感與使用情境。這三項因素正影響新品能否進入日常餐桌並形成回購。",
+    "decisionTitle": "價格、健康感與料理便利性共同決定回購",
+    "decisionDetail": "各市場的成長速度不同，但資訊都顯示：消費者不只在意是否純素，也會比較成分、每份成本及料理是否方便。"
+}
+
+def call_gemini_api_for_briefing(api_key, news_items):
+    if not api_key or not news_items:
+        return None
+    
+    # Format top 15 news summaries
+    summaries = []
+    for item in news_items[:15]:
+        summaries.append(f"- [{item.get('region', '未知地區')}] {item.get('title')}: {item.get('summary')}")
+    news_summaries_text = "\n".join(summaries)
+    
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    
+    prompt = f"""你是一位資深的食品與蔬食產業分析師。請分析以下今日最新的跨市場產業情報：
+{news_summaries_text}
+
+請根據這些最新動態，為今日的「決策情報簡報」撰寫標題與核心判讀。請嚴格以 JSON 格式回傳（只回傳 JSON 物件，不要任何 markdown 的 ```json 包裹標記，也不要任何前後贅字，以防 JSON 解析失敗）：
+{{
+  "title": "一句具備高階商業社論質感的簡報大標題，15-25字，繁體中文，其中核心關鍵字用 <strong>...</strong> 包裹（例如：市場不缺新品，真正稀缺的是<strong>回購理由。</strong> 或 植物肉進入重整期，成長關鍵在於<strong>潔淨標章。</strong>）",
+  "subtitle": "二至三句話的簡報副標題/總體摘要，40-60字，繁體中文，概括全球或多國市場的共通訊號與主要趨勢",
+  "decisionTitle": "一句話的核心商業判讀結論標題，12-20字，繁體中文，總結齋之味該重視的決策方向",
+  "decisionDetail": "兩句話的詳細決策判讀分析描述，30-50字，繁體中文，指出消費者或通路的最新行為轉變及對我方的具體影響"
+}}
+"""
+    
+    body = {
+        "contents": [
+            {
+                "parts": [
+                    {"text": prompt}
+                ]
+            }
+        ],
+        "generationConfig": {
+            "responseMimeType": "application/json"
+        }
+    }
+    
+    data = json.dumps(body).encode('utf-8')
+    req = urllib.request.Request(
+        url,
+        data=data,
+        headers={'Content-Type': 'application/json'}
+    )
+    
+    try:
+        with urllib.request.urlopen(req, timeout=15) as response:
+            res_body = response.read().decode('utf-8')
+            res_json = json.loads(res_body)
+            text = res_json['candidates'][0]['content']['parts'][0]['text']
+            
+            raw_text = text.strip()
+            if raw_text.startswith("```"):
+                lines = raw_text.splitlines()
+                if lines[0].startswith("```"):
+                    lines = lines[1:]
+                if lines[-1].startswith("```"):
+                    lines = lines[:-1]
+                raw_text = "\n".join(lines).strip()
+            parsed_result = json.loads(raw_text)
+            return parsed_result
+    except Exception as e:
+        print(f"Error calling Gemini API for briefing: {e}")
+        return None
+
 def call_gemini_api_for_market_pulse(api_key, region, news_items):
     if not api_key or not news_items:
         return None
@@ -528,15 +599,49 @@ for region_name, data in market_pulse_data.items():
 
 combined_pulse_body = "const marketPulse = [\n" + ",\n".join(pulse_blocks) + "\n];"
 
-# Replace in page content
+# Replace marketPulse in page content using robust index lookups
 idx_pulse_start = new_page_content.find("const marketPulse = [")
-idx_pulse_end = new_page_content.find("];\n\nexport default function Home()")
+idx_pulse_end = new_page_content.find("];", idx_pulse_start)
 
 if idx_pulse_start != -1 and idx_pulse_end != -1:
     new_page_content = (
         new_page_content[:idx_pulse_start]
         + combined_pulse_body
         + new_page_content[idx_pulse_end + len("];"):]
+    )
+
+# Generate new Daily Briefing using Gemini API
+briefing_data = None
+if api_key and all_parsed_items:
+    print("Calling Gemini API to update Daily Briefing...")
+    briefing_data = call_gemini_api_for_briefing(api_key, all_parsed_items)
+
+if not briefing_data:
+    print("Gemini API not available or failed for briefing. Using default/fallback.")
+    briefing_data = DEFAULT_DAILY_BRIEFING
+
+# Escape quotes and formatting for page.tsx string
+briefing_title_escaped = briefing_data['title'].replace('"', '\\"')
+briefing_subtitle_escaped = briefing_data['subtitle'].replace('"', '\\"')
+briefing_decisionTitle_escaped = briefing_data['decisionTitle'].replace('"', '\\"')
+briefing_decisionDetail_escaped = briefing_data['decisionDetail'].replace('"', '\\"')
+
+combined_briefing_body = f"""const dailyBriefing = {{
+  title: "{briefing_title_escaped}",
+  subtitle: "{briefing_subtitle_escaped}",
+  decisionTitle: "{briefing_decisionTitle_escaped}",
+  decisionDetail: "{briefing_decisionDetail_escaped}"
+}};"""
+
+# Replace dailyBriefing in new_page_content
+idx_briefing_start = new_page_content.find("const dailyBriefing = {")
+idx_briefing_end = new_page_content.find("};", idx_briefing_start)
+
+if idx_briefing_start != -1 and idx_briefing_end != -1:
+    new_page_content = (
+        new_page_content[:idx_briefing_start]
+        + combined_briefing_body
+        + new_page_content[idx_briefing_end + len("};"):]
     )
 
 # Update date & timestamp headers

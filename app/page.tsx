@@ -462,6 +462,13 @@ const marketPulse = [
   }
 ];
 
+const dailyBriefing = {
+  title: "市場不缺新品，<br />真正稀缺的是<strong>回購理由。</strong>",
+  subtitle: "跨市場訊號共同指向價格、健康感與使用情境。這三項因素正影響新品能否進入日常餐桌並形成回購。",
+  decisionTitle: "價格、健康感與料理便利性共同決定回購",
+  decisionDetail: "各市場的成長速度不同，但資訊都顯示：消費者不只在意是否純素，也會比較成分、每份成本及料理是否方便。"
+};
+
 export default function Home() {
   const [region, setRegion] = useState<Region>("全部市場");
   const [topic, setTopic] = useState<Topic>("全部主題");
@@ -573,13 +580,13 @@ export default function Home() {
         <section className="briefing" id="today">
           <div className="briefing-copy">
             <p className="section-kicker">TODAY’S BRIEFING</p>
-            <h2>市場不缺新品，<br />真正稀缺的是<strong>回購理由。</strong></h2>
-            <p>跨市場訊號共同指向價格、健康感與使用情境。這三項因素正影響新品能否進入日常餐桌並形成回購。</p>
+            <h2 dangerouslySetInnerHTML={{ __html: dailyBriefing.title }} />
+            <p>{dailyBriefing.subtitle}</p>
           </div>
           <div className="decision-card">
             <div className="decision-head"><span>今日核心判讀</span><b>跨市場共通訊號</b></div>
-            <h3>價格、健康感與料理便利性共同決定回購</h3>
-            <p>各市場的成長速度不同，但資訊都顯示：消費者不只在意是否純素，也會比較成分、每份成本及料理是否方便。</p>
+            <h3>{dailyBriefing.decisionTitle}</h3>
+            <p>{dailyBriefing.decisionDetail}</p>
             <div className="decision-meta"><span>影響市場：台灣・美國・澳洲・歐洲</span><span>判讀依據：今日 {freshIntelligence.length} 則有效情報</span></div>
           </div>
         </section>
@@ -792,6 +799,22 @@ export default function Home() {
 
         <footer><span>齋之味市場情報中樞・第一版</span><span>資料用於內部研判，決策前請查核原始來源</span></footer>
       </section>
+      
+      {/* Mobile Bottom Navigation Bar */}
+      <nav className="mobile-bottom-nav" aria-label="手機端導覽">
+        <a className={`mobile-nav-item ${activeSection === "today" ? "active" : ""}`} href="#today" onClick={(event) => navigateTo(event, "today")}>
+          <span className="icon">📰</span>
+          <span>今日判讀</span>
+        </a>
+        <a className={`mobile-nav-item ${activeSection === "markets" ? "active" : ""}`} href="#markets" onClick={(event) => navigateTo(event, "markets")}>
+          <span className="icon">🧭</span>
+          <span>市場雷達</span>
+        </a>
+        <a className={`mobile-nav-item ${activeSection === "intelligence" ? "active" : ""}`} href="#intelligence" onClick={(event) => navigateTo(event, "intelligence")}>
+          <span className="icon">📥</span>
+          <span>全部情報</span>
+        </a>
+      </nav>
     </main>
   );
 }
