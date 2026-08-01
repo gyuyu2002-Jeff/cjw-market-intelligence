@@ -25,7 +25,7 @@ type Intelligence = {
 };
 
 const intelligence: Intelligence[] = [
-  {
+{
     id: 37624096,
     region: "歐洲",
     topic: "消費趨勢",
@@ -41,7 +41,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 95,
   },
-  {
+{
     id: 20426306,
     region: "台灣",
     topic: "法規標示",
@@ -57,7 +57,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 95,
   },
-  {
+{
     id: 14934181,
     region: "台灣",
     topic: "法規標示",
@@ -73,7 +73,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 95,
   },
-  {
+{
     id: 75562629,
     region: "台灣",
     topic: "法規標示",
@@ -89,7 +89,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 95,
   },
-  {
+{
     id: 30589980,
     region: "台灣",
     topic: "法規標示",
@@ -105,7 +105,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 95,
   },
-  {
+{
     id: 26502772,
     region: "台灣",
     topic: "消費趨勢",
@@ -121,7 +121,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 92,
   },
-  {
+{
     id: 4248989,
     region: "台灣",
     topic: "消費趨勢",
@@ -137,7 +137,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 92,
   },
-  {
+{
     id: 47148721,
     region: "美國",
     topic: "消費趨勢",
@@ -153,7 +153,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 92,
   },
-  {
+{
     id: 99167306,
     region: "美國",
     topic: "新品",
@@ -169,7 +169,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 92,
   },
-  {
+{
     id: 70156975,
     region: "美國",
     topic: "消費趨勢",
@@ -185,7 +185,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 92,
   },
-  {
+{
     id: 49927134,
     region: "美國",
     topic: "原料技術",
@@ -201,7 +201,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 92,
   },
-  {
+{
     id: 26806391,
     region: "歐洲",
     topic: "消費趨勢",
@@ -217,7 +217,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 92,
   },
-  {
+{
     id: 48319183,
     region: "歐洲",
     topic: "消費趨勢",
@@ -233,7 +233,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 92,
   },
-  {
+{
     id: 32536850,
     region: "歐洲",
     topic: "法規標示",
@@ -249,7 +249,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 92,
   },
-  {
+{
     id: 5923352,
     region: "澳洲",
     topic: "消費趨勢",
@@ -265,7 +265,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 92,
   },
-  {
+{
     id: 47222874,
     region: "澳洲",
     topic: "消費趨勢",
@@ -281,7 +281,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 92,
   },
-  {
+{
     id: 57731230,
     region: "澳洲",
     topic: "消費趨勢",
@@ -330,18 +330,18 @@ const intelligence: Intelligence[] = [
     score: 90,
   },
   {
-    id: 63476539,
+    id: 94829123,
     region: "台灣",
     topic: "原料技術",
-    title: "政院通過《食品安全衛生管理法》部分條文修正草案強化源頭管理、製程管理、異常通報、品質管理及數位治理|發展臺灣 - 僑新聞",
-    summary: "食品安全與品質與品質管控事件：'政院通過《食品安全衛生管理法》部分條文修正草案強化源頭管理、製程管理、異常通報、品質管理及數位治理|發展臺灣 - 僑新聞'。事件提醒業界加強供應鏈檢驗。",
+    title: "食安修法 政院列10重點 - 工商時報",
+    summary: "食品安全與品質與品質管控事件：'食安修法 政院列10重點 - 工商時報'。事件提醒業界加強供應鏈檢驗。",
     impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
     action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
     owner: "採購品保",
-    source: "僑新聞",
-    url: "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBSUk1VcW5YV05taERvYW85YVFpVnRwZUpQaHJ2ODZkMkI5Z1RFRUIzRXVCZmphSHRRTm9oTk5WZ01ET29NWXg5dzVOcw?oc=5",
+    source: "工商時報",
+    url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9XdkxxY05MV1dGbTF4a09OQ1hWUEFOa204M04xcGdULU9OVWRoMzdxcnYtYjdEeG02N1B4Qk9GYm81SkFRMDJrbEFqUGVyWXRub1RuWWZZb3ZFQ3BaRG9B?oc=5",
     priority: "高",
-    publishedAt: "2026-07-23",
+    publishedAt: "2026-07-21",
     collectedAt: "2026-08-01",
     score: 85,
   }
@@ -574,7 +574,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-08-01T13:51:12+08:00">2026/08/01 13:51</time></div>
+          <div>最後更新：<time dateTime="2026-08-01T13:55:40+08:00">2026/08/01 13:55</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -765,7 +765,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/01 13:51。</p>
+              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/01 13:55。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
