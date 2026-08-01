@@ -442,6 +442,8 @@ for feed_key, url in fetcher.FEEDS.items():
                 source=raw_item["source"],
                 region_key=feed_key
             )
+            import time
+            time.sleep(4)
         
         # Use offline fallback if api key is missing or call failed
         if not analysis:
@@ -481,9 +483,7 @@ for feed_key, url in fetcher.FEEDS.items():
 print(f"Completed analysis. Generated {len(new_analyzed_items)} new intelligence feed items.")
 
 if not new_analyzed_items:
-    # No new items, let's still update timestamps if requested, or just exit.
-    print("No new news articles found. Exiting.")
-    sys.exit(0)
+    print("No new news articles found. Proceeding to update Briefing, Market Pulse, and Timestamps.")
 
 # Extract array boundaries in page.tsx
 idx_start = page_content.find("const intelligence: Intelligence[] = [")
@@ -577,6 +577,8 @@ for region_name in ["台灣", "美國", "澳洲", "歐洲"]:
     if api_key and region_news:
         print(f"Calling Gemini API to update Market Pulse for {region_name}...")
         pulse_info = call_gemini_api_for_market_pulse(api_key, region_name, region_news)
+        import time
+        time.sleep(4)
     
     if not pulse_info:
         print(f"Gemini API not available or failed for {region_name} pulse. Using default/fallback.")
@@ -615,6 +617,8 @@ briefing_data = None
 if api_key and all_parsed_items:
     print("Calling Gemini API to update Daily Briefing...")
     briefing_data = call_gemini_api_for_briefing(api_key, all_parsed_items)
+    import time
+    time.sleep(4)
 
 if not briefing_data:
     print("Gemini API not available or failed for briefing. Using default/fallback.")
