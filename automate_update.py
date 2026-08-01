@@ -66,7 +66,7 @@ def call_gemini_api_for_frontend(api_key, title, pub_date, source, region_key):
     if not api_key:
         return None
     mapped_region = REGION_MAP.get(region_key, "台灣")
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
     
     prompt = f"""你是一位專業的食品與蔬食產業分析師。請分析以下關於素食/植物基食品產業的新聞資訊：
 新聞地區/來源市場: {mapped_region} (來自 {source}, 發布時間: {pub_date})
@@ -251,7 +251,7 @@ def call_gemini_api_for_briefing(api_key, news_items):
         summaries.append(f"- [{item.get('region', '未知地區')}] {item.get('title')}: {item.get('summary')}")
     news_summaries_text = "\n".join(summaries)
     
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
     
     prompt = f"""你是一位資深的食品與蔬食產業分析師。請分析以下今日最新的跨市場產業情報：
 {news_summaries_text}
@@ -315,7 +315,7 @@ def call_gemini_api_for_market_pulse(api_key, region, news_items):
         summaries.append(f"- [{item.get('topic')}] {item.get('title')}: {item.get('summary')}")
     news_summaries_text = "\n".join(summaries)
     
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
     
     prompt = f"""你是一位資深的食品與蔬食產業分析師。請分析以下關於 {region} 市場近期的產業情報摘要：
 {news_summaries_text}
