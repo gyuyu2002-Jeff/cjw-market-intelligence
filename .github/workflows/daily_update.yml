@@ -54,15 +54,18 @@ jobs:
                   print('All models list:', models)
                   
                   # Test direct generation call
-                  print('\nTesting generateContent for gemini-1.5-flash...')
-                  test_url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={key}'
+                  print('\nTesting generateContent for gemini-flash-latest...')
+                  test_url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={key}'
                   body = {'contents': [{'parts': [{'text': 'Hello'}]}]}
                   req = urllib.request.Request(test_url, data=json.dumps(body).encode('utf-8'), headers={'Content-Type': 'application/json'})
                   with urllib.request.urlopen(req) as test_res:
-                      print('gemini-1.5-flash call success:', test_res.read().decode('utf-8')[:100])
+                      print('gemini-flash-latest call success:', test_res.read().decode('utf-8')[:100])
               except urllib.error.HTTPError as e:
                   print('HTTP Error:', e.code, e.reason)
-                  print('Response body:', e.read().decode('utf-8'))
+                  try:
+                      print('Response body:', e.read().decode('utf-8'))
+                  except Exception as read_err:
+                      print('Could not read response body:', read_err)
               except Exception as e:
                   print('Error testing key:', e)
           else:
@@ -78,5 +81,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Run the update script (which crawls news, compiles the site, and pushes commits)
-          python automate_update.py
+          # Run the update script with -u to bypass stdout buffering
+          python -u automate_update.py
