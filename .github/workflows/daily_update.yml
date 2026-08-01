@@ -33,46 +33,6 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
-      - name: Diagnostic check API Key
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: |
-          python -c "
-          import os, urllib.request, json, urllib.error
-          key = os.environ.get('GEMINI_API_KEY', '').strip()
-          print('--- GEMINI API KEY DIAGNOSTICS ---')
-          print('Key Length:', len(key))
-          if key:
-              print('Key starts with:', key[:6])
-              print('Key ends with:', key[-4:] if len(key) > 4 else '')
-              try:
-                  url = f'https://generativelanguage.googleapis.com/v1beta/models?key={key}'
-                  res = urllib.request.urlopen(url)
-                  data = json.loads(res.read().decode('utf-8'))
-                  models = [m['name'] for m in data.get('models', [])]
-                  print('Total models available:', len(models))
-                  print('All models list:', models)
-                  
-                  # Test direct generation call
-                  print('\nTesting generateContent for gemini-flash-latest...')
-                  test_url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={key}'
-                  body = {'contents': [{'parts': [{'text': 'Hello'}]}]}
-                  req = urllib.request.Request(test_url, data=json.dumps(body).encode('utf-8'), headers={'Content-Type': 'application/json'})
-                  with urllib.request.urlopen(req) as test_res:
-                      print('gemini-flash-latest call success:', test_res.read().decode('utf-8')[:100])
-              except urllib.error.HTTPError as e:
-                  print('HTTP Error:', e.code, e.reason)
-                  try:
-                      print('Response body:', e.read().decode('utf-8'))
-                  except Exception as read_err:
-                      print('Could not read response body:', read_err)
-              except Exception as e:
-                  print('Error testing key:', e)
-          else:
-              print('Key is empty!')
-          print('----------------------------------')
-          "
-
       - name: Run daily update script
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
