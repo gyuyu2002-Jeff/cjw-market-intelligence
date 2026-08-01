@@ -33,6 +33,35 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
+      - name: Diagnostic check API Key
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python -c "
+          import os, urllib.request, json, urllib.error
+          key = os.environ.get('GEMINI_API_KEY', '').strip()
+          print('--- GEMINI API KEY DIAGNOSTICS ---')
+          print('Key Length:', len(key))
+          if key:
+              print('Key starts with:', key[:6])
+              print('Key ends with:', key[-4:] if len(key) > 4 else '')
+              try:
+                  url = f'https://generativelanguage.googleapis.com/v1beta/models?key={key}'
+                  res = urllib.request.urlopen(url)
+                  data = json.loads(res.read().decode('utf-8'))
+                  models = [m['name'] for m in data.get('models', [])]
+                  print('Models available:', len(models))
+                  print('Sample models:', models[:5])
+              except urllib.error.HTTPError as e:
+                  print('HTTP Error:', e.code, e.reason)
+                  print('Response body:', e.read().decode('utf-8'))
+              except Exception as e:
+                  print('Error testing key:', e)
+          else:
+              print('Key is empty!')
+          print('----------------------------------')
+          "
+
       - name: Run daily update script
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
