@@ -105,6 +105,54 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 95,
   },
+  {
+    id: 65358122,
+    region: "台灣",
+    topic: "競品",
+    title: "素食風潮降溫？Beyond Meat等植物肉巨頭股價重挫與消費趨勢轉變分析",
+    summary: "近期全球植物基市場面臨挑戰，曾獲比爾蓋茲投資的植物肉巨頭 Beyond Meat 股價顯著崩跌，顯示西方過度包裝的植物肉熱潮正面臨退燒。相關數據更指出肉食搜尋量逆勢成長87%，反映消費者對高加工、高單價的植物肉疑慮增加，轉而回歸原型食物。產業需重新審視產品口感、價格與天然健康價值。",
+    impact: "西方加工植物肉退燒，對主打在地美味與原型蔬食的齋之味是升級契機。消費者轉向追求天然健康與高CP值，齋之味應強化「少添加、原型滋味」的品牌差異化，切中市場新需求。",
+    action: "評估現行產品線之加工度與訴求，調整行銷溝通重點至天然健康，並研擬清潔標示新品。",
+    owner: "品牌行銷",
+    source: "食力 foodNEXT",
+    url: "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1uTENJZ2ZPREh0dHVaTlpTb2xQWFZWZURiMkpQS3lsS1FZTkN5NFYxeUFBTFowaEdsZ0xEd3labEdISXVpcDVZUU4yWEF6OHBoQndJa1pxeGRicFY2N3BQTEdBdWRSMVk?oc=5",
+    priority: "高",
+    publishedAt: "2025-02-27",
+    collectedAt: "2026-08-01",
+    score: 92,
+  },
+  {
+    id: 48975630,
+    region: "歐洲",
+    topic: "法規標示",
+    title: "不能再叫素漢堡？歐洲議會投票禁止植物基食品使用肉類名稱 - BBC",
+    summary: "歐洲議會投票通過限制法規，禁止植物基食品使用「素漢堡」、「素香腸」等傳統肉類相關名稱。肉品產業主張舊有命名會混淆消費者，但植物基業者與環保團體認為既有標示已足夠清晰，新規將增加企業合規成本並影響綠色轉型。此項裁決將強制所有於歐洲販售的植物基品牌重新調整產品命名與包裝標示策略。",
+    impact: "此法規若正式實施，將直接影響齋之味外銷歐洲產品的包裝與行銷名稱。產品需避免使用肉類相關字眼，增加標示審查與換包裝成本，但也促使品牌思考建立更具辨識度且符合當地法規的新命名體系。",
+    action: "盤點銷歐產品線之品名與包裝標示，並評估替換肉類意象詞彙之新命名方案與法規合規性。",
+    owner: "品保法規",
+    source: "BBC",
+    url: "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5JeDhDVVlHSVNFcWptaDlBVmM3Y09sNk9yS1MwdHdwOTcwQk9Ha0N1VmVwQ0Mtbjk3OW5qdnhlTjRDSUUweDNFQ2tEbUlnRV9aQ1k4eE1vMS1oUQ?oc=5",
+    priority: "高",
+    publishedAt: "2025-10-08",
+    collectedAt: "2026-08-01",
+    score: 92,
+  },
+  {
+    id: 4007718,
+    region: "台灣",
+    topic: "競品",
+    title: "大成集團推出兩大蔬食餐飲品牌，以平價美味植物肉翻轉蔬食印象",
+    summary: "台灣肉品巨頭大成集團宣佈推出兩大全新蔬食餐飲品牌，主打平價且美味的植物肉料理，旨在刷新大眾對傳統蔬食的印象。大成結合自身供應鏈優勢與研發技術，透過餐飲門市直接接觸消費者，積極拓展廣大的彈性素食族群。此舉標誌著傳統肉品大廠加速進入植物基餐飲市場，市場競爭將進一步升溫。",
+    impact: "大成進軍平價蔬食餐飲將提升植物肉普及率，同時對齋之味帶來價格與風味上的競爭壓力。齋之味需深耕產品風味差異化與品質優勢，確保品牌忠誠度。",
+    action: "評估大成蔬食品牌之產品與價格結構，並調研自家產品在餐飲通路的競爭力與風味優化空間。",
+    owner: "品牌行銷",
+    source: "遠見雜誌",
+    url: "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9Yc0dHZkZJTE5oUk1MSC1BVk41YWN2N3U4Z1ZJQkctbHJndE5SX1BYcDBXblVXVHlFN0huRWtzdUxMYWtuSTVrNG5weFdCUQ?oc=5",
+    priority: "高",
+    publishedAt: "2025-05-02",
+    collectedAt: "2026-08-01",
+    score: 92,
+  },
 {
     id: 26502772,
     region: "台灣",
@@ -296,54 +344,6 @@ const intelligence: Intelligence[] = [
     publishedAt: "2025-11-04",
     collectedAt: "2026-08-01",
     score: 92,
-  },
-{
-    id: 27333767,
-    region: "歐洲",
-    topic: "法規標示",
-    title: "Ban on veggie ‘burgers’: plant-based products may lose meaty names in UK under EU law | Food & drink industry - The Guardian",
-    summary: "法規政策更新：'Ban on veggie ‘burgers’: plant-based products may lose meaty names in UK under EU law | Food & drink industry - The Guardian'。食品標籤、命名或進出口限制法規的變動將直接影響商業運作。",
-    impact: "法規調整將影響產品包裝標示、出口合規性。我方需確保主力 SKU 之標示符合最新政策規範。",
-    action: "檢查目標出口市場之產品包裝標示與法規合規性。",
-    owner: "品保法規",
-    source: "The Guardian",
-    url: "https://news.google.com/rss/articles/CBMivgFBVV95cUxNTG9jd0NSeXJIQWw4RG9XNE5NN1JyS1RhRzlfNjlYMVdwSTdpdGZSWVN4cW9WTkhiX25hdVZvbEd2T2xtNXhYVEpnV3lOOG9CVUZZd2NuVDhSWVVDV2tEak43Rjc5Qi1PenJvcVJqeTlYYmxoREl4b21VSlFVX3kxa1BqQjNSd2dPeFNOVEZmX0s1VkloWXlNaFB4R2tqQ0VTaDFCSGpnTTN2bjR3ZW9yajBKbll4blh6Vlo3UjFn?oc=5",
-    priority: "高",
-    publishedAt: "2025-11-20",
-    collectedAt: "2026-07-31",
-    score: 90,
-  },
-{
-    id: 69503139,
-    region: "美國",
-    topic: "法規標示",
-    title: "Klobuchar 被植物性產品委員會認可為生物經濟冠軍 - 美國參議員 Amy Klobuchar (.gov)",
-    summary: "法規政策更新：'Klobuchar 被植物性產品委員會認可為生物經濟冠軍 - 美國參議員 Amy Klobuchar (.gov)'。食品標籤、命名或進出口限制法規的變動將直接影響商業運作。",
-    impact: "法規調整將影響產品包裝標示、出口合規性。我方需確保主力 SKU 之標示符合最新政策規範。",
-    action: "檢查目標出口市場之產品包裝標示與法規合規性。",
-    owner: "品保法規",
-    source: "U.S. Senator Amy Klobuchar (.gov)",
-    url: "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNMHZlSGhseHFkUnlLZ3RuTmRBck95b2VzbEFPeHZSUllicjUwUlBwS2dmbldqTTlFNzAzLUg5UVNhbzdZQXVBak5temtaX25NRmNlYTBObFk0ODVEUndadmktNVVQd2Y5U21McGF5YXpZM09WQ3NCcU8yRFM3dFZkS0RTLTFJYklMVkUwd1JKMmhpSW41aTE4QlhlMnBsamVzUHZjd19jbWJNQ0xfWEtqTXBvR3lsNUpadFBuOTNHSTU0aE40eEpOX3FiU1JFb2E5b2c?oc=5",
-    priority: "高",
-    publishedAt: "2026-05-15",
-    collectedAt: "2026-07-27",
-    score: 90,
-  },
-  {
-    id: 94829123,
-    region: "台灣",
-    topic: "原料技術",
-    title: "食安修法 政院列10重點 - 工商時報",
-    summary: "食品安全與品質與品質管控事件：'食安修法 政院列10重點 - 工商時報'。事件提醒業界加強供應鏈檢驗。",
-    impact: "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。",
-    action: "盤點並抽檢主力產品之相關原料品保檢驗報告。",
-    owner: "採購品保",
-    source: "工商時報",
-    url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9XdkxxY05MV1dGbTF4a09OQ1hWUEFOa204M04xcGdULU9OVWRoMzdxcnYtYjdEeG02N1B4Qk9GYm81SkFRMDJrbEFqUGVyWXRub1RuWWZZb3ZFQ3BaRG9B?oc=5",
-    priority: "高",
-    publishedAt: "2026-07-21",
-    collectedAt: "2026-08-01",
-    score: 85,
   }
 ];
 
@@ -574,7 +574,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-08-01T13:55:40+08:00">2026/08/01 13:55</time></div>
+          <div>最後更新：<time dateTime="2026-08-01T14:03:18+08:00">2026/08/01 14:03</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -765,7 +765,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/01 13:55。</p>
+              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/01 14:03。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
