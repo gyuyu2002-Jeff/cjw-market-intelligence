@@ -50,8 +50,16 @@ jobs:
                   res = urllib.request.urlopen(url)
                   data = json.loads(res.read().decode('utf-8'))
                   models = [m['name'] for m in data.get('models', [])]
-                  print('Models available:', len(models))
-                  print('Sample models:', models[:5])
+                  print('Total models available:', len(models))
+                  print('All models list:', models)
+                  
+                  # Test direct generation call
+                  print('\nTesting generateContent for gemini-1.5-flash...')
+                  test_url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={key}'
+                  body = {'contents': [{'parts': [{'text': 'Hello'}]}]}
+                  req = urllib.request.Request(test_url, data=json.dumps(body).encode('utf-8'), headers={'Content-Type': 'application/json'})
+                  with urllib.request.urlopen(req) as test_res:
+                      print('gemini-1.5-flash call success:', test_res.read().decode('utf-8')[:100])
               except urllib.error.HTTPError as e:
                   print('HTTP Error:', e.code, e.reason)
                   print('Response body:', e.read().decode('utf-8'))
