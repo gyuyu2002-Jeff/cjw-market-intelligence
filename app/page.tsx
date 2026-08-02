@@ -382,12 +382,7 @@ const maxTopicCount = Math.max(...topicTrend.map(t => t.count), 1);
 
 
 
-const industryWatch = [
-  { brand: "弘陽生技", status: "有更新", date: "2026-07-28", update: "偵測到近 7 天內有新訊，請點擊連結確認最新動態。", url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBLUzk5bHJqcEFxWnFHTDItRzlzZlE1SVRhanFNUkxYNkpNU3ZMU29vbjcta05JTkZtN1J2d1Z4VWRVYTBJMHJrSXAzeVM3V1hxUXhwVGJSYXhPbkxaalZn0gFkQVVfeXFMUFpvRXhlSmJnTDNLWHRjT290aW9zdmJ1c0k5ZmdfZUNXaUVNaFA4blNRWTJPc2c0Wm9ObmNfdzNuLXl3TEhsb0ZWaGdlMDl5Y3pNMi1LZm9tOU9RV0tUMVlaMXA5Ug?oc=5" },
-  { brand: "大成新食成", status: "有更新", date: "2026-07-28", update: "偵測到近 7 天內有新訊，請點擊連結確認最新動態。", url: "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1ISmNnY25JY0dWblhaanJGX0NVZW5kSlR3SG8yTHI4VTl4OEZwSDJad0F6VmVSWTNqVWZ2TTdETVJfWHZELWl6ODBLNlpmemZ5WFJKUmdRbEtLV2h4cVE?oc=5" },
-  { brand: "松珍", status: "有更新", date: "2026-07-28", update: "偵測到近 7 天內有新訊，請點擊連結確認最新動態。", url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBUSTFyX2JYOXhubkV1dTR0Y1ZzNTdweG5BWkFTQmw4cWVDN2xzOW5EQjlMY040RHV5OWl0NzdYX3gtMlVLaTI0MGdQTlBCMzNlRVVfZnVyVFJFaVEyUmx3?oc=5" },
-  { brand: "Beyond Meat", status: "有更新", date: "2026-07-28", update: "偵測到近 7 天內有新訊，請點擊連結確認最新動態。", url: "https://news.google.com/rss/articles/CBMiygFBVV95cUxPQnN6eFdNbVhlWGxSTFAzSV9GWDhKbzVKREdERkpaLVlVMGlMZ2JLdVo5NnFiVU5vakc1dk9Zdl9WUURnYkhpY1F4ZU42dl9jS0swUUpSZVN4TlBxOW9ndzJXZ0FoMDJERVRhYjdaY0IyZXBhRk90MXc3czllS0ZDNHpFWUVBclZNUG96YmNLT1BVeGNkVEZkVV9FZDljeEQwc25qS0xjaFNSTXVvd0ozbW4wYWlXT2RneEZKb0tBT3g0d0dXbVVhaklR?oc=5" }
-];
+
 
 type ReputationItem = {
   channel: string;
@@ -478,6 +473,83 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState<SectionId>("today");
   const [selectedMarket, setSelectedMarket] = useState("台灣");
   const manualNavigationUntil = useRef(0);
+
+  // Dynamically compute competitor watch list based on freshIntelligence
+  const industryWatch = useMemo(() => {
+    const brandsConfig = [
+      {
+        name: "弘陽生技",
+        keywords: ["弘陽"],
+        defaultUrl: "https://news.google.com/search?q=%E5%BC%98%E9%99%B5%E9%A3%9F%E5%93%81"
+      },
+      {
+        name: "大成新食成",
+        keywords: ["大成", "新食成"],
+        defaultUrl: "https://news.google.com/search?q=%E6%96%B0%E9%A3%9F%E6%88%90"
+      },
+      {
+        name: "松珍",
+        keywords: ["松珍"],
+        defaultUrl: "https://news.google.com/search?q=%E6%9D%BE%E7%8F%8D"
+      },
+      {
+        name: "Beyond Meat",
+        keywords: ["Beyond Meat", "BeyondMeat", "Beyond"],
+        defaultUrl: "https://news.google.com/search?q=Beyond%20Meat"
+      }
+    ];
+
+    // Reference base date is the latest date in the collected feeds, or today
+    let latestNewsDate = new Date();
+    if (freshIntelligence.length > 0) {
+      const dates = freshIntelligence.map(item => new Date(item.publishedAt).getTime());
+      latestNewsDate = new Date(Math.max(...dates));
+    }
+
+    return brandsConfig.map(brand => {
+      // Find all news items containing brand keywords in title or summary
+      const matches = freshIntelligence.filter(item => {
+        const text = `${item.title} ${item.summary}`.toLowerCase();
+        return brand.keywords.some(kw => text.includes(kw.toLowerCase()));
+      });
+
+      if (matches.length > 0) {
+        // Sort matches to find the latest one
+        const sorted = [...matches].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+        const latest = sorted[0];
+        const pubDate = new Date(latest.publishedAt);
+        const diffTime = latestNewsDate.getTime() - pubDate.getTime();
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        if (diffDays <= 7 && diffDays >= 0) {
+          return {
+            brand: brand.name,
+            status: "有更新",
+            date: latest.publishedAt,
+            update: `偵測到近 7 天內有新訊：${latest.title}`,
+            url: latest.url
+          };
+        } else {
+          return {
+            brand: brand.name,
+            status: "監控中",
+            date: latest.publishedAt,
+            update: `最新動態 (${latest.title}) 已超過 7 天，持續追蹤中。`,
+            url: latest.url
+          };
+        }
+      }
+
+      // Default fallback
+      return {
+        brand: brand.name,
+        status: "監控中",
+        date: "2026-07-28",
+        update: "近期無相關新聞動態，點擊下方連結手動查詢最新消息。",
+        url: brand.defaultUrl
+      };
+    });
+  }, [freshIntelligence]);
 
   useEffect(() => {
     const trackedSections: SectionId[] = ["today", "markets", "intelligence"];
