@@ -62,11 +62,83 @@ REGION_MAP = {
     "australia": "澳洲"
 }
 
+def execute_gemini_request(api_key, prompt, response_mime_type="application/json", max_retries=3, initial_delay=5):
+    if not api_key:
+        return None
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={api_key}"
+    body = {
+        "contents": [
+            {
+                "parts": [
+                    {"text": prompt}
+                ]
+            }
+        ]
+    }
+    if response_mime_type:
+        body["generationConfig"] = {"responseMimeType": response_mime_type}
+        
+    data = json.dumps(body).encode('utf-8')
+    
+    import time
+    import urllib.error
+    import re
+    
+    delay = initial_delay
+    for attempt in range(max_retries + 1):
+        req = urllib.request.Request(
+            url,
+            data=data,
+            headers={'Content-Type': 'application/json'}
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=20) as response:
+                res_body = response.read().decode('utf-8')
+                res_json = json.loads(res_body)
+                text = res_json['candidates'][0]['content']['parts'][0]['text']
+                raw_text = text.strip()
+                if raw_text.startswith("```"):
+                    lines = raw_text.splitlines()
+                    if lines[0].startswith("```"):
+                        lines = lines[1:]
+                    if lines[-1].startswith("```"):
+                        lines = lines[:-1]
+                    raw_text = "\n".join(lines).strip()
+                return json.loads(raw_text)
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                # Read response body to extract retry time
+                try:
+                    err_body = e.read().decode('utf-8')
+                    # Look for "retry in X.XXs" or similar
+                    retry_seconds = None
+                    m = re.search(r'retry in ([\d\.]+)s', err_body)
+                    if m:
+                        retry_seconds = float(m.group(1)) + 1.0 # Add 1s safety margin
+                except Exception:
+                    retry_seconds = None
+                
+                wait_time = retry_seconds if retry_seconds else delay
+                print(f"Gemini API rate limit (429) hit. Attempt {attempt + 1}/{max_retries + 1}. Waiting {wait_time:.1f}s before retry...")
+                time.sleep(wait_time)
+                delay *= 2  # Exponential backoff fallback
+            else:
+                print(f"Gemini API HTTP Error {e.code}: {e.reason}")
+                try:
+                    err_body = e.read().decode('utf-8')
+                    print("Error body:", err_body)
+                except Exception:
+                    pass
+                return None
+        except Exception as e:
+            print(f"Gemini API Error: {e}")
+            return None
+    return None
+
 def call_gemini_api_for_frontend(api_key, title, pub_date, source, region_key):
     if not api_key:
         return None
     mapped_region = REGION_MAP.get(region_key, "台灣")
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={api_key}"
     
     prompt = f"""你是一位專業的食品與蔬食產業分析師。請分析以下關於素食/植物基食品產業的新聞資訊：
 新聞地區/來源市場: {mapped_region} (來自 {source}, 發布時間: {pub_date})
@@ -84,46 +156,7 @@ def call_gemini_api_for_frontend(api_key, title, pub_date, source, region_key):
   "score": "分數（0-100的整數，重要性評分，高重要度90分以上，中重要度70-89分，低重要度69分以下）"
 }}
 """
-    
-    body = {
-        "contents": [
-            {
-                "parts": [
-                    {"text": prompt}
-                ]
-            }
-        ],
-        "generationConfig": {
-            "responseMimeType": "application/json"
-        }
-    }
-    
-    data = json.dumps(body).encode('utf-8')
-    req = urllib.request.Request(
-        url,
-        data=data,
-        headers={'Content-Type': 'application/json'}
-    )
-    
-    try:
-        with urllib.request.urlopen(req, timeout=12) as response:
-            res_body = response.read().decode('utf-8')
-            res_json = json.loads(res_body)
-            text = res_json['candidates'][0]['content']['parts'][0]['text']
-            
-            raw_text = text.strip()
-            if raw_text.startswith("```"):
-                lines = raw_text.splitlines()
-                if lines[0].startswith("```"):
-                    lines = lines[1:]
-                if lines[-1].startswith("```"):
-                    lines = lines[:-1]
-                raw_text = "\n".join(lines).strip()
-            parsed_result = json.loads(raw_text)
-            return parsed_result
-    except Exception as e:
-        print(f"Error calling Gemini API for frontend: {e}")
-        return None
+    return execute_gemini_request(api_key, prompt)
 
 def offline_fallback_for_frontend(title, feed_key):
     """Fallback when Gemini API is unavailable or not set."""
@@ -240,7 +273,6 @@ DEFAULT_DAILY_BRIEFING = {
     "decisionTitle": "價格、健康感與料理便利性共同決定回購",
     "decisionDetail": "各市場的成長速度不同，但資訊都顯示：消費者不只在意是否純素，也會比較成分、每份成本及料理是否方便。"
 }
-
 def call_gemini_api_for_briefing(api_key, news_items):
     if not api_key or not news_items:
         return None
@@ -250,8 +282,6 @@ def call_gemini_api_for_briefing(api_key, news_items):
     for item in news_items[:15]:
         summaries.append(f"- [{item.get('region', '未知地區')}] {item.get('title')}: {item.get('summary')}")
     news_summaries_text = "\n".join(summaries)
-    
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={api_key}"
     
     prompt = f"""你是一位資深的食品與蔬食產業分析師。請分析以下今日最新的跨市場產業情報：
 {news_summaries_text}
@@ -264,46 +294,7 @@ def call_gemini_api_for_briefing(api_key, news_items):
   "decisionDetail": "兩句話的詳細決策判讀分析描述，30-50字，繁體中文，指出消費者或通路的最新行為轉變及對我方的具體影響"
 }}
 """
-    
-    body = {
-        "contents": [
-            {
-                "parts": [
-                    {"text": prompt}
-                ]
-            }
-        ],
-        "generationConfig": {
-            "responseMimeType": "application/json"
-        }
-    }
-    
-    data = json.dumps(body).encode('utf-8')
-    req = urllib.request.Request(
-        url,
-        data=data,
-        headers={'Content-Type': 'application/json'}
-    )
-    
-    try:
-        with urllib.request.urlopen(req, timeout=15) as response:
-            res_body = response.read().decode('utf-8')
-            res_json = json.loads(res_body)
-            text = res_json['candidates'][0]['content']['parts'][0]['text']
-            
-            raw_text = text.strip()
-            if raw_text.startswith("```"):
-                lines = raw_text.splitlines()
-                if lines[0].startswith("```"):
-                    lines = lines[1:]
-                if lines[-1].startswith("```"):
-                    lines = lines[:-1]
-                raw_text = "\n".join(lines).strip()
-            parsed_result = json.loads(raw_text)
-            return parsed_result
-    except Exception as e:
-        print(f"Error calling Gemini API for briefing: {e}")
-        return None
+    return execute_gemini_request(api_key, prompt)
 
 def call_gemini_api_for_market_pulse(api_key, region, news_items):
     if not api_key or not news_items:
@@ -314,8 +305,6 @@ def call_gemini_api_for_market_pulse(api_key, region, news_items):
     for item in news_items[:15]:  # Analyze up to 15 recent news items
         summaries.append(f"- [{item.get('topic')}] {item.get('title')}: {item.get('summary')}")
     news_summaries_text = "\n".join(summaries)
-    
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={api_key}"
     
     prompt = f"""你是一位資深的食品與蔬食產業分析師。請分析以下關於 {region} 市場近期的產業情報摘要：
 {news_summaries_text}
@@ -341,48 +330,7 @@ def call_gemini_api_for_market_pulse(api_key, region, news_items):
   ]
 }}
 """
-    
-    body = {
-        "contents": [
-            {
-                "parts": [
-                    {"text": prompt}
-                ]
-            }
-        ],
-        "generationConfig": {
-            "responseMimeType": "application/json"
-        }
-    }
-    
-    data = json.dumps(body).encode('utf-8')
-    req = urllib.request.Request(
-        url,
-        data=data,
-        headers={'Content-Type': 'application/json'}
-    )
-    
-    try:
-        with urllib.request.urlopen(req, timeout=15) as response:
-            res_body = response.read().decode('utf-8')
-            res_json = json.loads(res_body)
-            text = res_json['candidates'][0]['content']['parts'][0]['text']
-            
-            raw_text = text.strip()
-            if raw_text.startswith("```"):
-                lines = raw_text.splitlines()
-                if lines[0].startswith("```"):
-                    lines = lines[1:]
-                if lines[-1].startswith("```"):
-                    lines = lines[:-1]
-                raw_text = "\n".join(lines).strip()
-            parsed_result = json.loads(raw_text)
-            return parsed_result
-    except Exception as e:
-        print(f"Error calling Gemini API for market pulse ({region}): {e}")
-        return None
-
-# Load current page.tsx content
+    return execute_gemini_request(api_key, prompt)# Load current page.tsx content
 with open(PAGE_TSX_PATH, "r", encoding="utf-8") as f:
     page_content = f.read()
 
