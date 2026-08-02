@@ -532,7 +532,7 @@ export default function Home() {
         } else {
           return {
             brand: brand.name,
-            status: "監控中",
+            status: "持續觀測",
             date: latest.publishedAt,
             update: `最新動態 (${latest.title}) 已超過 7 天，持續追蹤中。`,
             url: latest.url
@@ -543,7 +543,7 @@ export default function Home() {
       // Default fallback
       return {
         brand: brand.name,
-        status: "監控中",
+        status: "持續觀測",
         date: "2026-07-28",
         update: "近期無相關新聞動態，點擊下方連結手動查詢最新消息。",
         url: brand.defaultUrl
