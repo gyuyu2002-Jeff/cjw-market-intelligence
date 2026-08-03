@@ -105,6 +105,22 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 95,
   },
+  {
+    id: 3040904,
+    region: "美國",
+    topic: "消費趨勢",
+    title: "植物基市場已死，還是正在轉型演進？",
+    summary: "本報導探討北美植物基食品市場的最新趨勢，指出植物基產業並非面臨終局，而是進入「轉型演進」階段。過去過度炒作導致市場放緩，現今消費者更回歸理性，注重產品的口感體驗、成分潔淨度（Clean Label）、營養價值與價格合理性。產業正淘汰劣質產品，朝向高質感、微加工與更具健康效益的新世代植物基產品邁進。",
+    impact: "北美市場趨勢顯示消費者對過度加工植物肉熱情退燒。對齋之味而言，極需重視「潔淨標籤」與天然營養，若未能及時升級產品口感與健康訴求，將面臨流失新一代蔬食客群的風險。",
+    action: "評估現有產品線之成分潔淨度，並研發低添加、高營養且美味的新世代蔬食產品。",
+    owner: "產品研發",
+    source: "DairyReporter.com",
+    url: "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNVWthUHhRSHh1MFI3UjJLVDQ5SXJlcmRGcFdGYUxfaHpKcnlqdFlmVzNzT2FqY0dnV2NVNW5OX05xakR1d0JKMzlKcG05NUNjNF9wb1hkUS1aWU5UV2FXcjJud3JiVlpGMnJZZmlRbVE3N2R6RGJhdjEycFU5ZjR3ZW1oMFlXTWM4?oc=5",
+    priority: "高",
+    publishedAt: "2025-12-18",
+    collectedAt: "2026-08-03",
+    score: 92,
+  },
 {
     id: 65358122,
     region: "台灣",
@@ -328,22 +344,6 @@ const intelligence: Intelligence[] = [
     publishedAt: "2025-12-08",
     collectedAt: "2026-08-01",
     score: 92,
-  },
-{
-    id: 57731230,
-    region: "澳洲",
-    topic: "消費趨勢",
-    title: "澳洲植物基乳製品趨於成熟，健康導向更鮮明，創新加劇 - Inside FMCG",
-    summary: "澳洲植物基乳製品市場正步入成熟階段，主要驅動力來自消費者對健康的意識日益提高，以及業界持續不斷的產品創新。製造商正積極開發不僅在口感和質地上能媲美傳統乳製品，更具備優越營養價值的產品，例如減少糖分、增加蛋白質及強化維生素等。這股趨勢反映出市場已從初期的新奇感轉向更精緻化，產品品質、健康屬性及多元選項成為關鍵差異化因素。品牌正投入研發以滿足這些不斷演變的需求，確保植物基產業的永續增長。",
-    impact: "此趨勢顯示消費者對植物基產品的健康訴求日益增強，對「齋之味」而言，需重新審視其植物基產品線的健康價值主張。這可能影響產品配方調整、營養標示強調及新產品開發方向，以符合市場對低糖、高蛋白、機能性成分的需求，提升品牌競爭力。",
-    action: "產品研發部門應盤點現有植物基乳製品替代品的營養成分，並啟動開發健康訴求更明確、具創新成分的產品線，例如低糖高蛋白燕麥奶或堅果奶。",
-    owner: "產品研發",
-    source: "Inside FMCG",
-    url: "https://news.google.com/rss/articles/CBMisgFBVV95cUxNNURseVJfUDc0alBMYmVPQTdoRzR3NjZqZUk0RFlnZDZjVVJZWUF3V0VRM1ZqOEE5dGlNSEpRTU42S0VsYWk3bUpOQlV2eWMyb3F5MDF3SjBfTW9SRm5CY0djRVVNWnZ4MkxqTG55WWhDaHBBdWFsdlRZaUVHWnJQcEh1MjdXbTl3eFlQUGFFYVRyWUhORThUU1F4UHUwaWpXYlYwYkw3WEJ0SktfSEVWQUlR?oc=5",
-    priority: "高",
-    publishedAt: "2025-11-04",
-    collectedAt: "2026-08-01",
-    score: 92,
   }
 ];
 
@@ -424,44 +424,44 @@ const featureGuide = [
 
 const marketPulse = [
   {
-    region: "台灣", signal: "分化", note: "食安趨嚴、市場分化", value: 62,
-    headline: "食安法規持續趨嚴，植物基市場朝平價原型與體驗風格分化。",
-    drivers: ["食安法大幅提高罰鍰與通報時效，促使業者強化供應鏈溯源與自主檢驗。", "西方高度加工植物肉退燒，消費者轉向重視原型食物與天然健康價值。", "傳統肉品大廠以平價跨足蔬食，加上去標籤化餐飲吸納彈性素食客群。"],
-    opportunity: "齋之味可強調食材透明溯源與天然無添加，擺脫高加工疑慮；並結合體驗式行銷開發平價美食，積極搶攻彈性素食客群。",
-    risk: "食安修法祭出三千萬重罰與24小時通報，大幅推升品管合規成本；同時大廠強勢進軍平價蔬食，市場價格與通路競爭加劇。",
-    watch: ["食安法修法進度與自主檢驗合規成本", "消費者對高加工植物肉與原型食物之喜好消長", "傳統肉品巨頭跨足蔬食餐飲的定價與通路布局", "去素食標籤體驗式餐飲對彈性素食客群的吸引力"],
+    region: "台灣", signal: "穩定", note: "標示與通路動態", value: 72,
+    headline: "成熟素食文化支撐基本盤，成長機會來自日常化與透明度。",
+    drivers: ["素食分類細緻，純素與五辛需求具有在地特色", "食力與上下游持續放大低加工、國產原料與產地透明議題", "冷凍調理、氣炸料理和電商組合降低嘗試門檻"],
+    opportunity: "把素海鮮、火腿片與肉醬包裝成早餐、便當、晚餐等明確使用場景，並主動揭露主要原料來源。",
+    risk: "若只以『素料』溝通，容易停留在既有客群；健康感、鈉含量與加工印象也會影響新客回購。",
+    watch: ["電商回購率", "非素食客占比", "主力 SKU 每餐成本", "國產原料比例"],
   },
   {
-    region: "美國", signal: "分化", note: "主流普及、技術突破", value: 78,
-    headline: "美國植物基市場滲透率破六成，技術創新與在地化成關鍵。",
-    drivers: ["家庭滲透率高達六成，植物基食品已從利基市場走向主流消費。", "產學研合作推動創新，競賽與技術研發加速突破風味與質地瓶頸。", "區域消費偏好呈現差異，品牌需透過精準在地化策略進行市場拓展。"],
-    opportunity: "瞄準美國家庭高滲透率，齋之味可結合技術突破改善口感與風味，針對不同區域偏好推出具亞洲特色的潔淨標示植物基點心與餐點。",
-    risk: "市場競爭激烈且消費者對風味與質地極度挑剔，若無法有效降低生產成本並規模化生產，將面臨價格競爭與回購率下滑的風險。",
-    watch: ["各地區美國家庭植物基產品回購率與品類滲透率", "風味、質地與成本效益等關鍵技術的突破進展", "新創競爭對手的產品開發速度與訂價策略", "潔淨標示與永續包裝等消費者價值的轉化趨勢"],
+    region: "美國", signal: "承壓", note: "健康與價值重整", value: 48,
+    headline: "植物肉零售降溫，市場正從擬真轉向蛋白質、潔淨標示與實際價值。",
+    drivers: ["消費者重新檢視價格、鈉含量與成分表", "高蛋白與機能食品吸引力高於單一仿肉敘事", "食品服務通路的使用情境比零售貨架更具韌性"],
+    opportunity: "優先測試差異化的亞洲炸物與餐飲用規格，英文品名清楚揭露大豆、菇類等主要植物來源。",
+    risk: "高運費與植物肉溢價會壓縮競爭力；若營養或口感無明顯差異，難以取得穩定回購。",
+    watch: ["每磅售價差", "蛋白質／鈉含量", "餐飲通路新品", "FDA 命名指引"],
   },
   {
-    region: "澳洲", signal: "分化", note: "肉品承壓、乳品升級", value: 55,
-    headline: "植物肉遭文化與口感挑戰，植物奶憑健康創新趨於成熟。",
-    drivers: ["植物肉未融入澳洲在地燒烤文化，風味口感與價格難符合期待。", "彈性素食者增加，對超加工食品疑慮提升並轉向原型食品。", "植物基乳品強調高蛋白、低糖及營養強化，靠機能創新推升回購。"],
-    opportunity: "針對澳洲燒烤場景研發高還原度且少添加的植物燒烤肉品；同時切入清潔標籤與高蛋白機能型植物乳品或點心市場。",
-    risk: "傳統肉食文化強烈抵制、過度加工疑慮重創植物肉信任，加上通膨環境下高價產品難以維持高消費者回購率。",
-    watch: ["燒烤場景適用植物肉的市場滲透率", "清潔標籤與少添加食品的消費者選擇偏好", "高蛋白及微量元素強化植物奶的銷售成長率", "植物基與傳統肉類/乳製品的價格價差變化"],
+    region: "澳洲", signal: "觀察", note: "口感、價格決勝", value: 61,
+    headline: "市場仍有需求，但通路進入汰弱留強，能否持續上架取決於回購。",
+    drivers: ["彈性減肉人口提供潛在客群", "大型超市對銷量、價格與貨架效率要求提高", "氣炸鍋與快速料理適合冷凍調理產品"],
+    opportunity: "以純素香酥花枝圈切入差異化海鮮替代品，提供氣炸時間、每份成本與多人分享情境。",
+    risk: "市場距離造成物流與冷鏈成本；Vegan 宣稱仍需完整供應商文件與交叉污染證明。",
+    watch: ["Woolworths／Coles 上下架", "促銷頻率", "冷凍素海鮮品項", "FSANZ 標示更新"],
   },
   {
-    region: "歐洲", signal: "分化", note: "需求強勁、法規限縮", value: 72,
-    headline: "歐洲植物基市場規模百億，惟受歐盟肉類命名禁令衝擊。",
-    drivers: ["健康意識抬頭與永續發展趨勢，持續推動歐洲植物基市場擴張。", "市場規模已達163億歐元，預估至2030年市場價值將翻倍增長。", "飲食偏好轉向植物基產品，促使食品製造商加大研發與創新投入。"],
-    opportunity: "應提前佈局去肉類化命名的品牌定位，主打健康、高纖與潔淨標籤，並以永續環保為核心吸引歐洲兼食族群，建立獨特產品識別。",
-    risk: "歐盟推動禁止植物基產品使用漢堡、香腸等肉類名稱，將大幅提高企業合規與包裝更換成本，並可能引發消費者辨識混淆。",
-    watch: ["歐盟肉類命名禁令之立法進展與最終實施細則", "歐洲零售通路對於新標示植物基產品的架位佈局", "品牌重新包裝後消費者對產品的辨識度與購買意願", "植物基品牌因應法規調整所衍生的合規成本壓力"],
+    region: "歐洲", signal: "分化", note: "德義成長、英國承壓", value: 68,
+    headline: "不是單一市場：德國、義大利仍有成長訊號，英國則更受價格壓力影響。",
+    drivers: ["平價自有品牌帶動部分國家的銷量", "各國飲食文化與零售結構造成明顯差異", "Novel Food、名稱與營養宣稱提高跨國上市複雜度"],
+    opportunity: "先以德國或荷蘭作為產品驗證市場，主打亞洲口味、冷凍方便性與合理每公斤價格。",
+    risk: "用同一包裝進入所有歐洲國家容易忽略語言、名稱、通路與消費差異。",
+    watch: ["德國銷量", "自有品牌價格", "英國品項縮減", "EU Novel Food 更新"],
   }
 ];
 
 const dailyBriefing = {
-  title: "過度加工熱潮退燒，植物基勝出關鍵在於<strong>原型美味與食安合規。</strong>",
-  subtitle: "全球植物基市場從概念炒作走向嚴苛檢視，消費者反思高加工並轉向原型美味；同時，台歐兩地分別面臨命名限制與歷史最嚴格食安通報法規衝擊。",
-  decisionTitle: "擺脫高加工標籤，以潔淨標章與合規防線佈局。",
-  decisionDetail: "非素食客群要求真材實料與風味體驗，台灣修法大幅加重食安通報罰鍰，品牌須加速升級產品配方並建立透明溯源機制。"
+  title: "市場不缺新品，<br />真正稀缺的是<strong>回購理由。</strong>",
+  subtitle: "跨市場訊號共同指向價格、健康感與使用情境。這三項因素正影響新品能否進入日常餐桌並形成回購。",
+  decisionTitle: "價格、健康感與料理便利性共同決定回購",
+  decisionDetail: "各市場的成長速度不同，但資訊都顯示：消費者不只在意是否純素，也會比較成分、每份成本及料理是否方便。"
 };
 
 export default function Home() {
@@ -638,7 +638,7 @@ export default function Home() {
           </div>
           <div className="masthead-meta">
             <div className="date-line">
-              <p className="eyebrow">2026年8月2日・星期日</p>
+              <p className="eyebrow">2026年8月3日・星期一</p>
             </div>
             <div className="summary-line">今日彙整 {freshIntelligence.length} 則 · {highPriorityCount} 則核心關注</div>
           </div>
@@ -646,7 +646,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-08-02T12:45:52+08:00">2026/08/02 12:45</time></div>
+          <div>最後更新：<time dateTime="2026-08-03T05:37:05+08:00">2026/08/03 05:37</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -837,7 +837,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/02 12:45。</p>
+              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/03 05:37。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
