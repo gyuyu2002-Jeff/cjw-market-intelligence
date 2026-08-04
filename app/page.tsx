@@ -106,6 +106,22 @@ const intelligence: Intelligence[] = [
     score: 95,
   },
   {
+    id: 69065753,
+    region: "台灣",
+    topic: "競品",
+    title: "市值從150億跌至2.7億美元：植物奶巨頭Oatly的衰退啟示與重生轉型",
+    summary: "植物奶龍頭Oatly市值從高峰的150億美元驟降至2.7億美元。這家曾憑藉精品咖啡通路策略與強烈品牌行銷席捲全球的企業，因過度擴張供應鏈、產能建立過慢錯失熱潮，加上通膨導致消費者轉向平價替代品，面臨嚴重虧損。如今Oatly正透過收縮產能、專注核心產品與改善營運結構進行重生轉型。",
+    impact: "Oatly的跌落提醒齋之味，強大的品牌行銷若缺乏穩健的供應鏈與成本控管，極易遭遇危機。拓展新產品線時應避免盲目擴產，需維持產品性價比與營運韌性。",
+    action: "評估現有素食產品線的生產成本與供應鏈風險，盤點核心主力產品並優化定價與營運結構。",
+    owner: "品牌行銷",
+    source: "Meet創業小聚",
+    url: "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1BSjIyaFhZVzI2SzkzRmxZVVFkZU1OVnFLQWx2WkVHeU1aZTVBVTFIU0dWYWtQc2lENWsteUxlSzhLRTVSaTdsVExMTGhxaGZfZnNFQWw3NTg?oc=5",
+    priority: "高",
+    publishedAt: "2025-09-16",
+    collectedAt: "2026-08-04",
+    score: 92,
+  },
+{
     id: 3040904,
     region: "美國",
     topic: "消費趨勢",
@@ -326,22 +342,6 @@ const intelligence: Intelligence[] = [
     url: "https://news.google.com/rss/articles/CBMilwFBVV95cUxPR0t4V2VaNEhCTDdUbGV3dWY4N01VZG1PUDhIMFhkaFQ4Z0ZuQS1YYW9tRWgzckttODFWc2M1djF2NFU5cGpOalNuZm10WXpTcVM1MERaeVR3R1dOSS1pWUN3VmNRUGVnaHdVUThVREpwcDc3TmhsZklHTVJqdDB5Zm5jMU8wU3Zma0U3YUxnbjkwV0V1STJZ?oc=5",
     priority: "高",
     publishedAt: "2026-06-16",
-    collectedAt: "2026-08-01",
-    score: 92,
-  },
-{
-    id: 47222874,
-    region: "澳洲",
-    topic: "消費趨勢",
-    title: "澳洲燒烤市場爭奪戰：植物肉在澳洲發展受阻的關鍵因素",
-    summary: "澳洲麥考瑞大學發布新聞指出，植物肉在澳洲市場的普及面臨顯著挑戰，尤其在當地獨特的燒烤文化中未能有效滲透。此分析將探討阻礙植物肉廣泛被接受的核心因素，可能涵蓋消費者對風味口感的疑慮、產品價格定位、文化習慣的抗拒以及市場推廣策略的不足，揭示植物基食品欲在澳洲市場取得成功需克服的深層障礙。",
-    impact: "此新聞提醒齋之味，欲拓展澳洲或類似飲食文化市場，需深入了解當地消費者對植物肉的認知與接受度。產品研發上，應考慮推出更符合在地烹飪習慣及口感期待的品項；行銷策略則需專注於突破文化藩籬，強調植物肉的獨特價值。",
-    action: "立即啟動澳洲市場消費者行為與偏好研究，評估開發符合燒烤情境的植物肉產品線，並制定在地化品牌行銷策略。",
-    owner: "品牌行銷",
-    source: "Macquarie University",
-    url: "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNMkJ6WkJBc0NJSHhqUXM5bzFjZGpjSm40V1dKXy1HV1NNSkthM2dfTVhTQ19Pejd4RnFoUEttM1A0cTVRNVhYeTNhRlpVMlNwZHF1MzZRajh3OU93RnN4SGJMTENLckRKQ2pKc3o1X2JKYm5mdHFVOXkzZ2ZEVTF4VVk3aWphOTRGNzQ3ZlR1QV92cDVSclFSdlZ3eUxRYXVySng3TkZlYmRCNVQ4ekFSS1BoSU90dGxVQTdkclpNbEhiV3c?oc=5",
-    priority: "高",
-    publishedAt: "2025-12-08",
     collectedAt: "2026-08-01",
     score: 92,
   }
@@ -638,7 +638,7 @@ export default function Home() {
           </div>
           <div className="masthead-meta">
             <div className="date-line">
-              <p className="eyebrow">2026年8月3日・星期一</p>
+              <p className="eyebrow">2026年8月4日・星期二</p>
             </div>
             <div className="summary-line">今日彙整 {freshIntelligence.length} 則 · {highPriorityCount} 則核心關注</div>
           </div>
@@ -646,7 +646,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-08-03T05:37:05+08:00">2026/08/03 05:37</time></div>
+          <div>最後更新：<time dateTime="2026-08-04T06:08:05+08:00">2026/08/04 06:08</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -837,7 +837,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/03 05:37。</p>
+              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/04 06:08。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
