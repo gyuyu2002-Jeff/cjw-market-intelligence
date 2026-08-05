@@ -106,6 +106,54 @@ const intelligence: Intelligence[] = [
     score: 95,
   },
   {
+    id: 15296911,
+    region: "美國",
+    topic: "消費趨勢",
+    title: "植物性蛋白市場規模預計於2034年達430.7億美元，受彈性素食需求與潔淨標示創新驅動",
+    summary: "根據最新市場研究，植物性蛋白市場規模預計於2034年達到430.7億美元。此顯著增長主要得益於全球彈性素食者族群的迅速擴大，以及消費者對健康與環保意識的提升。此外，潔淨標示（Clean-Label）的技術創新亦成為關鍵推動力，驅使製造商開發成分更天然、加工度更低且高營養價值的植物蛋白產品，以滿足主流市場需求。",
+    impact: "全球潔淨標示與彈性素食趨勢明確，齋之味需關注成分天然與少添加產品。這為品牌外銷及產品升級提供契機，可提升健康形象並吸引更多非傳統素食人口。",
+    action: "盤點現有產品成分表，啟動潔淨標示（Clean-Label）產品線升級計畫，優化天然原料比例。",
+    owner: "產品研發",
+    source: "Yahoo Finance",
+    url: "https://news.google.com/rss/articles/CBMigwFBVV95cUxQdGN3NW9IV2pFMzlNSTZBN2l5OXF6bHFZTXp4TU1mc2txcGVmOXJpNzlfNkIxd1YyR3ZDWjh4V0RWb01ZRkNnbWxQTEFZUVlGcDNnRk5lOXZ3ZDRHb0ZoZmctdzZzMzM4NXNOREhSanNtZ25YVkhzTWhXNHZzampKWlRjbw?oc=5",
+    priority: "高",
+    publishedAt: "2025-09-24",
+    collectedAt: "2026-08-05",
+    score: 92,
+  },
+  {
+    id: 94829123,
+    region: "台灣",
+    topic: "法規標示",
+    title: "行政院提出食安法修法十項重點 強化食品安全與管理機制",
+    summary: "行政院針對食品安全法規提出十項修法重點，旨在全面升級國內食安管理機制。內容涵蓋加重違規業者罰則、落實食品追溯追蹤系統、擴大檢驗項目與頻率、加強進口食品邊境查驗，以及完善問題產品的下架回收機制。政府盼透過修法落實源頭管理與風險控管，精準打擊不法業者，建構更完善的食品安全防護網，維護消費大眾健康與市場秩序。",
+    impact: "食安法修法將提升植物基產品供應鏈稽核與標示合規要求。齋之味需加強原料來源追溯，嚴格評估供應商合規性，防範標示不符風險，維護品牌信譽。",
+    action: "盤點現有產品標示與供應鏈追溯紀錄，配合新法修訂品保標準作業流程，確保零違規。",
+    owner: "品保法規",
+    source: "工商時報",
+    url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9XdkxxY05MV1dGbTF4a09OQ1hWUEFOa204M04xcGdULU9OVWRoMzdxcnYtYjdEeG02N1B4Qk9GYm81SkFRMDJrbEFqUGVyWXRub1RuWWZZb3ZFQ3BaRG9B?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-21",
+    collectedAt: "2026-08-05",
+    score: 92,
+  },
+  {
+    id: 86660328,
+    region: "台灣",
+    topic: "法規標示",
+    title: "2026台灣食安法修法解析：10大重點與最高3000萬罰則新舊對比",
+    summary: "本文解析台灣2026年《食品安全衛生管理法》修法重點，涵蓋10項重大變更。修法大幅提高違規罰則，最高罰鍰達3000萬元，並強化追溯追蹤制度、產地與成分標示規範及源頭管理。新舊罰則對比顯示政府對食安違規採取零容忍態度，企業需全面審視供應鏈與合規性以降低營運風險。",
+    impact: "修法提高罰則與標示要求，將增加齋之味在原料進貨檢驗、成分標示審查及供應鏈溯源管理之營運成本與合規壓力；若違反規定將面臨高額罰款與品牌形象重創。",
+    action: "立即盤點全系列產品包裝標示與供應鏈溯源文件，並全面審查原料廠商之合規檢驗報告。",
+    owner: "品保法規",
+    source: "商周",
+    url: "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1ydTNsaFYwV0ZhbWY4M29lWFVuU2YwZUxpdVQ3N21nLTEwY0hsYjZOTnRoQm85SFFXajhDSExoUFRJWmhBSHNZSkQyZllyOEU3bGlfOU8weW5SazUxakUyVk93?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-23",
+    collectedAt: "2026-08-05",
+    score: 92,
+  },
+{
     id: 69065753,
     region: "台灣",
     topic: "競品",
@@ -294,54 +342,6 @@ const intelligence: Intelligence[] = [
     url: "https://news.google.com/rss/articles/CBMilwFBVV95cUxPdVVfaFVXNEEyWmdoY0x3bC12dXViZjA5R1JyWVFTV2hlaUZWZU1PVHZ6dnVXLVdRS2psVUp4dWowOEVYdVpldjktMVFSRkRrUFFOZkZsbTlHTm9rOTRyVEFPc25UeGlldEVvMnNJdHNra3NHajVkY3BSYVV5YzNENlY5TUh3UllvNUdGaWZydnd2RG5DN3pZ?oc=5",
     priority: "高",
     publishedAt: "2025-08-11",
-    collectedAt: "2026-08-01",
-    score: 92,
-  },
-{
-    id: 48319183,
-    region: "歐洲",
-    topic: "消費趨勢",
-    title: "歐洲植物基市場規模達163億歐元",
-    summary: "根據Food Manufacture於2026年4月9日的報導，歐洲植物基食品市場已達到163億歐元的規模。此數據突顯了歐洲消費者對植物基產品日益增長的需求和市場的強勁擴張。這不僅反映了健康意識、環境永續性及動物福利等因素對消費選擇的影響，也預示著植物基產業在歐洲將持續成為主流食品趨勢。此趨勢將促使食品製造商加大在創新研發和產品多元化方面的投入，以滿足不斷變化的市場需求，並鞏固植物基食品在歐洲食品供應鏈中的地位。",
-    impact: "歐洲植物基市場規模的顯著成長，對齋之味而言是強烈的市場肯定。這表示全球植物基食品需求旺盛，齋之味應借鑒歐洲市場的創新趨勢與成功案例，思考產品在地化與國際化的可能性。同時，這也鼓勵齋之味在研發上投入更多資源，開發符合新世代消費者口味與健康訴求的多元產品線，以鞏固品牌競爭力。",
-    action: "評估歐洲植物基市場的產品種類與消費偏好，審視齋之味現有產品線的國際競爭力，並規劃潛在的歐盟市場拓展策略或汲取其研發靈感。",
-    owner: "國際業務",
-    source: "Food Manufacture",
-    url: "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPQ0k0OTRaX21xcHMzNE1RZnJwUmxYLVJzRlpsQ0w2a2NoX0RQeVZQemx1dzh5SGppWlB2RnJFRDAycmFjaHFoYmgwQmk3N0R0emR6NnFjaTZMNW1XRFpVMVZ4YzdNZnRXaDJTcEExMTNZQjVYNzBiTENSaTdWamlFalRWTWEzUUZxVXZCa0J1c2c5cnVNSjBOdjUyTnVvVHhlUVNuczk0RmlNcDVmV2IwWWJzdE1QLWE3?oc=5",
-    priority: "高",
-    publishedAt: "2026-04-09",
-    collectedAt: "2026-08-01",
-    score: 92,
-  },
-{
-    id: 32536850,
-    region: "歐洲",
-    topic: "法規標示",
-    title: "歐盟擬立法禁止素食產品使用肉類名稱引發業界沮喪",
-    summary: "歐盟正考慮一項法案，旨在禁止植物基食品使用肉類產品名稱，例如「素食漢堡」或「素食香腸」。此舉在植物基食品產業中引起廣泛沮喪與擔憂，業者認為這將阻礙市場發展，並可能使消費者在辨識產品時面臨困惑。這項爭議凸顯了植物基食品命名標準以及與消費者溝通的複雜性，對於植物基產品的市場行銷策略構成新的挑戰。",
-    impact: "此法案一旦通過，齋之味需重新評估其在歐洲市場或全球推廣產品時的命名策略，特別是針對目前使用肉類替代名稱的產品。這可能影響品牌識別、包裝設計及行銷溝通，需更著重發展獨特且具吸引力的植物基專屬名稱。",
-    action: "盤點現有產品命名與包裝設計，評估在歐洲市場推廣時的合規性。研擬替代性植物基產品命名方案，並密切關注歐盟法規進展。",
-    owner: "品保法規",
-    source: "European Newsroom",
-    url: "https://news.google.com/rss/articles/CBMikwFBVV95cUxPaVlibGpUbWdGVE8tSTRocWQtZTlUbGw1dklkY1M1cklYRnk5RGhPQnN3ZHNkdDZ0dUR3bThqSVpoQldVVG9tak9nQjNHU2c5dUI4ZmVtVDJNcDVVSWZVSlVORUFDQWpnTUpSVjM5cTBiM0MxX1BXLU5JUmhQaFZsRmtXcG1YYXp3cGExQUZZOGFjY0U?oc=5",
-    priority: "高",
-    publishedAt: "2025-10-07",
-    collectedAt: "2026-08-01",
-    score: 92,
-  },
-{
-    id: 5923352,
-    region: "澳洲",
-    topic: "消費趨勢",
-    title: "我們是否已對肉類和乳製品替代品失去胃口？",
-    summary: "澳洲一份報導指出，消費者對肉類和乳製品替代品的興趣可能正在減退。該文探討植物基食品市場是否已失去初期成長動能，消費者對於這類產品的「胃口」是否大不如前。可能原因包含產品風味與口感未能滿足期待、價格競爭力不足、對高度加工食品的疑慮，或是消費者從嚴格素食轉向彈性素食的趨勢。此趨勢值得密切關注，因其可能預示植物基產業未來發展的挑戰與轉變方向。",
-    impact: "此趨勢對齋之味而言，意味著需重新審視澳洲市場的產品策略。若消費者興趣減退，齋之味可能需要加強產品的風味與質地創新，提升性價比，並調整行銷訊息以強調植物基食品的美味與健康益處，而非僅僅替代肉品，以維持市場競爭力。",
-    action: "深入市場調研以理解澳洲消費者對植物基食品興趣減退的原因，並評估現有產品線與新產品開發方向，加強產品體驗。",
-    owner: "品牌行銷",
-    source: "The Conversation",
-    url: "https://news.google.com/rss/articles/CBMilwFBVV95cUxPR0t4V2VaNEhCTDdUbGV3dWY4N01VZG1PUDhIMFhkaFQ4Z0ZuQS1YYW9tRWgzckttODFWc2M1djF2NFU5cGpOalNuZm10WXpTcVM1MERaeVR3R1dOSS1pWUN3VmNRUGVnaHdVUThVREpwcDc3TmhsZklHTVJqdDB5Zm5jMU8wU3Zma0U3YUxnbjkwV0V1STJZ?oc=5",
-    priority: "高",
-    publishedAt: "2026-06-16",
     collectedAt: "2026-08-01",
     score: 92,
   }
@@ -638,7 +638,7 @@ export default function Home() {
           </div>
           <div className="masthead-meta">
             <div className="date-line">
-              <p className="eyebrow">2026年8月4日・星期二</p>
+              <p className="eyebrow">2026年8月5日・星期三</p>
             </div>
             <div className="summary-line">今日彙整 {freshIntelligence.length} 則 · {highPriorityCount} 則核心關注</div>
           </div>
@@ -646,7 +646,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-08-04T06:08:05+08:00">2026/08/04 06:08</time></div>
+          <div>最後更新：<time dateTime="2026-08-05T04:53:05+08:00">2026/08/05 04:53</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -837,7 +837,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/04 06:08。</p>
+              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/05 04:53。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
