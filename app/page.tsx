@@ -106,6 +106,54 @@ const intelligence: Intelligence[] = [
     score: 95,
   },
   {
+    id: 56213711,
+    region: "台灣",
+    topic: "法規標示",
+    title: "《食品安全衛生管理法》修法：全面強化食安管理與守護全民健康",
+    summary: "行政院院會通過《食品安全衛生管理法》修正草案，重點旨在強化食安管理體系。修法內容涵蓋升級食品追溯追蹤機制、加強源頭管控、嚴格規範產品成分與標示真實性，並提高對違規業者的罰則金額。此法案亦特別關注植物基與素食產品之原料供應鏈透明度，要求明確落實標示合規，以守護國人飲食健康。",
+    impact: "修法提高供應鏈稽核與標示合規要求，齋之味需重新檢視素食原料來源透明度、追溯機制及純素標示，確保產品全面符合新規，降低法規風險並強化品牌食安信任度。",
+    action: "全面盤點現有產品標示與原料追溯履歷，評估包材更新需求並落實合規供應商管理。",
+    owner: "品保法規",
+    source: "ey.gov.tw",
+    url: "https://news.google.com/rss/articles/CBMihwFBVV95cUxPMlBlTFhES3Z5N2pwS3FydTlsVVJpZ19QeUxuZlh2RUNuU18xMjNtSzlSdGtPZVZiMU5UbWl4SEdXUUtBZ05udkdwSkhRWHdZZ2ROdWN4VUZlUnVWenczT2tWMDJfRk9kemY0TkEtVmdIaTNTWjROTTRIS2VhNDlDZWJhRkxRT2M?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-31",
+    collectedAt: "2026-08-06",
+    score: 92,
+  },
+  {
+    id: 28144157,
+    region: "台灣",
+    topic: "法規標示",
+    title: "行政院拍板食安法修正案：食品業者須於24小時內通報，隱匿最高重罰3000萬元",
+    summary: "行政院通過《食品安全衛生管理法》修正草案，針對食安事件強化業者責任。新法規定食品業者若發現產品有危害衛生安全之虞，必須於24小時內自主通報主管機關並採取預防性下架。若有隱匿或未依限通報者，最高可處以新台幣3000萬元罰鍰。此舉旨在提升食安事件處理效率，保障消費者權益。",
+    impact: "新法大幅提高食安通報時效要求與罰鍰上限。對齋之味而言，極度考驗供應鏈追溯與品質監控應變能力，若有潛在品質異常需更迅速反應，否則面臨重大營運與商譽風險。",
+    action: "檢視並優化內部食安通報標準作業流程，建立24小時緊急應變小組與產品追溯機制。",
+    owner: "品保法規",
+    source: "Yahoo新聞",
+    url: "https://news.google.com/rss/articles/CBMirgNBVV95cUxQN2lpLUFQY0N5LWkwcElvejhzS29kRUl0clM0SDFIczBvZlFKRktRbE9PUXZOZkQxSzlPQzQ1YnFKWEp0eGJ5cWMzalBnNTBJV1FhRTBHNElMYjNGdkxzTm5Uand5UUlYcldyc1BHckNkMlIxSUpWOE96ZEhsLVJ6TWJ2M3ViV0JzMXY3ZmR0QktJeGo0OVY0NkxCUTlSZ3FXaUhJWUcwdzA3dmJzdDZmSEVsUllmMkM2VVBpeTRvTHJiRnFRSW1nZkdJWlhqNlNxU0J1ejVzbmtKdmlxdGNRZzRFUkRKUnlYZ1kwX3Q2WTJ0TzRnZlN0SXZkQmRCVnE3ZTRsYXRtcE1zbmpUdVJsUWstdU55MXdxSXpZaWRtaEVnRkJMNWtRS0cxbG10d0ZrXzNYM0QxUjJZU3lzTkl6dFA3R2tjR0hya2hYOTQ5aWJPS0g1TVNpUXdLS0trS0prblNzNmctVXJjS3BJb0NOVXNKbzBaYk9EZlFRUzBWQU5jVHdqcWk5N1gzTzRvd2pwRnhsRE9HRDIxdFlWd2F0ZS0yaGFpMlVTTFQybmFn?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-22",
+    collectedAt: "2026-08-06",
+    score: 92,
+  },
+  {
+    id: 27542253,
+    region: "台灣",
+    topic: "法規標示",
+    title: "食安法修法：行政院擬要求食品業者設立或委託第三方認證實驗室加強自主檢驗",
+    summary: "行政院推動《食安法》修法，要求一定規模之食品業者須設立或委託第三方認證實驗室執行產品自我檢驗。此舉意在提升食品產業自主品管能力，強化整體食品安全防護網，預防違規添加物或標示不實問題發生。政府亦將研擬相關配套措施，輔導業者建立符合國際標準之檢驗機制。",
+    impact: "食安修法將直接增加檢驗營運成本。對齋之味而言，極需確保原料與成品之植物性純度、無農藥殘留與無交叉污染，必須盤點委外檢驗預算，強化品管防線以維持品牌信任度。",
+    action: "盤點目前合作之第三方認證實驗室，檢視檢驗項目與頻率，並評估合規成本與升級品管流程。",
+    owner: "品保法規",
+    source: "中央社 CNA",
+    url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PcXhsX3I2TEtqa1VqQkZQTHIwdXB2UWk0VjJpWkJvSmIteEtsZk5DeU5KRVdoSk9iVEk5RC1hSFp4VzFtUTZyWHlYaUhTUFlLM2cza3VNMFJHQXBtaDFr?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-18",
+    collectedAt: "2026-08-06",
+    score: 92,
+  },
+{
     id: 15296911,
     region: "美國",
     topic: "消費趨勢",
@@ -121,7 +169,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-05",
     score: 92,
   },
-  {
+{
     id: 94829123,
     region: "台灣",
     topic: "法規標示",
@@ -137,7 +185,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-05",
     score: 92,
   },
-  {
+{
     id: 86660328,
     region: "台灣",
     topic: "法規標示",
@@ -294,54 +342,6 @@ const intelligence: Intelligence[] = [
     url: "https://news.google.com/rss/articles/CBMitwFBVV95cUxQNTNNS3VCaFNiOW9ndFItb212RmN5Z2RnUkxKRGhTUGczZXdMVkx4SGx6VnFFbXpIQkZqSlhRc2dZV2hnQmc5UEl4bG92QTBEZnVjZC1fa3k1aFo3elFpRXVhNkk3T1ZzZ3BPdFAxd1pNQTIwQm9JUXNySEo0cVRkWFU5c3lTYlFHXzZJZXhPamoyNld5Y04zS1RMckhSMGt5NW9qSWJpWHRnYXNleEhYeFhzR2swRjg?oc=5",
     priority: "高",
     publishedAt: "2025-10-02",
-    collectedAt: "2026-08-01",
-    score: 92,
-  },
-{
-    id: 70156975,
-    region: "美國",
-    topic: "消費趨勢",
-    title: "美國 60% 家庭購買植物基產品 – 各地區表現分析",
-    summary: "美國最新報告指出，高達 60% 的美國家庭已購買過植物基產品，顯示市場已廣泛接受。新聞分析美國各區域的消費表現差異，揭示不同地區的消費者偏好與滲透率，證明植物基食品已從利基市場走向主流。這為品牌制定精準在地化策略提供重要參考，凸顯市場巨大潛力。",
-    impact: "美國市場的高滲透率對齋之味是正面啟示，表明植物基食品國際市場潛力巨大。齋之味應評估美國各區域偏好，思考產品在地化策略與國際拓展機會。",
-    action: "研究美國各區域植物基產品消費偏好差異，評估產品國際化潛力與市場進入策略。",
-    owner: "國際業務",
-    source: "Green Queen Media",
-    url: "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOcUdZM19XWGdndGZ0LU9wb0h0QWxFU1dDbHlXOXoyWWpqcDlCYWctQ3pmY1RyTG1WWGE5RG55MnBUWksxLXRqTWY3dmN0bGhnRjFxU2VQYTIxdXE4NS1DX1pxSjBiYUNLc0FZTm9WVjh5dGRSakM5SUQ0dXpTNkdOdGd0SDBDVHJlQ2g2Z2NKQWtUd25mbjlReE82QzYzQlJlTHlvRjE3Y2E?oc=5",
-    priority: "高",
-    publishedAt: "2026-06-04",
-    collectedAt: "2026-08-01",
-    score: 92,
-  },
-{
-    id: 49927134,
-    region: "美國",
-    topic: "原料技術",
-    title: "解碼：克服植物基產品開發的挑戰 - RTI International",
-    summary: "這篇來自RTI International的報導（發布於2025年11月21日）探討植物基食品產業在產品開發中面臨的關鍵挑戰。內容可能聚焦於如何解決植物基產品在風味、質地、營養成分、成本效益及規模化生產等方面的難題。報告預期將提出創新的原料應用、加工技術或配方策略，旨在提升產品的消費者接受度與市場競爭力，強調科學研發在推動植物基市場成長中的核心作用。這類資訊對於產業參與者，特別是新產品開發部門，具有重要的參考價值。",
-    impact: "此資訊顯示植物基產業持續聚焦於技術突破。對齋之味而言，這意味著需密切關注原料與技術發展，以滿足消費者對更佳風味、質地及營養價值的期待。若能成功應用新技術，將有助於強化齋之味的產品競爭力與市場領先地位，否則恐面臨創新不足的風險。",
-    action: "評估當前產品線的風味、質地與營養挑戰，並研究新興植物基原料與加工技術，以提升產品競爭力。",
-    owner: "產品研發",
-    source: "RTI International",
-    url: "https://news.google.com/rss/articles/CBMiggFBVV95cUxPNHdlYnBSd3FwcmNRanBpQjlFeGd0a3JNNFFqWXJkcG9yeC1GRml5akZJUjVXbjBHeXdJQ0wtc25Pdy1wSE50eHk2Q3phLWhzTTlTRGhxS0I2QlRxRENkdU5MQnNBd1Z5UHNTUjBDUzZaVWp1djBZMVBDWXF2M3ZORjVn?oc=5",
-    priority: "高",
-    publishedAt: "2025-11-21",
-    collectedAt: "2026-08-01",
-    score: 92,
-  },
-{
-    id: 26806391,
-    region: "歐洲",
-    topic: "消費趨勢",
-    title: "2025-2033年歐洲植物基肉品市場趨勢報告 | 健康意識、永續發展焦點與消費者偏好轉變推動市場擴張",
-    summary: "一份由ResearchAndMarkets.com發布的報告指出，2025年至2033年間歐洲植物基肉品市場預計將持續擴張。此成長主要受到消費者健康意識提升、對永續發展的高度關注，以及飲食偏好轉向植物基產品等因素的推動。這份報告強調，這些宏觀趨勢將是未來幾年歐洲植物基肉品市場發展的關鍵驅動力，預示著植物基食品在歐洲市場的強勁增長潛力。",
-    impact: "歐洲市場的健康與永續趨勢預示全球植物基食品產業的走向。齋之味應積極審視現有產品線在健康與永續面向的競爭力，並探索如何將這些消費者價值觀融入品牌故事與產品創新中，以鞏固並拓展市場份額。",
-    action: "評估現有產品的健康與永續訴求，並規劃新產品研發方向，加強與健康、環保概念的連結。",
-    owner: "產品研發",
-    source: "vegconomist - the vegan business magazine",
-    url: "https://news.google.com/rss/articles/CBMilwFBVV95cUxPdVVfaFVXNEEyWmdoY0x3bC12dXViZjA5R1JyWVFTV2hlaUZWZU1PVHZ6dnVXLVdRS2psVUp4dWowOEVYdVpldjktMVFSRkRrUFFOZkZsbTlHTm9rOTRyVEFPc25UeGlldEVvMnNJdHNra3NHajVkY3BSYVV5YzNENlY5TUh3UllvNUdGaWZydnd2RG5DN3pZ?oc=5",
-    priority: "高",
-    publishedAt: "2025-08-11",
     collectedAt: "2026-08-01",
     score: 92,
   }
@@ -638,7 +638,7 @@ export default function Home() {
           </div>
           <div className="masthead-meta">
             <div className="date-line">
-              <p className="eyebrow">2026年8月5日・星期三</p>
+              <p className="eyebrow">2026年8月6日・星期四</p>
             </div>
             <div className="summary-line">今日彙整 {freshIntelligence.length} 則 · {highPriorityCount} 則核心關注</div>
           </div>
@@ -646,7 +646,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-08-05T04:53:05+08:00">2026/08/05 04:53</time></div>
+          <div>最後更新：<time dateTime="2026-08-06T04:54:05+08:00">2026/08/06 04:54</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -837,7 +837,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/05 04:53。</p>
+              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/06 04:54。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
