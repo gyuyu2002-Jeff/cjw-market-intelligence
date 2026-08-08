@@ -106,6 +106,102 @@ const intelligence: Intelligence[] = [
     score: 95,
   },
   {
+    id: 65358122,
+    region: "台灣",
+    topic: "競品",
+    title: "素食風潮退燒？未來肉企業股價崩跌與肉食搜尋量成長之市場脈動分析",
+    summary: "近年植物肉市場面臨退燒質疑，比爾蓋茲投資的植物肉企業（如Beyond Meat）股價遭遇重挫，同時消費者對肉食的搜尋量逆勢成長87%。此現象反映過度加工、口感價格未達預期以及消費者新鮮感退去等問題，導致高度資本化的「未來肉」產業正面臨嚴峻的市場轉型與重新定位挑戰。",
+    impact: "西方高總價、過度加工植物肉受挫，啟示齋之味應回歸傳統原型食材與在地口味優勢，強調健康美味與高性價比，避免盲目追逐高價仿肉概念，鞏固實用型素食客群。",
+    action: "評估產品線之加工度與定價策略，轉向推廣美味健康的真食材植物基產品。",
+    owner: "品牌行銷",
+    source: "食力 foodNEXT",
+    url: "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1uTENJZ2ZPREh0dHVaTlpTb2xQWFZWZURiMkpQS3lsS1FZTkN5NFYxeUFBTFowaEdsZ0xEd3labEdISXVpcDVZUU4yWEF6OHBoQndJa1pxeGRicFY2N3BQTEdBdWRSMVk?oc=5",
+    priority: "高",
+    publishedAt: "2025-02-27",
+    collectedAt: "2026-08-08",
+    score: 92,
+  },
+  {
+    id: 48319183,
+    region: "歐洲",
+    topic: "消費趨勢",
+    title: "歐洲植物基食品市場規模達到 163 億歐元",
+    summary: "根據 Food Manufacture 最新報導，歐洲植物基食品市場規模已達 163 億歐元，顯示出該地區對替代蛋白需求的強勁增長。這項成長主要由健康意識抬頭、環保永續理念深化以及多元產品創新所驅動。乳製品替代品與植物肉依舊是市場兩大核心柱石，同時複合型與便利型植物基餐點成長顯著，吸引廣大彈性素食族群消費。",
+    impact: "歐洲市場持續擴張，顯示植物基外銷潛力巨大。此趨勢對齋之味拓展海外外銷版圖提供強大信心，特別是針對彈性素食者開發的便利餐點與潔淨標籤產品，可作為進軍歐洲市場的研發與行銷主力。",
+    action: "評估歐洲市場法規與外銷通路需求，針對彈性素食者偏好規劃主力外銷產品線。",
+    owner: "國際業務",
+    source: "Food Manufacture",
+    url: "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPQ0k0OTRaX21xcHMzNE1RZnJwUmxYLVJzRlpsQ0w2a2NoX0RQeVZQemx1dzh5SGppWlB2RnJFRDAycmFjaHFoYmgwQmk3N0R0emR6NnFjaTZMNW1XRFpVMVZ4YzdNZnRXaDJTcEExMTNZQjVYNzBiTENSaTdWamlFalRWTWEzUUZxVXZCa0J1c2c5cnVNSjBOdjUyTnVvVHhlUVNuczk0RmlNcDVmV2IwWWJzdE1QLWE3?oc=5",
+    priority: "高",
+    publishedAt: "2026-04-09",
+    collectedAt: "2026-08-08",
+    score: 92,
+  },
+  {
+    id: 71172800,
+    region: "台灣",
+    topic: "法規標示",
+    title: "行政院擬修食安法：業者獲知食品異常須24小時內通報，隱匿最重罰3,000萬",
+    summary: "行政院提出《食品安全衛生管理法》修正草案，強化食品業者監測與通報義務。新法規定食品業者若發現產品有衛生安全疑慮或檢驗異常，必須在24小時內主動通報主管機關並採取預防性處置。若有隱匿或延遲通報情事，最高將面臨新臺幣3,000萬元罰鍰，以維護消費者食用安全並防範食安風險擴大。",
+    impact: "修法大幅提高通報時效與罰鍰金額，對齋之味的品質監控與供應鏈應變提出嚴苛考驗。公司需全面檢視異常通報機制，確保從原料到成品均能在時限內迅速處置，降低商譽及法律風險。",
+    action: "建立24小時食安異常緊急通報 SOP，並對供應商進行品質檢驗與合規性全面盤點。",
+    owner: "品保法規",
+    source: "cna.com.tw",
+    url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1mUjRXNF9aeFFnVGxYR2xpT0dVSEdib2ktVDV3d2tyUzRzc1NNS0kxTkQtUDFPUDdLNHpVWnpsRjNRUDNVMlBtMS1LZlJka0o0M2JrYVJaZXJLSTdZVDdB?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-23",
+    collectedAt: "2026-08-08",
+    score: 92,
+  },
+  {
+    id: 69065753,
+    region: "台灣",
+    topic: "競品",
+    title: "從150億到2.7億市值，Oatly做錯了什麼？植物奶明星企業的殞落與重生",
+    summary: "植物奶龍頭 Oatly 市值自高點 150 億美元暴跌至 2.7 億美元，主因在於早期擴張過快、供應鏈管理失誤、資本支出過高，加上傳統乳業與其他植物奶品牌加入競爭導致市場紅海化。品牌目前透過實施精簡營運、轉向資產輕量化供應鏈模式，並重新聚焦於高毛利的核心 B2B 咖啡通路與行銷策略，嘗試尋求轉型與重生。",
+    impact: "此案例警示齋之味在拓展植物基市場時，應避免過度擴張與重資產投入。應著重資產輕量化或彈性供應鏈策略，深化核心通路黏著度，並嚴格控管成本與現金流，以維持長期獲利能力。",
+    action: "檢視現有植物基產品線之供應鏈成本結構，評估資產輕量化代工可行性，並強化核心通路合作。",
+    owner: "品牌行銷",
+    source: "Meet創業小聚",
+    url: "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1BSjIyaFhZVzI2SzkzRmxZVVFkZU1OVnFLQWx2WkVHeU1aZTVBVTFIU0dWYWtQc2lENWsteUxlSzhLRTVSaTdsVExMTGhxaGZfZnNFQWw3NTg?oc=5",
+    priority: "高",
+    publishedAt: "2025-09-16",
+    collectedAt: "2026-08-08",
+    score: 92,
+  },
+  {
+    id: 11992331,
+    region: "台灣",
+    topic: "競品",
+    title: "農畜大廠「大成」植物肉戰略再進化！從「新創肉」延伸至雙餐飲品牌佈局",
+    summary: "台灣農畜巨頭大成集團推動植物肉品牌「NEO MEAT新創肉」戰略升級，從原料代工與加工研發，進一步向下游延伸發展雙餐飲品牌。大成結合自身肉品加工實力與餐飲通路經驗，串聯研發、生產至終端消費場景，構建完整植物基產業價值鏈，加速植物肉在大眾餐飲市場的普及與商業化進程。",
+    impact: "大成跨足餐飲將加速植物肉普及，但也加劇通路與餐飲競爭。此舉提示齋之味需防範傳統肉品大廠垂直整合的競爭壓力，應深化純素品牌特色並加速開發差異化餐飲產品。",
+    action: "評估餐飲通路合作可行性，並盤點現有產品線以開發具差異化的餐飲專用植物肉模組。",
+    owner: "品牌行銷",
+    source: "食力 foodNEXT",
+    url: "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1qenNjUXlIV2dQVjhZTWpiMlJ3b1BFWUJSVEF3cGxPaFY2Q0tNekc4RTQ5ZWJuMGxQbldBMFFwR01fb0djN1RnWmpxeE5adEw5VHlMMHNValdQSzhuV0NQR2kzckJwZw?oc=5",
+    priority: "高",
+    publishedAt: "2025-04-15",
+    collectedAt: "2026-08-08",
+    score: 92,
+  },
+  {
+    id: 45258947,
+    region: "台灣",
+    topic: "競品",
+    title: "台灣素食龍頭弘陽食品斥資4億元 打造首座綠電智慧轉型新廠",
+    summary: "台灣植物肉與素食龍頭弘陽食品宣佈投入新台幣4億元，打造全台首座結合綠電與智慧化生產的全新廠房。該廠旨在提升生產效能、降低碳足跡，並導入自動化設備以因應全球對ESG及永續供應鏈的需求。此舉標誌著台灣素食產業邁向低碳製造與高規格智慧生產的新里程碑，顯著提升其在全球植物基市場的競爭力。",
+    impact: "弘陽升級綠能智慧廠，強化產能與低碳優勢，對齋之味在永續供應鏈與成本結構上帶來競爭壓力。這啟示齋之味需關注市場低碳轉型趨勢，維護產品綠色競爭力。",
+    action: "評估現有生產線低碳化與智慧化升級，並盤點主要產品碳足跡與供應鏈永續性。",
+    owner: "採購品保",
+    source: "經濟日報",
+    url: "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5WalFQenFMaV9ZaUQ3bWV6dnlBWEtWTG9Yd1Q3djIzdkMzWUtTcHVyUWxZV1NNUzNuelNoTjRjNjF3RExuWHRJSjlxeXktcWVoSlI5SXNvYmdCQdIBX0FVX3lxTE1xcWI0Q3BNSFNGWVNNRmN4bjdtYUsyNnAyMTNoSkZGNmw0WjRsVG0yWTBPV0F0bkFzMUszTXBPWkVNRlQwWXYtTndNcVRscWR4UGdFQWx2Yjc3MGpBLVBz?oc=5",
+    priority: "高",
+    publishedAt: "2026-02-22",
+    collectedAt: "2026-08-08",
+    score: 92,
+  },
+{
     id: 64530120,
     region: "台灣",
     topic: "法規標示",
@@ -121,7 +217,7 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-07",
     score: 92,
   },
-  {
+{
     id: 97640512,
     region: "台灣",
     topic: "法規標示",
@@ -248,102 +344,6 @@ const intelligence: Intelligence[] = [
     publishedAt: "2025-03-14",
     collectedAt: "2026-08-06",
     score: 92,
-  },
-{
-    id: 56213711,
-    region: "台灣",
-    topic: "法規標示",
-    title: "《食品安全衛生管理法》修法：全面強化食安管理與守護全民健康",
-    summary: "行政院院會通過《食品安全衛生管理法》修正草案，重點旨在強化食安管理體系。修法內容涵蓋升級食品追溯追蹤機制、加強源頭管控、嚴格規範產品成分與標示真實性，並提高對違規業者的罰則金額。此法案亦特別關注植物基與素食產品之原料供應鏈透明度，要求明確落實標示合規，以守護國人飲食健康。",
-    impact: "修法提高供應鏈稽核與標示合規要求，齋之味需重新檢視素食原料來源透明度、追溯機制及純素標示，確保產品全面符合新規，降低法規風險並強化品牌食安信任度。",
-    action: "全面盤點現有產品標示與原料追溯履歷，評估包材更新需求並落實合規供應商管理。",
-    owner: "品保法規",
-    source: "ey.gov.tw",
-    url: "https://news.google.com/rss/articles/CBMihwFBVV95cUxPMlBlTFhES3Z5N2pwS3FydTlsVVJpZ19QeUxuZlh2RUNuU18xMjNtSzlSdGtPZVZiMU5UbWl4SEdXUUtBZ05udkdwSkhRWHdZZ2ROdWN4VUZlUnVWenczT2tWMDJfRk9kemY0TkEtVmdIaTNTWjROTTRIS2VhNDlDZWJhRkxRT2M?oc=5",
-    priority: "高",
-    publishedAt: "2026-07-31",
-    collectedAt: "2026-08-06",
-    score: 92,
-  },
-{
-    id: 28144157,
-    region: "台灣",
-    topic: "法規標示",
-    title: "行政院拍板食安法修正案：食品業者須於24小時內通報，隱匿最高重罰3000萬元",
-    summary: "行政院通過《食品安全衛生管理法》修正草案，針對食安事件強化業者責任。新法規定食品業者若發現產品有危害衛生安全之虞，必須於24小時內自主通報主管機關並採取預防性下架。若有隱匿或未依限通報者，最高可處以新台幣3000萬元罰鍰。此舉旨在提升食安事件處理效率，保障消費者權益。",
-    impact: "新法大幅提高食安通報時效要求與罰鍰上限。對齋之味而言，極度考驗供應鏈追溯與品質監控應變能力，若有潛在品質異常需更迅速反應，否則面臨重大營運與商譽風險。",
-    action: "檢視並優化內部食安通報標準作業流程，建立24小時緊急應變小組與產品追溯機制。",
-    owner: "品保法規",
-    source: "Yahoo新聞",
-    url: "https://news.google.com/rss/articles/CBMirgNBVV95cUxQN2lpLUFQY0N5LWkwcElvejhzS29kRUl0clM0SDFIczBvZlFKRktRbE9PUXZOZkQxSzlPQzQ1YnFKWEp0eGJ5cWMzalBnNTBJV1FhRTBHNElMYjNGdkxzTm5Uand5UUlYcldyc1BHckNkMlIxSUpWOE96ZEhsLVJ6TWJ2M3ViV0JzMXY3ZmR0QktJeGo0OVY0NkxCUTlSZ3FXaUhJWUcwdzA3dmJzdDZmSEVsUllmMkM2VVBpeTRvTHJiRnFRSW1nZkdJWlhqNlNxU0J1ejVzbmtKdmlxdGNRZzRFUkRKUnlYZ1kwX3Q2WTJ0TzRnZlN0SXZkQmRCVnE3ZTRsYXRtcE1zbmpUdVJsUWstdU55MXdxSXpZaWRtaEVnRkJMNWtRS0cxbG10d0ZrXzNYM0QxUjJZU3lzTkl6dFA3R2tjR0hya2hYOTQ5aWJPS0g1TVNpUXdLS0trS0prblNzNmctVXJjS3BJb0NOVXNKbzBaYk9EZlFRUzBWQU5jVHdqcWk5N1gzTzRvd2pwRnhsRE9HRDIxdFlWd2F0ZS0yaGFpMlVTTFQybmFn?oc=5",
-    priority: "高",
-    publishedAt: "2026-07-22",
-    collectedAt: "2026-08-06",
-    score: 92,
-  },
-{
-    id: 27542253,
-    region: "台灣",
-    topic: "法規標示",
-    title: "食安法修法：行政院擬要求食品業者設立或委託第三方認證實驗室加強自主檢驗",
-    summary: "行政院推動《食安法》修法，要求一定規模之食品業者須設立或委託第三方認證實驗室執行產品自我檢驗。此舉意在提升食品產業自主品管能力，強化整體食品安全防護網，預防違規添加物或標示不實問題發生。政府亦將研擬相關配套措施，輔導業者建立符合國際標準之檢驗機制。",
-    impact: "食安修法將直接增加檢驗營運成本。對齋之味而言，極需確保原料與成品之植物性純度、無農藥殘留與無交叉污染，必須盤點委外檢驗預算，強化品管防線以維持品牌信任度。",
-    action: "盤點目前合作之第三方認證實驗室，檢視檢驗項目與頻率，並評估合規成本與升級品管流程。",
-    owner: "品保法規",
-    source: "中央社 CNA",
-    url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PcXhsX3I2TEtqa1VqQkZQTHIwdXB2UWk0VjJpWkJvSmIteEtsZk5DeU5KRVdoSk9iVEk5RC1hSFp4VzFtUTZyWHlYaUhTUFlLM2cza3VNMFJHQXBtaDFr?oc=5",
-    priority: "高",
-    publishedAt: "2026-07-18",
-    collectedAt: "2026-08-06",
-    score: 92,
-  },
-{
-    id: 15296911,
-    region: "美國",
-    topic: "消費趨勢",
-    title: "植物性蛋白市場規模預計於2034年達430.7億美元，受彈性素食需求與潔淨標示創新驅動",
-    summary: "根據最新市場研究，植物性蛋白市場規模預計於2034年達到430.7億美元。此顯著增長主要得益於全球彈性素食者族群的迅速擴大，以及消費者對健康與環保意識的提升。此外，潔淨標示（Clean-Label）的技術創新亦成為關鍵推動力，驅使製造商開發成分更天然、加工度更低且高營養價值的植物蛋白產品，以滿足主流市場需求。",
-    impact: "全球潔淨標示與彈性素食趨勢明確，齋之味需關注成分天然與少添加產品。這為品牌外銷及產品升級提供契機，可提升健康形象並吸引更多非傳統素食人口。",
-    action: "盤點現有產品成分表，啟動潔淨標示（Clean-Label）產品線升級計畫，優化天然原料比例。",
-    owner: "產品研發",
-    source: "Yahoo Finance",
-    url: "https://news.google.com/rss/articles/CBMigwFBVV95cUxQdGN3NW9IV2pFMzlNSTZBN2l5OXF6bHFZTXp4TU1mc2txcGVmOXJpNzlfNkIxd1YyR3ZDWjh4V0RWb01ZRkNnbWxQTEFZUVlGcDNnRk5lOXZ3ZDRHb0ZoZmctdzZzMzM4NXNOREhSanNtZ25YVkhzTWhXNHZzampKWlRjbw?oc=5",
-    priority: "高",
-    publishedAt: "2025-09-24",
-    collectedAt: "2026-08-05",
-    score: 92,
-  },
-{
-    id: 94829123,
-    region: "台灣",
-    topic: "法規標示",
-    title: "行政院提出食安法修法十項重點 強化食品安全與管理機制",
-    summary: "行政院針對食品安全法規提出十項修法重點，旨在全面升級國內食安管理機制。內容涵蓋加重違規業者罰則、落實食品追溯追蹤系統、擴大檢驗項目與頻率、加強進口食品邊境查驗，以及完善問題產品的下架回收機制。政府盼透過修法落實源頭管理與風險控管，精準打擊不法業者，建構更完善的食品安全防護網，維護消費大眾健康與市場秩序。",
-    impact: "食安法修法將提升植物基產品供應鏈稽核與標示合規要求。齋之味需加強原料來源追溯，嚴格評估供應商合規性，防範標示不符風險，維護品牌信譽。",
-    action: "盤點現有產品標示與供應鏈追溯紀錄，配合新法修訂品保標準作業流程，確保零違規。",
-    owner: "品保法規",
-    source: "工商時報",
-    url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9XdkxxY05MV1dGbTF4a09OQ1hWUEFOa204M04xcGdULU9OVWRoMzdxcnYtYjdEeG02N1B4Qk9GYm81SkFRMDJrbEFqUGVyWXRub1RuWWZZb3ZFQ3BaRG9B?oc=5",
-    priority: "高",
-    publishedAt: "2026-07-21",
-    collectedAt: "2026-08-05",
-    score: 92,
-  },
-{
-    id: 86660328,
-    region: "台灣",
-    topic: "法規標示",
-    title: "2026台灣食安法修法解析：10大重點與最高3000萬罰則新舊對比",
-    summary: "本文解析台灣2026年《食品安全衛生管理法》修法重點，涵蓋10項重大變更。修法大幅提高違規罰則，最高罰鍰達3000萬元，並強化追溯追蹤制度、產地與成分標示規範及源頭管理。新舊罰則對比顯示政府對食安違規採取零容忍態度，企業需全面審視供應鏈與合規性以降低營運風險。",
-    impact: "修法提高罰則與標示要求，將增加齋之味在原料進貨檢驗、成分標示審查及供應鏈溯源管理之營運成本與合規壓力；若違反規定將面臨高額罰款與品牌形象重創。",
-    action: "立即盤點全系列產品包裝標示與供應鏈溯源文件，並全面審查原料廠商之合規檢驗報告。",
-    owner: "品保法規",
-    source: "商周",
-    url: "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1ydTNsaFYwV0ZhbWY4M29lWFVuU2YwZUxpdVQ3N21nLTEwY0hsYjZOTnRoQm85SFFXajhDSExoUFRJWmhBSHNZSkQyZllyOEU3bGlfOU8weW5SazUxakUyVk93?oc=5",
-    priority: "高",
-    publishedAt: "2026-07-23",
-    collectedAt: "2026-08-05",
-    score: 92,
   }
 ];
 
@@ -424,44 +424,44 @@ const featureGuide = [
 
 const marketPulse = [
   {
-    region: "台灣", signal: "分化", note: "精緻體驗與食安嚴管", value: 75,
-    headline: "蔬食轉型精緻體驗與彈性素客群，食安監管同步趨嚴",
-    drivers: ["策展思維與精緻餐飲帶動彈性素食族群加入消費", "傳統素食轉型技術升級，提升美味度與質地口感", "肉類食安風險與健康意識提高驅動植物蛋白需求"],
-    opportunity: "齋之味可結合在地優質食材與低負擔健康概念，研發高質感、潔淨標示的創新植物基產品，並以故事化行銷吸引彈性素食客群。",
-    risk: "食安法規修訂與嚴格檢驗標準增加合規成本，若品質控管不佳或標示不透明，易引發消費者信任危機並衝擊品牌聲譽。",
-    watch: ["食安法修正草案及潔淨標示規範進展", "彈性素食者在零售與餐飲通路的滲透率", "植物基產品質地模擬技術與價格競爭力", "生鮮與加工原料之溯源管理與微控標準"],
+    region: "台灣", signal: "分化", note: "體驗升級與食安嚴管", value: 62,
+    headline: "擬真加工肉退潮，蔬食市場轉向精緻體驗、原型健康與嚴查食安之雙軌發展。",
+    drivers: ["高度加工植物肉因價格口感瓶頸退潮，彈性素食客群轉向精緻風味與原型健康。", "策展思維與精緻餐飲融入蔬食場域，將植物基飲食包裝為質感生活體驗。", "食安法修法提高隱匿罰則並強化源頭追溯，推動產業走向高合規與透明化。"],
+    opportunity: "應擺脫過度加工擬真肉思維，主打原型食材與潔淨標示，並透過策展體驗與精緻風味吸引彈性素食者，建立高透明度的健康品牌形象。",
+    risk: "食安法修正案提高違規罰則與通報時效，生產合規成本大增；此外加工植物肉市場新鮮感消退，若定位不清易陷入價格戰與滯銷風險。",
+    watch: ["食安法修法進度與業者24小時通報合規成本", "彈性素食者對原型食材與潔淨標示之偏好變化", "傳統科技植物肉品牌價格調降與庫存去化狀況", "體驗型與精緻蔬食餐飲的跨界合作效益"],
   },
   {
-    region: "美國", signal: "分化", note: "理性轉型與區域深耕", value: 68,
-    headline: "美國市場進入理性轉型，潔淨標示與感官升級成為關鍵。",
-    drivers: ["彈性素食族群擴大與健康意識，驅動低加工潔淨標示產品需求。", "食品科學與加工技術突破，持續優化植物基產品風味與模擬質地。", "市場滲透率達六成，促使業者由盲目擴充轉向區域化精準行銷策略。"],
-    opportunity: "切入潔淨標示與高蛋白質方向，結合微加工技術研發優質植物肉，並針對美國東西海岸等高滲透區域進行精準通路上架與推廣。",
-    risk: "市場淘汰過度加工與低質產品，若無法克服風味質地難題或定價缺乏價格競爭力，將面臨通路架上率下滑與回購率不足風險。",
-    watch: ["潔淨標示（Clean Label）與微加工新品佔比", "美國西海岸與東北部等重點區域的通路銷售表現", "植物基產品與傳統肉乳製品的零售價差變動", "替代蛋白風味掩蓋與質地模擬技術突破進展"],
+    region: "美國", signal: "分化", note: "潔淨標示與區域分化", value: 72,
+    headline: "美植物基滲透達六成，潔淨標示與感官技術為深化主流之關鍵。",
+    drivers: ["彈性素食人口持續增長，驅動植物蛋白市場規模長期向好發展。", "六成美家庭已購買植物基產品，東西岸與都會區為主要消費主力。", "產學合作與食品科技加速突破，有效解決風味與潔淨標示瓶頸。"],
+    opportunity: "針對美國市場導入潔淨標示與高質感口感之植物肉新品，優先佈局東西岸都會通路，並結合在地風味進行行銷推廣。",
+    risk: "加工度過高引發健康疑慮，若無法顯著突破風味口感與價格障礙，可能面臨消費普及瓶頸與市場成長趨緩之風險。",
+    watch: ["東西岸與中西部區域滲透率變化", "潔淨標示（Clean-Label）原料技術進展", "主流連鎖通路之植物基產品上架與淘汰率", "彈性素食者之重複購買率與價格敏感度"],
   },
   {
-    region: "澳洲", signal: "分化", note: "健康與價值重整", value: 48,
-    headline: "澳洲植物基市場理性盤整，轉向潔淨標籤與高性價比。",
-    drivers: ["消費者對過度加工與高價植物肉退燒，轉向天然原形食材。", "產業面臨資本收緊與成本高漲，劣勢品牌加速出清與併購。", "植物乳品轉向功能性升級，訴求高蛋白、低糖與潔淨標示。"],
-    opportunity: "研發天然原形食材與潔淨標籤產品，鎖定高性價比日常必備素食，填補零售通路下架品項後的基礎市場缺口，滿足健康與CP值需求。",
-    risk: "市場通膨引發極高價格敏感度，過度加工產品易遭通路淘汰；同時供應鏈成本上升，對新進品牌的毛利與存續造成威脅。",
-    watch: ["Woolworths等主流通路商品淘汰與上架策略", "潔淨標籤與原形植物基食品的銷售成長率", "澳洲植物肉品牌的清算、併購與資本整合浪潮", "功能性植物乳品（高蛋白/低糖）的價格彈性"],
+    region: "澳洲", signal: "分化", note: "高CP值與潔淨轉型", value: 45,
+    headline: "澳洲市場進入理性整合期，消費轉向潔淨標示與高CP值產品。",
+    drivers: ["通膨壓力促使消費者轉向高性價比與天然原型蛋白質食物。", "市場進入洗牌重組期，具潔淨標示與核心技術資產獲留存。", "連鎖超市SKU精簡引發反彈，顯現忠實客群對特定商品之剛需。"],
+    opportunity: "聚焦開發高CP值、少添加潔淨標示產品，並善用原型蛋白訴求，精準填補大型超市精簡品項後釋出的忠實客群需求。",
+    risk: "通膨持續抑低高價加工品買氣、超市通路下架非核心SKU之風險，以及消費者對高度加工植物肉的疑慮抗拒。",
+    watch: ["大型零售通路（如Woolworths）SKU精簡與上架政策", "潔淨標示與原型植物蛋白產品之市場滲透率", "植物基競品併購重組動向與價格調整策略", "澳洲通膨數據對消費者高單價食品購買意願之影響"],
   },
   {
-    region: "歐洲", signal: "分化", note: "原型健康與法規重整", value: 70,
-    headline: "歐洲植物基突破百億，消費轉向原型健康與嚴標示。",
-    drivers: ["整體市場規模突破163億歐元，預估2030年前價值將翻倍。", "消費偏好轉向清潔標籤、高蛋白及少添加的原型植物食品。", "主流零售通路持續擴大純素產品上架比例以滿足彈性素食者。"],
-    opportunity: "針對歐盟偏好開發無添加、高蛋白的原型豆類蔬食料理，並提早針對非肉類命名規範進行產品包裝與品牌行銷布局。",
-    risk: "歐盟擬禁止使用肉類命名草案帶來的包裝重整成本，以及高度加工仿肉品類面臨消費者轉向原型食物的市場停滯風險。",
-    watch: ["歐盟植物基肉類命名禁令草案審議結果", "原型豆類與清潔標籤產品的市場成長率", "主流零售通路植物基食品上架排面變化", "通膨環境下消費者對高價植物肉的回購率"],
+    region: "歐洲", signal: "分化", note: "清潔標籤與命名爭議", value: 78,
+    headline: "歐洲植物基市場龐大，潔淨標籤與原型食物成新主軸。",
+    drivers: ["健康與環保意識普及，彈性素食族群推動植物基市場達163億歐元。", "消費者對高度加工產生疑慮，需求轉向原型食物與潔淨標籤產品。", "乳品替代品與便利型植物基餐點成長強勁，帶動整體產業多樣化。"],
+    opportunity: "聚焦清潔標籤與少添加物的原型豆類製品，並開發複合型便利植物基餐點，運用多元風味吸引廣大彈性素食消費族群。",
+    risk: "歐盟擬禁止蔬食使用肉類命名，恐大幅增加包裝與行銷成本；此外消費者對高度加工擬真肉疑慮增加，可能衝擊傳統植物肉銷售。",
+    watch: ["歐盟肉類命名限制法案之最終修訂與立法進度", "原型食品與少添加潔淨標籤產品的市佔變化", "複合型便利植物餐點在零售通路的成長動能", "歐洲各國彈性素食人口的消費偏好轉變趨勢"],
   }
 ];
 
 const dailyBriefing = {
-  title: "植物基告別仿肉迷思，成長關鍵在於<strong>潔淨標章與體驗升級。</strong>",
-  subtitle: "全球植物基市場正從加工仿肉轉向潔淨標籤與原型飲食。業者結合精緻餐飲與策展體驗，成功吸引彈性素食大眾，帶動整體產業升級。",
-  decisionTitle: "瞄準彈性素族群，推動產品潔淨化與體驗升級",
-  decisionDetail: "消費主力已轉向追求美味健康的彈性素客群。我方應優化配方落實潔淨標籤，並以體驗行銷拓展主流通路。"
+  title: "擬真肉退潮，植物基關鍵轉向<strong>原型潔淨與質感體驗</strong>。",
+  subtitle: "全球植物肉面臨重整，過度加工產品滲透率遇瓶頸。主流市場轉向兼具潔淨標示、原型健康與精緻體驗的多元植物飲食。",
+  decisionTitle: "擺脫擬真肉陷阱，聚焦潔淨原型與餐飲體驗",
+  decisionDetail: "彈性素食客群追求健康美味與無負擔標籤。研發應轉向潔淨配方，並透過場域策展提升品牌體驗價值。"
 };
 
 export default function Home() {
@@ -638,7 +638,7 @@ export default function Home() {
           </div>
           <div className="masthead-meta">
             <div className="date-line">
-              <p className="eyebrow">2026年8月7日・星期五</p>
+              <p className="eyebrow">2026年8月8日・星期六</p>
             </div>
             <div className="summary-line">今日彙整 {freshIntelligence.length} 則 · {highPriorityCount} 則核心關注</div>
           </div>
@@ -646,7 +646,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-08-07T03:34:48+08:00">2026/08/07 03:34</time></div>
+          <div>最後更新：<time dateTime="2026-08-08T02:35:55+08:00">2026/08/08 02:35</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -837,7 +837,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/07 03:34。</p>
+              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/08 02:35。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
