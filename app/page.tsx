@@ -105,6 +105,54 @@ const intelligence: Intelligence[] = [
     collectedAt: "2026-08-01",
     score: 95,
   },
+  {
+    id: 94829123,
+    region: "台灣",
+    topic: "法規標示",
+    title: "食安法規重大修正 行政院提出十大法案修訂重點",
+    summary: "行政院近期列出食品安全衛生管理法修正案的十項重點，涵蓋加重違規罰則、強化源頭追蹤管理、標示透明化以及業者自主檢驗等規定。政府將嚴格審查食品供應鏈與成分標示，特別針對素食與植物基產品的添加物與原料來源提出更明確規範，期盼藉此建立更完善的食安防護網並提升消費信任。",
+    impact: "此修法提高食安罰則與標示要求，對齋之味而言，極需確保素食產品成分透明、無交叉污染並符合最新標示規範，雖增加合規成本，但有助提升品牌專業誠信度。",
+    action: "盤點全系列產品成分與標示，全面檢視原物料供應商合規證明，確保符合新法規範。",
+    owner: "品保法規",
+    source: "工商時報",
+    url: "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9XdkxxY05MV1dGbTF4a09OQ1hWUEFOa204M04xcGdULU9OVWRoMzdxcnYtYjdEeG02N1B4Qk9GYm81SkFRMDJrbEFqUGVyWXRub1RuWWZZb3ZFQ3BaRG9B?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-21",
+    collectedAt: "2026-08-10",
+    score: 92,
+  },
+  {
+    id: 86660328,
+    region: "台灣",
+    topic: "法規標示",
+    title: "2026台灣《食安法》修法重點解析：最高罰鍰達3000萬元與企業合規指引",
+    summary: "台灣2026年《食品安全衛生管理法》進行大幅度修正，提出十大重點改動，其中違規最高罰鍰大幅調升至3,000萬元。修法範疇涵蓋食品標示準確性、原料溯源管理、業者登錄制度及食安事件通報責任等。新舊罰則對比顯示政府對違規行為實施更嚴格懲處，旨在建立更完善的食品安全防禦網並提升消費者信心。",
+    impact: "食安法罰款提高至三千萬元，對齋之味的產品標示、原料溯源與添加物檢驗帶來極高合規壓力。若有標示不實或溯源缺失將面臨鉅額罰款，極需強化供應鏈稽核與品保流程。",
+    action: "全面盤點現行產品標示與原料供應鏈溯源文件，並比對最新食安修法條文更新內部品保SOP。",
+    owner: "品保法規",
+    source: "businessweekly.com.tw",
+    url: "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1ydTNsaFYwV0ZhbWY4M29lWFVuU2YwZUxpdVQ3N21nLTEwY0hsYjZOTnRoQm85SFFXajhDSExoUFRJWmhBSHNZSkQyZllyOEU3bGlfOU8weW5SazUxakUyVk93?oc=5",
+    priority: "高",
+    publishedAt: "2026-07-23",
+    collectedAt: "2026-08-10",
+    score: 92,
+  },
+  {
+    id: 4007718,
+    region: "台灣",
+    topic: "競品",
+    title: "大成集團進軍蔬食餐飲，發表兩大平價植物肉品牌翻轉飲食印象",
+    summary: "大成集團發表兩大全新蔬食餐飲品牌，正式擴大植物基飲食版圖。該集團結合研發技術與供應鏈優勢，主打平價、美味且口感接近真肉的植物肉料理，打破傳統蔬食昂貴或口感不佳的刻板印象。此舉顯示食品巨頭正透過垂直整合與連鎖餐飲佈局，全面爭奪大眾蔬食市場與彈性素食客群。",
+    impact: "大成以規模優勢切入平價蔬食餐飲，加劇同業競爭。此舉擠壓中小型蔬食品牌的價格空間，但也證明植物肉大眾化趨勢。齋之味應加速產品風味升級，強調獨特風味與品質差異化。",
+    action: "評估現有產品線成本結構，並針對競品餐飲菜色進行風味與價格標竿對比分析。",
+    owner: "產品研發",
+    source: "遠見雜誌",
+    url: "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9Yc0dHZkZJTE5oUk1MSC1BVk41YWN2N3U4Z1ZJQkctbHJndE5SX1BYcDBXblVXVHlFN0huRWtzdUxMYWtuSTVrNG5weFdCUQ?oc=5",
+    priority: "高",
+    publishedAt: "2025-05-02",
+    collectedAt: "2026-08-10",
+    score: 92,
+  },
 {
     id: 65358122,
     region: "台灣",
@@ -296,54 +344,6 @@ const intelligence: Intelligence[] = [
     publishedAt: "2026-07-23",
     collectedAt: "2026-08-06",
     score: 92,
-  },
-{
-    id: 41123917,
-    region: "台灣",
-    topic: "法規標示",
-    title: "【社論】深化食安改革：推動「加工食品原料來源透明化」納入《食安法》修法",
-    summary: "本篇社論主張台灣食安改革不應僅停留在「業者自律」，應將「加工食品原料來源透明化」正式納入《食安法》修法。鑑於加工食品成分複雜且供應鏈漫長，單靠自主管理極易形成食安漏洞。若能透過法規強制要求業者公開與標示原料溯源資訊，將能有效保障消費者知情權，建立更值得信賴的食品產業鏈機制。",
-    impact: "若未來《食安法》強制要求原料透明化，齋之味作為素食加工製造商，將面臨更高規格的供應鏈溯源審查。這雖增加採購與品保的管理成本，但能顯著提升品牌信任度並建立競爭壁壘。",
-    action: "全面盤點現有素食加工原料之供應商溯源證明，預先建立透明化供應鏈履歷與標示準備。",
-    owner: "品保法規",
-    source: "上下游",
-    url: "https://news.google.com/rss/articles/CBMiVEFVX3lxTFAwczdEbERSX0YtODF5N1VZMlk3cWtxTS1ORDF3MEcwZl9XamJMRG02QmFnOS0wOXZSLUFQdmNiclpqZkJCa19FUUREb0VwZVB2aDE4ag?oc=5",
-    priority: "高",
-    publishedAt: "2026-07-21",
-    collectedAt: "2026-08-06",
-    score: 92,
-  },
-{
-    id: 43692559,
-    region: "台灣",
-    topic: "法規標示",
-    title: "美國FDA公布《食品安全現代化法案》特定食品額外追溯記錄最終法規",
-    summary: "美國FDA發布FSMA（食品安全現代化法案）關於特定食品額外追溯記錄要求的最終法規。該新規旨在大幅提升食品供應鏈的透明度與可追溯性，要求相關製造商、加工商及進口商建立並妥善保存供應鏈各關鍵追溯點的紀錄（KDEs），以便在發生食品安全事件時快速定位風險來源，此法規將對外銷美國的植物基及食品業者帶來合規挑戰與記錄重整需求。",
-    impact: "若齋之味有外銷美國業務或計劃拓展北美市場，須全面審視現有供應鏈溯源體系。原料供應商管理與產線追溯數據化將成為合規關鍵，若無法符合要求將面臨無法進入美國市場或退貨之風險。",
-    action: "盤點出口美洲產品之原料供應鏈，導入符合FDA要求之數位追溯紀錄系統並進行合規性審查。",
-    owner: "品保法規",
-    source: "fda.gov",
-    url: "https://news.google.com/rss/articles/CBMizwFBVV95cUxOLUpFeElsTVhoSmhiSmk3bDI3ZWJucWxHd05jN3FXRUNSTGtoSHB1VUpjMTd3aktFMlpsQWdNRF9hU1V2bU01Y1JoZWdWeXZNd05mLW9XX2s3Qk9vWGwtV0o3bm9EUXpFbXAzN3Nsb2VOSGtUNmJqa0dJTHJSalNSNnlxUDNZYzZKblcwMVEzcDY3b3pvb0hSUFdqNlBfN3BFZWlPVXIxdWJmcDQ5cmVKcnh0NERYLVF3RUlaNVBwdWlPYVF3QzhvUGtpeTFSSzA?oc=5",
-    priority: "高",
-    publishedAt: "2026-07-24",
-    collectedAt: "2026-08-06",
-    score: 92,
-  },
-{
-    id: 13661314,
-    region: "台灣",
-    topic: "競品",
-    title: "植物肉龍頭 Beyond Meat 股價重挫：擬真素肉退燒的原因與產業啟示",
-    summary: "植物肉龍頭 Beyond Meat 股價自高點暴跌至 3 美元，揭示植物肉市場面臨成長瓶頸。主因包括產品售價偏高、消費者對高度加工與添加物的疑慮，以及重複購買率不如預期。在全球通膨與飲食趨勢轉向原型健康的衝擊下，過度依賴擬真口感與話題行銷已難維持獲利，為全球素食產業帶來重大的警訊。",
-    impact: "Beyond Meat 的挫敗顯示過度追求擬真與高價難以維持回購。這提醒齋之味應避免高度加工疑慮，轉而聚焦原型食材感、美味在地化與合理定價，以建立高黏著度的客群。",
-    action: "評估現有擬真產品線之銷售效益，並盤點潔淨標示與原型蔬食產品的研發進度。",
-    owner: "品牌行銷",
-    source: "鏈新聞 ABMedia",
-    url: "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1pUXY3azR3TkprM0MwUEVYaFEyblljTFp5SHZZTjNycU9zcmhYREYzZV9MT1A3STAzVzdHelNBdnRxT0ZNX0RaWktoVkxGOGw5dl9lXw?oc=5",
-    priority: "高",
-    publishedAt: "2025-03-14",
-    collectedAt: "2026-08-06",
-    score: 92,
   }
 ];
 
@@ -424,44 +424,44 @@ const featureGuide = [
 
 const marketPulse = [
   {
-    region: "台灣", signal: "分化", note: "法規加嚴、產業分化", value: 50,
-    headline: "食安法規重罰收緊，植物基市場走向實體轉型與產業分化。",
-    drivers: ["食安法嚴格修法與高額罰鍰，倒逼業者落實源頭追溯與自主檢驗。", "加工植物肉與外商光環退燒，市場回歸口感、價格與原型健康本質。", "龍頭業者佈局智慧綠電建廠與雙餐飲通路，加速產業垂直整合。"],
-    opportunity: "掌握食安透明契機，發揮潔淨標示與原料溯源優勢，鎖定B2B餐飲通路合作，並結合低碳永續產品定位，切入在地健康蔬食市場。",
-    risk: "食安法通報與自主檢驗成本激增，若發生供應鏈異常將面臨巨額罰鍰；同時植物肉消費新鮮感退去，低價競爭與紅海化加劇。",
-    watch: ["食安法修正案立法進度與自主檢驗執行細則", "食用油品與關鍵原料之溯源及邊境抽驗動態", "大成、弘陽等龍頭於餐飲與綠電轉型之效益", "植物基產品於B2B餐飲通路之滲透與回購率"],
+    region: "台灣", signal: "分化", note: "體驗創新與法規嚴管", value: 78,
+    headline: "蔬食市場邁向體驗策展與精緻化，配合食安嚴管升級。",
+    drivers: ["策展思維與異國精緻料理賦予蔬食全新生活風格與高附加價值。", "健康適量與生態永續意識抬頭，促使大眾轉向原型植物基飲食。", "食安法規重罰與溯源要求，推動供應鏈透明化與品牌信任建構。"],
+    opportunity: "結合在地原型食材與異國風味，開發具故事性與減法配方的精緻蔬食產品；利用策展市集進行體驗行銷，建立高品質純素品牌形象。",
+    risk: "2026食安法大幅提高違規罰鍰並嚴查添加物標示，若原料溯源或純素標示不周，將面臨高額裁罰與品牌信任危機。",
+    watch: ["2026年食安法修正案對植物基添加物與溯源之具體施行細則", "彈性蔬食者與年輕族群在體驗式蔬食市集中的實質轉化率", "原型食物與低度加工植物基產品的市場成長率", "異國精緻純素餐飲（如Vegan法餐）向零售通路化發展的趨勢"],
   },
   {
-    region: "美國", signal: "承壓", note: "健康與價值重整", value: 48,
-    headline: "植物肉零售降溫，市場正從擬真轉向蛋白質、潔淨標示與實際價值。",
-    drivers: ["消費者重新檢視價格、鈉含量與成分表", "高蛋白與機能食品吸引力高於單一仿肉敘事", "食品服務通路的使用情境比零售貨架更具韌性"],
-    opportunity: "優先測試差異化的亞洲炸物與餐飲用規格，英文品名清楚揭露大豆、菇類等主要植物來源。",
-    risk: "高運費與植物肉溢價會壓縮競爭力；若營養或口感無明顯差異，難以取得穩定回購。",
-    watch: ["每磅售價差", "蛋白質／鈉含量", "餐飲通路新品", "FDA 命名指引"],
+    region: "美國", signal: "分化", note: "區域極化、技術突破", value: 72,
+    headline: "美家戶滲透率達六成，區域分化與技術突破成成長關鍵。",
+    drivers: ["家庭滲透率達六成，美西與美東北部奠定主流消費基本盤。", "跨領域食品科技與產學合作，持續攻克風味與質地瓶頸。", "健康與永續意識抬頭，長期推升植物肉與替代乳製品需求。"],
+    opportunity: "針對美西美東市場開發具東方特色的植物基方便食品，並結合掩味與質地創新技術，提供兼具營養與高性價比的選擇。",
+    risk: "若無法克服口感遮蔽與加工穩定性等技術瓶頸，且價格未能合理化，將難以跨越主流大眾並拓展中西部等潛力市場。",
+    watch: ["美西與美東以外潛力區域（中西部、南部）的滲透率成長", "風味遮蔽與質地改良技術對消費者重複購買率的提升", "植物基食品與傳統肉乳製品之間的零售價格落差變化", "產學合作創新技術商業化落地與青年人才市場導入進程"],
   },
   {
-    region: "澳洲", signal: "觀察", note: "口感、價格決勝", value: 61,
-    headline: "市場仍有需求，但通路進入汰弱留強，能否持續上架取決於回購。",
-    drivers: ["彈性減肉人口提供潛在客群", "大型超市對銷量、價格與貨架效率要求提高", "氣炸鍋與快速料理適合冷凍調理產品"],
-    opportunity: "以純素香酥花枝圈切入差異化海鮮替代品，提供氣炸時間、每份成本與多人分享情境。",
-    risk: "市場距離造成物流與冷鏈成本；Vegan 宣稱仍需完整供應商文件與交叉污染證明。",
-    watch: ["Woolworths／Coles 上下架", "促銷頻率", "冷凍素海鮮品項", "FSANZ 標示更新"],
+    region: "澳洲", signal: "分化", note: "潔淨與價值重組", value: 48,
+    headline: "澳洲植物基市場進入洗牌分化期，潔淨標籤與高性價比產品成勝出關鍵。",
+    drivers: ["通膨壓力下消費者價格敏感度提升，傾向選擇平價與原型蔬食替代品。", "健康意識轉變促使需求轉向潔淨標籤、無添加與高功能性配方產品。", "大型通路精簡SKU引爆忠實客群反彈，市場同步加速資本併購重組。"],
+    opportunity: "聚焦潔淨標籤與原型蔬食開發，降低過度加工成分並提升高蛋白質優勢，以平實價格與天然營養切入主流超市與健康通路。",
+    risk: "主流超市精簡SKU提高上架門檻，加上當地深厚烤肉文化與通膨環境，若產品無價格優勢或口感還原度不足易面臨下架危機。",
+    watch: ["大型超市（Woolworths等）植物基SKU精簡與重新上架動向", "潔淨標籤與高蛋白機能性植物基商品的成長趨勢", "澳洲在地植物肉新創併購重組與資本挹注狀況", "高通膨環境下原型蔬食對高度加工替代肉的替代率"],
   },
   {
-    region: "歐洲", signal: "穩定", note: "規模倍增與便利轉型", value: 85,
-    headline: "歐洲植物基市場達163億歐元，便利複合餐點引領成長。",
-    drivers: ["消費者健康意識與環保永續理念持續深化，驅動植物蛋白需求。", "複合型與便利型植物基餐點創新，成功擴大彈性素食族群客源。", "植物肉與乳製品替代品雙柱石穩固，預估2030年前市場價值翻倍。"],
-    opportunity: "瞄準歐洲便利型植物餐點熱潮，齋之味可研發亞洲風味即食植物肉餐包，主打健康永續切入超市通路。",
-    risk: "歐洲對潔淨標籤與成份審查規範嚴格，且在地品牌競爭激烈，若無法兼顧在地口感與價格優勢，恐面臨回購瓶頸。",
-    watch: ["歐洲潔淨標籤與歐盟監管法規趨勢", "彈性素食者對便利即食餐點的回購率", "傳統肉品與植物替代肉之價差變化", "主流零售通路對亞洲植物基產品的排面比重"],
+    region: "歐洲", signal: "分化", note: "天然原型與法規變局", value: 72,
+    headline: "歐洲植物基市場強勁成長，然面臨標示禁令與原型食材轉向。",
+    drivers: ["彈性素食族群擴大與永續意識抬頭，帶動市場規模突破百億歐元。", "消費者轉向低加工、高蛋白質與潔淨標籤的原型植物性食材。", "複合型與便利型植物基餐點需求增長，拓展超市與餐飲通路。"],
+    opportunity: "聚焦潔淨標籤與原型豆類穀物開發，避開高度加工肉品，並以複合便利餐點切入歐洲通路，提早佈局非肉類命名之包裝策略。",
+    risk: "歐盟與英國擬禁止植物基食品使用漢堡等肉類名稱，將大幅增加包裝重繪、產品更名與市場重新定位之行銷與營運成本。",
+    watch: ["歐盟及英國「肉類命名禁令」法案審查與落實進度", "低加工原型植物性食品（豆類、穀物）之銷售成長率", "潔淨標籤（Clean Label）與高蛋白產品研發趨勢", "歐洲主流超市通路對非肉類命名蔬食餐點的架位排他性"],
   }
 ];
 
 const dailyBriefing = {
-  title: "植物基市場加速洗牌，勝出關鍵在於<strong>高標合規與場景創新。</strong>",
-  subtitle: "歐美植物基市場迎來資本修正，消費者轉為追求天然性價比。搭配台灣食安法規全面加嚴，透明溯源與場景整合成為產業生存關鍵。",
-  decisionTitle: "落實最高標準食安合規，並加速餐飲通路佈局。",
-  decisionDetail: "消費者轉向原型純淨與極致食安，通路看重供應鏈透明。我方須強化自主檢驗機制，並拓展B2B餐飲場景。"
+  title: "植物基擺脫擬真模仿，決勝點在於<strong>體驗策展與原型潔淨。</strong>",
+  subtitle: "全球植物基市場正從加工替代肉，轉向天然原型與口感技術優化；台灣則透過體驗策展與精緻餐飲，帶動植物飲食邁向生活化與主流化。",
+  decisionTitle: "擺脫擬真框架，聚焦原型潔淨與體驗價值",
+  decisionDetail: "消費者轉向追求原型營養與體驗美學，擬真肉需求放緩。我方應佈局潔淨標章與情境策展，建立品牌護城河。"
 };
 
 export default function Home() {
@@ -638,7 +638,7 @@ export default function Home() {
           </div>
           <div className="masthead-meta">
             <div className="date-line">
-              <p className="eyebrow">2026年8月9日・星期日</p>
+              <p className="eyebrow">2026年8月10日・星期一</p>
             </div>
             <div className="summary-line">今日彙整 {freshIntelligence.length} 則 · {highPriorityCount} 則核心關注</div>
           </div>
@@ -646,7 +646,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-08-09T02:36:44+08:00">2026/08/09 02:36</time></div>
+          <div>最後更新：<time dateTime="2026-08-10T02:49:34+08:00">2026/08/10 02:49</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -837,7 +837,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/09 02:36。</p>
+              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/10 02:49。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
