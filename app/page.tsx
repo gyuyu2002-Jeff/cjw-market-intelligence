@@ -837,7 +837,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 08:30 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/12 01:16。</p>
+              <p>每日 06:00 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/12 01:16。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (

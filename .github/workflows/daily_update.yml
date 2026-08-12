@@ -2,8 +2,8 @@ name: Daily Intelligence Update
 
 on:
   schedule:
-    # Run every day at 08:30 AM Taiwan time (00:30 UTC)
-    - cron: '30 0 * * *'
+    # Run every day at 06:00 AM Taiwan time (22:00 UTC)
+    - cron: '0 22 * * *'
   workflow_dispatch:
     # Allows manual triggering from GitHub UI
 
