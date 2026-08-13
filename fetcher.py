@@ -135,12 +135,23 @@ TRANSLATION_GLOSSARY = {
 }
 
 CATEGORY_RULES = {
-    "食安事件": ["食安", "食品安全", "food safety", "recall", "召回", "回收", "contamination", "污染", "outbreak", "疫情", "中毒", "檢出", "超標", "異物"],
-    "法規政策": ["法規", "規範", "政策", "修法", "法案", "標示", "標籤", "label", "regulation", "regulatory", "fda", "fsma", "禁用", "禁止", "認證", "通報"],
-    "同業動態": ["松珍", "鈺統", "弘陽", "隨緣", "大成", "卜蜂", "beyond meat", "impossible foods", "oatly", "競品", "同業", "收購", "投資", "工廠", "併購"],
-    "新產品上市": ["新品", "上市", "推出", "發表", "發布", "launch", "new product", "introduce", "release", "unveil", "flavor", "口味"],
-    "技術創新": ["技術", "科技", "研發", "研究", "蛋白", "原料", "配方", "質地", "風味遮蔽", "protein", "technology", "research", "innovation", "cultivated"],
-    "市場趨勢": ["市場", "消費", "趨勢", "需求", "價格", "通路", "成長", "下降", "market", "consumer", "trend", "sales", "price", "demand"],
+    "食安事件": ["食安", "食品安全", "food safety", "recall", "召回", "回收", "contamination", "污染", "outbreak", "疫情", "中毒", "檢出", "超標", "異物", "過敏原", "病原"],
+    "法規政策": ["法規", "規範", "政策", "修法", "法案", "標示", "標籤", "label", "regulation", "regulatory", "fda", "fsma", "禁用", "禁止", "認證", "通報", "合規", "稽查"],
+    "同業動態": ["松珍", "鈺統", "弘陽", "隨緣", "大成", "卜蜂", "beyond meat", "impossible foods", "oatly", "競品", "同業", "收購", "併購", "募資", "工廠", "產能", "展店"],
+    "新產品上市": ["新品", "推出", "發表", "發布", "launch", "new product", "introduce", "release", "unveil", "flavor", "口味", "上市新款", "新系列"],
+    "技術創新": ["技術", "科技", "研發", "研究", "蛋白", "原料", "配方", "質地", "風味遮蔽", "protein", "technology", "research", "innovation", "cultivated", "發酵", "細胞培養"],
+    "市場趨勢": ["市場", "消費", "趨勢", "需求", "價格", "通路", "成長", "下降", "market", "consumer", "trend", "sales", "price", "demand", "回購", "銷量"],
+}
+
+# A category is only eligible when a meaningful context is present. This avoids
+# classifying unrelated articles from generic words such as "投資", "上市", or "研究".
+CATEGORY_CONTEXT_RULES = {
+    "食安事件": ["食品", "食安", "食物", "餐飲", "原料", "農產品", "food", "recall", "contamination"],
+    "法規政策": ["食品", "食安", "標示", "標籤", "原料", "農業", "餐飲", "food", "label", "fda", "fsma"],
+    "同業動態": ["食品", "素食", "蔬食", "植物", "蛋白", "奶", "肉", "品牌", "產品", "food", "plant", "vegan", "meat", "dairy"],
+    "新產品上市": ["食品", "素食", "蔬食", "植物", "蛋白", "奶", "肉", "產品", "口味", "food", "plant", "vegan", "protein"],
+    "技術創新": ["食品", "素食", "植物", "蛋白", "原料", "配方", "加工", "food", "plant", "protein", "ingredient"],
+    "市場趨勢": ["食品", "素食", "蔬食", "植物", "蛋白", "奶", "肉", "產品", "消費", "food", "plant", "vegan", "protein"],
 }
 
 CATEGORY_ACTIONS = {
@@ -181,12 +192,36 @@ def _matches(text, keywords):
 
 def _classify(title, region):
     text = f"{title} {region}"
-    scores = {category: len(_matches(text, keywords)) for category, keywords in CATEGORY_RULES.items()}
-    # Safety and regulation signals have precedence because they require faster action.
-    for category in ("食安事件", "法規政策", "同業動態"):
-        if scores[category] > 0:
-            return category
-    return max(scores, key=scores.get) if max(scores.values(), default=0) else "市場趨勢"
+    scores = {}
+    for category, keywords in CATEGORY_RULES.items():
+        hits = _matches(text, keywords)
+        context_hits = _matches(text, CATEGORY_CONTEXT_RULES.get(category, []))
+        # Generic single-word matches are not sufficient; require either an
+        # explicit high-signal phrase or at least two category signals plus context.
+        explicit = len(hits) >= 2 and bool(context_hits)
+        scores[category] = len(hits) + (2 if explicit else 0)
+
+    # Distinguish a food-safety incident from food regulation. The generic
+    # word "食安" appears in both, so incident markers must be present before
+    # the safety category wins over a policy/labeling story.
+    normalized = _normalize(text)
+    incident_markers = [
+        "食品安全", "food safety", "召回", "回收", "recall", "污染", "contamination",
+        "中毒", "檢出", "超標", "異物", "過敏原", "病原", "outbreak"
+    ]
+    policy_markers = [
+        "法規", "規範", "政策", "修法", "法案", "標示", "標籤", "label",
+        "regulation", "regulatory", "禁用", "禁止", "認證", "合規", "稽查"
+    ]
+    context_hits = _matches(text, CATEGORY_CONTEXT_RULES["食安事件"])
+    if any(marker in normalized for marker in incident_markers) and context_hits:
+        return "食安事件"
+    context_hits = _matches(text, CATEGORY_CONTEXT_RULES["法規政策"])
+    if any(marker in normalized for marker in policy_markers) and context_hits:
+        return "法規政策"
+
+    eligible = {category: score for category, score in scores.items() if score > 0}
+    return max(eligible, key=eligible.get) if eligible else "市場趨勢"
 
 def _sentiment(title, summary, category):
     text = _normalize(f"{title} {summary}")
@@ -274,18 +309,19 @@ def is_relevant_newsmarket_item(title):
         if k in title_lower:
             return False
             
-    # Stricter multi-character food-industry keywords
-    include_keywords = [
-        "食安", "食品", "植物肉", "植物奶", "素食", "蔬食", "燕麥奶", "豆腐", 
-        "黃豆", "大豆", "小麥", "燕麥", "豆漿", "豆奶", "豌豆", "醬油", "醬料", 
-        "調味", "加工食品", "小農", "有機", "蔬菜", "作物", "食材", "農產品", 
-        "稻米", "白米", "米粉", "茶葉", "焙茶", "綠茶", "全聯", "超商", "全家"
+    # Require a food/agriculture core plus an industry context. This prevents
+    # broad words such as "有機", "蔬菜", or a retailer name from admitting
+    # unrelated lifestyle, gardening, or general business articles.
+    core_keywords = [
+        "食安", "食品", "食材", "農產品", "植物肉", "植物奶", "素食", "蔬食", "燕麥奶", "豆腐",
+        "黃豆", "大豆", "小麥", "燕麥", "豆漿", "豆奶", "豌豆", "醬油", "醬料", "加工食品",
+        "稻米", "白米", "米粉", "茶葉", "焙茶", "綠茶", "food", "plant-based", "vegan", "agriculture"
     ]
-    for k in include_keywords:
-        if k in title_lower:
-            return True
-            
-    return False
+    context_keywords = [
+        "原料", "供應鏈", "產地", "農民", "小農", "加工", "製程", "食安", "食品", "產品", "市場",
+        "價格", "通路", "消費", "標示", "追溯", "供應商", "food", "market", "supply", "product"
+    ]
+    return any(k in title_lower for k in core_keywords) and any(k in title_lower for k in context_keywords)
 
 def get_sentiment(title, summary=""):
     """Heuristic sentiment analyzer for offline brand patrol reviews."""

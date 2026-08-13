@@ -10,9 +10,15 @@ on:
 permissions:
   contents: write
 
+# Prevent two updates from racing and overwriting page.tsx/docs.
+concurrency:
+  group: daily-intelligence-update
+  cancel-in-progress: false
+
 jobs:
   update-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -34,8 +40,6 @@ jobs:
         run: npm ci
 
       - name: Run daily update script
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           # Set git config so commit succeeds
           git config --global user.name "github-actions[bot]"
