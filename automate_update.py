@@ -364,8 +364,8 @@ print("Updated app/page.tsx successfully with new items and timestamps.")
 
 # Build and Push
 try:
-    print("Running production build...")
-    build_result = subprocess.run("npm run build", cwd=FRONTEND_DIR, shell=True, capture_output=True, text=True, encoding="utf-8")
+    print("Running static GitHub Pages build...")
+    build_result = subprocess.run("./node_modules/.bin/vite build --config vite.static.config.ts", cwd=FRONTEND_DIR, shell=True, capture_output=True, text=True, encoding="utf-8")
     if build_result.returncode != 0:
         print("Build failed.")
         print("STDOUT:", build_result.stdout)
