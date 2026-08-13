@@ -105,11 +105,34 @@ new_analyzed_items = []
 
 for feed_key, url in fetcher.FEEDS.items():
     print(f"Fetching RSS feed for: {feed_key}...")
-    xml_data = fetcher.fetch_rss_feed(url)
-    if not xml_data:
+    feed_urls = [url]
+    if feed_key in fetcher.FEED_FALLBACKS:
+        feed_urls.append(fetcher.FEED_FALLBACKS[feed_key])
+
+    raw_items = []
+    for source_index, feed_url in enumerate(feed_urls):
+        xml_data = fetcher.fetch_rss_feed(feed_url)
+        parsed_items = fetcher.parse_rss_xml(xml_data)
+        if parsed_items:
+            raw_items = parsed_items
+            label = "primary" if source_index == 0 else "fallback"
+            print(f"{label.capitalize()} RSS source succeeded for {feed_key}: {len(parsed_items)} items.")
+            break
+    if not raw_items:
         continue
-    
-    raw_items = fetcher.parse_rss_xml(xml_data)
+
+    # Remove duplicate links returned by overlapping primary/fallback queries.
+    unique_items = []
+    seen_feed_keys = set()
+    for item in raw_items:
+        dedupe_key = item.get("link") or hashlib.md5(
+            item.get("title", "").encode("utf-8")
+        ).hexdigest()
+        if dedupe_key in seen_feed_keys:
+            continue
+        seen_feed_keys.add(dedupe_key)
+        unique_items.append(item)
+    raw_items = unique_items
     
     # Overwrite default sources and filter duplicates
     items_to_process = []

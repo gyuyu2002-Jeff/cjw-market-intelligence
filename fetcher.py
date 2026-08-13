@@ -21,7 +21,13 @@ DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'news_db.json
 # Google News & Upstream RSS URLs
 FEEDS = {
     "taiwan": "https://news.google.com/rss/search?q=(%E7%B4%A0%E9%A3%9F+OR+%E8%94%AC%E9%A3%9F+OR+%E6%A4%8D%E7%89%A9%E8%82%85)+site:foodnext.net+when:2y&hl=zh-TW&gl=TW&ceid=TW:zh-Hant",
-    "newsmarket": "https://www.newsmarket.com.tw/feed/",
+    # Google News site-restricted RSS replaces the Cloudflare-blocked direct feed.
+    "newsmarket": (
+        "https://news.google.com/rss/search?"
+        "q=site%3Anewsmarket.com.tw+"
+        "%28%E9%A3%9F%E5%93%81+OR+%E8%BE%B2%E6%A5%AD+OR+%E9%A3%9F%E5%AE%89+OR+%E8%BE%B2%E7%94%A2+OR+%E9%A3%9F%E7%89%A9%29+"
+        "when%3A2y&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant"
+    ),
     "usa": "https://news.google.com/rss/search?q=%22plant-based%22+OR+%22vegan+food%22+market+OR+product+OR+launch+when:2y&hl=en-US&gl=US&ceid=US:en",
     "europe": "https://news.google.com/rss/search?q=%22plant-based%22+OR+%22vegan+food%22+market+OR+product+Europe+when:2y&hl=en-GB&gl=GB&ceid=GB:en",
     "australia": "https://news.google.com/rss/search?q=%22plant-based%22+OR+%22vegan+food%22+market+OR+product+Australia+when:2y&hl=en-AU&gl=AU&ceid=AU:en",
@@ -30,6 +36,15 @@ FEEDS = {
     "food_safety_global": "https://news.google.com/rss/search?q=%22food+safety%22+OR+%22food+recall%22+OR+%22food+contamination%22+when:2y&hl=en-US&gl=US&ceid=US:en",
     # Competitor Patrol Feed (Search for competitor giants: 松珍, 鈺統, 弘陽, 隨緣, 大成, 卜蜂, Beyond Meat, Impossible Foods, Oatly)
     "brand_patrol": "https://news.google.com/rss/search?q=(%22%E6%9D%BE%E7%8F%8D%22+OR+%22%E9%85%97%E7%B5%B1%22+OR+%22%E5%BC%98%E9%99%BD%22+OR+%22%E9%9A%A8%E7%B7%A3%22+OR+%22%E5%A4%A7%E6%88%90%22+OR+%22%E5%8D%9C%E8%9C%82%22+OR+%22Beyond+Meat%22+OR+%22Impossible+Foods%22+OR+%22Oatly%22)+AND+(%E7%B4%A0%E9%A3%9F+OR+%E8%94%AC%E9%A3%9F+OR+%E6%A4%8D%E7%89%A9%E8%82%85+OR+%E6%A4%8D%E7%89%A9%E5%A5%B6+OR+%E7%85%92%E9%BA%A5%E5%A5%B6)+when:2y&hl=zh-TW&gl=TW&ceid=TW:zh-Hant"
+}
+
+# Wider fallback query for temporary Google News indexing gaps.
+FEED_FALLBACKS = {
+    "newsmarket": (
+        "https://news.google.com/rss/search?"
+        "q=site%3Anewsmarket.com.tw+when%3A2y&"
+        "hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant"
+    ),
 }
 
 def load_db():
@@ -404,12 +419,36 @@ def sync_news(limit_per_feed=5):
 
     for feed_key, url in FEEDS.items():
         print(f"Processing feed for: {feed_key}...")
-        xml_data = fetch_rss_feed(url)
-        if not xml_data:
+        feed_urls = [url]
+        if feed_key in FEED_FALLBACKS:
+            feed_urls.append(FEED_FALLBACKS[feed_key])
+
+        raw_items = []
+        for source_index, feed_url in enumerate(feed_urls):
+            xml_data = fetch_rss_feed(feed_url)
+            parsed_items = parse_rss_xml(xml_data)
+            if parsed_items:
+                raw_items = parsed_items
+                label = "primary" if source_index == 0 else "fallback"
+                print(f"{label.capitalize()} RSS source succeeded for {feed_key}: {len(parsed_items)} items.")
+                break
+
+        if not raw_items:
             errors.append(f"無法獲取 {feed_key} 的 RSS feed 資料。")
             continue
 
-        raw_items = parse_rss_xml(xml_data)
+        # Google News queries can overlap; remove duplicate links before filtering.
+        unique_raw_items = []
+        seen_feed_keys = set()
+        for item in raw_items:
+            dedupe_key = item.get("link") or hashlib.md5(
+                item.get("title", "").encode("utf-8")
+            ).hexdigest()
+            if dedupe_key in seen_feed_keys:
+                continue
+            seen_feed_keys.add(dedupe_key)
+            unique_raw_items.append(item)
+        raw_items = unique_raw_items
         
         # Determine the region for database storage
         if feed_key == "newsmarket":
