@@ -2,7 +2,6 @@ import os
 import json
 import sys
 import urllib.request
-import urllib.parse
 import xml.etree.ElementTree as ET
 import email.utils
 import hashlib
@@ -35,16 +34,16 @@ FEEDS = {
 
 def load_db():
     if not os.path.exists(DB_PATH):
-        return {"news_items": [], "config": {"gemini_api_key": ""}}
+        return {"news_items": [], "config": {}}
     try:
         with open(DB_PATH, "r", encoding="utf-8") as f:
             db = json.load(f)
             if "news_items" not in db: db["news_items"] = []
-            if "config" not in db: db["config"] = {"gemini_api_key": ""}
+            if "config" not in db: db["config"] = {}
             return db
     except Exception as e:
         print(f"Error loading DB: {e}")
-        return {"news_items": [], "config": {"gemini_api_key": ""}}
+        return {"news_items": [], "config": {}}
 
 def save_db(db):
     try:
@@ -104,125 +103,110 @@ def parse_rss_xml(xml_data):
         print(f"Error parsing XML: {e}")
         return []
 
-def call_gemini_api(api_key, title, pub_date, source, region):
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
-    
-    prompt = f"""你是一位專業的食品與蔬食產業分析師。請分析以下關於素食/植物基食品產業的新聞資訊：
-新聞地區/來源市場: {region} (來自 {source}, 發布時間: {pub_date})
-原始標題: {title}
+# Local, deterministic analysis.  This module intentionally has no AI/API fallback.
 
-請將此資訊翻譯與分析，並嚴格回傳一個符合以下 JSON 格式的內容（請只回傳 JSON 物件，不要任何 markdown 的 ```json 包裹標記，也不要任何前後贅字，以防 JSON 解析失敗）：
-{{
-  "title_zh": "精確的繁體中文標題翻譯（如果原文是英文請翻譯，若為中文可適度潤飾）",
-  "category": "必須且只能是這六個分類之一：'新產品上市'、'市場趨勢'、'法規政策'、'技術創新'、'食安事件'、'同業動態'（若提及松珍、鈺統、弘陽、隨緣、大成、卜蜂、Beyond Meat、Impossible Foods、Oatly等素食同業大廠，請分類為同業動態）",
-  "summary": "100-150 字的繁體中文摘要，重點摘要此新聞的核心事實、事件起因或討論重點",
-  "takeaway": "1 句具體的繁體中文商業建議或開發靈感，若為同業動態，請分析同業動作對齋滋味帶來的啟示或防範策略建議",
-  "sentiment": "必須且只能是這三個選項之一：'正面'（代表同業有擴張或新上市等正面發展）、'中立'（代表一般同業商業新聞）、'負面'（代表同業有產品召回、裁員或對我方造成潛在威脅的動作）"
-}}
-"""
-    
-    body = {
-        "contents": [
-            {
-                "parts": [
-                    {"text": prompt}
-                ]
-            }
-        ],
-        "generationConfig": {
-            "responseMimeType": "application/json"
-        }
-    }
-    
-    data = json.dumps(body).encode('utf-8')
-    req = urllib.request.Request(
-        url,
-        data=data,
-        headers={'Content-Type': 'application/json'}
-    )
-    
-    try:
-        with urllib.request.urlopen(req, timeout=20) as response:
-            res_body = response.read().decode('utf-8')
-            res_json = json.loads(res_body)
-            # Extract content text
-            text = res_json['candidates'][0]['content']['parts'][0]['text']
-            # Parse response json
-            raw_text = text.strip()
-            if raw_text.startswith("```"):
-                lines = raw_text.splitlines()
-                if lines[0].startswith("```"):
-                    lines = lines[1:]
-                if lines[-1].startswith("```"):
-                    lines = lines[:-1]
-                raw_text = "\n".join(lines).strip()
-            parsed_result = json.loads(raw_text)
-            return parsed_result
-    except Exception as e:
-        print(f"Error calling Gemini API: {e}")
-        return None
+TRANSLATION_GLOSSARY = {
+    "plant-based": "植物基", "plant based": "植物基", "vegan": "純素",
+    "meat alternative": "肉類替代品", "meat alternatives": "肉類替代品",
+    "dairy alternative": "乳製品替代品", "food safety": "食品安全",
+    "food recall": "食品召回", "food contamination": "食品污染",
+    "clean label": "潔淨標示", "labeling": "標示", "labelling": "標示",
+    "market growth": "市場成長", "market share": "市場份額",
+    "product launch": "產品上市", "new product": "新品",
+    "supply chain": "供應鏈", "traceability": "追溯管理",
+    "high protein": "高蛋白", "oat milk": "燕麥奶",
+    "alternative protein": "替代蛋白", "cultivated meat": "培養肉",
+    "research": "研究", "technology": "技術", "regulation": "法規",
+}
 
-def google_translate_free(text, target_lang="zh-TW"):
-    """Free Google Translate API helper without requiring an API Key."""
-    try:
-        url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl={target_lang}&dt=t&q={urllib.parse.quote(text)}"
-        req = urllib.request.Request(
-            url,
-            headers={'User-Agent': 'Mozilla/5.0'}
-        )
-        with urllib.request.urlopen(req, timeout=8) as response:
-            res = json.loads(response.read().decode('utf-8'))
-            translated_parts = [part[0] for part in res[0] if part and part[0]]
-            return "".join(translated_parts)
-    except Exception as e:
-        print(f"Free translate error: {e}")
-        return text
+CATEGORY_RULES = {
+    "食安事件": ["食安", "食品安全", "food safety", "recall", "召回", "回收", "contamination", "污染", "outbreak", "疫情", "中毒", "檢出", "超標", "異物"],
+    "法規政策": ["法規", "規範", "政策", "修法", "法案", "標示", "標籤", "label", "regulation", "regulatory", "fda", "fsma", "禁用", "禁止", "認證", "通報"],
+    "同業動態": ["松珍", "鈺統", "弘陽", "隨緣", "大成", "卜蜂", "beyond meat", "impossible foods", "oatly", "競品", "同業", "收購", "投資", "工廠", "併購"],
+    "新產品上市": ["新品", "上市", "推出", "發表", "發布", "launch", "new product", "introduce", "release", "unveil", "flavor", "口味"],
+    "技術創新": ["技術", "科技", "研發", "研究", "蛋白", "原料", "配方", "質地", "風味遮蔽", "protein", "technology", "research", "innovation", "cultivated"],
+    "市場趨勢": ["市場", "消費", "趨勢", "需求", "價格", "通路", "成長", "下降", "market", "consumer", "trend", "sales", "price", "demand"],
+}
 
-def offline_fallback_analysis(title, region):
-    """Fallback when Gemini API is unavailable or not set."""
-    title_lower = title.lower()
-    
-    # Translate title if it is foreign using free Google Translate
-    title_translated = title
-    if region not in ["taiwan", "food_safety_tw", "brand_patrol"]:
-        title_translated = google_translate_free(title)
-        title_zh = f"[譯] {title_translated}"
-    else:
-        title_zh = title
-    
-    # 0. Competitor Patrol override logic
-    if region == "brand_patrol" or any(k in title_lower for k in ["松珍", "鈺統", "弘陽", "隨緣", "大成", "卜蜂", "beyond", "impossible", "oatly"]):
-        category = "同業動態"
-        summary = f"這是一則關於素食與替代蛋白同業大廠的最新動態。標題為：'{title_translated}'。設定 Gemini 金鑰可分析同業產品佈局與競爭防範建議。"
-        takeaway = "分析同業大廠的市場動作，作為齋滋味產品研發與競爭防禦的策略參考。"
-    # 0. Food Safety override logic
-    elif region == "food_safety" or any(k in title_lower for k in ["recall", "outbreak", "contamination", "poisoning", "食安", "召回", "回收", "檢出", "超標", "中毒"]):
-        category = "食安事件"
-        summary = f"這是一則關於食品安全、產品召回或法規合規性的最新情報。標題為：'{title_translated}'。設定 Gemini 金鑰後，將為您分析其背後的風險成因與改善防範指引。"
-        takeaway = "評估此食安事件或召回原因，審查內部原料供應商與生產管制作業，防範相似之食安風險與商譽損害。"
-    # 1. Simple category logic
-    elif any(k in title_lower for k in ["launch", "new", "introduce", "release", "unveil", "上市", "新品", "推出", "發表"]):
-        category = "新產品上市"
-        summary = f"這是一則關於植物基新品發布的新聞。標題為：'{title_translated}'。這顯示了該地區在素食創新產品上的發展速度。您可以設定 Gemini API 金鑰來獲取完整的 AI 翻譯、深度摘要與商業建議。"
-        takeaway = "評慢該新品的口味與成分，研究是否適合台灣消費者的飲食習慣，並研發相應的在地素食新品。"
-    elif any(k in title_lower for k in ["law", "regulate", "ban", "label", "fda", "policy", "gov", "法規", "政策", "限制", "認證"]):
-        category = "法規政策"
-        summary = f"這是一則關於素食與食品產業法規或政策的新聞。標題為：'{title_translated}'。法規調整將影響產品標籤或成分出口。設定 Gemini API 金鑰即可自動生成完整的翻譯與法規解讀。"
-        takeaway = "應密切關注國際蔬食認證法規，以確保產品符合未來的食安與環保出口標籤要求。"
-    elif any(k in title_lower for k in ["tech", "science", "protein", "cultured", "research", "科技", "創新", "蛋白", "研發"]):
-        category = "技術創新"
-        summary = f"這是一則探討植物基或細胞培養食品科技研發的新聞。標題為：'{title_translated}'。反映了替代蛋白等新技術的重大突破。設定 Gemini API 金鑰後，將為您分析其背後的食品科技成分。"
-        takeaway = "研究最新替代蛋白或植物油乳化技術，應用於齋滋味產品中，以提升素食肉排或醬料的質地與保水度。"
-    else:
-        category = "市場趨勢"
-        summary = f"這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'{title_translated}'。這代表該市場的消費趨勢正在演變。設定 Gemini API 金鑰即可啟用自動化中譯與市場商機分析。"
-        takeaway = "密切監控此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。"
+CATEGORY_ACTIONS = {
+    "食安事件": "立即核對相關原料、供應商批次與內部檢驗紀錄，更新異常通報及召回應變 SOP。",
+    "法規政策": "由品保法規團隊追蹤正式條文與生效日期，盤點產品標示、宣稱及出口文件的影響。",
+    "同業動態": "建立競品追蹤卡，記錄其產品、價格、通路與產能變化，並安排主力品項的差異化比較。",
+    "新產品上市": "拆解新品的成分、口味、價格與使用情境，評估在地化開發及現有產品線的替代風險。",
+    "技術創新": "請產品研發評估原料、加工技術與感官表現，安排小規模配方或口感測試以驗證可行性。",
+    "市場趨勢": "持續追蹤價格、通路與消費者需求訊號，將具一致性的變化納入下一季產品與業務規劃。",
+}
 
+CATEGORY_IMPACT = {
+    "食安事件": "事件可能提高消費者對原料、製程與追溯透明度的要求，齋滋味應優先確認自身供應鏈與品保紀錄。",
+    "法規政策": "政策變化可能影響產品命名、標示、宣稱或出口合規，提前盤點可降低改版與下架風險。",
+    "同業動態": "同業動作反映競爭者正在調整產品、產能或通路布局，齋滋味需比較自身的口感、價格與供應優勢。",
+    "新產品上市": "新品會改變消費者對口味、便利性或價格的期待，齋滋味可從使用情境與差異化價值尋找機會。",
+    "技術創新": "新原料或製程可能改善口感、營養與量產穩定性，也可能提高研發驗證與法規審查需求。",
+    "市場趨勢": "市場訊號顯示需求、價格或通路正在變化，齋滋味應以實際回購與使用情境驗證，而非只追逐單一話題。",
+}
+
+POSITIVE_WORDS = ["成長", "增加", "擴張", "投資", "推出", "上市", "突破", "growth", "increase", "launch", "expansion"]
+NEGATIVE_WORDS = ["下降", "衰退", "退燒", "召回", "污染", "超標", "危機", "裁員", "下滑", "decline", "recall", "contamination"]
+
+def _normalize(text):
+    return " ".join((text or "").lower().replace("－", "-").split())
+
+def _localize_title(title):
+    result = title.strip()
+    lower = result.lower()
+    for source, target in sorted(TRANSLATION_GLOSSARY.items(), key=lambda pair: len(pair[0]), reverse=True):
+        if source in lower:
+            result = result.replace(source, target).replace(source.title(), target)
+    return result
+
+def _matches(text, keywords):
+    normalized = _normalize(text)
+    return [keyword for keyword in keywords if keyword.lower() in normalized]
+
+def _classify(title, region):
+    text = f"{title} {region}"
+    scores = {category: len(_matches(text, keywords)) for category, keywords in CATEGORY_RULES.items()}
+    # Safety and regulation signals have precedence because they require faster action.
+    for category in ("食安事件", "法規政策", "同業動態"):
+        if scores[category] > 0:
+            return category
+    return max(scores, key=scores.get) if max(scores.values(), default=0) else "市場趨勢"
+
+def _sentiment(title, summary, category):
+    text = _normalize(f"{title} {summary}")
+    positive = sum(1 for word in POSITIVE_WORDS if word.lower() in text)
+    negative = sum(1 for word in NEGATIVE_WORDS if word.lower() in text)
+    if category == "食安事件" or negative > positive:
+        return "負面"
+    if positive > negative:
+        return "正面"
+    return "中立"
+
+def _make_summary(title, source, pub_date, category, region):
+    localized = _localize_title(title)
+    matched = _matches(title, CATEGORY_RULES[category])
+    signal = "、".join(matched[:3]) if matched else "相關市場訊號"
+    date_text = pub_date or "日期未明"
+    source_text = source or "未標示來源"
+    return (f"{date_text}，{source_text}發布一則來自{region}的{category}情報，主題為「{localized}」。"
+            f"從標題可辨識的關鍵訊號包括{signal}，顯示事件與{category}相關；目前僅依 RSS 標題與來源欄位整理，仍應點擊原始連結核對完整內容。")
+
+def offline_fallback_analysis(title, region, source="", pub_date=""):
+    """Generate explainable Traditional Chinese analysis using local rules only."""
+    localized = _localize_title(title)
+    category = _classify(title, region)
+    summary = _make_summary(title, source, pub_date, category, region)
+    impact = CATEGORY_IMPACT[category]
+    takeaway = CATEGORY_ACTIONS[category]
+    sentiment = _sentiment(title, summary, category)
     return {
-        "title_zh": title_zh,
+        "title_zh": localized,
         "category": category,
         "summary": summary,
-        "takeaway": takeaway
+        "impact": impact,
+        "takeaway": takeaway,
+        "sentiment": sentiment,
     }
 
 def is_official_channel(link, source=""):
@@ -384,7 +368,7 @@ def is_competitor_duplicate(new_title, existing_titles):
 
 
 def sync_news(limit_per_feed=5):
-    """Fetch recent items from feeds and use Gemini API to process new ones."""
+    """Fetch recent RSS items and process them with deterministic local rules."""
     from datetime import timedelta
     db = load_db()
     
@@ -411,17 +395,12 @@ def sync_news(limit_per_feed=5):
         db["news_items"] = valid_items
         save_db(db)
 
-    api_key = db["config"].get("gemini_api_key", "").strip()
-    if not api_key:
-        # Check system environment variables as fallback
-        api_key = os.environ.get("GEMINI_API_KEY", "").strip()
-
     existing_links = {item["link"] for item in db["news_items"]}
     existing_titles = [item["title"] for item in db["news_items"]]
     new_items_added = 0
     errors = []
 
-    print(f"Starting news sync... API Key configure status: {'Configured' if api_key else 'Not Configured (Offline Mode)'}")
+    print("Starting news sync... Local rules mode; no AI/API analysis is used.")
 
     for feed_key, url in FEEDS.items():
         print(f"Processing feed for: {feed_key}...")
@@ -506,23 +485,13 @@ def sync_news(limit_per_feed=5):
             # Create a unique ID using md5 of link
             item_id = hashlib.md5(raw_item["link"].encode('utf-8')).hexdigest()[:12]
             
-            # AI Analysis
-            analysis = None
-            if api_key:
-                # Try API call
-                analysis = call_gemini_api(
-                    api_key=api_key,
-                    title=raw_item["title"],
-                    pub_date=raw_item["pub_date"],
-                    source=raw_item["source"],
-                    region=region
-                )
-            
-            # Fallback if API key is empty or call failed
-            if not analysis:
-                analysis = offline_fallback_analysis(raw_item["title"], region)
-                if api_key:
-                    print(f"Gemini API call failed for '{raw_item['title']}', using offline fallback analysis.")
+            # Deterministic local analysis; no API key or external model is consulted.
+            analysis = offline_fallback_analysis(
+                title=raw_item["title"],
+                region=region,
+                source=raw_item["source"],
+                pub_date=raw_item["pub_date"],
+            )
 
             # Construct finalized news object
             news_entry = {

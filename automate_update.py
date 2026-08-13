@@ -3,7 +3,6 @@ import json
 import re
 import sys
 import urllib.request
-import urllib.parse
 from datetime import datetime
 import subprocess
 import hashlib
@@ -36,20 +35,7 @@ DB_PATH = os.path.join(FRONTEND_DIR, "news_db.json")
 if not os.path.exists(DB_PATH):
     DB_PATH = r"C:\HJ\齋滋味\cjw_news_hub\news_db.json"
 
-# Load Gemini API Key
-api_key = ""
-if os.path.exists(DB_PATH):
-    try:
-        with open(DB_PATH, "r", encoding="utf-8") as f:
-            db_data = json.load(f)
-            api_key = db_data.get("config", {}).get("gemini_api_key", "").strip()
-    except Exception:
-        pass
-
-if not api_key:
-    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
-
-print(f"Gemini API Key loaded: {'Yes' if api_key else 'No (Using Offline Mode)'}")
+# Local rules mode: no AI API key is loaded or used.
 
 # Region mapping from crawl key to traditional chinese
 REGION_MAP = {
@@ -61,176 +47,6 @@ REGION_MAP = {
     "europe": "歐洲",
     "australia": "澳洲"
 }
-
-def execute_gemini_request(api_key, prompt, response_mime_type="application/json", max_retries=3, initial_delay=5):
-    if not api_key:
-        return None
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={api_key}"
-    body = {
-        "contents": [
-            {
-                "parts": [
-                    {"text": prompt}
-                ]
-            }
-        ]
-    }
-    if response_mime_type:
-        body["generationConfig"] = {"responseMimeType": response_mime_type}
-        
-    data = json.dumps(body).encode('utf-8')
-    
-    import time
-    import urllib.error
-    import re
-    
-    delay = initial_delay
-    for attempt in range(max_retries + 1):
-        req = urllib.request.Request(
-            url,
-            data=data,
-            headers={'Content-Type': 'application/json'}
-        )
-        try:
-            with urllib.request.urlopen(req, timeout=20) as response:
-                res_body = response.read().decode('utf-8')
-                res_json = json.loads(res_body)
-                text = res_json['candidates'][0]['content']['parts'][0]['text']
-                raw_text = text.strip()
-                if raw_text.startswith("```"):
-                    lines = raw_text.splitlines()
-                    if lines[0].startswith("```"):
-                        lines = lines[1:]
-                    if lines[-1].startswith("```"):
-                        lines = lines[:-1]
-                    raw_text = "\n".join(lines).strip()
-                return json.loads(raw_text)
-        except urllib.error.HTTPError as e:
-            if e.code == 429:
-                # Read response body to extract retry time
-                try:
-                    err_body = e.read().decode('utf-8')
-                    # Look for "retry in X.XXs" or similar
-                    retry_seconds = None
-                    m = re.search(r'retry in ([\d\.]+)s', err_body)
-                    if m:
-                        retry_seconds = float(m.group(1)) + 1.0 # Add 1s safety margin
-                except Exception:
-                    retry_seconds = None
-                
-                wait_time = retry_seconds if retry_seconds else delay
-                print(f"Gemini API rate limit (429) hit. Attempt {attempt + 1}/{max_retries + 1}. Waiting {wait_time:.1f}s before retry...")
-                time.sleep(wait_time)
-                delay *= 2  # Exponential backoff fallback
-            else:
-                print(f"Gemini API HTTP Error {e.code}: {e.reason}")
-                try:
-                    err_body = e.read().decode('utf-8')
-                    print("Error body:", err_body)
-                except Exception:
-                    pass
-                return None
-        except Exception as e:
-            print(f"Gemini API Error: {e}")
-            return None
-    return None
-
-def call_gemini_api_for_frontend(api_key, title, pub_date, source, region_key):
-    if not api_key:
-        return None
-    mapped_region = REGION_MAP.get(region_key, "台灣")
-    
-    prompt = f"""你是一位專業的食品與蔬食產業分析師。請分析以下關於素食/植物基食品產業的新聞資訊：
-新聞地區/來源市場: {mapped_region} (來自 {source}, 發布時間: {pub_date})
-原始標題: {title}
-
-請將此資訊翻譯與分析，並嚴格回傳一個符合以下 JSON 格式的內容（請只回傳 JSON 物件，不要任何 markdown 的 ```json 包裹標記，也不要任何前後贅字，以防 JSON 解析失敗）：
-{{
-  "title": "精確的繁體中文標題翻譯（如果原文是英文請翻譯，若為中文可適度潤飾）",
-  "topic": "必須且只能是這六個選項之一：'新品'、'通路價格'、'競品'、'消費趨勢'、'原料技術'、'法規標示'（若提及松珍、鈺統、弘陽、隨緣、大成、卜蜂、Beyond Meat、Impossible Foods、Oatly等素食同業大廠，請分類為競品）",
-  "summary": "100-150 字的繁體中文摘要，重點摘要此新聞的核心事實、事件起因或討論重點",
-  "impact": "對齋之味的影響（50-80字，繁體中文，分析此事件或趨勢對齋之味品牌、研發、行銷或供應鏈的具體影響與啟示）",
-  "action": "具體建議行動（30-50字，繁體中文，例如『盤點...原料』、『評估...產品線』）",
-  "owner": "必須且只能是這六個負責部門之一：'品牌行銷'、'產品研發'、'採購品保'、'品保法規'、'國際業務'、'電商營運'",
-  "priority": "必須且只能是這三個選項之一：'高'、'中'、'低'",
-  "score": "分數（0-100的整數，重要性評分，高重要度90分以上，中重要度70-89分，低重要度69分以下）"
-}}
-"""
-    return execute_gemini_request(api_key, prompt)
-
-def offline_fallback_for_frontend(title, feed_key):
-    """Fallback when Gemini API is unavailable or not set."""
-    # Free Google Translate if foreign
-    title_translated = title
-    if feed_key not in ["taiwan", "food_safety_tw", "brand_patrol"]:
-        try:
-            title_translated = fetcher.google_translate_free(title)
-        except Exception:
-            pass
-            
-    title_lower = title_translated.lower()
-    
-    # Defaults
-    topic = "消費趨勢"
-    summary = f"這是一則關於蔬食與植物基市場趨勢與消費分析的新聞。標題為：'{title_translated}'。"
-    impact = "密切關注此類市場趨勢變化，作為開發下一季度素食調味包或熟食產品的定位依據。"
-    action = "追蹤此趨勢發展，評估是否納入下一階段產品規劃。"
-    owner = "品牌行銷"
-    priority = "中"
-    score = 70
-    
-    # Keyword analysis
-    if feed_key == "brand_patrol" or any(k in title_lower for k in ["松珍", "鈺統", "弘陽", "隨緣", "大成", "卜蜂", "beyond", "impossible", "oatly"]):
-        topic = "競品"
-        summary = f"同業大廠最新動態：'{title_translated}'。此動作反映了素食產業競爭格局的最新進展。"
-        impact = "分析同業大廠的市場佈局與產品定位，以制定我方的競爭防禦策略與產品研發策略。"
-        action = "評估同業此項動作對我方主力產品線的潛在競爭影響。"
-        owner = "產品研發"
-        priority = "中"
-        score = 80
-    elif feed_key in ["food_safety_tw", "food_safety_global"] or any(k in title_lower for k in ["recall", "outbreak", "contamination", "poisoning", "食安", "召回", "回收", "檢出", "超標", "中毒"]):
-        topic = "原料技術"
-        summary = f"食品安全與品質與品質管控事件：'{title_translated}'。事件提醒業界加強供應鏈檢驗。"
-        impact = "此食安風險警示我方需加強審查原料供應商與生產品質管制，避免相似風險對商譽造成衝擊。"
-        action = "盤點並抽檢主力產品之相關原料品保檢驗報告。"
-        owner = "採購品保"
-        priority = "高"
-        score = 85
-    elif any(k in title_lower for k in ["launch", "new", "introduce", "release", "unveil", "上市", "新品", "推出", "發表"]):
-        topic = "新品"
-        summary = f"新品上市動向：'{title_translated}'。這顯示了該地區在替代蛋白或素食創新產品上的最新趨勢。"
-        impact = "研究該新品的口味、配方與主打客群，有助於齋滋味發掘適合台灣或出口市場的潛在產品方向。"
-        action = "評估此類新品是否有進行本地化開發與改良的商業價值。"
-        owner = "品牌行銷"
-        priority = "中"
-        score = 75
-    elif any(k in title_lower for k in ["law", "regulate", "ban", "label", "fda", "policy", "gov", "法規", "政策", "限制", "認證"]):
-        topic = "法規標示"
-        summary = f"法規政策更新：'{title_translated}'。食品標籤、命名或進出口限制法規的變動將直接影響商業運作。"
-        impact = "法規調整將影響產品包裝標示、出口合規性。我方需確保主力 SKU 之標示符合最新政策規範。"
-        action = "檢查目標出口市場之產品包裝標示與法規合規性。"
-        owner = "品保法規"
-        priority = "高"
-        score = 90
-    elif any(k in title_lower for k in ["tech", "science", "protein", "cultured", "research", "科技", "創新", "蛋白", "研發"]):
-        topic = "原料技術"
-        summary = f"食品科技突破：'{title_translated}'。這項替代蛋白或食品加工技術的突破，可為素食口感帶來革新。"
-        impact = "新原料與技術可應用於改善植物肉、素海鮮等質地，有助於我方研發團隊提升產品的保水與乳化性。"
-        action = "收集該項新技術或新原料的規格說明與法規核准進度。"
-        owner = "產品研發"
-        priority = "中"
-        score = 72
-        
-    return {
-        "title": title_translated,
-        "topic": topic,
-        "summary": summary,
-        "impact": impact,
-        "action": action,
-        "owner": owner,
-        "priority": priority,
-        "score": score
-    }
 
 DEFAULT_MARKET_PULSE = {
     "台灣": {
@@ -273,64 +89,7 @@ DEFAULT_DAILY_BRIEFING = {
     "decisionTitle": "價格、健康感與料理便利性共同決定回購",
     "decisionDetail": "各市場的成長速度不同，但資訊都顯示：消費者不只在意是否純素，也會比較成分、每份成本及料理是否方便。"
 }
-def call_gemini_api_for_briefing(api_key, news_items):
-    if not api_key or not news_items:
-        return None
-    
-    # Format top 15 news summaries
-    summaries = []
-    for item in news_items[:15]:
-        summaries.append(f"- [{item.get('region', '未知地區')}] {item.get('title')}: {item.get('summary')}")
-    news_summaries_text = "\n".join(summaries)
-    
-    prompt = f"""你是一位資深的食品與蔬食產業分析師。請分析以下今日最新的跨市場產業情報：
-{news_summaries_text}
-
-請根據這些最新動態，為今日的「決策情報簡報」撰寫標題與核心判讀。請嚴格以 JSON 格式回傳（只回傳 JSON 物件，不要任何 markdown 的 ```json 包裹標記，也不要任何前後贅字，以防 JSON 解析失敗）：
-{{
-  "title": "一句具備高階商業社論質感的簡報大標題，15-25字，繁體中文，其中核心關鍵字用 <strong>...</strong> 包裹（例如：市場不缺新品，真正稀缺的是<strong>回購理由。</strong> 或 植物肉進入重整期，成長關鍵在於<strong>潔淨標章。</strong>）",
-  "subtitle": "二至三句話的簡報副標題/總體摘要，40-60字，繁體中文，概括全球或多國市場的共通訊號與主要趨勢",
-  "decisionTitle": "一句話的核心商業判讀結論標題，12-20字，繁體中文，總結齋之味該重視的決策方向",
-  "decisionDetail": "兩句話的詳細決策判讀分析描述，30-50字，繁體中文，指出消費者或通路的最新行為轉變及對我方的具體影響"
-}}
-"""
-    return execute_gemini_request(api_key, prompt)
-
-def call_gemini_api_for_market_pulse(api_key, region, news_items):
-    if not api_key or not news_items:
-        return None
-    
-    # Format news items summaries
-    summaries = []
-    for item in news_items[:15]:  # Analyze up to 15 recent news items
-        summaries.append(f"- [{item.get('topic')}] {item.get('title')}: {item.get('summary')}")
-    news_summaries_text = "\n".join(summaries)
-    
-    prompt = f"""你是一位資深的食品與蔬食產業分析師。請分析以下關於 {region} 市場近期的產業情報摘要：
-{news_summaries_text}
-
-請根據這些最新動態，為 {region} 市場重新生成一份宏觀的市場戰略判讀，並嚴格以 JSON 格式回傳（只回傳 JSON 物件，不要任何 markdown 的 ```json 包裹標記，也不要任何前後贅字，以防 JSON 解析失敗）：
-{{
-  "signal": "必須且只能是這四個選項之一：'穩定'、'承壓'、'觀察'、'分化'",
-  "note": "4-8 字的短評（例如 '標示與通路動態'、'健康與價值重整'、'口感、價格決勝'、'德義成長、英國承壓'）",
-  "value": 50,  // 機會/溫度指數，介於 0-100 的整數，反映該市場目前對新產品上架與回購的友善度
-  "headline": "15-25 字的一句話市場核心結論描述",
-  "drivers": [
-    "第 1 個核心驅動因素描述（15-30字）",
-    "第 2 個核心驅動因素描述（15-30字）",
-    "第 3 個核心驅動因素描述（15-30字）"
-  ],
-  "opportunity": "齋之味的具體開發/行銷機會點（40-60字）",
-  "risk": "主要面臨的市場/法規/通路風險（40-60字）",
-  "watch": [
-    "觀察指標 1",
-    "觀察指標 2",
-    "觀察指標 3",
-    "觀察指標 4"
-  ]
-}}
-"""
-    return execute_gemini_request(api_key, prompt)# Load current page.tsx content
+# Load current page.tsx content
 with open(PAGE_TSX_PATH, "r", encoding="utf-8") as f:
     page_content = f.read()
 
@@ -380,23 +139,13 @@ for feed_key, url in fetcher.FEEDS.items():
     print(f"Found {len(items_to_process)} new items to analyze for {feed_key}.")
     
     for raw_item in items_to_process:
-        print(f"Analyzing: {raw_item['title']}")
-        analysis = None
-        if api_key:
-            analysis = call_gemini_api_for_frontend(
-                api_key=api_key,
-                title=raw_item["title"],
-                pub_date=raw_item["pub_date"],
-                source=raw_item["source"],
-                region_key=feed_key
-            )
-            import time
-            time.sleep(4)
-        
-        # Use offline fallback if api key is missing or call failed
-        if not analysis:
-            print("Gemini API not available or failed. Using offline fallback analysis.")
-            analysis = offline_fallback_for_frontend(raw_item["title"], feed_key)
+        print(f"Analyzing locally: {raw_item['title']}")
+        analysis = fetcher.offline_fallback_analysis(
+            title=raw_item["title"],
+            region=feed_key,
+            source=raw_item["source"],
+            pub_date=raw_item["pub_date"],
+        )
             
         if analysis:
             # Generate 8-digit unique ID
@@ -412,12 +161,12 @@ for feed_key, url in fetcher.FEEDS.items():
             new_analyzed_items.append({
                 "id": item_id,
                 "region": region_zh,
-                "topic": analysis.get("topic", "消費趨勢"),
-                "title": analysis.get("title", raw_item["title"]),
+                "topic": analysis.get("category", "市場趨勢"),
+                "title": analysis.get("title_zh", raw_item["title"]),
                 "summary": analysis.get("summary", ""),
                 "impact": analysis.get("impact", ""),
-                "action": analysis.get("action", ""),
-                "owner": analysis.get("owner", "品牌行銷"),
+                "action": analysis.get("takeaway", ""),
+                "owner": analysis.get("owner", "產品研發"),
                 "source": raw_item["source"],
                 "url": raw_item["link"],
                 "priority": analysis.get("priority", "中"),
@@ -521,16 +270,9 @@ all_parsed_items = new_analyzed_items + parsed_existing_items
 market_pulse_data = {}
 for region_name in ["台灣", "美國", "澳洲", "歐洲"]:
     region_news = [item for item in all_parsed_items if item.get("region") == region_name]
-    pulse_info = None
-    if api_key and region_news:
-        print(f"Calling Gemini API to update Market Pulse for {region_name}...")
-        pulse_info = call_gemini_api_for_market_pulse(api_key, region_name, region_news)
-        import time
-        time.sleep(4)
-    
-    if not pulse_info:
-        print(f"Gemini API not available or failed for {region_name} pulse. Using default/fallback.")
-        pulse_info = DEFAULT_MARKET_PULSE[region_name]
+    # Market pulse is deliberately deterministic and API-free.
+    pulse_info = DEFAULT_MARKET_PULSE[region_name]
+    print(f"Using local default Market Pulse for {region_name}.")
     
     market_pulse_data[region_name] = pulse_info
 
@@ -560,17 +302,9 @@ if idx_pulse_start != -1 and idx_pulse_end != -1:
         + new_page_content[idx_pulse_end + len("];"):]
     )
 
-# Generate new Daily Briefing using Gemini API
-briefing_data = None
-if api_key and all_parsed_items:
-    print("Calling Gemini API to update Daily Briefing...")
-    briefing_data = call_gemini_api_for_briefing(api_key, all_parsed_items)
-    import time
-    time.sleep(4)
-
-if not briefing_data:
-    print("Gemini API not available or failed for briefing. Using default/fallback.")
-    briefing_data = DEFAULT_DAILY_BRIEFING
+# Daily Briefing is deliberately deterministic and API-free.
+briefing_data = DEFAULT_DAILY_BRIEFING
+print("Using local default Daily Briefing.")
 
 # Escape quotes and formatting for page.tsx string
 briefing_title_escaped = briefing_data['title'].replace('"', '\\"')
@@ -630,8 +364,8 @@ print("Updated app/page.tsx successfully with new items and timestamps.")
 
 # Build and Push
 try:
-    print("Running static Vite build...")
-    build_result = subprocess.run("npx vite build --config vite.static.config.ts", cwd=FRONTEND_DIR, shell=True, capture_output=True, text=True, encoding="utf-8")
+    print("Running production build...")
+    build_result = subprocess.run("npm run build", cwd=FRONTEND_DIR, shell=True, capture_output=True, text=True, encoding="utf-8")
     if build_result.returncode != 0:
         print("Build failed.")
         print("STDOUT:", build_result.stdout)
