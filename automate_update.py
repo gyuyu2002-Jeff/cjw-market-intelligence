@@ -3,8 +3,10 @@ import json
 import re
 import sys
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 import subprocess
+
+tz_tw = timezone(timedelta(hours=8))
 import hashlib
 
 # Fix Windows console encoding issues for unicode characters
@@ -179,7 +181,7 @@ for feed_key, url in fetcher.FEEDS.items():
             
             # Parse published date to YYYY-MM-DD
             published_at = raw_item["pub_date"].split(" ")[0]
-            collected_at = datetime.now().strftime("%Y-%m-%d")
+            collected_at = datetime.now(tz_tw).strftime("%Y-%m-%d")
             
             new_analyzed_items.append({
                 "id": item_id,
@@ -242,7 +244,7 @@ for item in new_analyzed_items:
 
 # Combine and apply 1.5-year (18-month) freshness filter, then keep top 20 by score
 from datetime import timedelta
-cutoff_date = datetime.now() - timedelta(days=548)  # ~18 months
+cutoff_date = datetime.now(tz_tw).replace(tzinfo=None) - timedelta(days=548)  # ~18 months
 
 def get_published_date(block):
     m = re.search(r'publishedAt:\s*"(\d{4}-\d{2}-\d{2})"', block)
@@ -354,7 +356,7 @@ if idx_briefing_start != -1 and idx_briefing_end != -1:
     )
 
 # Update date & timestamp headers
-now = datetime.now()
+now = datetime.now(tz_tw)
 weekdays = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
 weekday_str = weekdays[now.weekday()]
 date_str = f"{now.year}年{now.month}月{now.day}日・{weekday_str}"
