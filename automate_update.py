@@ -7,6 +7,7 @@ from datetime import datetime, timezone, timedelta
 import subprocess
 
 tz_tw = timezone(timedelta(hours=8))
+now = datetime.now(tz_tw)
 import hashlib
 
 # Fix Windows console encoding issues for unicode characters
@@ -37,7 +38,145 @@ DB_PATH = os.path.join(FRONTEND_DIR, "news_db.json")
 if not os.path.exists(DB_PATH):
     DB_PATH = r"C:\HJ\齋滋味\cjw_news_hub\news_db.json"
 
-# Local rules mode: no AI API key is loaded or used.
+# Load Gemini API Key
+api_key = ""
+if os.path.exists(DB_PATH):
+    try:
+        with open(DB_PATH, "r", encoding="utf-8") as f:
+            db_data = json.load(f)
+            api_key = db_data.get("config", {}).get("gemini_api_key", "").strip()
+    except Exception:
+        pass
+
+if not api_key:
+    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
+
+print(f"Gemini API Key loaded: {'Yes' if api_key else 'No (Using Offline Mode)'}")
+
+def execute_gemini_request(api_key, prompt, response_mime_type="application/json", max_retries=3, initial_delay=5):
+    if not api_key:
+        return None
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={api_key}"
+    body = {
+        "contents": [
+            {
+                "parts": [
+                    {"text": prompt}
+                ]
+            }
+        ]
+    }
+    if response_mime_type:
+        body["generationConfig"] = {"responseMimeType": response_mime_type}
+        
+    data = json.dumps(body).encode('utf-8')
+    
+    import time
+    import urllib.error
+    
+    delay = initial_delay
+    for attempt in range(max_retries + 1):
+        req = urllib.request.Request(
+            url,
+            data=data,
+            headers={'Content-Type': 'application/json'}
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=20) as response:
+                res_body = response.read().decode('utf-8')
+                res_json = json.loads(res_body)
+                text = res_json['candidates'][0]['content']['parts'][0]['text']
+                raw_text = text.strip()
+                if raw_text.startswith("```"):
+                    lines = raw_text.splitlines()
+                    if lines[0].startswith("```"):
+                        lines = lines[1:]
+                    if lines[-1].startswith("```"):
+                        lines = lines[:-1]
+                    raw_text = "\n".join(lines).strip()
+                return json.loads(raw_text)
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                retry_after_sec = 60
+                try:
+                    err_body = e.read().decode('utf-8')
+                    err_json = json.loads(err_body)
+                    err_msg = err_json.get("error", {}).get("message", "")
+                    sec_match = re.search(r"retry in ([\d\.]+)s", err_msg)
+                    if sec_match:
+                        retry_after_sec = float(sec_match.group(1)) + 2.0
+                    else:
+                        sec_match_min = re.search(r"retry in ([\d\.]+)m", err_msg)
+                        if sec_match_min:
+                            retry_after_sec = (float(sec_match_min.group(1)) * 60.0) + 5.0
+                except Exception:
+                    pass
+                print(f"Gemini API rate limited (429). Retrying in {retry_after_sec}s... (Attempt {attempt+1}/{max_retries})")
+                time.sleep(retry_after_sec)
+            else:
+                print(f"Gemini API HTTP Error {e.code}: {e.reason}")
+                break
+        except Exception as e:
+            print(f"Gemini API Request failed: {e}")
+            break
+    return None
+
+def call_gemini_api_for_market_pulse(api_key, region, news_items):
+    if not api_key or not news_items:
+        return None
+    
+    summaries = []
+    for item in news_items[:15]:
+        summaries.append(f"- [{item.get('topic')}] {item.get('title')}: {item.get('summary')}")
+    news_summaries_text = "\n".join(summaries)
+    
+    prompt = f"""你是一位資深食品與蔬食產業分析師。請針對 {region} 市場近期的產業動態摘要：
+{news_summaries_text}
+
+請根據這些最新動態，撰寫一份客觀的對該市場的月度核心判讀與策略建議，並嚴格以 JSON 格式回傳（只回傳 JSON 物件，不要任何 markdown 的 ```json 包裹標記，也不要任何前後贅字，以防 JSON 解析失敗）：
+{{
+  "signal": "必須且只能是下列選項之一：'穩定'、'偏多'、'觀察'、'承壓'",
+  "note": "4-8 字的核心摘要形容詞（例如：標示與通路重整、健康與價值拉鋸、價格與口味決勝、德義成長與英國承壓）",
+  "value": 50,
+  "headline": "15-25 字的一句話市場大局結論描述",
+  "drivers": [
+    "第 1 個核心驅動因素描述（15-30字）",
+    "第 2 個核心驅動因素描述（15-30字）",
+    "第 3 個核心驅動因素描述（15-30字）"
+  ],
+  "opportunity": "我方的開發與行銷機會點（40-60字）",
+  "risk": "我方主要面臨的法規或競爭風險（40-60字）",
+  "watch": [
+    "後續觀察重點指標 1",
+    "後續觀察重點指標 2",
+    "後續觀察重點指標 3",
+    "後續觀察重點指標 4"
+  ]
+}}
+"""
+    return execute_gemini_request(api_key, prompt)
+
+def call_gemini_api_for_briefing(api_key, news_items):
+    if not api_key or not news_items:
+        return None
+    
+    summaries = []
+    for item in news_items[:15]:
+        summaries.append(f"- [{item.get('region', '未知地區')}] {item.get('title')}: {item.get('summary')}")
+    news_summaries_text = "\n".join(summaries)
+    
+    prompt = f"""你是一位資深的食品與蔬食產業分析師。請分析以下今日最新的跨市場產業情報：
+{news_summaries_text}
+
+請根據這些最新動態，為本月的「決策情報簡報」撰寫標題與核心判讀。請嚴格以 JSON 格式回傳（只回傳 JSON 物件，不要任何 markdown 的 ```json 包裹標記，也不要任何前後贅字，以防 JSON 解析失敗）：
+{{
+  "title": "一句具備高階商業社論質感的簡報大標題，15-25字，繁體中文，其中核心關鍵字用 <strong>...</strong> 包裹（例如：市場不缺新品，真正稀缺的是<strong>回購理由。</strong> 或 植物肉進入重整期，成長關鍵在於<strong>潔淨標章。</strong>）",
+  "subtitle": "二至三句話的簡報副標題/總體摘要，40-60字，繁體中文，概括全球或多國市場的共通訊號與主要趨勢",
+  "decisionTitle": "一句話的核心商業判讀結論標題，12-20字，繁體中文，總結我方該重視的決策方向",
+  "decisionDetail": "兩句話的詳細決策判讀分析描述，30-50字，繁體中文，指出消費者或通路的最新行為轉變及對我方的具體影響"
+}}
+"""
+    return execute_gemini_request(api_key, prompt)
 
 # Region mapping from crawl key to traditional chinese
 REGION_MAP = {
@@ -292,19 +431,49 @@ def parse_ts_object(block):
 parsed_existing_items = [parse_ts_object(b) for b in items_blocks]
 all_parsed_items = new_analyzed_items + parsed_existing_items
 
-market_pulse_data = {}
-for region_name in ["台灣", "美國", "澳洲", "歐洲"]:
-    region_news = [item for item in all_parsed_items if item.get("region") == region_name]
-    # Market pulse is deliberately deterministic and API-free.
-    pulse_info = DEFAULT_MARKET_PULSE[region_name]
-    print(f"Using local default Market Pulse for {region_name}.")
-    
-    market_pulse_data[region_name] = pulse_info
+# Monthly Briefing and Market Pulse logic
+is_monthly_update = (now.day == 1)
+force_ai_update = os.environ.get("FORCE_AI_UPDATE", "").lower() == "true"
 
-# Format the new marketPulse as a JS string
-pulse_blocks = []
-for region_name, data in market_pulse_data.items():
-    block = f"""  {{
+existing_pulse_body = None
+existing_briefing_body = None
+
+if not is_monthly_update and not force_ai_update:
+    print("Today is not the 1st of the month. Checking for existing marketPulse and dailyBriefing in page.tsx...")
+    idx_pulse_start = page_content.find("const marketPulse = [")
+    idx_pulse_end = page_content.find("];", idx_pulse_start)
+    idx_briefing_start = page_content.find("const dailyBriefing = {")
+    idx_briefing_end = page_content.find("};", idx_briefing_start)
+    
+    if idx_pulse_start != -1 and idx_pulse_end != -1 and idx_briefing_start != -1 and idx_briefing_end != -1:
+        existing_pulse_body = page_content[idx_pulse_start : idx_pulse_end + len("];")]
+        existing_briefing_body = page_content[idx_briefing_start : idx_briefing_end + len("};")]
+        print("Found existing marketPulse and dailyBriefing. Preserving them.")
+
+# 1. Market Pulse
+combined_pulse_body = ""
+if existing_pulse_body:
+    combined_pulse_body = existing_pulse_body
+else:
+    market_pulse_data = {}
+    for region_name in ["台灣", "美國", "澳洲", "歐洲"]:
+        region_news = [item for item in all_parsed_items if item.get("region") == region_name]
+        pulse_info = None
+        if api_key and region_news:
+            print(f"Calling Gemini API to update Market Pulse for {region_name}...")
+            pulse_info = call_gemini_api_for_market_pulse(api_key, region_name, region_news)
+            import time
+            time.sleep(4)
+        
+        if not pulse_info:
+            print(f"Gemini API not available or failed for {region_name} pulse. Using default fallback.")
+            pulse_info = DEFAULT_MARKET_PULSE[region_name]
+            
+        market_pulse_data[region_name] = pulse_info
+
+    pulse_blocks = []
+    for region_name, data in market_pulse_data.items():
+        block = f"""  {{
     region: "{region_name}", signal: "{data['signal']}", note: "{data['note']}", value: {data['value']},
     headline: "{data['headline']}",
     drivers: {json.dumps(data['drivers'], ensure_ascii=False)},
@@ -312,14 +481,12 @@ for region_name, data in market_pulse_data.items():
     risk: "{data['risk']}",
     watch: {json.dumps(data['watch'], ensure_ascii=False)},
   }}"""
-    pulse_blocks.append(block)
+        pulse_blocks.append(block)
+    combined_pulse_body = "const marketPulse = [\n" + ",\n".join(pulse_blocks) + "\n];"
 
-combined_pulse_body = "const marketPulse = [\n" + ",\n".join(pulse_blocks) + "\n];"
-
-# Replace marketPulse in page content using robust index lookups
+# Replace marketPulse in new_page_content
 idx_pulse_start = new_page_content.find("const marketPulse = [")
 idx_pulse_end = new_page_content.find("];", idx_pulse_start)
-
 if idx_pulse_start != -1 and idx_pulse_end != -1:
     new_page_content = (
         new_page_content[:idx_pulse_start]
@@ -327,17 +494,28 @@ if idx_pulse_start != -1 and idx_pulse_end != -1:
         + new_page_content[idx_pulse_end + len("];"):]
     )
 
-# Daily Briefing is deliberately deterministic and API-free.
-briefing_data = DEFAULT_DAILY_BRIEFING
-print("Using local default Daily Briefing.")
+# 2. Daily Briefing
+combined_briefing_body = ""
+if existing_briefing_body:
+    combined_briefing_body = existing_briefing_body
+else:
+    briefing_data = None
+    if api_key and all_parsed_items:
+        print("Calling Gemini API to update Daily Briefing...")
+        briefing_data = call_gemini_api_for_briefing(api_key, all_parsed_items)
+        import time
+        time.sleep(4)
+        
+    if not briefing_data:
+        print("Gemini API not available or failed for briefing. Using default fallback.")
+        briefing_data = DEFAULT_DAILY_BRIEFING
 
-# Escape quotes and formatting for page.tsx string
-briefing_title_escaped = briefing_data['title'].replace('"', '\\"')
-briefing_subtitle_escaped = briefing_data['subtitle'].replace('"', '\\"')
-briefing_decisionTitle_escaped = briefing_data['decisionTitle'].replace('"', '\\"')
-briefing_decisionDetail_escaped = briefing_data['decisionDetail'].replace('"', '\\"')
+    briefing_title_escaped = briefing_data['title'].replace('"', '\\"')
+    briefing_subtitle_escaped = briefing_data['subtitle'].replace('"', '\\"')
+    briefing_decisionTitle_escaped = briefing_data['decisionTitle'].replace('"', '\\"')
+    briefing_decisionDetail_escaped = briefing_data['decisionDetail'].replace('"', '\\"')
 
-combined_briefing_body = f"""const dailyBriefing = {{
+    combined_briefing_body = f"""const dailyBriefing = {{
   title: "{briefing_title_escaped}",
   subtitle: "{briefing_subtitle_escaped}",
   decisionTitle: "{briefing_decisionTitle_escaped}",
@@ -347,7 +525,6 @@ combined_briefing_body = f"""const dailyBriefing = {{
 # Replace dailyBriefing in new_page_content
 idx_briefing_start = new_page_content.find("const dailyBriefing = {")
 idx_briefing_end = new_page_content.find("};", idx_briefing_start)
-
 if idx_briefing_start != -1 and idx_briefing_end != -1:
     new_page_content = (
         new_page_content[:idx_briefing_start]
@@ -356,7 +533,6 @@ if idx_briefing_start != -1 and idx_briefing_end != -1:
     )
 
 # Update date & timestamp headers
-now = datetime.now(tz_tw)
 weekdays = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
 weekday_str = weekdays[now.weekday()]
 date_str = f"{now.year}年{now.month}月{now.day}日・{weekday_str}"
