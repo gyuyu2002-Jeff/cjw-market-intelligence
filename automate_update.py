@@ -563,6 +563,38 @@ with open(PAGE_TSX_PATH, "w", encoding="utf-8") as f:
 
 print("Updated app/page.tsx successfully with new items and timestamps.")
 
+def send_telegram_notification(token, chat_id, date_str, news_count, briefing_title):
+    clean_title = briefing_title.replace("<br />", " ").replace("<br>", " ").replace("</br>", " ")
+    
+    message = f"""<b>🔔 CJW 蔬食市場情報已更新完畢！</b>
+
+📅 <b>更新日期</b>：{date_str} (台灣時間)
+📰 <b>今日新增情報</b>：{news_count} 則新快訊
+💡 <b>本月簡報主題</b>：{clean_title}
+
+🔗 <b>點擊查看最新情報網站</b>：
+https://gyuyu2002-jeff.github.io/cjw-market-intelligence/"""
+
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    payload = {
+        "chat_id": chat_id,
+        "text": message,
+        "parse_mode": "HTML",
+        "disable_web_page_preview": True
+    }
+    
+    try:
+        data = json.dumps(payload).encode("utf-8")
+        req = urllib.request.Request(
+            url,
+            data=data,
+            headers={'Content-Type': 'application/json'}
+        )
+        with urllib.request.urlopen(req, timeout=10) as response:
+            print("Telegram notification sent successfully!")
+    except Exception as e:
+        print(f"Failed to send Telegram notification: {e}")
+
 # Build and Push
 try:
     print("Running static GitHub Pages build...")
@@ -583,6 +615,26 @@ try:
     # Push to origin
     subprocess.run("git push origin main", cwd=FRONTEND_DIR, shell=True, encoding="utf-8")
     print("Successfully pushed updates to GitHub Pages.")
+    
+    # Send Telegram Notification
+    telegram_token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+    telegram_chat_id = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
+    if telegram_token and telegram_chat_id:
+        briefing_title = "市場不缺新品，真正稀缺的是回購理由。"
+        if not is_monthly_update and not force_ai_update and existing_briefing_body:
+            t_m = re.search(r'title:\s*"([^"]+)"', existing_briefing_body)
+            if t_m:
+                briefing_title = t_m.group(1)
+        elif 'briefing_data' in locals() and briefing_data:
+            briefing_title = briefing_data.get('title', briefing_title)
+            
+        send_telegram_notification(
+            token=telegram_token,
+            chat_id=telegram_chat_id,
+            date_str=now.strftime("%Y/%m/%d %H:%M"),
+            news_count=len(new_analyzed_items),
+            briefing_title=briefing_title
+        )
 except Exception as e:
     print("Deployment failed:", e)
     sys.exit(1)

@@ -646,7 +646,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-08-17T10:11:03+08:00">2026/08/17 10:11</time></div>
+          <div>最後更新：<time dateTime="2026-08-17T10:33:21+08:00">2026/08/17 10:33</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -837,7 +837,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 06:00 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/17 10:11。</p>
+              <p>每日 06:00 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/17 10:33。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (

@@ -40,6 +40,10 @@ jobs:
         run: npm ci
 
       - name: Run daily update script
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           # Set git config so commit succeeds
           git config --global user.name "github-actions[bot]"
