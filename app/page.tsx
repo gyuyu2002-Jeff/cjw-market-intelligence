@@ -638,7 +638,7 @@ export default function Home() {
           </div>
           <div className="masthead-meta">
             <div className="date-line">
-              <p className="eyebrow">2026年8月18日・星期二</p>
+              <p className="eyebrow">2026年8月19日・星期三</p>
             </div>
             <div className="summary-line">今日彙整 {freshIntelligence.length} 則 · {highPriorityCount} 則核心關注</div>
           </div>
@@ -646,7 +646,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-08-18T06:21:40+08:00">2026/08/18 06:21</time></div>
+          <div>最後更新：<time dateTime="2026-08-19T06:21:00+08:00">2026/08/19 06:21</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -837,7 +837,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 06:00 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/18 06:21。</p>
+              <p>每日 06:00 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/19 06:21。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
