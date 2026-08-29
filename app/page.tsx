@@ -314,22 +314,6 @@ const intelligence: Intelligence[] = [
     score: 92,
   },
 {
-    id: 65358122,
-    region: "台灣",
-    topic: "競品",
-    title: "素食風潮退燒？未來肉企業股價崩跌與肉食搜尋量成長之市場脈動分析",
-    summary: "近年植物肉市場面臨退燒質疑，比爾蓋茲投資的植物肉企業（如Beyond Meat）股價遭遇重挫，同時消費者對肉食的搜尋量逆勢成長87%。此現象反映過度加工、口感價格未達預期以及消費者新鮮感退去等問題，導致高度資本化的「未來肉」產業正面臨嚴峻的市場轉型與重新定位挑戰。",
-    impact: "西方高總價、過度加工植物肉受挫，啟示齋之味應回歸傳統原型食材與在地口味優勢，強調健康美味與高性價比，避免盲目追逐高價仿肉概念，鞏固實用型素食客群。",
-    action: "評估產品線之加工度與定價策略，轉向推廣美味健康的真食材植物基產品。",
-    owner: "品牌行銷",
-    source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1uTENJZ2ZPREh0dHVaTlpTb2xQWFZWZURiMkpQS3lsS1FZTkN5NFYxeUFBTFowaEdsZ0xEd3labEdISXVpcDVZUU4yWEF6OHBoQndJa1pxeGRicFY2N3BQTEdBdWRSMVk?oc=5",
-    priority: "高",
-    publishedAt: "2025-02-27",
-    collectedAt: "2026-08-08",
-    score: 92,
-  },
-{
     id: 48319183,
     region: "歐洲",
     topic: "消費趨勢",
@@ -344,6 +328,22 @@ const intelligence: Intelligence[] = [
     publishedAt: "2026-04-09",
     collectedAt: "2026-08-08",
     score: 92,
+  },
+  {
+    id: 42195672,
+    region: "台灣",
+    topic: "市場趨勢",
+    title: "【食力調查局】一瓶用到底，還是多種換著用？你的用油習慣是哪一派？ - 食力 foodNEXT",
+    summary: "2026-08-06 07:00，食力 foodNEXT發布一則來自taiwan的市場趨勢情報，主題為「【食力調查局】一瓶用到底，還是多種換著用？你的用油習慣是哪一派？ - 食力 foodNEXT」。從標題可辨識的關鍵訊號包括相關市場訊號，顯示事件與市場趨勢相關；目前僅依 RSS 標題與來源欄位整理，仍應點擊原始連結核對完整內容。",
+    impact: "市場訊號顯示需求、價格或通路正在變化，齋滋味應以實際回購與使用情境驗證，而非只追逐單一話題。",
+    action: "持續追蹤價格、通路與消費者需求訊號，將具一致性的變化納入下一季產品與業務規劃。",
+    owner: "產品研發",
+    source: "食力 foodNEXT",
+    url: "https://news.google.com/rss/articles/CBMiZkFVX3lxTE10LVRGN244R1ZVNWcySk5mTzRmMUNtWHJTSHQ4VFFjc0NPTzZGdmw2bm1qWVFmTU5VejRoV1ZxdnlMc3NmaHNhNjVZYVVHdFZGNC1ocVA3WGVsVjhQWDRPdk5QUlJ3Zw?oc=5",
+    priority: "中",
+    publishedAt: "2026-08-06",
+    collectedAt: "2026-08-29",
+    score: 75,
   }
 ];
 
@@ -638,7 +638,7 @@ export default function Home() {
           </div>
           <div className="masthead-meta">
             <div className="date-line">
-              <p className="eyebrow">2026年8月28日・星期五</p>
+              <p className="eyebrow">2026年8月29日・星期六</p>
             </div>
             <div className="summary-line">今日彙整 {freshIntelligence.length} 則 · {highPriorityCount} 則核心關注</div>
           </div>
@@ -646,7 +646,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-08-28T13:57:24+08:00">2026/08/28 13:57</time></div>
+          <div>最後更新：<time dateTime="2026-08-29T11:29:56+08:00">2026/08/29 11:29</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -837,7 +837,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 06:00 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/28 13:57。</p>
+              <p>每日 06:00 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/29 11:29。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
