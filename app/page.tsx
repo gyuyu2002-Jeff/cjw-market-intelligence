@@ -330,19 +330,19 @@ const intelligence: Intelligence[] = [
     score: 92,
   },
   {
-    id: 42195672,
+    id: 37499833,
     region: "台灣",
     topic: "市場趨勢",
-    title: "【食力調查局】一瓶用到底，還是多種換著用？你的用油習慣是哪一派？ - 食力 foodNEXT",
-    summary: "2026-08-06 07:00，食力 foodNEXT發布一則來自taiwan的市場趨勢情報，主題為「【食力調查局】一瓶用到底，還是多種換著用？你的用油習慣是哪一派？ - 食力 foodNEXT」。從標題可辨識的關鍵訊號包括相關市場訊號，顯示事件與市場趨勢相關；目前僅依 RSS 標題與來源欄位整理，仍應點擊原始連結核對完整內容。",
+    title: "素食者和兒童精補品、最夯的韓國扁可頌麵包等獨特產品免費體驗！立即加入「食驗室」鎖定最新試吃資訊！ - 食力 foodNEXT",
+    summary: "2025-04-07 07:00，食力 foodNEXT發布一則來自taiwan的市場趨勢情報，主題為「素食者和兒童精補品、最夯的韓國扁可頌麵包等獨特產品免費體驗！立即加入「食驗室」鎖定最新試吃資訊！ - 食力 foodNEXT」。從標題可辨識的關鍵訊號包括相關市場訊號，顯示事件與市場趨勢相關；目前僅依 RSS 標題與來源欄位整理，仍應點擊原始連結核對完整內容。",
     impact: "市場訊號顯示需求、價格或通路正在變化，齋滋味應以實際回購與使用情境驗證，而非只追逐單一話題。",
     action: "持續追蹤價格、通路與消費者需求訊號，將具一致性的變化納入下一季產品與業務規劃。",
     owner: "產品研發",
     source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiZkFVX3lxTE10LVRGN244R1ZVNWcySk5mTzRmMUNtWHJTSHQ4VFFjc0NPTzZGdmw2bm1qWVFmTU5VejRoV1ZxdnlMc3NmaHNhNjVZYVVHdFZGNC1ocVA3WGVsVjhQWDRPdk5QUlJ3Zw?oc=5",
+    url: "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBDOUszeHNtSlBQMDgxNzAwUldScWlINy1pZjhVU2l6bFZ4U1paMWlVcVNHRnR5TEdOa3d4SVprbnhxeDRTM3dfYnFGMWllcVppRkFqdzFCdDFZOUtPWUJ5UTktQ1I?oc=5",
     priority: "中",
-    publishedAt: "2026-08-06",
-    collectedAt: "2026-08-29",
+    publishedAt: "2025-04-07",
+    collectedAt: "2026-08-30",
     score: 75,
   }
 ];
@@ -638,7 +638,7 @@ export default function Home() {
           </div>
           <div className="masthead-meta">
             <div className="date-line">
-              <p className="eyebrow">2026年8月29日・星期六</p>
+              <p className="eyebrow">2026年8月30日・星期日</p>
             </div>
             <div className="summary-line">今日彙整 {freshIntelligence.length} 則 · {highPriorityCount} 則核心關注</div>
           </div>
@@ -646,7 +646,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-08-29T11:29:56+08:00">2026/08/29 11:29</time></div>
+          <div>最後更新：<time dateTime="2026-08-30T07:52:59+08:00">2026/08/30 07:52</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -837,7 +837,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 06:00 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/29 11:29。</p>
+              <p>每日 06:00 檢查公開評價與品牌提及；Google 評論最近查核：2026/08/30 07:52。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
