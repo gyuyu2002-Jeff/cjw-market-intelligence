@@ -26,22 +26,6 @@ type Intelligence = {
 
 const intelligence: Intelligence[] = [
 {
-    id: 37624096,
-    region: "歐洲",
-    topic: "消費趨勢",
-    title: "植物基肉品市場預計到2030年價值將增長一倍以上",
-    summary: "根據2025年3月10日Plant Based News報導，歐洲植物基肉品市場預計到2030年其市場價值將增長一倍以上。這份來自歐洲的分析指出，消費者對植物基替代品的需求持續強勁，推動了市場的顯著擴張。此趨勢顯示植物基食品產業在未來幾年內將面臨巨大的成長機會與競爭，品牌需密切關注市場動態與消費者偏好，以應對這股強勁的發展浪潮。",
-    impact: "齋之味應視此為拓展市場與品牌影響力的重大機會。未來植物基肉品市場的快速成長，意味著競爭將加劇，但同時也為新產品開發和市場滲透提供廣闊空間。齋之味需加強創新，提升產品差異化，並策略性地進入或擴大在植物基肉品領域的佈局，以搶佔先機。",
-    action: "評估現有植物基肉品產品線，研發符合市場新趨勢與消費者需求的創新產品，並探索潛在的歐洲市場機會。",
-    owner: "產品研發",
-    source: "Plant Based News",
-    url: "https://news.google.com/rss/articles/CBMiggFBVV95cUxNcXNHc3dscmRoSFJSclo3cHlnRlNSWXJWQzBqeDFmZ1ZlakZYZjFBRnhvbmV5S3VBZnJzSkYtM0NLeUpGTHVqVnJnQ2FtNHRvS2xaNGppSDRabW94Uy0tQ0ttMTgtaFZIVEJzUExLOVFKX3JzS1hkUkpJYTJ4ck9XNER3?oc=5",
-    priority: "高",
-    publishedAt: "2025-03-10",
-    collectedAt: "2026-08-01",
-    score: 95,
-  },
-{
     id: 20426306,
     region: "台灣",
     topic: "法規標示",
@@ -330,19 +314,35 @@ const intelligence: Intelligence[] = [
     score: 92,
   },
   {
-    id: 38977097,
+    id: 4248989,
     region: "台灣",
     topic: "市場趨勢",
-    title: "在市場裡做蔬食法餐？高雄鹽埕市場裡的純素法餐秘密基地「The Borage」 - 食力 foodNEXT",
-    summary: "2025-05-14 07:00，食力 foodNEXT發布一則來自taiwan的市場趨勢情報，主題為「在市場裡做蔬食法餐？高雄鹽埕市場裡的純素法餐秘密基地「The Borage」 - 食力 foodNEXT」。從標題可辨識的關鍵訊號包括市場，顯示事件與市場趨勢相關；目前僅依 RSS 標題與來源欄位整理，仍應點擊原始連結核對完整內容。",
+    title: "95%客人不是素食者 英國首家米其林星級植物性餐廳怎麼做到？ - 食力 foodNEXT",
+    summary: "2025-12-18 08:00，食力 foodNEXT發布一則來自taiwan的市場趨勢情報，主題為「95%客人不是素食者 英國首家米其林星級植物性餐廳怎麼做到？ - 食力 foodNEXT」。從標題可辨識的關鍵訊號包括相關市場訊號，顯示事件與市場趨勢相關；目前僅依 RSS 標題與來源欄位整理，仍應點擊原始連結核對完整內容。",
     impact: "市場訊號顯示需求、價格或通路正在變化，齋滋味應以實際回購與使用情境驗證，而非只追逐單一話題。",
     action: "持續追蹤價格、通路與消費者需求訊號，將具一致性的變化納入下一季產品與業務規劃。",
     owner: "產品研發",
     source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1iWHI1TlktQ2s1ODVTa1NHVTBPSWxqZjRjMUVvNi1SdlFZYWhxeFlWRmF3bHVraWJ1VEFGYXBWbV9qWTlmRjlPcWhqYVhzVjEycXlBRTR1MG5IUEU?oc=5",
+    url: "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9fWEtnNERnYWtYVXFCVHc3N3VrTkoxdUN2eVJTTldEaDdLS1oySWU3aURMemFyNF9VTFkwZjQxc1FPUHJGcnpjWUwyTUh5X0stUkVuZzM4UEs2dWNKcXROdTVsYTdkQVFV?oc=5",
     priority: "中",
-    publishedAt: "2025-05-14",
-    collectedAt: "2026-09-08",
+    publishedAt: "2025-12-18",
+    collectedAt: "2026-09-09",
+    score: 75,
+  },
+  {
+    id: 9539619,
+    region: "台灣",
+    topic: "市場趨勢",
+    title: "泰式料理遇上蔬食革命！泰維根如何從冷凍調理包做到國際市場？ - 食力 foodNEXT",
+    summary: "2025-10-10 07:00，食力 foodNEXT發布一則來自taiwan的市場趨勢情報，主題為「泰式料理遇上蔬食革命！泰維根如何從冷凍調理包做到國際市場？ - 食力 foodNEXT」。從標題可辨識的關鍵訊號包括市場，顯示事件與市場趨勢相關；目前僅依 RSS 標題與來源欄位整理，仍應點擊原始連結核對完整內容。",
+    impact: "市場訊號顯示需求、價格或通路正在變化，齋滋味應以實際回購與使用情境驗證，而非只追逐單一話題。",
+    action: "持續追蹤價格、通路與消費者需求訊號，將具一致性的變化納入下一季產品與業務規劃。",
+    owner: "產品研發",
+    source: "食力 foodNEXT",
+    url: "https://news.google.com/rss/articles/CBMiakFVX3lxTFBjeDlhUEdCeEtKR0VYMDVGWUpSNmh5RmxqUFVMUk1JdFdOWDZubUpJQ2tQQmlnTENtZ0ZnZUtDc2RYLUR6N1Q3bDFwNzJ3bUw3VUI0UDB0TktZeWtsU3QwTi1Mc1hzNk9MOWc?oc=5",
+    priority: "中",
+    publishedAt: "2025-10-10",
+    collectedAt: "2026-09-09",
     score: 75,
   }
 ];
@@ -638,7 +638,7 @@ export default function Home() {
           </div>
           <div className="masthead-meta">
             <div className="date-line">
-              <p className="eyebrow">2026年9月8日・星期二</p>
+              <p className="eyebrow">2026年9月9日・星期三</p>
             </div>
             <div className="summary-line">今日彙整 {freshIntelligence.length} 則 · {highPriorityCount} 則核心關注</div>
           </div>
@@ -646,7 +646,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-09-08T07:59:23+08:00">2026/09/08 07:59</time></div>
+          <div>最後更新：<time dateTime="2026-09-09T07:49:41+08:00">2026/09/09 07:49</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -837,7 +837,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 06:00 檢查公開評價與品牌提及；Google 評論最近查核：2026/09/08 07:59。</p>
+              <p>每日 06:00 檢查公開評價與品牌提及；Google 評論最近查核：2026/09/09 07:49。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
