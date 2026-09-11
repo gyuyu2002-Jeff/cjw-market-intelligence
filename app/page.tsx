@@ -314,35 +314,35 @@ const intelligence: Intelligence[] = [
     score: 92,
   },
   {
-    id: 4248989,
+    id: 38977097,
     region: "台灣",
     topic: "市場趨勢",
-    title: "95%客人不是素食者 英國首家米其林星級植物性餐廳怎麼做到？ - 食力 foodNEXT",
-    summary: "2025-12-18 08:00，食力 foodNEXT發布一則來自taiwan的市場趨勢情報，主題為「95%客人不是素食者 英國首家米其林星級植物性餐廳怎麼做到？ - 食力 foodNEXT」。從標題可辨識的關鍵訊號包括相關市場訊號，顯示事件與市場趨勢相關；目前僅依 RSS 標題與來源欄位整理，仍應點擊原始連結核對完整內容。",
+    title: "在市場裡做蔬食法餐？高雄鹽埕市場裡的純素法餐秘密基地「The Borage」 - 食力 foodNEXT",
+    summary: "2025-05-14 07:00，食力 foodNEXT發布一則來自taiwan的市場趨勢情報，主題為「在市場裡做蔬食法餐？高雄鹽埕市場裡的純素法餐秘密基地「The Borage」 - 食力 foodNEXT」。從標題可辨識的關鍵訊號包括市場，顯示事件與市場趨勢相關；目前僅依 RSS 標題與來源欄位整理，仍應點擊原始連結核對完整內容。",
     impact: "市場訊號顯示需求、價格或通路正在變化，齋滋味應以實際回購與使用情境驗證，而非只追逐單一話題。",
     action: "持續追蹤價格、通路與消費者需求訊號，將具一致性的變化納入下一季產品與業務規劃。",
     owner: "產品研發",
     source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9fWEtnNERnYWtYVXFCVHc3N3VrTkoxdUN2eVJTTldEaDdLS1oySWU3aURMemFyNF9VTFkwZjQxc1FPUHJGcnpjWUwyTUh5X0stUkVuZzM4UEs2dWNKcXROdTVsYTdkQVFV?oc=5",
+    url: "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1iWHI1TlktQ2s1ODVTa1NHVTBPSWxqZjRjMUVvNi1SdlFZYWhxeFlWRmF3bHVraWJ1VEFGYXBWbV9qWTlmRjlPcWhqYVhzVjEycXlBRTR1MG5IUEU?oc=5",
     priority: "中",
-    publishedAt: "2025-12-18",
-    collectedAt: "2026-09-11",
+    publishedAt: "2025-05-14",
+    collectedAt: "2026-09-12",
     score: 75,
   },
   {
-    id: 9539619,
+    id: 73064959,
     region: "台灣",
     topic: "市場趨勢",
-    title: "泰式料理遇上蔬食革命！泰維根如何從冷凍調理包做到國際市場？ - 食力 foodNEXT",
-    summary: "2025-10-10 07:00，食力 foodNEXT發布一則來自taiwan的市場趨勢情報，主題為「泰式料理遇上蔬食革命！泰維根如何從冷凍調理包做到國際市場？ - 食力 foodNEXT」。從標題可辨識的關鍵訊號包括市場，顯示事件與市場趨勢相關；目前僅依 RSS 標題與來源欄位整理，仍應點擊原始連結核對完整內容。",
+    title: "慈濟60週年「微光食刻」蔬食市集7/3華山開跑 50家品牌、台味到異國料理一次體驗 - 食力 foodNEXT",
+    summary: "2026-07-03 07:00，食力 foodNEXT發布一則來自taiwan的市場趨勢情報，主題為「慈濟60週年「微光食刻」蔬食市集7/3華山開跑 50家品牌、台味到異國料理一次體驗 - 食力 foodNEXT」。從標題可辨識的關鍵訊號包括相關市場訊號，顯示事件與市場趨勢相關；目前僅依 RSS 標題與來源欄位整理，仍應點擊原始連結核對完整內容。",
     impact: "市場訊號顯示需求、價格或通路正在變化，齋滋味應以實際回購與使用情境驗證，而非只追逐單一話題。",
     action: "持續追蹤價格、通路與消費者需求訊號，將具一致性的變化納入下一季產品與業務規劃。",
     owner: "產品研發",
     source: "食力 foodNEXT",
-    url: "https://news.google.com/rss/articles/CBMiakFVX3lxTFBjeDlhUEdCeEtKR0VYMDVGWUpSNmh5RmxqUFVMUk1JdFdOWDZubUpJQ2tQQmlnTENtZ0ZnZUtDc2RYLUR6N1Q3bDFwNzJ3bUw3VUI0UDB0TktZeWtsU3QwTi1Mc1hzNk9MOWc?oc=5",
+    url: "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1FdVJSTVhTUHVYcVVGLVJFWFVJd2tLS1YtLThMcmg1bWFrY1NzWnRaRm1UbXIwZVJBdENGYW5tUWJFYXI2X1hwRjduWW9oZFJiRGZHRXk2bHpSSDR5ZlZOTDk0Rjc?oc=5",
     priority: "中",
-    publishedAt: "2025-10-10",
-    collectedAt: "2026-09-11",
+    publishedAt: "2026-07-03",
+    collectedAt: "2026-09-12",
     score: 75,
   }
 ];
@@ -638,7 +638,7 @@ export default function Home() {
           </div>
           <div className="masthead-meta">
             <div className="date-line">
-              <p className="eyebrow">2026年9月11日・星期五</p>
+              <p className="eyebrow">2026年9月12日・星期六</p>
             </div>
             <div className="summary-line">今日彙整 {freshIntelligence.length} 則 · {highPriorityCount} 則核心關注</div>
           </div>
@@ -646,7 +646,7 @@ export default function Home() {
 
         <div className="subline-bar">
           <div>台灣 / 美國 / 澳洲 / 歐洲市場 · 每日自動更新</div>
-          <div>最後更新：<time dateTime="2026-09-11T07:43:17+08:00">2026/09/11 07:43</time></div>
+          <div>最後更新：<time dateTime="2026-09-12T07:52:31+08:00">2026/09/12 07:52</time></div>
         </div>
 
         <section className="briefing" id="today">
@@ -837,7 +837,7 @@ export default function Home() {
             <div className="reputation-intro">
               <p className="section-kicker">REPUTATION WATCH</p>
               <h2>齋之味網路風評</h2>
-              <p>每日 06:00 檢查公開評價與品牌提及；Google 評論最近查核：2026/09/11 07:43。</p>
+              <p>每日 06:00 檢查公開評價與品牌提及；Google 評論最近查核：2026/09/12 07:52。</p>
             </div>
             <div className="reputation-grid">
               {reputationWatch.map((item) => (
