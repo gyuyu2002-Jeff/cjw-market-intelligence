@@ -790,19 +790,23 @@ amazon_items, amazon_alerts, amazon_summary_text = check_amazon_products(page_co
 
 amz_blocks = []
 for item in amazon_items:
+    name_en_escaped = item['nameEn'].replace('"', '\\"')
+    insight_escaped = item['insight'].replace('"', '\\"')
+    latest_review_escaped = item['latestReview'].replace('"', '\\"')
+    tags_json = json.dumps(item['tags'], ensure_ascii=False)
     amz_block = f"""  {{
     asin: "{item['asin']}",
     nameZh: "{item['nameZh']}",
-    nameEn: "{item['nameEn'].replace('"', '\\"')}",
+    nameEn: "{name_en_escaped}",
     spec: "{item['spec']}",
     status: "{item['status']}",
     price: "{item['price']}",
     prevPrice: "{item['prevPrice']}",
     rating: "{item['rating']}",
     reviewCount: {item['reviewCount']},
-    tags: {json.dumps(item['tags'], ensure_ascii=False)},
-    insight: "{item['insight'].replace('"', '\\"')}",
-    latestReview: "{item['latestReview'].replace('"', '\\"')}",
+    tags: {tags_json},
+    insight: "{insight_escaped}",
+    latestReview: "{latest_review_escaped}",
     url: "{item['url']}",
     checkedAt: "{item['checkedAt']}",
     alertFlag: "{item['alertFlag']}"
