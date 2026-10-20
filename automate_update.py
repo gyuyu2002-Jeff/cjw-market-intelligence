@@ -230,6 +230,71 @@ DEFAULT_DAILY_BRIEFING = {
     "decisionTitle": "價格、健康感與料理便利性共同決定回購",
     "decisionDetail": "各市場的成長速度不同，但資訊都顯示：消費者不只在意是否純素，也會比較成分、每份成本及料理是否方便。"
 }
+
+DYNAMIC_BRIEFING_POOL = [
+    {
+        "keywords": ["標示", "產地", "原料", "溯源", "食安", "稽查", "法規", "透明"],
+        "title": "概念紅利退潮後，<br /><strong>產地透明與潔淨標示</strong>才是護城河。",
+        "subtitle": "近期跨國情報密集聚焦原料溯源、主原料產地標示與食安合規。當消費者開始翻看背面成分表，品牌信任度將直接決定貨架留存率。",
+        "decisionTitle": "以潔淨標示與原料溯源建立差異化信任",
+        "decisionDetail": "食安稽查與標示法規趨嚴，主動揭露大豆、菇類等主原料來源並減少非必要添加物，能有效拉開與傳統素料的競爭差距。"
+    },
+    {
+        "keywords": ["餐廳", "米其林", "市集", "餐桌", "料理", "牛肉麵", "漢堡", "法餐", "泰式", "非素食"],
+        "title": "突破同溫層的關鍵，<br />是讓<strong>非素食者也想點單。</strong>",
+        "subtitle": "從歐美星級植物性餐廳到台灣在地蔬食市集與跨界餐飲，高成長品牌正跳脫宗教與純素框架，改以極致風味與台泰異國料理體驗吸引彈性客群。",
+        "decisionTitle": "鎖定彈性素食客群，以料理場景驅動嚐鮮",
+        "decisionDetail": "90% 以上的增量來自非純素食者；產品包裝與行銷應弱化說教感，直接溝通氣炸酥脆度、異國風味與快速上桌的美味體驗。"
+    },
+    {
+        "keywords": ["價格", "銷量", "超市", "零售", "回購", "價差", "成本", "通路", "自有品牌"],
+        "title": "當通路進入汰弱留強，<br /><strong>平價美味與高周轉</strong>決定誰能留架。",
+        "subtitle": "歐美與澳洲大型超市正加速縮減低周轉植物肉品項，唯有縮小與動物性產品價差、具備明確日常備餐價值的冷凍與調理品項能維持正成長。",
+        "decisionTitle": "優化每份餐食成本，強化家庭日常備餐場景",
+        "decisionDetail": "零售通路對坪效要求升高，建議聚焦高回購率的早餐、便當與氣炸點心規格，以親民單價與穩定口感鞏固基本盤。"
+    },
+    {
+        "keywords": ["蛋白", "營養", "健康", "B12", "發酵", "起司", "植物奶", "技術", "機能"],
+        "title": "從「仿肉擬真」走向<strong>營養升級，</strong><br />植物基進入第二波價值戰。",
+        "subtitle": "單純模仿肉類外觀已難支撐溢價，最新研發與消費趨勢轉向優質植物蛋白、低鈉少油配方與機能性營養補充，健康實益成為核心購買動因。",
+        "decisionTitle": "強化高蛋白與低負擔訴求，回應健康導向需求",
+        "decisionDetail": "消費者選購植物性食品時更重視蛋白質含量與少添加表現，研發與包裝溝通應突顯營養密度與身體無負擔。"
+    },
+    {
+        "keywords": ["工廠", "綠電", "大成", "弘陽", "投資", "收購", "國際", "外銷", "產能", "供應鏈"],
+        "title": "大廠重兵卡位智慧產線，<br />蔬食競爭轉向<strong>供應鏈與風味速度戰。</strong>",
+        "subtitle": "農畜巨頭與指標大廠紛紛投入綠電智慧工廠、跨足連鎖餐飲與調理包外銷，產業正從單一產品競爭升級為研發速度、冷鏈效率與多通路布局。",
+        "decisionTitle": "深化特色品項研發，以靈活規格切入海內外通路",
+        "decisionDetail": "面對大型集團垂直整合，我方應發揮素海鮮、特色炸物與精緻調理優勢，結合餐飲業務與零售雙軌拓展市場。"
+    },
+    {
+        "keywords": ["EU", "歐盟", "英國", "德國", "命名", "法案", "出口", "合規", "標章"],
+        "title": "跨國法規與命名限制收緊，<br />海外布局須先贏在<strong>在地合規。</strong>",
+        "subtitle": "歐盟與英美針對植物基產品能否使用肉類與乳品名稱展開新一輪法規拉鋸，各國零售結構與法規門檻分化，單一包裝已難通吃全球市場。",
+        "decisionTitle": "提前檢視外銷品名與標示，分區制定上市策略",
+        "decisionDetail": "針對歐美澳不同市場的命名規範與通路特性，應以直觀的植物原料與料理方式命名，降低法規風險並提升在地接受度。"
+    }
+]
+
+def generate_local_dynamic_briefing(news_items, now_dt, current_page_content=""):
+    combined_text = " ".join(
+        f"{item.get('title', '')} {item.get('summary', '')} {item.get('topic', '')}"
+        for item in (news_items or [])
+    )
+    month_seed = now_dt.year * 12 + now_dt.month
+    scored_pool = []
+    for idx, candidate in enumerate(DYNAMIC_BRIEFING_POOL):
+        kw_hits = sum(combined_text.count(kw) for kw in candidate["keywords"])
+        # Rotate priority by month_seed while rewarding real keyword hits in current news
+        rotation_bonus = 3 if (idx == (month_seed % len(DYNAMIC_BRIEFING_POOL))) else 0
+        total_score = kw_hits * 2 + rotation_bonus
+        # Avoid repeating the exact title already in page_content when updating
+        if candidate["title"] in current_page_content:
+            total_score -= 100
+        scored_pool.append((total_score, idx, candidate))
+    scored_pool.sort(key=lambda x: (x[0], x[1]), reverse=True)
+    chosen = dict(scored_pool[0][2])
+    return chosen
 # Load current page.tsx content
 with open(PAGE_TSX_PATH, "r", encoding="utf-8") as f:
     page_content = f.read()
@@ -447,8 +512,8 @@ if not is_monthly_update and not force_ai_update:
     
     if idx_pulse_start != -1 and idx_pulse_end != -1 and idx_briefing_start != -1 and idx_briefing_end != -1:
         candidate_briefing = page_content[idx_briefing_start : idx_briefing_end + len("};")]
-        if api_key and DEFAULT_DAILY_BRIEFING["title"] in candidate_briefing:
-            print("Existing dailyBriefing is still the default fallback and API key is available. Triggering AI update...")
+        if DEFAULT_DAILY_BRIEFING["title"] in candidate_briefing:
+            print("Existing dailyBriefing is still the default fallback. Triggering briefing update...")
         else:
             existing_pulse_body = page_content[idx_pulse_start : idx_pulse_end + len("];")]
             existing_briefing_body = candidate_briefing
@@ -511,8 +576,8 @@ else:
         time.sleep(4)
         
     if not briefing_data:
-        print("Gemini API not available or failed for briefing. Using default fallback.")
-        briefing_data = DEFAULT_DAILY_BRIEFING
+        print("Gemini API not available or failed for briefing. Using smart local news-driven briefing generator.")
+        briefing_data = generate_local_dynamic_briefing(all_parsed_items, now, page_content)
 
     briefing_title_escaped = briefing_data['title'].replace('"', '\\"')
     briefing_subtitle_escaped = briefing_data['subtitle'].replace('"', '\\"')
