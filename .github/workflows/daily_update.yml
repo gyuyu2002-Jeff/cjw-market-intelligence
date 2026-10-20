@@ -44,6 +44,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FORCE_AI_UPDATE: ${{ github.event_name == 'workflow_dispatch' && 'true' || 'false' }}
         run: |
           # Set git config so commit succeeds
           git config --global user.name "github-actions[bot]"

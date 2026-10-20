@@ -446,9 +446,13 @@ if not is_monthly_update and not force_ai_update:
     idx_briefing_end = page_content.find("};", idx_briefing_start)
     
     if idx_pulse_start != -1 and idx_pulse_end != -1 and idx_briefing_start != -1 and idx_briefing_end != -1:
-        existing_pulse_body = page_content[idx_pulse_start : idx_pulse_end + len("];")]
-        existing_briefing_body = page_content[idx_briefing_start : idx_briefing_end + len("};")]
-        print("Found existing marketPulse and dailyBriefing. Preserving them.")
+        candidate_briefing = page_content[idx_briefing_start : idx_briefing_end + len("};")]
+        if api_key and DEFAULT_DAILY_BRIEFING["title"] in candidate_briefing:
+            print("Existing dailyBriefing is still the default fallback and API key is available. Triggering AI update...")
+        else:
+            existing_pulse_body = page_content[idx_pulse_start : idx_pulse_end + len("];")]
+            existing_briefing_body = candidate_briefing
+            print("Found existing marketPulse and dailyBriefing. Preserving them.")
 
 # 1. Market Pulse
 combined_pulse_body = ""
