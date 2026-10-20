@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 type Region = "全部市場" | "台灣" | "美國" | "澳洲" | "歐洲";
 type Topic = "全部主題" | "新品" | "通路價格" | "競品" | "消費趨勢" | "原料技術" | "法規標示";
 type SourceFilter = "全部來源" | "食力 foodNEXT" | "上下游新聞";
-type SectionId = "today" | "markets" | "intelligence";
+type SectionId = "today" | "markets" | "amazon" | "intelligence";
 
 type Intelligence = {
   id: number;
@@ -384,6 +384,63 @@ const maxTopicCount = Math.max(...topicTrend.map(t => t.count), 1);
 
 
 
+type AmazonProductItem = {
+  asin: string;
+  nameZh: string;
+  nameEn: string;
+  spec: string;
+  status: string;
+  price: string;
+  prevPrice: string;
+  rating: string;
+  reviewCount: number;
+  tags: string[];
+  insight: string;
+  latestReview: string;
+  url: string;
+  checkedAt: string;
+  alertFlag: string;
+};
+
+const amazonStoreUrl = "https://www.amazon.com/stores/VeganSelect/page/F25A5FD5-8425-476E-BBD5-982375FEC696";
+
+const amazonWatch: AmazonProductItem[] = [
+  {
+    asin: "B0H68ZJF27",
+    nameZh: "齋滋味 煙燻素火腿／午餐肉切片",
+    nameEn: "Vegan Select Luncheon Meat Slices, Rich Smoky Flavor, Non-GMO Soy Protein, Gluten-Free & Vegan, Shelf Stable, Crispy Pan-Fry Slices, 5.6 oz",
+    spec: "5.6 oz (160g) · 常溫保存",
+    status: "正常在售",
+    price: "待北美節點同步",
+    prevPrice: "待北美節點同步",
+    rating: "尚無評分",
+    reviewCount: 0,
+    tags: ["Non-GMO 大豆蛋白", "Gluten-Free 無麩質", "100% Vegan", "Shelf-Stable 常溫免冷鏈", "香煎酥脆"],
+    insight: "主打常溫保存突破北美冷鏈高運費痛點；留意商品大標題為 Luncheon Meat Slices 而五點描述提及 vegan bacon strips，建議持續觀察買家對切型之評論回饋。",
+    latestReview: "目前為新品上架階段（0 則買家評論），系統每日 06:00 自動巡檢破蛋首評、價格變動與庫存狀態。",
+    url: "https://www.amazon.com/dp/B0H68ZJF27",
+    checkedAt: "2026/10/20 11:33",
+    alertFlag: "正常"
+  },
+  {
+    asin: "B0GF6K7B6G",
+    nameZh: "齋滋味 煙燻純素培根條／切片",
+    nameEn: "Vegan Select Plant-Based Bacon Strips, Rich Smoky Flavor, Non-GMO Soy Protein, Gluten-Free & Vegan, Shelf Stable, Crispy Pan-Fry Slices, 5.6 oz",
+    spec: "5.6 oz (160g) · 常溫保存",
+    status: "正常在售",
+    price: "待北美節點同步",
+    prevPrice: "待北美節點同步",
+    rating: "尚無評分",
+    reviewCount: 0,
+    tags: ["VEGAN SELECT 旗艦館主打", "Non-GMO 大豆蛋白", "Gluten-Free 無麩質", "Shelf-Stable 常溫免冷鏈"],
+    insight: "列為 Amazon 品牌旗艦館（VEGAN SELECT SINCE 1993）首頁核心單品，直接鎖定北美早餐、早午餐與漢堡夾層的純素培根（Vegan Bacon）高頻消費場景。",
+    latestReview: "目前為新品上架階段（0 則買家評論），系統每日 06:00 自動巡檢破蛋首評、價格變動與庫存狀態。",
+    url: "https://www.amazon.com/dp/B0GF6K7B6G",
+    checkedAt: "2026/10/20 11:33",
+    alertFlag: "正常"
+  }
+];
+
 type ReputationItem = {
   channel: string;
   status: string;
@@ -552,7 +609,7 @@ export default function Home() {
   }, [freshIntelligence]);
 
   useEffect(() => {
-    const trackedSections: SectionId[] = ["today", "markets", "intelligence"];
+    const trackedSections: SectionId[] = ["today", "markets", "amazon", "intelligence"];
     const updateActiveSection = () => {
       if (performance.now() < manualNavigationUntil.current) return;
       const current = trackedSections.reduce<SectionId>((active, id) => {
@@ -614,6 +671,7 @@ export default function Home() {
           <nav className="header-nav" aria-label="主要導覽">
             <a className={`nav-item ${activeSection === "today" ? "active" : ""}`} href="#today" onClick={(event) => navigateTo(event, "today")}>今日判讀</a>
             <a className={`nav-item ${activeSection === "markets" ? "active" : ""}`} href="#markets" onClick={(event) => navigateTo(event, "markets")}>市場雷達</a>
+            <a className={`nav-item ${activeSection === "amazon" ? "active" : ""}`} href="#amazon" onClick={(event) => navigateTo(event, "amazon")}>Amazon 戰情</a>
             <a className={`nav-item ${activeSection === "intelligence" ? "active" : ""}`} href="#intelligence" onClick={(event) => navigateTo(event, "intelligence")}>全部情報</a>
           </nav>
           <div className="header-actions">
@@ -705,6 +763,90 @@ export default function Home() {
             </div>
             <div className="watch-list"><span>持續觀察指標</span>{selectedPulse.watch.map((item) => <b key={item}>{item}</b>)}</div>
             <small className="method-note">機會指數是依目前情報的相對判讀，用於比較優先度，不代表市場成長率或市場規模。</small>
+          </div>
+        </section>
+
+        <section className="amazon-section" id="amazon" aria-labelledby="amazon-war-room-title">
+          <div className="amazon-header-bar">
+            <div>
+              <p className="section-kicker">AMAZON US CROSS-BORDER WAR ROOM</p>
+              <h2 id="amazon-war-room-title">Amazon 跨境戰情室 · VEGAN SELECT 專區</h2>
+            </div>
+            <div className="amazon-header-meta">
+              <span>每日 06:00 巡檢價格・庫存・評論異動並推播 Telegram</span>
+              <a className="amazon-store-btn" href={amazonStoreUrl} target="_blank" rel="noreferrer">
+                開啟 VEGAN SELECT 品牌旗艦館 ↗
+              </a>
+            </div>
+          </div>
+
+          <div className="amazon-kpi-strip">
+            <div className="amazon-kpi-card">
+              <small>監測主力品項</small>
+              <strong>{amazonWatch.length} 支核心 ASIN</strong>
+              <span>素火腿切片・純素培根條</span>
+            </div>
+            <div className="amazon-kpi-card">
+              <small>跨境供應鏈優勢</small>
+              <strong>Shelf-Stable 常溫</strong>
+              <span>免冷凍冷鏈・5.6 oz 零售包</span>
+            </div>
+            <div className="amazon-kpi-card">
+              <small>總買家評論數</small>
+              <strong>{amazonWatch.reduce((sum, item) => sum + item.reviewCount, 0)} 則評論</strong>
+              <span>自動偵測破蛋首評與星等變動</span>
+            </div>
+            <div className="amazon-kpi-card">
+              <small>Telegram 預警連線</small>
+              <strong>價格 / 斷貨 / 評論</strong>
+              <span>最近查核：{amazonWatch[0]?.checkedAt || "每日自動同步"}</span>
+            </div>
+          </div>
+
+          <div className="amazon-grid">
+            {amazonWatch.map((item) => (
+              <article className="amazon-card" key={item.asin}>
+                <div className="amazon-card-top">
+                  <span className="asin-badge">ASIN: {item.asin} · {item.spec}</span>
+                  <span className={`status-pill ${item.status.includes("無庫存") || item.status.includes("異常") || item.alertFlag !== "正常" ? "status-alert" : "status-ok"}`}>
+                    {item.status} {item.alertFlag !== "正常" ? `· ${item.alertFlag}` : ""}
+                  </span>
+                </div>
+                <div>
+                  <h3>{item.nameZh}</h3>
+                  <p className="amazon-name-en">{item.nameEn}</p>
+                </div>
+                <div className="amazon-metrics-row">
+                  <div className="amazon-metric-box">
+                    <small>北美目前售價</small>
+                    <strong>{item.price}</strong>
+                    <span>前次紀錄：{item.prevPrice}</span>
+                  </div>
+                  <div className="amazon-metric-box">
+                    <small>庫存與配送狀態</small>
+                    <strong>{item.status}</strong>
+                    <span>Amazon US 站點</span>
+                  </div>
+                  <div className="amazon-metric-box">
+                    <small>買家星等與評價</small>
+                    <strong>{item.rating}</strong>
+                    <span>累積 {item.reviewCount} 則評論</span>
+                  </div>
+                </div>
+                <div className="amazon-tags">
+                  {item.tags.map((tag) => <span key={tag}>{tag}</span>)}
+                </div>
+                <div className="amazon-insight-box">
+                  <strong>💡 營運與評論監測備註</strong>
+                  <div>{item.insight}</div>
+                  <div style={{ marginTop: "6px", color: "var(--ink-soft)" }}>🗣️ {item.latestReview}</div>
+                </div>
+                <div className="amazon-card-footer">
+                  <span>最後巡檢：{item.checkedAt}</span>
+                  <a href={item.url} target="_blank" rel="noreferrer">前往 Amazon 商品頁 ({item.asin}) ↗</a>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -881,6 +1023,10 @@ export default function Home() {
         <a className={`mobile-nav-item ${activeSection === "markets" ? "active" : ""}`} href="#markets" onClick={(event) => navigateTo(event, "markets")}>
           <span className="icon">🧭</span>
           <span>市場雷達</span>
+        </a>
+        <a className={`mobile-nav-item ${activeSection === "amazon" ? "active" : ""}`} href="#amazon" onClick={(event) => navigateTo(event, "amazon")}>
+          <span className="icon">🛒</span>
+          <span>Amazon 戰情</span>
         </a>
         <a className={`mobile-nav-item ${activeSection === "intelligence" ? "active" : ""}`} href="#intelligence" onClick={(event) => navigateTo(event, "intelligence")}>
           <span className="icon">📥</span>

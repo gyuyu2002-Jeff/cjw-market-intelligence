@@ -626,23 +626,224 @@ new_page_content = re.sub(
     new_page_content
 )
 
+# 3. Amazon US Cross-Border War Room Monitoring
+AMAZON_PRODUCTS_CONFIG = [
+    {
+        "asin": "B0H68ZJF27",
+        "nameZh": "齋滋味 煙燻素火腿／午餐肉切片",
+        "nameEn": "Vegan Select Luncheon Meat Slices, Rich Smoky Flavor, Non-GMO Soy Protein, Gluten-Free & Vegan, Shelf Stable, Crispy Pan-Fry Slices, 5.6 oz",
+        "spec": "5.6 oz (160g) · 常溫保存",
+        "tags": ["Non-GMO 大豆蛋白", "Gluten-Free 無麩質", "100% Vegan", "Shelf-Stable 常溫免冷鏈", "香煎酥脆"],
+        "insight": "主打常溫保存突破北美冷鏈高運費痛點；留意商品大標題為 Luncheon Meat Slices 而五點描述提及 vegan bacon strips，建議持續觀察買家對切型之評論回饋。"
+    },
+    {
+        "asin": "B0GF6K7B6G",
+        "nameZh": "齋滋味 煙燻純素培根條／切片",
+        "nameEn": "Vegan Select Plant-Based Bacon Strips, Rich Smoky Flavor, Non-GMO Soy Protein, Gluten-Free & Vegan, Shelf Stable, Crispy Pan-Fry Slices, 5.6 oz",
+        "spec": "5.6 oz (160g) · 常溫保存",
+        "tags": ["VEGAN SELECT 旗艦館主打", "Non-GMO 大豆蛋白", "Gluten-Free 無麩質", "Shelf-Stable 常溫免冷鏈"],
+        "insight": "列為 Amazon 品牌旗艦館（VEGAN SELECT SINCE 1993）首頁核心單品，直接鎖定北美早餐、早午餐與漢堡夾層的純素培根（Vegan Bacon）高頻消費場景。"
+    }
+]
+
+def check_amazon_products(existing_content, checked_time_str):
+    prev_map = {}
+    idx_amz_start = existing_content.find("const amazonWatch: AmazonProductItem[] = [")
+    idx_amz_end = existing_content.find("];\n\ntype ReputationItem", idx_amz_start)
+    if idx_amz_start == -1:
+        idx_amz_end = existing_content.find("];", idx_amz_start) if idx_amz_start != -1 else -1
+    if idx_amz_start != -1 and idx_amz_end != -1:
+        amz_block = existing_content[idx_amz_start:idx_amz_end]
+        for obj_m in re.finditer(r'\{[\s\S]*?asin:\s*"([^"]+)"[\s\S]*?\}', amz_block):
+            b_text = obj_m.group(0)
+            a_code = obj_m.group(1)
+            p_m = re.search(r'price:\s*"([^"]+)"', b_text)
+            st_m = re.search(r'status:\s*"([^"]+)"', b_text)
+            rc_m = re.search(r'reviewCount:\s*(\d+)', b_text)
+            rt_m = re.search(r'rating:\s*"([^"]+)"', b_text)
+            prev_map[a_code] = {
+                "price": p_m.group(1) if p_m else "待北美節點同步",
+                "status": st_m.group(1) if st_m else "正常在售",
+                "reviewCount": int(rc_m.group(1)) if rc_m else 0,
+                "rating": rt_m.group(1) if rt_m else "尚無評分"
+            }
+
+    alerts = []
+    updated_items = []
+    summary_lines = []
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+    }
+
+    for prod in AMAZON_PRODUCTS_CONFIG:
+        asin = prod["asin"]
+        prev = prev_map.get(asin, {
+            "price": "待北美節點同步",
+            "status": "正常在售",
+            "reviewCount": 0,
+            "rating": "尚無評分"
+        })
+        new_price = prev["price"]
+        new_status = prev["status"]
+        new_rc = prev["reviewCount"]
+        new_rating = prev["rating"]
+        latest_rev = f"目前累積 {new_rc} 則買家評論，系統每日 06:00 自動巡檢破蛋首評、價格變動與庫存狀態。"
+        alert_flag = "正常"
+
+        try:
+            url = f"https://www.amazon.com/dp/{asin}"
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                html = resp.read().decode("utf-8", errors="ignore")
+
+            # 1. Extract main BuyBox / CenterCol price
+            for div_id in ["corePriceDisplay_desktop_feature_div", "corePrice_feature_div", "apex_desktop", "desktop_buybox"]:
+                d_idx = html.find(f'id="{div_id}"')
+                if d_idx != -1:
+                    sub_div = html[d_idx : d_idx + 4000]
+                    pm = re.search(r'class="a-offscreen">(\$[0-9]+\.[0-9]{2})<', sub_div)
+                    if pm:
+                        new_price = pm.group(1)
+                        break
+
+            # 2. Extract availability / stock status
+            avail_idx = html.find('id="availability"')
+            out_idx = html.find('id="outOfStock"')
+            buybox_idx = html.find('id="desktop_buybox"')
+            avail_snippet = html[avail_idx : avail_idx + 1500] if avail_idx != -1 else ""
+            buybox_snippet = html[buybox_idx : buybox_idx + 3500] if buybox_idx != -1 else ""
+
+            if out_idx != -1 or "Currently unavailable" in avail_snippet or "Currently unavailable" in buybox_snippet:
+                new_status = "目前無庫存 (Unavailable)"
+            elif "cannot be shipped to your selected delivery location" in buybox_snippet:
+                new_status = "正常在售 (限北美配送)"
+            elif "In Stock" in avail_snippet or "In stock" in avail_snippet or new_price.startswith("$"):
+                new_status = "正常在售 (In Stock)"
+            else:
+                new_status = "正常在售"
+
+            # 3. Extract rating and review count strictly from averageCustomerReviews
+            acr_idx = html.find('id="averageCustomerReviews"')
+            if acr_idx != -1:
+                acr_sub = html[acr_idx : acr_idx + 2500]
+                rt_m = re.search(r'title="([0-9\.]+)\s+out of 5 stars"', acr_sub)
+                rc_m = re.search(r'id="acrCustomerReviewText"[^>]*>([0-9,]+)\s+(?:ratings|reviews)', acr_sub, re.I)
+                if rt_m:
+                    new_rating = f"{rt_m.group(1)} ★"
+                if rc_m:
+                    new_rc = int(rc_m.group(1).replace(",", ""))
+
+            # 4. Extract latest review snippet if present
+            rev_m = re.search(r'data-hook="review-collapsed"[^>]*>([\s\S]*?)</div>', html)
+            if rev_m:
+                rev_text = re.sub(r"<[^>]+>", " ", rev_m.group(1))
+                rev_text = re.sub(r"\s+", " ", rev_text).strip()
+                if rev_text:
+                    latest_rev = f"最新買家評論摘錄：「{rev_text[:85]}...」"
+            elif new_rc == 0:
+                latest_rev = "目前為新品上架階段（0 則買家評論），系統每日 06:00 自動巡檢破蛋首評、價格變動與庫存狀態。"
+
+            print(f"Amazon check [{asin}]: status={new_status}, price={new_price}, rating={new_rating}, reviews={new_rc}")
+        except Exception as e:
+            print(f"Amazon check failed for {asin}: {e}")
+
+        # Compare for alerts
+        if "無庫存" in new_status or "Unavailable" in new_status:
+            alert_flag = "庫存斷貨"
+            alerts.append(f"🚨 <b>【庫存斷貨警報】</b>{prod['nameZh']} ({asin}) 目前顯示為：{new_status}")
+        if (
+            new_price != prev["price"]
+            and new_price.startswith("$")
+            and prev["price"].startswith("$")
+        ):
+            alert_flag = "價格異動"
+            alerts.append(f"💰 <b>【價格變動提醒】</b>{prod['nameZh']} ({asin}) 價格由 {prev['price']} 變動為 {new_price}")
+        if new_rc > prev["reviewCount"]:
+            alert_flag = "新增評論"
+            alerts.append(f"⭐ <b>【新增買家評論】</b>{prod['nameZh']} ({asin}) 新增 {new_rc - prev['reviewCount']} 則評論（目前共 {new_rc} 則，評分 {new_rating}）")
+
+        updated_items.append({
+            "asin": asin,
+            "nameZh": prod["nameZh"],
+            "nameEn": prod["nameEn"],
+            "spec": prod["spec"],
+            "status": new_status,
+            "price": new_price,
+            "prevPrice": prev["price"],
+            "rating": new_rating,
+            "reviewCount": new_rc,
+            "tags": prod["tags"],
+            "insight": prod["insight"],
+            "latestReview": latest_rev,
+            "url": f"https://www.amazon.com/dp/{asin}",
+            "checkedAt": checked_time_str,
+            "alertFlag": alert_flag
+        })
+        summary_lines.append(f"• <b>{prod['nameZh']}</b> (<code>{asin}</code>)：{new_status}｜售價 {new_price}｜評論 {new_rc} 則 ({new_rating})")
+
+    return updated_items, alerts, "\n".join(summary_lines)
+
+amazon_items, amazon_alerts, amazon_summary_text = check_amazon_products(page_content, display_time)
+
+amz_blocks = []
+for item in amazon_items:
+    amz_block = f"""  {{
+    asin: "{item['asin']}",
+    nameZh: "{item['nameZh']}",
+    nameEn: "{item['nameEn'].replace('"', '\\"')}",
+    spec: "{item['spec']}",
+    status: "{item['status']}",
+    price: "{item['price']}",
+    prevPrice: "{item['prevPrice']}",
+    rating: "{item['rating']}",
+    reviewCount: {item['reviewCount']},
+    tags: {json.dumps(item['tags'], ensure_ascii=False)},
+    insight: "{item['insight'].replace('"', '\\"')}",
+    latestReview: "{item['latestReview'].replace('"', '\\"')}",
+    url: "{item['url']}",
+    checkedAt: "{item['checkedAt']}",
+    alertFlag: "{item['alertFlag']}"
+  }}"""
+    amz_blocks.append(amz_block)
+
+combined_amz_body = "const amazonWatch: AmazonProductItem[] = [\n" + ",\n".join(amz_blocks) + "\n];"
+idx_amz_s = new_page_content.find("const amazonWatch: AmazonProductItem[] = [")
+idx_amz_e = new_page_content.find("];", idx_amz_s)
+if idx_amz_s != -1 and idx_amz_e != -1:
+    new_page_content = (
+        new_page_content[:idx_amz_s]
+        + combined_amz_body
+        + new_page_content[idx_amz_e + len("];"):]
+    )
+
 # Write to page.tsx
 with open(PAGE_TSX_PATH, "w", encoding="utf-8") as f:
     f.write(new_page_content)
 
 print("Updated app/page.tsx successfully with new items and timestamps.")
 
-def send_telegram_notification(token, chat_id, date_str, news_count, briefing_title):
+def send_telegram_notification(token, chat_id, date_str, news_count, briefing_title, amz_summary="", amz_alerts=None):
     clean_title = briefing_title.replace("<br />", " ").replace("<br>", " ").replace("</br>", " ")
     
+    alert_block = ""
+    if amz_alerts:
+        alert_block = "\n\n" + "\n".join(amz_alerts)
+
+    amz_section = ""
+    if amz_summary:
+        amz_section = f"\n\n🛒 <b>Amazon 北美跨境戰情室巡檢</b>：\n{amz_summary}{alert_block}"
+
     message = f"""<b>🔔 CJW 蔬食市場情報已更新完畢！</b>
 
 📅 <b>更新日期</b>：{date_str} (台灣時間)
 📰 <b>今日新增情報</b>：{news_count} 則新快訊
-💡 <b>本月簡報主題</b>：{clean_title}
+💡 <b>本月簡報主題</b>：{clean_title}{amz_section}
 
 🔗 <b>點擊查看最新情報網站</b>：
-https://gyuyu2002-jeff.github.io/cjw-market-intelligence/"""
+https://gyuyu2002-jeff.github.io/cjw-market-intelligence/#amazon"""
 
     url = f"https://api.telegram.org/bot{token}/sendMessage"
     payload = {
@@ -676,7 +877,7 @@ try:
     print("Build succeeded.")
     
     print("Staging and pushing changes to GitHub...")
-    subprocess.run("git add app/page.tsx news_db.json docs/", cwd=FRONTEND_DIR, shell=True, encoding="utf-8")
+    subprocess.run("git add app/page.tsx app/globals.css news_db.json docs/", cwd=FRONTEND_DIR, shell=True, encoding="utf-8")
     commit_msg = f"auto: daily intelligence update {now.strftime('%Y/%m/%d')}"
     # Escape quotes for commit message in shell command
     escaped_msg = commit_msg.replace('"', '\\"')
@@ -702,7 +903,9 @@ try:
             chat_id=telegram_chat_id,
             date_str=now.strftime("%Y/%m/%d %H:%M"),
             news_count=len(new_analyzed_items),
-            briefing_title=briefing_title
+            briefing_title=briefing_title,
+            amz_summary=amazon_summary_text,
+            amz_alerts=amazon_alerts
         )
 except Exception as e:
     print("Deployment failed:", e)
